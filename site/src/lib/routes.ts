@@ -12,3 +12,6 @@ export const routes: string[] = [
   "/donate/",
   "/contact/",
 ];
+
+/** Chinese counterparts, served under /zh/. */
+export const zhRoutes: string[] = routes.map((r) => (r === "/" ? "/zh/" : "/zh" + r));

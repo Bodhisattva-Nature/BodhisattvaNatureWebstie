@@ -1,0 +1,218 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import Divider from "../components/Divider.astro";
+import { getContent, type Lang } from "../i18n";
+import { href } from "../lib/url";
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? "en";
+const { t, events, eventPosters } = getContent(lang);
+---
+
+<Base lang={lang} title={`${t.events.title} — ${t.site.name}`} description={t.events.lede}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>{t.events.eyebrow}</span>
+      <h1 data-reveal style="--i:1">{t.events.headingA}<br /><span class="serif-italic">{t.events.headingB}</span></h1>
+      <p class="lede" data-reveal style="--i:2">{t.events.lede}</p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="events">
+        {events.map((e, i) => (
+          <article class="event" data-reveal style={`--i:${i}`}>
+            <figure class="event__poster media">
+              <Img name={e.image} alt={e.title} sizes="(max-width: 900px) 100vw, 46vw" loading={i === 0 ? "eager" : "lazy"} />
+            </figure>
+
+            <div class="event__body">
+              <span class="eyebrow">{t.events.weekly}</span>
+              <h2>
+                {e.title}
+                {e.titleCn && <span class="event__cn">{e.titleCn}</span>}
+              </h2>
+
+              <dl class="event__facts">
+                <div><dt>{t.events.when}</dt><dd>{e.cadence}</dd></div>
+                <div><dt>{t.events.time}</dt><dd>{e.time}</dd></div>
+                <div><dt>{t.events.where}</dt><dd>{e.place}</dd></div>
+                <div><dt>{t.events.cost}</dt><dd>{t.events.free}</dd></div>
+              </dl>
+
+              {e.themes && (
+                <ul class="event__themes">
+                  {e.themes.map((x: string) => <li>{x}</li>)}
+                </ul>
+              )}
+
+              {e.notes && (
+                <ul class="event__notes">
+                  {e.notes.map((n: string) => <li>{n}</li>)}
+                </ul>
+              )}
+
+              <a class="btn event__cta" href={`mailto:${t.site.name && ""}${""}`} style="display:none"></a>
+              <a class="btn event__cta" href={href("/contact/", lang)}>{e.cta}</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Divider />
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{t.events.alsoEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{t.events.alsoTitle}</h2>
+        </div>
+        <p class="small muted" data-reveal style="max-width:34ch">{t.events.alsoNote}</p>
+      </div>
+
+      <div class="posters">
+        {eventPosters.map((p, i) => (
+          <figure class="poster" data-reveal style={`--i:${i}`}>
+            <div class="media" style="aspect-ratio:1">
+              <Img name={p.image} alt={p.caption} sizes="(max-width: 800px) 100vw, 40vw" />
+            </div>
+            <figcaption class="caption">{p.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap cta-row">
+      <div>
+        <span class="eyebrow">{t.events.datesEyebrow}</span>
+        <h2 class="h2" style="margin-top:0.6rem">{t.events.datesTitle}</h2>
+      </div>
+      <div>
+        <p style="color:rgba(243,231,210,.76);max-width:42ch">{t.events.datesBody}</p>
+        <div class="hero__actions" style="margin-top:1.6rem">
+          <a class="btn" href={href("/contact/", lang)}>{t.events.datesCta}</a>
+          <a class="btn btn--ghost" href={href("/community/", lang)}>{t.events.datesSchedule}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .events { display: grid; gap: clamp(3rem, 7vw, 6rem); }
+
+  .event {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+  }
+
+  .event:nth-child(even) .event__poster { order: 2; }
+
+  .event__poster { margin: 0; aspect-ratio: 20/13; background: var(--cream); }
+
+  .event__body { display: grid; gap: 1rem; align-content: center; }
+
+  .event h2 {
+    font-size: var(--step-3);
+    font-weight: 300;
+    line-height: 1.02;
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .event__cn {
+    font-size: 0.44em;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+
+  .event__cta { justify-self: start; margin-top: 0.6rem; }
+
+  .event__facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem 1.5rem;
+    margin: 0.4rem 0 0;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .event__facts dt {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.2rem;
+  }
+
+  .event__facts dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 1.02rem;
+    line-height: 1.25;
+  }
+
+  .event__themes {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .event__themes li {
+    border: 1px solid rgba(164, 119, 31, 0.4);
+    border-radius: 999px;
+    padding: 0.35em 0.9em;
+    font-size: 0.74rem;
+    color: var(--ink-soft);
+  }
+
+  .event__notes {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    display: grid;
+    gap: 0.3rem;
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .section-head .h2 { margin-top: 0.5rem; }
+
+  .posters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3.5vw, 3rem);
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .poster { margin: 0; display: grid; gap: 0.8rem; max-width: 460px; }
+
+  .cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+
+  @media (max-width: 900px) {
+    .event { grid-template-columns: 1fr; }
+    .event:nth-child(even) .event__poster { order: 0; }
+    .event__poster { aspect-ratio: 16/11; }
+    .cta-row { grid-template-columns: 1fr; }
+    .posters { grid-template-columns: 1fr; }
+  }
+</style>

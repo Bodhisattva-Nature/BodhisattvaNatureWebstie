@@ -1,0 +1,170 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import { getContent, contact, type Lang } from "../i18n";
+import { href } from "../lib/url";
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? "en";
+const { t, stats, donateMethods } = getContent(lang);
+---
+
+<Base lang={lang} title={`${t.donate.title} — ${t.site.name}`} description={t.donate.lede}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>{t.donate.eyebrow}</span>
+      <h1 data-reveal style="--i:1">{t.donate.headingLine1}<br /><span class="serif-italic">{t.donate.headingLine2}</span></h1>
+      <p class="lede" data-reveal style="--i:2">{t.donate.lede}</p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <div class="split__body">
+        <span class="eyebrow" data-reveal>{t.donate.carriesEyebrow}</span>
+        <p class="lede" data-reveal style="--i:1">{t.donate.carriesBody}</p>
+        <p class="muted" data-reveal style="--i:2">{t.donate.carriesBody2}</p>
+        <div class="stats-row" data-reveal style="--i:3">
+          {stats.map((s) => (
+            <div class="stat">
+              <span class="value">{s.value}</span>
+              <span class="label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <figure class="split__media media" data-reveal style="--i:2">
+        <Img name="peace" alt={t.donate.title} sizes="(max-width: 980px) 100vw, 46vw" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>{t.donate.waysEyebrow}</span>
+      <div class="methods">
+        {donateMethods.map((m, i) => (
+          <article class="method" data-reveal style={`--i:${i}`}>
+            <h2>{m.title}</h2>
+            <p>{m.body}</p>
+            <a class="link-arrow" href={m.action.href} target={m.action.href.startsWith("http") ? "_blank" : undefined} rel="noopener">
+              {m.action.label}
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="give-now" data-reveal>
+        <figure class="give-now__pay pay-mark">
+          <Img name="paypal" alt="PayPal" sizes="120px" />
+          <figcaption class="caption">{t.donate.cardCaption}</figcaption>
+        </figure>
+        <div class="give-now__qr">
+          <div>
+            <div class="qr media"><Img name="qr-1" alt={t.donate.scan} sizes="200px" /></div>
+            <span class="caption">{t.donate.scan}</span>
+          </div>
+          <div>
+            <div class="qr media"><Img name="qr-2" alt={t.donate.scan} sizes="200px" /></div>
+            <span class="caption">{t.donate.scan}</span>
+          </div>
+          <p class="small muted">{t.donate.scanNote}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap cta-card" data-reveal>
+      <div>
+        <span class="eyebrow">{t.donate.talkEyebrow}</span>
+        <h2 class="h2" style="margin-top:0.6rem">{t.donate.talkTitle}</h2>
+      </div>
+      <div>
+        <p class="muted" style="max-width:38ch">{t.donate.talkBody}</p>
+        <div class="hero__actions" style="margin-top:1.5rem">
+          <a class="btn" href={`mailto:${contact.email}`}>{contact.email}</a>
+          <a class="btn btn--ghost" href={href("/contact/", lang)}>{t.donate.talkCta}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem 2rem;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .stat { display: grid; gap: 0.2rem; }
+  .stat .value { font-family: var(--font-display); font-size: var(--step-3); font-weight: 300; line-height: 1; }
+  .stat .label { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+  .methods {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+  }
+
+  .method {
+    padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.4rem, 3vw, 2.4rem) clamp(1.4rem, 3vw, 2.4rem) 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    gap: 0.8rem;
+    align-content: start;
+  }
+
+  .method:nth-child(odd) { border-right: 1px solid var(--line); }
+  .method:nth-child(even) { padding-left: clamp(1.4rem, 3vw, 2.4rem); }
+
+  .method h2 { font-size: var(--step-2); font-weight: 300; }
+  .method p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+  .method .link-arrow { justify-self: start; margin-top: 0.4rem; }
+
+  .give-now {
+    display: grid;
+    grid-template-columns: 0.6fr 1.4fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+    border-top: 1px solid var(--line);
+    padding-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .give-now__pay { margin: 0; display: grid; gap: 1rem; justify-items: start; }
+  .give-now__pay img { max-width: 140px; height: auto; }
+
+  .give-now__qr { display: grid; grid-template-columns: repeat(2, 120px) 1fr; gap: 1.5rem; align-items: center; }
+  .qr { aspect-ratio: 1; }
+  .give-now__qr div { display: grid; gap: 0.6rem; }
+
+  .cta-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid var(--line);
+    background: var(--paper-deep);
+  }
+
+  @media (max-width: 860px) {
+    .give-now { grid-template-columns: 1fr; }
+    .give-now__qr { grid-template-columns: repeat(2, 1fr); }
+    .give-now__qr p { grid-column: 1 / -1; }
+    .methods, .cta-card { grid-template-columns: 1fr; }
+    .method:nth-child(odd) { border-right: 0; }
+    .method, .method:nth-child(even) { padding-inline: 0; }
+  }
+</style>

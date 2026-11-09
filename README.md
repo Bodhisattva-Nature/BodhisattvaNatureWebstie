@@ -63,13 +63,28 @@ site/
     fonts/              Fraunces + Inter, latin subsets, self-hosted
 ```
 
-15 routes: home, about, programmes index, 5 programme pages, wisdom, community, events, volunteer, donate,
-visit, 404. The original's 52 pages collapse into those 14. Most of the old pages were duplicate Divi layouts for the
+15 routes in each language: home, about, programmes index, 5 programme pages, wisdom, community, events,
+volunteer, donate, visit, 404 — English at the root, Chinese under `/zh/`. The original's 52 pages collapse into those 14. Most of the old pages were duplicate Divi layouts for the
 same five programmes and five branch addresses.
 
 ![Programmes index](docs/preview-programs.jpg)
 
 ![What's on](docs/preview-events.jpg)
+
+## Two languages
+
+The site is bilingual: English at `/` and Simplified Chinese at `/zh/`, with a globe button in the header that
+swaps to the same page in the other language (hash preserved).
+
+Content lives in two dictionaries — `src/i18n/en.ts` / `zh.ts` for interface copy, `src/data/*.ts` and
+`src/i18n/zh-data.ts` for collections — covering 14 quotes, 5 programmes, 8 branches and 5 testimonials in both
+languages. Every page is one view component under `src/views/` that takes a `lang`
+prop; each route is a three-line wrapper. Pages set `<html lang>`, emit reciprocal `hreflang` links, and the
+search palette has its own index per language.
+
+Chinese is written rather than translated: Buddhist terms follow 汉传 usage (四圣谛, 八正道, 闻思修, 临终关怀,
+护持), the toggle is 中文/English, and typography switches to a Songti/Source Han serif for headings with a
+PingFang body — and no synthetic italics, which CJK renders badly. Accent words are set in saffron instead.
 
 ## Design notes
 

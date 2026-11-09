@@ -1,10 +1,10 @@
 import type { APIRoute } from "astro";
-import { routes } from "../lib/routes";
+import { routes, zhRoutes } from "../lib/routes";
 
 export const GET: APIRoute = ({ site }) => {
   const base = import.meta.env.BASE_URL;
   const origin = (site?.href ?? "https://example.github.io/").replace(/\/$/, "");
-  const urls = routes
+  const urls = [...routes, ...zhRoutes]
     .map((r) => {
       const loc = origin + base.replace(/\/$/, "") + r;
       return `  <url><loc>${loc}</loc><changefreq>monthly</changefreq></url>`;

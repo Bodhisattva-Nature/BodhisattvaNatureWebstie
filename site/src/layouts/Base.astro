@@ -3,15 +3,20 @@ import global from "../styles/global.css?url";
 import fontCssRaw from "../fonts.css?raw";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import { site } from "../data/site";
+import { getContent, type Lang } from "../i18n";
+import { oppositeHref } from "../lib/url";
 
 interface Props {
   title: string;
   description?: string;
   image?: string;
+  lang?: Lang;
 }
 
-const { title, description = site.description, image } = Astro.props;
+const lang: Lang = Astro.props.lang ?? "en";
+const { t } = getContent(lang);
+const { title, description = t.site.description, image } = Astro.props;
+const alternate = oppositeHref(Astro.url.pathname, lang);
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://example.com").href;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const ogImage = image ? `${base}/media/${image}-1600.webp` : undefined;
@@ -19,13 +24,15 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang === "zh" ? "zh-Hans" : "en"}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang === "zh" ? "en" : "zh-Hans"} href={new URL(alternate, Astro.site ?? "https://example.com").href} />
+    <link rel="alternate" hreflang={lang === "zh" ? "zh-Hans" : "en"} href={canonical} />
     <meta name="theme-color" content="#f5f0e6" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -42,9 +49,9 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
     <style is:inline set:html={fontCss}></style>
   </head>
   <body>
-    <Header />
+    <Header lang={lang} />
     <slot />
-    <Footer />
+    <Footer lang={lang} />
     <script>
       const header = document.querySelector(".header") as HTMLElement | null;
 

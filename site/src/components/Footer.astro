@@ -1,7 +1,11 @@
 ---
-import { site, branches } from "../data/site";
-import { url } from "../lib/url";
+import { getContent, contact, type Lang } from "../i18n";
+import { href, url } from "../lib/url";
 import Lotus from "./Lotus.astro";
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? "en";
+const { t, branches } = getContent(lang);
 const year = new Date().getFullYear();
 ---
 
@@ -10,49 +14,44 @@ const year = new Date().getFullYear();
     <Lotus class="footer__lotus" />
     <div class="footer__top">
       <div class="footer__brandcol">
-        <p class="footer__brand">Peace. Balance. Truth.</p>
-        <p class="small" style="margin-top:1.5rem;max-width:34ch">
-          {site.name} is a registered non-profit organisation initiated by Venerable Zhenjue, operated entirely by
-          volunteers.
-        </p>
+        <p class="footer__brand">{t.site.tagline}</p>
+        <p class="small" style="margin-top:1.5rem;max-width:34ch">{t.site.description}</p>
       </div>
 
       <div>
-        <h4>Explore</h4>
+        <h4>{t.footer.explore}</h4>
         <ul>
-          <li><a href={url("/about/")}>About</a></li>
-          <li><a href={url("/programs/")}>Programs</a></li>
-          <li><a href={url("/wisdom/")}>Wisdom</a></li>
-          <li><a href={url("/community/")}>Community</a></li>
-          <li><a href={url("/events/")}>Events</a></li>
-          <li><a href={url("/volunteer/")}>Volunteer</a></li>
-          <li><a href={url("/donate/")}>Donate</a></li>
+          {t.nav.map((item) => (
+            <li><a href={href(item.href, lang)}>{item.label}</a></li>
+          ))}
+          <li><a href={href("/volunteer/", lang)}>{t.volunteer.eyebrow}</a></li>
+          <li><a href={href("/donate/", lang)}>{t.cta.donate}</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Contact</h4>
+        <h4>{t.footer.contact}</h4>
         <ul>
-          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
-          <li><a href={`tel:${site.phoneHref}`}>{site.phone}</a></li>
+          <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+          <li><a href={`tel:${contact.phoneHref}`}>{contact.phone}</a></li>
         </ul>
-        <p class="footer__note">Questions on practice, hospice care, volunteering and visiting.</p>
+        <p class="footer__note">{t.footer.note}</p>
       </div>
 
       <div>
-        <h4>Branches</h4>
+        <h4>{t.footer.branches}</h4>
         <ul>
           {branches.map((b) => (
-            <li><a href={url(`/contact/#${b.slug}`)}>{b.country}</a></li>
+            <li><a href={href(`/contact/#${b.slug}`, lang)}>{b.country}</a></li>
           ))}
         </ul>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <span>© {year} {site.name}. All teachings offered freely.</span>
-      <a class="footer__all" href={url("/contact/#connections")}>
-        All locations, worldwide
+      <span>© {year} {t.site.name}. {t.footer.rights}</span>
+      <a class="footer__all" href={href("/contact/#connections", lang)}>
+        {t.footer.allLocations}
         <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
           <path d="M2 8h11M9 4l4 4-4 4" />
         </svg>

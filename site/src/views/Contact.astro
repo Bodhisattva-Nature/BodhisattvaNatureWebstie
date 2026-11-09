@@ -1,0 +1,212 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import Lotus from "../components/Lotus.astro";
+import { getContent, contact, type Lang } from "../i18n";
+import { href } from "../lib/url";
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? "en";
+const { t, branches, connections } = getContent(lang);
+---
+
+<Base lang={lang} title={`${t.contact.title} — ${t.site.name}`} description={t.contact.lede}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>{t.contact.eyebrow}</span>
+      <h1 data-reveal style="--i:1">{t.contact.headingLine1}<br /><span class="serif-italic">{t.contact.headingLine2}</span></h1>
+      <p class="lede" data-reveal style="--i:2">{t.contact.lede}</p>
+      <div class="head-contact" data-reveal style="--i:3">
+        <a href={`mailto:${contact.email}`} class="head-contact__item">
+          <span class="caption">{t.contact.email}</span>
+          <strong>{contact.email}</strong>
+        </a>
+        <a href={`tel:${contact.phoneHref}`} class="head-contact__item">
+          <span class="caption">{t.contact.phone}</span>
+          <strong>{contact.phone}</strong>
+        </a>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="page-head__media" data-reveal style="--i:4">
+        <Img name="contact-hero" alt={t.contact.title} sizes="(max-width: 900px) 100vw, 90vw" />
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>{t.contact.branchesEyebrow}</span>
+      <div class="branches">
+        {branches.map((b, i) => (
+          <article class="branch" id={b.slug} data-reveal style={`--i:${i}`}>
+            <div class="branch__media media">
+              {b.image ? (
+                <Img name={b.image} alt={`${b.city}, ${b.country}`} sizes="(max-width: 860px) 100vw, 30vw" />
+              ) : (
+                <span class="branch__blank" aria-hidden="true"><Lotus /></span>
+              )}
+              <span class="branch__flag">{b.flag}</span>
+            </div>
+            <div class="branch__body">
+              <h2>{b.city}</h2>
+              {b.country !== b.city && <span class="branch__country">{b.country}</span>}
+              {b.address.length > 0 && (
+                <address>
+                  {b.address.map((l: string) => <span>{l}</span>)}
+                </address>
+              )}
+              <div class="branch__links">
+                <a href={`mailto:${b.email}`}>{b.email}</a>
+                {b.phone && <a href={`tel:${b.phone.replace(/[^\d+]/g, "")}`}>{b.phone}</a>}
+              </div>
+              {b.note && <p class="small muted">{b.note}</p>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream" id="connections">
+    <div class="wrap split">
+      <div class="split__body">
+        <span class="eyebrow" data-reveal>{t.contact.connectionsEyebrow}</span>
+        <h2 class="h2" data-reveal style="--i:1">{t.contact.connectionsTitle}</h2>
+        <p class="muted" data-reveal style="--i:2">{t.contact.connectionsBody}</p>
+        <p class="small muted" data-reveal style="--i:3">{t.contact.connectionsNote}</p>
+      </div>
+      <div class="conn-wrap" data-reveal style="--i:2">
+        <figure class="conn-figure media">
+          <Img name="whale-earth" alt={t.contact.connectionsTitle} sizes="(max-width: 900px) 100vw, 40vw" />
+        </figure>
+        <div class="connections">
+          {connections.map((c: any) => (
+            <div class="conn">
+              <strong>{c.region}</strong>
+              {c.places && <span>{c.places}</span>}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap cta-card" data-reveal>
+      <div>
+        <span class="eyebrow">{t.contact.sayEyebrow}</span>
+        <h2 class="h2" style="margin-top:0.6rem">{t.contact.sayTitle}</h2>
+      </div>
+      <div>
+        <p class="muted" style="max-width:38ch">{t.contact.sayBody}</p>
+        <div class="hero__actions" style="margin-top:1.5rem">
+          <a class="btn" href={`mailto:${contact.email}`}>{t.contact.sayCta}</a>
+          <a class="btn btn--ghost" href={href("/programs/", lang)}>{t.contact.sayPrograms}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .head-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  .head-contact__item { display: grid; gap: 0.3rem; }
+  .head-contact__item strong { font-family: var(--font-display); font-size: var(--step-1); font-weight: 400; }
+
+  .branches {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 3.5vw, 3rem);
+    margin-top: 2.5rem;
+  }
+
+  .branch { display: grid; gap: 1.1rem; align-content: start; scroll-margin-top: 110px; }
+
+  .branch__media { position: relative; aspect-ratio: 16/9; background: var(--cream); display: grid; place-items: center; }
+
+  .branch__blank {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--gold);
+    background-image: var(--mandala-img);
+    background-size: 66%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .branch__blank :global(.lotus) { width: 68px; opacity: 0.7; }
+  .branch__media img { object-position: center; }
+
+  .branch__flag {
+    position: absolute;
+    top: 0.9rem;
+    left: 0.9rem;
+    background: rgba(245, 240, 230, 0.92);
+    color: var(--ink);
+    font-size: 0.6rem;
+    letter-spacing: 0.16em;
+    padding: 0.35em 0.7em;
+    border-radius: 999px;
+  }
+
+  .branch__body { display: grid; gap: 0.5rem; }
+  .branch__body h2 { font-size: var(--step-2); font-weight: 300; }
+  .branch__country { font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron); }
+
+  .branch address { font-style: normal; color: var(--muted); font-size: 0.92rem; display: grid; gap: 0.1rem; }
+
+  .branch__links { display: grid; gap: 0.25rem; font-size: 0.92rem; margin-top: 0.3rem; }
+  .branch__links a { border-bottom: 1px solid var(--line); justify-self: start; transition: color 0.3s; }
+  .branch__links a:hover { color: var(--saffron); }
+
+  #connections { scroll-margin-top: calc(var(--header-h) + 1.5rem); }
+
+  .conn-wrap { display: grid; gap: 1.5rem; }
+  .conn-figure { margin: 0; aspect-ratio: 16/9; }
+
+  .connections {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .conn {
+    display: grid;
+    gap: 0.2rem;
+    padding-block: 0.9rem;
+    border-bottom: 1px solid var(--line);
+    padding-right: 1rem;
+  }
+
+  .conn strong { font-family: var(--font-display); font-weight: 400; font-size: var(--step-1); }
+  .conn span { font-size: 0.8rem; color: var(--muted); }
+
+  .cta-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid var(--line);
+    background: var(--paper-deep);
+  }
+
+  @media (max-width: 900px) {
+    .branches { grid-template-columns: repeat(2, 1fr); }
+    .cta-card { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 620px) {
+    .branches, .connections { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import { getContent, type Lang } from "../i18n";
+import { href } from "../lib/url";
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? "en";
+const { t } = getContent(lang);
+---
+
+<Base lang={lang} title={`${t.notFound.title} — ${t.site.name}`}>
+  <section class="section" style="padding-top:calc(var(--header-h) + 8vw);min-height:70svh;display:grid;align-content:center">
+    <div class="wrap">
+      <span class="eyebrow">404</span>
+      <h1 class="display" style="margin-block:0.3em 0.4em">{t.notFound.headingA}<br /><span class="serif-italic">{t.notFound.headingB}</span></h1>
+      <p class="lede">{t.notFound.body}</p>
+      <div class="hero__actions" style="margin-top:2rem">
+        <a class="btn" href={href("/", lang)}>{t.notFound.home}</a>
+        <a class="btn btn--ghost" href={href("/programs/", lang)}>{t.notFound.programs}</a>
+        <a class="btn btn--ghost" href={href("/contact/", lang)}>{t.notFound.contact}</a>
+      </div>
+    </div>
+  </section>
+</Base>

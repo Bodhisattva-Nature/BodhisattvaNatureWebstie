@@ -1,0 +1,318 @@
+/**
+ * English interface strings. Collections (programs, quotes, branches…) live in
+ * src/data/*.ts and are merged in by getContent(); this file is only the page copy.
+ */
+export const en = {
+  code: "en",
+  label: "English",
+  other: "中文",
+  otherHref: "/zh/",
+
+  site: {
+    name: "Bodhisattva Nature Foundation",
+    tagline: "Peace. Balance. Truth.",
+    description:
+      "A registered non-profit sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
+  },
+
+  nav: [
+    { label: "About", href: "/about/" },
+    { label: "Programs", href: "/programs/" },
+    { label: "Wisdom", href: "/wisdom/" },
+    { label: "Community", href: "/community/" },
+    { label: "Events", href: "/events/" },
+    { label: "Visit", href: "/contact/" },
+  ],
+
+  cta: {
+    donate: "Donate",
+    explore: "Explore programs",
+    support: "Support the work",
+    volunteer: "Volunteer with us",
+    readMore: "Read more",
+    seeAll: "All events",
+    contact: "Contact",
+    sendMessage: "Send a message",
+  },
+
+  footer: {
+    explore: "Explore",
+    contact: "Contact",
+    branches: "Branches",
+    note: "Questions on practice, hospice care, volunteering and visiting.",
+    rights: "All teachings offered freely.",
+    allLocations: "All locations, worldwide",
+  },
+
+  home: {
+    title: "Bodhisattva Nature Foundation — Peace. Balance. Truth.",
+    heroLines: ["Peace.", "Balance.", "Truth."],
+    heroLede:
+      "A registered non-profit sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
+    locations: "Vancouver · Calgary · Toronto · New York · Los Angeles · Seattle · Buffalo",
+    moreLocations: "+ more worldwide",
+    introEyebrow: "Who we are",
+    introTitle: "An old path, walked together.",
+    introBody:
+      "Bodhisattva Nature Foundation is a registered charity initiated by a group of compassionate individuals. Venerable Zhenjue learnt from Venerable Master Renze, and the teaching integrates the practice of Tibetan Buddhism and Chinese Buddhism on the Stages of the Path to Enlightenment.",
+    introBody2:
+      "Venerable Zhenjue saw that disasters, disease, a chaotic world and every kind of suffering arise from wrong concepts and from not knowing the truth. That compassion is what drives the passing on of wisdom.",
+    introLink: "Our story",
+    programsEyebrow: "What we offer",
+    programsTitle: "Five ways in.",
+    programsNote: "Every class, talk and retreat is free of charge.",
+    volunteerEyebrow: "Volunteer",
+    volunteerQuote: "The world is so connected. When you are involved, the world becomes different.",
+    volunteerBody:
+      "The foundation is run entirely by volunteers: dubbing, editing, translating, coordinating retreats and events — or whatever you happen to be good at. However much time you have, there is a place for it.",
+    pillarsEyebrow: "What we stand for",
+    pillarsTitle: "Three commitments.",
+    retreatEyebrow: "Weekend Retreat",
+    retreatTitle: "A weekend to stop.",
+    retreatCaption: "A day at the centre",
+    wisdomEyebrow: "Wisdom words",
+    wisdomTitle: "Short teachings.",
+    wisdomAll: "All 14",
+    testimonialEyebrow: "In their words",
+    testimonialTitle: "What changed.",
+    testimonialNote: "Students describing what they noticed after taking part.",
+    eventsEyebrow: "What's on",
+    eventsTitle: "Every week.",
+    donateEyebrow: "Support",
+    donateTitle: "Each dollar you give goes into merits and virtues.",
+    donateBody:
+      "All dharma talks, retreats and classes are free. Your contribution pays for the books, videos, software and spaces that carry them.",
+    donateVolunteer: "Volunteer instead",
+  },
+
+  about: {
+    headingA: "What is",
+    headingB: "Bodhisattva Nature?",
+    title: "About",
+    eyebrow: "About us",
+    heading: "What is Bodhisattva Nature?",
+    lede:
+      "A registered charity initiated by a group of compassionate individuals, carrying the teaching of the Stages of the Path into daily life.",
+    nameEyebrow: "The name",
+    nameTitle: "Five qualities, one nature.",
+    nameBody:
+      "“Bodhisattva” names a being whose whole effort is directed toward awakening for the sake of others. The foundation takes its name from five qualities that are not separate from us:",
+    qualities: ["Enlightenment", "Altruism and selflessness", "Immeasurability", "Equality", "Emptiness of self"],
+    missionEyebrow: "Our mission",
+    missionTitle: "Three commitments.",
+    pathEyebrow: "How to achieve",
+    pathTitle: "Learn. Reflect. Practise.",
+    pathNote: "The whole of the path, in three movements — repeated until they are one.",
+    teachersEyebrow: "Our teachers",
+    teachersTitle: "Those who carry it.",
+    ctaTitle: "Come and see for yourself.",
+    ctaBody: "Every class, talk and retreat is free. There is nothing to buy and nothing to join.",
+    ctaPrograms: "See programs",
+    ctaVisit: "Find us",
+  },
+
+  programsIndex: {
+    headingA: "Five ways",
+    headingB: "in.",
+    title: "Programs",
+    eyebrow: "Programs",
+    heading: "Five ways in.",
+    lede:
+      "Study the teaching, train the mind, move the body, sit with the dying, and ask what happiness actually is. Every class, talk and retreat is free of charge.",
+    explore: "Explore",
+    ctaEyebrow: "Not sure where to start?",
+    ctaTitle: "Come to a morning class.",
+    ctaBody: "Classes run every day, online and in person. Write to us and we'll tell you what's on this week.",
+    ctaAsk: "Ask what's on",
+    ctaSchedule: "See the schedule",
+  },
+
+  programDetail: {
+    glance: "At a glance",
+    format: "Format",
+    formatValue: "Online and in person",
+    cost: "Cost",
+    costValue: "Free",
+    where: "Where",
+    whereValue: "Vancouver · Calgary · Toronto · online",
+    truthsEyebrow: "The four noble truths",
+    coversEyebrow: "What it covers",
+    coversTitle: "In this programme.",
+    booksEyebrow: "Free download",
+    booksTitle: "The book, in four languages.",
+    booksNote: "A text version of the series, translated and offered freely. Share it with anyone.",
+    othersEyebrow: "Keep going",
+    othersTitle: "Other ways in.",
+    allPrograms: "All programs",
+  },
+
+  wisdom: {
+    headingA: "Short",
+    headingB: "teachings.",
+    title: "Wisdom Words",
+    eyebrow: "Wisdom words",
+    heading: "Short teachings.",
+    lede: "Fourteen passages from the teaching — brief enough to carry, deep enough to keep returning to.",
+    ctaEyebrow: "Go deeper",
+    ctaTitle: "These are notes. The teaching is a practice.",
+    ctaBody:
+      "Join a class to hear the full context — or start with the dharma study programme, where the reasoning behind these lines is laid out.",
+    ctaStudy: "Dharma study",
+    ctaAsk: "Ask a question",
+  },
+
+  community: {
+    headingA: "The week",
+    headingB: "has a shape.",
+    title: "Community",
+    eyebrow: "Community",
+    headingLine1: "The week",
+    headingLine2: "has a shape.",
+    lede:
+      "Classes every morning and evening, Tai Chi on Fridays, retreats through the year. Nothing asks you to be anything other than what you are.",
+    rhythmEyebrow: "Daily rhythm",
+    rhythmTitle: "From before dawn.",
+    rhythmBody:
+      "The centre keeps a traditional schedule. You are welcome to any part of it — no registration, no fee. Online attendance is possible for most sessions.",
+    gatheringsEyebrow: "Gatherings",
+    gatheringsTitle: "Three ways we meet.",
+    retreatsKicker: "Retreats",
+    retreatsTitle: "Weekend retreat",
+    retreatsBody:
+      "An immersive environment for practice — guided meditation, silent periods, mindful movement and dharma study, held in a quiet natural setting.",
+    retreatsNote: "Held regularly through the year. Write to us for the next date.",
+    taiChiKicker: "Movement",
+    taiChiTitle: "Tai Chi in Richmond",
+    taiChiBody:
+      "Two free Tai Chi classes every Friday, morning and afternoon. Slow, gentle movement that improves strength, flexibility and balance — and settles the mind.",
+    taiChiCta: "Register",
+    hospiceKicker: "Care",
+    hospiceTitle: "Hospice care education",
+    hospiceBody:
+      "Palliative care relieves pain, supports families, respects wishes and protects dignity. Buddhism adds a distinct understanding of what the mind needs at the end of life.",
+    hospiceCta: "Learn more",
+    voicesEyebrow: "Voices",
+    voicesTitle: "What people noticed.",
+    voicesLink: "Our teachers",
+    pastEyebrow: "Past events",
+    pastTitle: "See what it's like.",
+    pastBody: "Recordings from previous retreats, classes and chanting sessions are collected on our channel.",
+    pastWatch: "Watch past events",
+    pastAsk: "Ask what's next",
+  },
+
+  volunteer: {
+    headingA: "When you are",
+    headingB: "involved.",
+    title: "Volunteer",
+    eyebrow: "Volunteer",
+    headingLine1: "When you are",
+    headingLine2: "involved.",
+    lede:
+      "Bodhisattva Nature Foundation is a registered non-profit, operated entirely by volunteering. The world is so connected — when you are involved, the world becomes different.",
+    joinEyebrow: "Join us",
+    joinTitle: "It will make a difference if you are involved.",
+    joinBody:
+      "Tell us what you're good at and how much time you have. There is no minimum, and no prior study required for most roles.",
+    joinCta: "Sign up",
+    joinAsk: "Ask first",
+    quote: "Let life awaken life.",
+    quoteSource: "From a student's account of the course",
+  },
+
+  donate: {
+    headingA: "Each dollar",
+    headingB: "goes into merits.",
+    title: "Donate",
+    eyebrow: "Support",
+    headingLine1: "Each dollar",
+    headingLine2: "goes into merits.",
+    lede:
+      "Bodhisattva Nature Foundation is a registered non-profit initiated by Venerable Zhenjue. Everything here is offered free of charge.",
+    carriesEyebrow: "What your gift carries",
+    carriesBody:
+      "Over 100 dharma talks, 324 group classes, 365 daily classes and 54 retreats each year. All of it free. Your contribution pays for the hardware, software, books, videos, internet services and accommodation that make it possible.",
+    carriesBody2:
+      "We encourage anyone who wishes to contribute to set up a recurring donation — a steady source of income lets the foundation plan a year rather than a month.",
+    waysEyebrow: "Ways to give",
+    cardCaption: "Card and PayPal via the online form",
+    scan: "Scan to give",
+    scanNote: "Open your phone's QR scanner, scan either code, enter an amount and complete the gift.",
+    talkEyebrow: "Talk to a person",
+    talkTitle: "No gift is too small, and no question is awkward.",
+    talkBody:
+      "Write to us about any aspect of your contribution — including estate planning. We will work with you personally.",
+    talkCta: "Contact",
+  },
+
+  contact: {
+    headingA: "Where to",
+    headingB: "find us.",
+    title: "Visit & contact",
+    eyebrow: "Visit",
+    headingLine1: "Where to",
+    headingLine2: "find us.",
+    lede:
+      "A home base in Canada, branches across four countries, and groups in many more. Write first — someone always answers.",
+    email: "Email",
+    phone: "Phone",
+    branchesEyebrow: "Branches",
+    connectionsEyebrow: "Spiritual connections",
+    connectionsTitle: "Groups further out.",
+    connectionsBody:
+      "Local meditation groups and retreat activities in these places are independently organised — they are not operated, funded or controlled by the foundation.",
+    connectionsNote: "These locations do not represent branches or operating sites of Bodhisattva Nature Foundation.",
+    sayEyebrow: "Say hello",
+    sayTitle: "Ask about a class, a retreat, or nothing in particular.",
+    sayBody: "We answer questions about practice, hospice care, volunteering and visiting. No question is too basic.",
+    sayCta: "Send a message",
+    sayPrograms: "Browse programs",
+  },
+
+  events: {
+    headingA: "What's",
+    headingB: "on.",
+    title: "What's on",
+    eyebrow: "Events",
+    headingLine1: "What's",
+    headingLine2: "on.",
+    lede:
+      "Two gatherings run every week — one on the mat in Richmond, one online for Europe and the UK. Both are free, and both are open to anyone.",
+    weekly: "Weekly",
+    when: "When",
+    time: "Time",
+    where: "Where",
+    cost: "Cost",
+    free: "Free",
+    alsoEyebrow: "Also running",
+    alsoTitle: "Two more doors.",
+    alsoNote: "Posters from the foundation's own noticeboard — write to us and we'll tell you when the next one opens.",
+    datesEyebrow: "Dates",
+    datesTitle: "Nothing is fixed until you ask.",
+    datesBody:
+      "The weekly gatherings above run continuously. Retreats and one-off courses are announced by email — write to us and we'll put you on the list for the next date.",
+    datesCta: "Ask what's next",
+    datesSchedule: "See the daily schedule",
+  },
+
+  notFound: {
+    headingA: "This path",
+    headingB: "ends here.",
+    title: "Not found",
+    heading: "This path ends here.",
+    body: "The page you were looking for isn't where it used to be. Try one of these instead.",
+    home: "Home",
+    programs: "Programs",
+    contact: "Contact",
+  },
+
+  search: {
+    button: "Search",
+    placeholder: "Search teachings, programs, places…",
+    empty: "Nothing matched that. Try “mindfulness”, “karma” or “Tai Chi”.",
+    navigate: "to navigate",
+    open: "to open",
+  },
+};
+
+export type Dict = typeof en;

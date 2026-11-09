@@ -1,0 +1,128 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import { getContent, type Lang } from "../i18n";
+import { href } from "../lib/url";
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? "en";
+const { t, programs } = getContent(lang);
+---
+
+<Base lang={lang} title={`${t.programsIndex.title} — ${t.site.name}`} description={t.programsIndex.lede}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>{t.programsIndex.eyebrow}</span>
+      <h1 data-reveal style="--i:1">{t.programsIndex.headingA}<br /><span class="serif-italic">{t.programsIndex.headingB}</span></h1>
+      <p class="lede" data-reveal style="--i:2">{t.programsIndex.lede}</p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <figure class="banner media" data-reveal style="aspect-ratio:21/8;margin:0 0 clamp(2.5rem,6vw,4.5rem)">
+        <Img name="programs-banner" alt={t.programsIndex.title} sizes="100vw" loading="eager" />
+      </figure>
+      <div class="program-grid">
+        {programs.map((p, i) => (
+          <a class="pcard" href={href(`/programs/${p.slug}/`, lang)} data-reveal style={`--i:${i}`}>
+            <div class="pcard__media media media--tile zoom">
+              <Img name={p.image} alt={p.title} sizes="(max-width: 860px) 100vw, 46vw" />
+              <span class="pcard__no">{p.no}</span>
+            </div>
+            <div class="pcard__body">
+              <span class="pcard__kicker">{p.kicker}</span>
+              <h2>{p.title}</h2>
+              <p>{p.summary}</p>
+              <span class="link-arrow" style="margin-top:auto">
+                {t.programsIndex.explore}
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--jade">
+    <div class="wrap cta-row">
+      <div>
+        <span class="eyebrow">{t.programsIndex.ctaEyebrow}</span>
+        <h2 class="h2" style="margin-top:0.6rem">{t.programsIndex.ctaTitle}</h2>
+      </div>
+      <div>
+        <p style="color:rgba(239,233,220,.75);max-width:40ch">{t.programsIndex.ctaBody}</p>
+        <div class="hero__actions" style="margin-top:1.6rem">
+          <a class="btn" href={href("/contact/", lang)}>{t.programsIndex.ctaAsk}</a>
+          <a class="btn btn--ghost" href={href("/community/", lang)}>{t.programsIndex.ctaSchedule}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .program-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3.5vw, 3rem);
+  }
+
+  .pcard {
+    display: grid;
+    gap: 1.4rem;
+    align-content: start;
+  }
+
+  .pcard:nth-child(1) { grid-column: 1 / -1; grid-template-columns: 1.1fr 0.9fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+  .pcard:nth-child(1) .pcard__media { aspect-ratio: 16/10; }
+  .pcard:nth-child(1) .pcard__media img { width: 62%; height: 82%; }
+
+  .pcard__media {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+
+
+  .pcard__no {
+    position: absolute;
+    top: 1rem;
+    left: 1.2rem;
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    color: rgba(255, 253, 247, 0.85);
+    mix-blend-mode: difference;
+  }
+
+  .pcard__body { display: grid; gap: 0.8rem; align-content: start; }
+
+  .pcard__kicker {
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron);
+  }
+
+  .pcard h2 {
+    font-size: var(--step-3);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+  }
+
+  .pcard p { color: var(--muted); margin: 0; max-width: 46ch; }
+
+  .cta-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+
+  @media (max-width: 860px) {
+    .program-grid { grid-template-columns: 1fr; }
+    .pcard:nth-child(1) { grid-template-columns: 1fr; }
+    .cta-row { grid-template-columns: 1fr; }
+  }
+</style>

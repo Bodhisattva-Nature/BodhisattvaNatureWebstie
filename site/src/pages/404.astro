@@ -1,19 +1,5 @@
 ---
-import Base from "../layouts/Base.astro";
-import { url } from "../lib/url";
+import NotFound from "../views/NotFound.astro";
 ---
 
-<Base title="Not found — Bodhisattva Nature Foundation">
-  <section class="section" style="padding-top:calc(var(--header-h) + 8vw);min-height:70svh;display:grid;align-content:center">
-    <div class="wrap">
-      <span class="eyebrow">404</span>
-      <h1 class="display" style="margin-block:0.3em 0.4em">This path<br /><span class="serif-italic">ends here.</span></h1>
-      <p class="lede">The page you were looking for isn't where it used to be. Try one of these instead.</p>
-      <div class="hero__actions" style="margin-top:2rem">
-        <a class="btn" href={url("/")}>Home</a>
-        <a class="btn btn--ghost" href={url("/programs/")}>Programs</a>
-        <a class="btn btn--ghost" href={url("/contact/")}>Contact</a>
-      </div>
-    </div>
-  </section>
-</Base>
+<NotFound lang="en" />

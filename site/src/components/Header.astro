@@ -1,30 +1,44 @@
 ---
-import { nav, site } from "../data/site";
-import { url } from "../lib/url";
+import { getContent, contact, type Lang } from "../i18n";
+import { href, oppositeHref } from "../lib/url";
 import Search from "./Search.astro";
 import Img from "./Img.astro";
 
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? "en";
+const { t, isZh } = getContent(lang);
+
 const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ""), "") || "/";
-const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWith(href));
+const isActive = (h: string) =>
+  isZh ? path === "/zh" + h || path.startsWith("/zh" + h) : (h === "/" ? path === "/" : path.startsWith(h));
+const other = oppositeHref(Astro.url.pathname, lang);
 ---
 
 <header class="header">
   <span class="flagline" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
   <div class="wrap header__inner">
-    <a href={url("/")} class="brand" aria-label={`${site.name} — home`}>
-      <Img name="logo" alt={site.name} class="brand__logo" sizes="180px" loading="eager" />
+    <a href={href("/", lang)} class="brand" aria-label={t.site.name}>
+      <Img name="logo" alt={t.site.name} class="brand__logo" sizes="180px" loading="eager" />
     </a>
 
     <nav class="nav" aria-label="Primary">
-      {nav.map((item) => (
-        <a href={url(item.href)} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>
+      {t.nav.map((item) => (
+        <a href={href(item.href, lang)} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>
       ))}
     </nav>
 
-    <Search />
+    <a class="lang-toggle" href={other} hreflang={isZh ? "en" : "zh-Hans"} aria-label={isZh ? "Switch to English" : "切换到中文"}>
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+        <circle cx="8" cy="8" r="6.4" />
+        <path d="M1.6 8h12.8M8 1.6c1.9 1.8 2.9 4 2.9 6.4S9.9 12.6 8 14.4C6.1 12.6 5.1 10.4 5.1 8S6.1 3.4 8 1.6z" />
+      </svg>
+      <span>{t.other}</span>
+    </a>
+
+    <Search lang={lang} />
 
     <div class="header__cta">
-      <a href={url("/donate/")} class="btn">Donate</a>
+      <a href={href("/donate/", lang)} class="btn">{t.cta.donate}</a>
     </div>
 
     <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="drawer">
@@ -35,19 +49,19 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
 
 <div class="drawer" id="drawer" data-open="false">
   <nav aria-label="Mobile">
-    {nav.map((item, i) => (
-      <a href={url(item.href)}>
+    {t.nav.map((item, i) => (
+      <a href={href(item.href, lang)}>
         {item.label}
         <span>0{i + 1}</span>
       </a>
     ))}
-    <a href={url("/donate/")}>
-      Donate
-      <span>06</span>
+    <a href={href("/donate/", lang)}>
+      {t.cta.donate}
+      <span>07</span>
     </a>
   </nav>
   <div class="drawer__foot">
-    <p><strong>{site.email}</strong></p>
-    <p>{site.phone} · Vancouver · Calgary · Toronto</p>
+    <p><strong>{contact.email}</strong></p>
+    <p>{contact.phone}</p>
   </div>
 </div>

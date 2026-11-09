@@ -1,0 +1,482 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import Divider from "../components/Divider.astro";
+import { getContent, type Lang } from "../i18n";
+import { href } from "../lib/url";
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? "en";
+const { t, isZh, stats, pillars, programs, testimonials, schedule, retreat, events, quotes, branches } = getContent(lang);
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const featured = [...quotes].sort((a, b) => a.body.length - b.body.length).slice(0, 3);
+const ticker = [...programs.map((p) => p.title), ...t.home.locations.split(" · ")];
+
+const alt = isZh
+  ? {
+      hero: "林中金色佛像",
+      oneness: "玻璃球中生长的树",
+      pillar1: "山间平静的湖面",
+      pillar2: "夜空中的极光",
+      pillar3: "静坐中的人",
+      clouds: "云海与天光",
+      event: "活动海报",
+    }
+  : {
+      hero: "A golden Buddha seated among trees",
+      oneness: "A tree growing inside a glass sphere",
+      pillar1: "A still lake between mountains",
+      pillar2: "Aurora over a dark landscape",
+      pillar3: "A figure sitting in meditation",
+      clouds: "A sea of cloud under a pale sky",
+      event: "Event poster",
+    };
+---
+
+<Base lang={lang} title={t.home.title} description={t.site.description}>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <h1 data-reveal>
+        {t.home.heroLines[0]}<br />{t.home.heroLines[1]}<br /><em>{t.home.heroLines[2]}</em>
+      </h1>
+      <div class="hero__sub" data-reveal style="--i:1">
+        <p>{t.home.heroLede}</p>
+        <div class="hero__actions">
+          <a class="btn" href={href("/programs/", lang)}>{t.cta.explore}</a>
+          <a class="btn btn--ghost" href={href("/donate/", lang)}>{t.cta.support}</a>
+        </div>
+      </div>
+      <div class="hero__meta" data-reveal style="--i:2">
+        <span>
+          {t.home.locations}
+          <a class="hero__more" href={href("/contact/#connections", lang)}>{t.home.moreLocations}</a>
+        </span>
+      </div>
+    </div>
+    <div class="hero__media">
+      <Img name="hero" alt={alt.hero} sizes="(max-width: 900px) 100vw, 50vw" loading="eager" fetchpriority="high" />
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      {[0, 1].map(() => (
+        <span>
+          {ticker.map((x) => (
+            <>
+              {x} <em>·</em>
+            </>
+          ))}
+        </span>
+      ))}
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="section section--tight-bottom">
+    <div class="wrap split">
+      <div class="split__body">
+        <span class="eyebrow" data-reveal>{t.home.introEyebrow}</span>
+        <h2 class="h2" data-reveal style="--i:1">{t.home.introTitle}</h2>
+        <p class="lede" data-reveal style="--i:2">{t.home.introBody}</p>
+        <p data-reveal style="--i:3" class="muted">{t.home.introBody2}</p>
+        <a href={href("/about/", lang)} class="link-arrow" data-reveal style="--i:4">
+          {t.home.introLink}
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+        </a>
+      </div>
+      <figure class="split__media" data-reveal style="--i:2">
+        <Img name="oneness" alt={alt.oneness} sizes="(max-width: 980px) 100vw, 46vw" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- PROGRAMS -->
+  <section class="section section--tight-top">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{t.home.programsEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{t.home.programsTitle}</h2>
+        </div>
+        <p class="small muted" data-reveal style="--i:2">{t.home.programsNote}</p>
+      </div>
+
+      <div class="programs">
+        {programs.map((p, i) => (
+          <a class="program-row" href={href(`/programs/${p.slug}/`, lang)} data-reveal style={`--i:${i}`}>
+            <span class="program-row__no">{p.no}</span>
+            <span class="program-row__title">{p.title}</span>
+            <span class="program-row__desc">{p.summary.split("。")[0].split(".")[0]}.</span>
+            <span class="program-row__arrow" aria-hidden="true">
+              <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M2 8h11M9 4l4 4-4 4" />
+              </svg>
+            </span>
+            <img class="program-row__peek" loading="lazy" src={`${base}/media/${p.image}-900.webp`} alt="" />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLUNTEER -->
+  <section class="section section--volunteer">
+    <div class="wrap">
+      <div class="volunteer-band" data-reveal>
+        <div class="volunteer-band__quote">
+          <span class="eyebrow">{t.home.volunteerEyebrow}</span>
+          <p>{t.home.volunteerQuote}</p>
+        </div>
+        <div class="volunteer-band__body">
+          <p>{t.home.volunteerBody}</p>
+          <a class="btn" href={href("/volunteer/", lang)}>
+            {t.cta.volunteer}
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M2 8h11M9 4l4 4-4 4" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section section--jade section--tight">
+    <div class="wrap">
+      <div class="stat-grid">
+        {stats.map((s, i) => (
+          <div class="card card--stat" data-reveal style={`--i:${i}`}>
+            <span class="value">{s.value}</span>
+            <span class="label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+      <p class="small" data-reveal style="margin-top:2.5rem;max-width:60ch;color:rgba(239,233,220,.6)">
+        {t.home.donateBody}
+      </p>
+    </div>
+  </section>
+
+  <Divider />
+
+  <!-- PILLARS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{t.home.pillarsEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{t.home.pillarsTitle}</h2>
+        </div>
+      </div>
+      <div class="grid grid--3" style="margin-top:3rem">
+        {pillars.map((p, i) => (
+          <article class="pillar" data-reveal style={`--i:${i}`}>
+            <div class="media" style="aspect-ratio:4/5">
+              <Img name={p.image} alt={p.title} sizes="(max-width: 980px) 100vw, 32vw" />
+            </div>
+            <div class="pillar__head">
+              <h3>{p.title}</h3>
+              <span class="pillar__sub">{p.subtitle}</span>
+            </div>
+            <p>{p.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- RETREAT + SCHEDULE -->
+  <section class="section section--ink">
+    <div class="wrap grid grid--2" style="gap:clamp(2.5rem,6vw,6rem);align-items:center">
+      <div data-reveal>
+        <span class="eyebrow">{t.home.retreatEyebrow}</span>
+        <h2 class="h2" style="margin-block:0.4em 1rem">{t.home.retreatTitle}</h2>
+        <p style="color:rgba(236,230,216,.72);max-width:44ch">{retreat.goal}</p>
+        <ul class="retreat-list">
+          {retreat.content.map((c) => <li>{c}</li>)}
+        </ul>
+        <a href={href("/community/", lang)} class="btn" style="margin-top:2rem">{t.programsIndex.ctaSchedule}</a>
+      </div>
+      <div data-reveal style="--i:1">
+        <p class="caption" style="color:rgba(236,230,216,.45);margin-bottom:1rem">{t.home.retreatCaption}</p>
+        <div class="schedule" style="border-color:rgba(236,230,216,.16)">
+          {schedule.map((s) => (
+            <div class="schedule__row" style="border-color:rgba(236,230,216,.16)">
+              <span class="schedule__time">{s.time}</span>
+              <span class="schedule__label" style="color:rgba(236,230,216,.78)">{s.label}</span>
+            </div>
+          ))}
+        </div>
+        <figure class="media" style="margin:2rem 0 0;aspect-ratio:16/9">
+          <Img name="clouds" alt={alt.clouds} sizes="(max-width: 980px) 100vw, 46vw" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISDOM -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{t.home.wisdomEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{t.home.wisdomTitle}</h2>
+        </div>
+        <a href={href("/wisdom/", lang)} class="link-arrow" data-reveal>{t.home.wisdomAll}</a>
+      </div>
+
+      <div class="quote-carousel" data-carousel>
+        <div class="quote-stack">
+          {featured.map((q, i) => (
+            <article class="quote-slide" class:list={{ active: i === 0 }}>
+              <blockquote>{q.body}</blockquote>
+              <footer>
+                <strong>{q.title}</strong>
+                <span>{t.home.wisdomEyebrow}</span>
+              </footer>
+            </article>
+          ))}
+        </div>
+        <div class="quote-dots">
+          {featured.map((_, i) => <button aria-label={`${i + 1}`} data-dot={i} class:list={{ active: i === 0 }}></button>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Divider />
+
+  <!-- TESTIMONIALS -->
+  <section class="section section--cream">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{t.home.testimonialEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{t.home.testimonialTitle}</h2>
+        </div>
+        <p class="small muted" data-reveal style="max-width:30ch">{t.home.testimonialNote}</p>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:2.5rem">
+      <div class="rail">
+        {testimonials.map((x, i) => (
+          <article class="tcard" data-reveal style={`--i:${i}`}>
+            <div>
+              <h3>{x.title}</h3>
+              <p style="margin-top:1rem">{x.quote}</p>
+            </div>
+            <div class="tcard__who">
+              <img class="tcard__avatar" src={`${base}/media/${x.avatar}-75.webp`} alt="" width="37" height="37" loading="lazy" />
+              <strong>{x.name}</strong>
+              <span>{x.role}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{t.home.eventsEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{t.home.eventsTitle}</h2>
+        </div>
+        <a href={href("/events/", lang)} class="link-arrow" data-reveal style="--i:2">{t.cta.seeAll}</a>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:clamp(2rem,4vw,3rem)">
+        {events.map((e, i) => (
+          <a class="event-card" href={href("/events/", lang)} data-reveal style={`--i:${i}`}>
+            <div class="media zoom" style="aspect-ratio:16/10">
+              <Img name={e.image} alt={`${e.title}`} sizes="(max-width: 860px) 100vw, 46vw" />
+            </div>
+            <div class="event-card__body">
+              <span class="pillar__sub">{e.cadence}</span>
+              <h3>{e.title}</h3>
+              <p>{e.time} · {e.place}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE -->
+  <section class="section">
+    <div class="wrap">
+      <div class="donate-band" data-reveal>
+        <div>
+          <span class="eyebrow">{t.home.donateEyebrow}</span>
+          <h2 style="font-size:var(--step-3);font-weight:300;margin-top:0.5rem;line-height:1.05">{t.home.donateTitle}</h2>
+        </div>
+        <div>
+          <p class="muted" style="max-width:40ch">{t.home.donateBody}</p>
+          <div class="hero__actions" style="margin-top:1.5rem">
+            <a class="btn" href={href("/donate/", lang)}>{t.cta.donate}</a>
+            <a class="btn btn--ghost" href={href("/volunteer/", lang)}>{t.home.donateVolunteer}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .section-head .h2 { margin-top: 0.5rem; }
+
+  .retreat-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.8rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .retreat-list li {
+    border: 1px solid rgba(217, 171, 84, 0.42);
+    border-radius: 999px;
+    padding: 0.45em 1em;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: rgba(243, 231, 210, 0.88);
+  }
+
+  .quote-carousel {
+    margin-top: clamp(2rem, 4vw, 3.5rem);
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .quote-stack {
+    display: grid;
+  }
+
+  .quote-slide {
+    grid-area: 1 / 1;
+    display: grid;
+    gap: 1.8rem;
+    align-content: start;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    pointer-events: none;
+    max-width: 54ch;
+  }
+
+  .quote-slide.active {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .quote-slide blockquote {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.3vw, 1.95rem);
+    line-height: 1.24;
+    letter-spacing: -0.018em;
+    font-weight: 300;
+    text-wrap: pretty;
+  }
+
+  .quote-slide blockquote::before { content: "“"; color: var(--saffron); }
+  .quote-slide blockquote::after { content: "”"; color: var(--saffron); }
+
+  .quote-slide footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.8rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .quote-slide footer strong { color: var(--ink); font-weight: 500; letter-spacing: 0.1em; }
+  .quote-slide footer span::before { content: "— "; }
+
+  .quote-dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .quote-dots button {
+    width: 34px;
+    height: 2px;
+    border: 0;
+    padding: 0;
+    background: var(--line-strong);
+    cursor: pointer;
+    transition: background 0.4s var(--ease);
+  }
+
+  .quote-dots button.active { background: var(--ink); }
+
+  .event-card { display: grid; gap: 1rem; align-content: start; }
+  .event-card__body { display: grid; gap: 0.35rem; }
+  .event-card h3 { font-size: var(--step-2); font-weight: 300; }
+  .event-card h3 span { font-size: 0.55em; letter-spacing: 0.12em; color: var(--muted); }
+  .event-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+  .donate-band {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+    padding: clamp(2rem, 5vw, 4rem);
+    background: var(--paper-deep);
+    border: 1px solid var(--line);
+  }
+
+  @media (max-width: 860px) {
+    .event-card { display: grid; gap: 1rem; align-content: start; }
+  .event-card__body { display: grid; gap: 0.35rem; }
+  .event-card h3 { font-size: var(--step-2); font-weight: 300; }
+  .event-card h3 span { font-size: 0.55em; letter-spacing: 0.12em; color: var(--muted); }
+  .event-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+  .donate-band { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .quote-carousel { min-height: 420px; }
+  }
+</style>
+
+<script>
+  const carousels = document.querySelectorAll("[data-carousel]");
+  carousels.forEach((root) => {
+    const slides = root.querySelectorAll<HTMLElement>(".quote-slide");
+    const dots = root.querySelectorAll<HTMLButtonElement>("[data-dot]");
+    let i = 0;
+    let timer: number;
+    const go = (n: number) => {
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle("active", k === i));
+      dots.forEach((d, k) => d.classList.toggle("active", k === i));
+    };
+    const auto = () => {
+      clearInterval(timer);
+      timer = window.setInterval(() => go(i + 1), 7000);
+    };
+    dots.forEach((d, k) => d.addEventListener("click", () => { go(k); auto(); }));
+    auto();
+  });
+</script>

@@ -1,0 +1,230 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import { getContent, type Lang } from "../i18n";
+import { href } from "../lib/url";
+
+interface Props { lang?: Lang }
+const lang: Lang = Astro.props.lang ?? "en";
+const { t, isZh, pillars, path, teachers } = getContent(lang);
+
+const qualities = t.about.qualities.map((q, i) => ({ n: String(i + 1).padStart(2, "0"), t: q }));
+const alt = isZh
+  ? { lilac: "盛开的紫藤", emblem: "菩提叶中静坐的人", teacher: "法师肖像" }
+  : { lilac: "Lilac trees in bloom", emblem: "Bodhi leaf with a seated figure at its heart", teacher: "Portrait of a teacher" };
+---
+
+<Base lang={lang} title={`${t.about.title} — ${t.site.name}`} description={t.about.lede}>
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>{t.about.eyebrow}</span>
+      <h1 data-reveal style="--i:1">{t.about.headingA}<br /><span class="serif-italic">{t.about.headingB}</span></h1>
+      <p class="lede" data-reveal style="--i:2">{t.about.lede}</p>
+    </div>
+    <div class="wrap">
+      <div class="page-head__media" data-reveal style="--i:3">
+        <Img name="lilac" alt={alt.lilac} sizes="(max-width: 900px) 100vw, 90vw" />
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__body">
+        <span class="eyebrow" data-reveal>{t.about.nameEyebrow}</span>
+        <h2 class="h2" data-reveal style="--i:1">{t.about.nameTitle}</h2>
+        <p class="lede" data-reveal style="--i:2">{t.about.nameBody}</p>
+        <ol class="qualities">
+          {qualities.map((q, i) => (
+            <li data-reveal style={`--i:${i}`}>
+              <span>{q.n}</span>
+              <strong>{q.t}</strong>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <figure class="split__media" data-reveal style="--i:2">
+        <Img name="emblem" alt={alt.emblem} sizes="(max-width: 980px) 100vw, 46vw" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{t.about.missionEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{t.about.missionTitle}</h2>
+        </div>
+      </div>
+      <div class="grid grid--3" style="margin-top:3rem">
+        {pillars.map((p, i) => (
+          <article class="pillar" data-reveal style={`--i:${i}`}>
+            <div class="media" style="aspect-ratio:4/5">
+              <Img name={p.image} alt={p.title} sizes="(max-width: 980px) 100vw, 32vw" />
+            </div>
+            <div class="pillar__head">
+              <h3>{p.title}</h3>
+              <span class="pillar__sub">{p.subtitle}</span>
+            </div>
+            <p>{p.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{t.about.pathEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{t.about.pathTitle}</h2>
+        </div>
+        <p class="small muted" data-reveal style="max-width:34ch">{t.about.pathNote}</p>
+      </div>
+
+      <div class="steps">
+        {path.map((p, i) => (
+          <article class="step" data-reveal style={`--i:${i}`}>
+            <span class="step__no">{p.step}</span>
+            <h3>{p.title}</h3>
+            <p>{p.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>{t.about.teachersEyebrow}</span>
+      <h2 class="h2" data-reveal style="--i:1;margin-top:0.5rem">{t.about.teachersTitle}</h2>
+
+      <div class="teachers">
+        {teachers.map((x, i) => (
+          <article class="teacher" data-reveal style={`--i:${i}`}>
+            <div class="teacher__media media">
+              <Img name={x.image} alt={x.name} sizes="(max-width: 800px) 100vw, 30vw" />
+            </div>
+            <div class="teacher__body">
+              <span class="pillar__sub">{x.role}</span>
+              <h3>{x.name}</h3>
+              {x.paras.map((para) => <p>{para}</p>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap cta-center">
+      <h2 class="h2" data-reveal>{t.about.ctaTitle}</h2>
+      <p class="lede" data-reveal style="--i:1;margin-inline:auto">{t.about.ctaBody}</p>
+      <div class="hero__actions" style="justify-content:center;margin-top:2rem" data-reveal>
+        <a class="btn" href={href("/programs/", lang)}>{t.about.ctaPrograms}</a>
+        <a class="btn btn--ghost" href={href("/contact/", lang)}>{t.about.ctaVisit}</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .qualities {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .qualities li {
+    display: flex;
+    gap: 1.2rem;
+    align-items: baseline;
+    padding-block: 0.85rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .qualities span {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    width: 2.6rem;
+    flex: none;
+  }
+
+  .qualities strong {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: var(--step-2);
+    letter-spacing: -0.02em;
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .section-head .h2 { margin-top: 0.5rem; }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .step {
+    border-top: 1px solid var(--line);
+    padding-top: 1.4rem;
+    display: grid;
+    gap: 0.8rem;
+    align-content: start;
+  }
+
+  .step__no {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--saffron);
+  }
+
+  .step h3 {
+    font-size: var(--step-3);
+    font-weight: 300;
+  }
+
+  .step p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+
+  .teachers {
+    display: grid;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    margin-top: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .teacher {
+    display: grid;
+    grid-template-columns: 0.55fr 1.45fr;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    align-items: start;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .teacher__media { aspect-ratio: 3/4; }
+
+  .teacher__body { display: grid; gap: 1rem; align-content: start; max-width: 62ch; }
+  .teacher__body h3 { font-size: var(--step-3); font-weight: 300; margin-block: 0.2rem 0.4rem; }
+  .teacher__body p { color: var(--muted); margin: 0; }
+
+  .cta-center { text-align: center; display: grid; gap: 1rem; justify-items: center; }
+
+  @media (max-width: 860px) {
+    .steps { grid-template-columns: 1fr; }
+    .teacher { grid-template-columns: 1fr; }
+    .teacher__media { aspect-ratio: 4/3; max-width: 320px; }
+  }
+</style>
