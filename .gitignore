@@ -8,6 +8,5 @@ api/
 media/
 content/
 raw/
-scripts/
 .venv/
 *.log
