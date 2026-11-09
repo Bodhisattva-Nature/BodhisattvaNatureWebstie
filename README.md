@@ -82,20 +82,20 @@ third-party requests.
   whole palette: parchment #F6EFDF, saffron #BF6A1E, maroon #5B1A26, gold #D9AB54, jade #26443A.
 - **Maroon bands.** Every dark section is the colour of a Tibetan robe (#3A0C16) with gold numerals
   (#D9AB54) and a 1px gilded rule along its top edge. The jade band is the one green interval, used for the numbers.
-- **Ornament, used sparingly.** A five-colour prayer-flag strip runs along the top of the page; the logo is
-  an eight-spoke dharma wheel; a lotus divides major sections and opens the footer; a low-opacity mandala is
-  etched into the maroon bands and the corner of the hero. All four are inline SVG — no ornament images,
-  and the whole theme adds 186 lines of CSS.
+- **Ornament, used sparingly.** A five-colour prayer-flag strip runs along the top of the page; a lotus divides
+  major sections and opens the footer; a low-opacity mandala is etched into the maroon bands and the corner of
+  the hero. Those three are inline SVG, no ornament images. The header itself carries the foundation's own
+  logo, and the favicon is their pixel-art version of the same bodhi tree, so tab and masthead match.
 - **The Buddha sits in a niche.** The hero image is masked with a 46% / 20% elliptical arch, with a 1px gold
   outline offset 0.9rem behind it, so the banner reads as a shrine rather than a background photo. Below
   900px the hero stacks and the arch flattens to 4:5.
 - **Motion is restrained.** Fade-and-rise on scroll, a slow brightness drift on the hero image, a marquee of
   programme and city names. All of it disabled under `prefers-reduced-motion`.
-- **The foundation's own imagery, throughout.** 50 files drawn from `media/`. The hero is their golden-Buddha banner, the five programme
+- **The foundation's own imagery, throughout.** 51 files drawn from `media/`. The hero is their golden-Buddha banner, the five programme
   cards are their illustrated icons (monk, flower figure, Tai Chi pair, hospice house, fish spiral), the
   branches use their map banners, About uses the bodhi-leaf emblem and the oneness photographs, the happiness
   page carries the four translated book covers, and donate carries the real PayPal mark and both QR codes.
-  Nothing was substituted from stock; the only processing is WebP conversion into 112 derivatives and, for
+  Nothing was substituted from stock; the only processing is WebP conversion into 124 derivatives and, for
   the emblem, keying its white background to transparent.
 - **Search is local.** ⌘K opens a command palette over a JSON index built at compile time. No service, no
   key, no network.
@@ -109,7 +109,7 @@ third-party requests.
 - No client framework. The only JavaScript is the header, the drawer, the search palette and a quote
   rotator: about 3 KB of inline script per page, zero JS bundles.
 - Breakpoints at 980px, 860px and 640px; the 390px layout stacks the hero and drops the arch to 4:5.
-- Build metrics: 15 routes, 54 source images, 122 WebP derivatives, 5.9 MB of media, 6.8 MB in `dist`, and
+- Build metrics: 15 routes, 51 source images, 124 WebP derivatives, 5.9 MB of media, 7.9 MB in `dist`, and
   under 1 MB transferred for a full home page visit.
 - `site/dist` is 6.3 MB, of which 5.5 MB is WebP across 112 files; a home page visit transfers 0.85 MB in 18
   requests. The archive behind it is 516 MB across 844 files.

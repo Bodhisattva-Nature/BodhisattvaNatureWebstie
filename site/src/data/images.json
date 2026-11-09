@@ -1005,6 +1005,23 @@
    }
   ]
  },
+ "logo": {
+  "w": 582,
+  "h": 251,
+  "alpha": true,
+  "variants": [
+   {
+    "w": 180,
+    "h": 78,
+    "file": "logo-180.webp"
+   },
+   {
+    "w": 360,
+    "h": 155,
+    "file": "logo-360.webp"
+   }
+  ]
+ },
  "teacher-zhenjue": {
   "w": 392,
   "h": 600,

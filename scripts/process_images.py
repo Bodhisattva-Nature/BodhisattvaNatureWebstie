@@ -94,6 +94,9 @@ MANIFEST = {
     "event-wisdom": "2024/04/2-1.png",
     "event-mindfulness": "2024/04/1-1.png",
 
+    # the foundation's logo (header)
+    "logo": "2022/05/logo-1.png",
+
     # teachers
     "teacher-zhenjue": "2022/07/zhenjue-shifu-photo-5.png",
     "teacher-deyang": "2026/01/WechatIMG3426.jpg",
@@ -120,6 +123,7 @@ WIDTH_OVERRIDES = {
     "teacher-zhenjue": [392, 600],
     "teacher-deyang": [371, 560],
     "hero": [480, 900, 1600],
+    "logo": [180, 360],
     "event-retreat": [480, 900, 1400],
     "event-online": [480, 900, 1400],
     "programs-banner": [480, 900, 1600],
