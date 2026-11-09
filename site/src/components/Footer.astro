@@ -1,11 +1,13 @@
 ---
 import { site, branches, connections } from "../data/site";
 import { url } from "../lib/url";
+import Lotus from "./Lotus.astro";
 const year = new Date().getFullYear();
 ---
 
 <footer class="footer">
   <div class="wrap">
+    <Lotus class="footer__lotus" />
     <div class="footer__top">
       <div>
         <p class="footer__brand">Peace. Balance. Truth.</p>

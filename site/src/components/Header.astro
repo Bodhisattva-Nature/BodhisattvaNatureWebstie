@@ -8,9 +8,21 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
 ---
 
 <header class="header">
+  <span class="flagline" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
   <div class="wrap header__inner">
     <a href={url("/")} class="brand" aria-label={`${site.name} — home`}>
-      <span class="brand__mark">BN</span>
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="24" cy="24" r="20.5" />
+          <circle cx="24" cy="24" r="4.6" />
+          <g stroke-linecap="round">
+            <path d="M24 3.5v16" /><path d="M24 28.5v16" />
+            <path d="M3.5 24h16" /><path d="M28.5 24h16" />
+            <path d="M9.5 9.5l11.3 11.3" /><path d="M27.2 27.2l11.3 11.3" />
+            <path d="M38.5 9.5L27.2 20.8" /><path d="M20.8 27.2L9.5 38.5" />
+          </g>
+        </svg>
+      </span>
       <span class="brand__text">
         Bodhisattva Nature
         <small>Foundation</small>

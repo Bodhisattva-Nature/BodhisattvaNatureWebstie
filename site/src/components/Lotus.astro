@@ -1,0 +1,15 @@
+---
+interface Props { class?: string }
+const { class: cls } = Astro.props;
+const petal = "M32 29C27 24 26.5 13 32 4c5.5 9 5 20 0 25z";
+---
+
+<svg class:list={["lotus", cls]} viewBox="0 0 64 32" fill="none" stroke="currentColor" stroke-width="1.15"
+  stroke-linejoin="round" aria-hidden="true">
+  <path d={petal} />
+  <path d={petal} transform="rotate(-26 32 29)" />
+  <path d={petal} transform="rotate(26 32 29)" />
+  <path d={petal} transform="rotate(-50 32 29)" opacity="0.75" />
+  <path d={petal} transform="rotate(50 32 29)" opacity="0.75" />
+  <path d="M9 29.5h46" stroke-linecap="round" />
+</svg>

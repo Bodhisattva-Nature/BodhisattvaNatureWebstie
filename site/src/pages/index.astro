@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Img from "../components/Img.astro";
+import Divider from "../components/Divider.astro";
 import { site, stats, pillars, programs, teachers, testimonials, schedule, retreat } from "../data/site";
 import { url } from "../lib/url";
 import quotes from "../data/quotes.json";
@@ -160,6 +161,8 @@ const ticker = [
     </div>
   </section>
 
+  <Divider />
+
   <!-- PILLARS -->
   <section class="section">
     <div class="wrap">
@@ -247,6 +250,8 @@ const ticker = [
     </div>
   </section>
 
+  <Divider />
+
   <!-- TESTIMONIALS -->
   <section class="section section--cream">
     <div class="wrap">
@@ -323,12 +328,12 @@ const ticker = [
   }
 
   .retreat-list li {
-    border: 1px solid rgba(236, 230, 216, 0.24);
+    border: 1px solid rgba(217, 171, 84, 0.42);
     border-radius: 999px;
     padding: 0.45em 1em;
     font-size: 0.78rem;
     letter-spacing: 0.04em;
-    color: rgba(236, 230, 216, 0.8);
+    color: rgba(243, 231, 210, 0.88);
   }
 
   .quote-carousel {

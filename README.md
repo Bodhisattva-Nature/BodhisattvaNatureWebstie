@@ -71,12 +71,23 @@ same five programmes and five branch addresses.
 
 ## Design notes
 
-Paper and ink, one saffron accent, nothing else. Fraunces for display, Inter for text, both self-hosted so the
-site has no third-party requests at runtime.
+The theme is built from the tradition rather than around it: parchment, monk-robe saffron, temple maroon,
+gilded gold and jade. Fraunces for display, Inter for text, both self-hosted so the site makes no
+third-party requests.
 
-- **Type does the work.** The hero is three words at 7rem. Sections are separated by rules and space rather
-  than boxes and shadows.
-- **Motion is restrained.** Fade-and-rise on scroll, a slow Ken Burns on the hero image, a marquee of
+- **Parchment, not white.** The page sits on a warm sandalwood ground (#F6EFDF) with ink text at #1B1410,
+  so the golden Buddha reads as an object in a room rather than an image on a screen. Five colours carry the
+  whole palette: parchment #F6EFDF, saffron #BF6A1E, maroon #5B1A26, gold #D9AB54, jade #26443A.
+- **Maroon bands.** Every dark section is the colour of a Tibetan robe (#3A0C16) with gold numerals
+  (#D9AB54) and a 1px gilded rule along its top edge. The jade band is the one green interval, used for the numbers.
+- **Ornament, used sparingly.** A five-colour prayer-flag strip runs along the top of the page; the logo is
+  an eight-spoke dharma wheel; a lotus divides major sections and opens the footer; a low-opacity mandala is
+  etched into the maroon bands and the corner of the hero. All four are inline SVG — no ornament images,
+  and the whole theme adds 186 lines of CSS.
+- **The Buddha sits in a niche.** The hero image is masked with a 46% / 20% elliptical arch, with a 1px gold
+  outline offset 0.9rem behind it, so the banner reads as a shrine rather than a background photo. Below
+  900px the hero stacks and the arch flattens to 4:5.
+- **Motion is restrained.** Fade-and-rise on scroll, a slow brightness drift on the hero image, a marquee of
   programme and city names. All of it disabled under `prefers-reduced-motion`.
 - **The foundation's own imagery, throughout.** 50 files drawn from `media/`. The hero is their golden-Buddha banner, the five programme
   cards are their illustrated icons (monk, flower figure, Tai Chi pair, hospice house, fish spiral), the
@@ -95,6 +106,9 @@ site has no third-party requests at runtime.
 - Two variable fonts, latin and latin-ext subsets, 412 KB total, `font-display: swap`, preloaded.
 - No client framework. The only JavaScript is the header, the drawer, the search palette and a quote
   rotator: about 3 KB of inline script per page, zero JS bundles.
+- Breakpoints at 980px, 860px and 640px; the 390px layout stacks the hero and drops the arch to 4:5.
+- Build metrics: 14 routes, 50 source images, 112 WebP derivatives, 5.5 MB of media, 6.3 MB in `dist`, and
+  0.85 MB transferred for a full home page visit in 18 requests.
 - `site/dist` is 6.3 MB, of which 5.5 MB is WebP across 112 files; a home page visit transfers 0.85 MB in 18
   requests. The archive behind it is 516 MB across 844 files.
 
