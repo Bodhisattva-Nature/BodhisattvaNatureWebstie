@@ -73,13 +73,18 @@ import { url } from "../lib/url";
           These locations do not represent branches or operating sites of Bodhisattva Nature Foundation.
         </p>
       </div>
-      <div class="connections" data-reveal style="--i:2">
+      <div class="conn-wrap" data-reveal style="--i:2">
+        <figure class="conn-figure media">
+          <Img name="whale-earth" alt="Illustration of a whale carrying the earth" sizes="(max-width: 900px) 100vw, 40vw" />
+        </figure>
+        <div class="connections">
         {connections.map((c) => (
           <div class="conn">
             <strong>{c.region}</strong>
             {c.places && <span>{c.places}</span>}
           </div>
         ))}
+        </div>
       </div>
     </div>
   </section>
@@ -147,6 +152,9 @@ import { url } from "../lib/url";
   .branch__links { display: grid; gap: 0.25rem; font-size: 0.92rem; margin-top: 0.3rem; }
   .branch__links a { border-bottom: 1px solid var(--line); justify-self: start; transition: color 0.3s; }
   .branch__links a:hover { color: var(--saffron); }
+
+  .conn-wrap { display: grid; gap: 1.5rem; }
+  .conn-figure { margin: 0; aspect-ratio: 16/9; }
 
   .connections {
     display: grid;

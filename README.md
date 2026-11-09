@@ -63,7 +63,7 @@ site/
     fonts/              Fraunces + Inter, latin subsets, self-hosted
 ```
 
-14 routes: home, about, programmes index, five programme pages, wisdom, community, volunteer, donate, visit,
+14 routes: home, about, programmes index, 5 programme pages, wisdom, community, volunteer, donate, visit,
 404. The original's 52 pages collapse into those 14. Most of the old pages were duplicate Divi layouts for the
 same five programmes and five branch addresses.
 
@@ -78,11 +78,12 @@ site has no third-party requests at runtime.
   than boxes and shadows.
 - **Motion is restrained.** Fade-and-rise on scroll, a slow Ken Burns on the hero image, a marquee of
   programme and city names. All of it disabled under `prefers-reduced-motion`.
-- **The foundation's own imagery, throughout.** 30 files drawn from `media/`. The hero is their golden-Buddha banner, the five programme
+- **The foundation's own imagery, throughout.** 50 files drawn from `media/`. The hero is their golden-Buddha banner, the five programme
   cards are their illustrated icons (monk, flower figure, Tai Chi pair, hospice house, fish spiral), the
-  branches use their map banners, and the About page uses the bodhi-leaf emblem and the oneness photographs.
-  Nothing was substituted from stock; the only processing is WebP conversion and, for the emblem, keying its
-  white background to transparent.
+  branches use their map banners, About uses the bodhi-leaf emblem and the oneness photographs, the happiness
+  page carries the four translated book covers, and donate carries the real PayPal mark and both QR codes.
+  Nothing was substituted from stock; the only processing is WebP conversion into 112 derivatives and, for
+  the emblem, keying its white background to transparent.
 - **Search is local.** ⌘K opens a command palette over a JSON index built at compile time. No service, no
   key, no network.
 
@@ -94,8 +95,8 @@ site has no third-party requests at runtime.
 - Two variable fonts, latin and latin-ext subsets, 412 KB total, `font-display: swap`, preloaded.
 - No client framework. The only JavaScript is the header, the drawer, the search palette and a quote
   rotator: about 3 KB of inline script per page, zero JS bundles.
-- `site/dist` is 5.1 MB: 4.4 MB of WebP across 74 files, 412 KB of fonts, one 20 KB stylesheet, and 14 HTML
-  files. The source archive is 431 MB across 812 original uploads.
+- `site/dist` is 6.3 MB, of which 5.5 MB is WebP across 112 files; a home page visit transfers 0.85 MB in 18
+  requests. The archive behind it is 516 MB across 844 files.
 
 ## Content provenance
 

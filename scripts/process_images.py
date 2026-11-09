@@ -59,12 +59,69 @@ MANIFEST = {
     "branch-japan": "2024/04/Japan-.png",
     "branch-singapore": "2024/03/Singapore.jpg",
 
+    # page-level imagery from the original pages
+    "programs-banner": "2024/08/programs-new.jpg",
+    "dharma-hero": "2024/08/Study-dharma.jpg",
+    "mindfulness-hero": "2024/08/background-mindfulness.jpg",
+    "taichi-hero": "2024/06/Taichi-Und2.png",
+    "taichi-alt": "2024/06/Taichi-Und3.png",
+    "hospice-hero": "2024/07/hospice-5.jpg",
+    "happiness-hero": "2022/09/happy-face-2.jpg",
+    "volunteer-hero": "2022/06/Depositphotos_187138182_DS-scaled.jpg",
+    "donate-hero": "2024/08/donate.jpg",
+    "whale-earth": "2026/01/鲸鱼地球.jpg",
+
+    # the book in four languages + donation assets
+    "book-en": "2024/05/195913178.jpeg",
+    "book-de": "2024/05/Germany-scaled.jpeg",
+    "book-fr": "2024/05/fr-scaled.jpeg",
+    "book-nl": "2024/05/e24236a03f760b5-scaled.jpeg",
+    "tibetan-book": "2024/07/Tibetan-.png",
+    "paypal": "2022/10/paypal.png",
+    "qr-1": "2026/05/微信图片_20260515194017_1303_23.jpg",
+    "qr-2": "2026/05/微信图片_20260515194019_1304_23.jpg",
+
+    # testimonial portraits
+    "avatar-1": "2022/05/75x75_auto.png",
+    "avatar-2": "2022/05/75x75_auto8.png",
+    "avatar-3": "2022/05/75x75_auto6.png",
+    "avatar-4": "2022/05/75x75_auto7.png",
+    "avatar-5": "2022/05/75x75_auto1.png",
+
     # teachers
     "teacher-zhenjue": "2022/07/zhenjue-shifu-photo-5.png",
     "teacher-deyang": "2026/01/WechatIMG3426.jpg",
 }
 
-WIDTHS = [480, 900, 1600, 2200]
+WIDTHS = [480, 900, 1600]
+
+# per-image width caps so small display slots don't ship 1600px files
+WIDTH_OVERRIDES = {
+    "book-en": [480, 760],
+    "book-de": [480, 760],
+    "book-fr": [480, 760],
+    "book-nl": [480, 760],
+    "qr-1": [480, 640],
+    "qr-2": [480, 640],
+    "paypal": [480],
+    "whale-earth": [480, 900],
+    "donate-hero": [480, 760],
+    "avatar-1": [75],
+    "avatar-2": [75],
+    "avatar-3": [75],
+    "avatar-4": [75],
+    "avatar-5": [75],
+    "teacher-zhenjue": [392, 600],
+    "teacher-deyang": [371, 560],
+    "hero": [480, 900, 1600],
+    "programs-banner": [480, 900, 1600],
+    "contact-hero": [480, 900, 1600],
+    "community-ill": [480, 900, 1600],
+    "branch-canada": [480, 900, 1600],
+    "branch-us": [480, 900, 1600],
+    "branch-australia": [480, 900, 1600],
+    "branch-japan": [480, 900, 1600],
+}
 
 # flat white backgrounds to key out (the source files ship them baked in)
 KEY_OUT_WHITE = {"emblem"}
@@ -139,7 +196,7 @@ for name, rel in MANIFEST.items():
 
     w0, h0 = im.size
     variants = []
-    for w in WIDTHS:
+    for w in WIDTH_OVERRIDES.get(name, WIDTHS):
         if w > w0 * 1.15:
             continue
         h = round(h0 * (w / w0))

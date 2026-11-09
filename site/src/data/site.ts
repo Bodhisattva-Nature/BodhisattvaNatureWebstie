@@ -98,6 +98,9 @@ export type Program = {
   kicker: string;
   summary: string;
   image: string;
+  hero: string;
+  gallery?: { image: string; caption: string; ratio?: string }[];
+  bookGrid?: boolean;
   intro: string[];
   highlights: { title: string; body: string }[];
   list?: { title: string; items: string[] };
@@ -115,6 +118,7 @@ export const programs: Program[] = [
     summary:
       "The Four Noble Truths, impermanence, karma and the nature of mind — the Buddha's own analysis of suffering and its ending, studied plainly.",
     image: "program-dharma",
+    hero: "dharma-hero",
     intro: [
       "Buddhism traces its origins to Siddhartha Gautama, born in ancient India around the sixth century BCE, who renounced a life of luxury to seek enlightenment and became known as the Buddha — the awakened one.",
       "At the centre of the teaching are the Four Noble Truths and the Noble Eightfold Path: ethical conduct, mental discipline and wisdom, guiding the practitioner toward liberation from suffering.",
@@ -201,6 +205,11 @@ export const programs: Program[] = [
     summary:
       "Present-moment awareness, taught in the old way — posture, breath, stretching, and a mind that watches without judging.",
     image: "program-mindfulness",
+    hero: "mindfulness-hero",
+    gallery: [
+      { image: "mindfulness-hero", caption: "Before sitting: a quiet room, an upright spine, a settled breath" },
+      { image: "peace", caption: "Guidance in the seven-point posture of Vairochana" },
+    ],
     intro: [
       "Mindfulness retreats and classes cultivate present-moment awareness: through guided meditation, mindful movement and walking, and teachings from experienced instructors, you learn to observe thoughts and sensations without judgement.",
       "The benefits extend past the cushion — improved concentration, greater resilience, and a way of meeting stress that carries into ordinary days.",
@@ -255,6 +264,11 @@ export const programs: Program[] = [
     summary:
       "Slow, graceful movement that stretches, strengthens and settles the mind — traditional Chinese exercise as spiritual practice.",
     image: "program-taichi",
+    hero: "taichi-hero",
+    gallery: [
+      { image: "taichi-alt", caption: "Lianhua Sheng Dashigong — lotus movements, practised slowly" },
+      { image: "feather", caption: "The aim is not exertion. It is balance." },
+    ],
     intro: [
       "Tai Chi takes the dialectical concept of Taiji and Yin-Yang as its core idea, joining the changes of the I Ching, the meridians of traditional Chinese medicine, ancient Daoyin and Tuna breathing.",
       "With slow and graceful movements it helps you stretch, breathe and find balance — calming the body and emotions, and reducing stress, anxiety and depression. Long-term practice opens the Qi channels, strengthening the body and steadying temperament.",
@@ -291,6 +305,10 @@ export const programs: Program[] = [
     summary:
       "Buddhist end-of-life care — how to help someone die with a clear, peaceful mind, and how to hold a family through it.",
     image: "program-hospice",
+    hero: "hospice-hero",
+    gallery: [
+      { image: "tibetan-book", caption: "The Tibetan Book of Living and Dying — a video series is available", ratio: "2/3" },
+    ],
     intro: [
       "Buddhism holds a profound understanding of life and death, and sees the mentality of the dying as crucial for what follows. Hospice care is therefore the final and most important help we can offer.",
       "End-of-life care is approached with deep compassion and mindfulness: easing the transition with dignity and spiritual preparedness, cultivating acceptance of impermanence and letting go of attachments.",
@@ -337,6 +355,8 @@ export const programs: Program[] = [
     summary:
       "A fifteen-part series on what happiness and freedom actually are — and why pursuing them as external gain keeps missing.",
     image: "program-happiness",
+    hero: "happiness-hero",
+    bookGrid: true,
     intro: [
       "The myriad beings hustle through life striving for happiness and freedom. Yet our understanding of them is often one-sided, narrow and even mistaken — and much of the interpersonal and psychological difficulty in society grows from that misdirected search.",
       "We equate satisfying desire with happiness, and so pursue the external relentlessly: success brings joy, failure brings sorrow. Wise voices remind us of deeper forms, unaffected by external change — and assure us that reaching them is within our grasp.",
@@ -519,6 +539,13 @@ export const branches: Branch[] = [
   },
 ];
 
+export const books = [
+  { image: "book-en", lang: "English", title: "The Essence of Happiness and True Freedom" },
+  { image: "book-de", lang: "Deutsch", title: "Die Essenz von Glück und wahrer Freiheit" },
+  { image: "book-fr", lang: "Français", title: "L'essence du bonheur et de la vraie liberté" },
+  { image: "book-nl", lang: "Nederlands", title: "De Essentie van Geluk en Ware Vrijheid" },
+];
+
 export const connections = [
   { region: "Australia", places: "Sydney" },
   { region: "America", places: "Los Angeles · Raleigh · New York" },
@@ -535,6 +562,7 @@ export const testimonials = [
     quote:
       "You may think this is ridiculous — I have been a teacher for 15 years, and all I knew about the world was the pictures of China, Asia, Africa and Europe. After the course, I realised that the world refers to time and space. It was then that I felt how tiny I am, and how ridiculous it is for human beings to think they know so much.",
     name: "Qing Ju",
+    avatar: "avatar-1",
     role: "High school teacher",
     title: "I feel how tiny I am",
   },
@@ -542,6 +570,7 @@ export const testimonials = [
     quote:
       "The teachers awakened my love for my parents. How could we blame our parents when it is not easy to repay them for raising us! When I realised this, I was deeply remorseful. The teachers also resolved the resentments between me and my mum — we are now closer to each other.",
     name: "Kong Yuan",
+    avatar: "avatar-2",
     role: "Pottery craftsman",
     title: "My love for parents awakened",
   },
@@ -549,6 +578,7 @@ export const testimonials = [
     quote:
       "Truly, an experience that awakened me to what I had done in the years that had passed. What did I do that was of value to society? How much time was wasted? In the time remaining, I want to wake up, to feel and live in every present moment; let life awaken life, and let more lives rise together.",
     name: "Lei Jun",
+    avatar: "avatar-3",
     role: "Photographer",
     title: "Love and kindness",
   },
@@ -556,6 +586,7 @@ export const testimonials = [
     quote:
       "Without them, I would still be living in a muddled ego, unaware of the preciousness of this human body, unaware of the illusion of the world I live in, never thinking about the true meaning of life. From this moment on I feel reborn — I will live my limited life with kindness to others, in service to society, in pursuit of truth.",
     name: "Kong Yang",
+    avatar: "avatar-4",
     role: "Spiritual counsellor",
     title: "I feel reborn",
   },
@@ -563,6 +594,7 @@ export const testimonials = [
     quote:
       "One of the questions we must face is how we should live our life. In my own case I had always lived with the flow, without clear goals. Today's lesson reveals the truth about life — the three sufferings and impermanence. Life is the process of cultivating your soul.",
     name: "Wang Kun",
+    avatar: "avatar-5",
     role: "Painter",
     title: "How should I live?",
   },

@@ -5,6 +5,7 @@ import { site, stats, pillars, programs, teachers, testimonials, schedule, retre
 import { url } from "../lib/url";
 import quotes from "../data/quotes.json";
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const featured = [...quotes].sort((a, b) => a.body.length - b.body.length).slice(0, 3);
 const ticker = [
   "Dharma study",
@@ -268,6 +269,7 @@ const ticker = [
               <p style="margin-top:1rem">{t.quote}</p>
             </div>
             <div class="tcard__who">
+              <img class="tcard__avatar" src={`${base}/media/${t.avatar}-75.webp`} alt="" width="37" height="37" loading="lazy" />
               <strong>{t.name}</strong>
               <span>{t.role}</span>
             </div>

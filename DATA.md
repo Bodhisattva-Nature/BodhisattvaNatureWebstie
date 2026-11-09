@@ -20,6 +20,7 @@ Give 4.19.1 and All in One SEO 5.0.4.
 | `/wp/v2/comments` | 2 | `api/comments.json` |
 | `/wc/store/v1/products` | 1 | `api/products.json` (a $0 "Donation" product) |
 | testimonial pages | 5 | `api/testimonials.json` (scraped from the sitemap) |
+| images referenced across all 105 URLs | 360 unique | `raw/image_refs.json` |
 
 Plus `api/root.json`, the 1.8 MB REST index listing 1099 routes and 28 namespaces, and `api/types.json` /
 `api/taxonomies.json` describing the content model.
@@ -33,7 +34,7 @@ categories, 1 product, 1 give form, 1 post archive. That is the whole public sur
 api/         raw JSON, exactly as returned (23 MB)
 raw/         homepage HTML + urls.txt from the sitemaps
 content/     extracted content, one JSON per page (plus content/text/*.txt flat text)
-media/       818 downloaded uploads, original filenames preserved (468 MB)
+media/       844 files: the media library, the Smart Slider cache, theme assets (516 MB)
 ```
 
 `content/pages/*.json` and `content/posts/*.json` hold an ordered block list per page: headings, paragraphs,
@@ -82,7 +83,12 @@ python3 -m venv .venv && ./.venv/bin/pip install beautifulsoup4 lxml requests pi
 `harvest.py` paginates with `per_page=100`, reads `X-WP-TotalPages`, and retries on 5xx with a 240-second
 timeout; the pages endpoint alone returns 5 MB when `_embed=1` is set and takes 19 seconds.
 
-`process_images.py` takes 30 files straight out of `media/`: the hero banner, the five programme
+The page crawl (`scripts/crawl.py`) fetches all 105 URLs, walks every `<img>`, `srcset`, inline `background-image`
+and `<link>`, and records 360 unique image URLs. That is how the Smart Slider cache and the theme assets were
+found: they are not in the media library, and 22 homepage slides plus a Divi preloader only show up in rendered
+HTML.
+
+`process_images.py` takes 50 files straight out of `media/`: the hero banner, the five programme
 illustrations, the oneness photographs, the branch banners, the volunteer photos. It emits WebP at
 480/900/1600/2200 px into `site/public/media`, writing `site/src/data/images.json` for the `<Img>` component.
 Transparency is preserved (the programme icons are PNGs with alpha), and two source files needed repair:

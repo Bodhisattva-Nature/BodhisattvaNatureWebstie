@@ -18,11 +18,6 @@
     "w": 1600,
     "h": 572,
     "file": "hero-1600.webp"
-   },
-   {
-    "w": 2200,
-    "h": 787,
-    "file": "hero-2200.webp"
    }
   ]
  },
@@ -45,11 +40,6 @@
     "w": 1600,
     "h": 696,
     "file": "contact-hero-1600.webp"
-   },
-   {
-    "w": 2200,
-    "h": 957,
-    "file": "contact-hero-2200.webp"
    }
   ]
  },
@@ -191,11 +181,6 @@
     "w": 1600,
     "h": 640,
     "file": "community-ill-1600.webp"
-   },
-   {
-    "w": 2200,
-    "h": 880,
-    "file": "community-ill-2200.webp"
    }
   ]
  },
@@ -475,11 +460,6 @@
     "w": 1600,
     "h": 696,
     "file": "branch-canada-1600.webp"
-   },
-   {
-    "w": 2200,
-    "h": 957,
-    "file": "branch-canada-2200.webp"
    }
   ]
  },
@@ -502,11 +482,6 @@
     "w": 1600,
     "h": 696,
     "file": "branch-us-1600.webp"
-   },
-   {
-    "w": 2200,
-    "h": 957,
-    "file": "branch-us-2200.webp"
    }
   ]
  },
@@ -529,11 +504,6 @@
     "w": 1600,
     "h": 696,
     "file": "branch-australia-1600.webp"
-   },
-   {
-    "w": 2200,
-    "h": 957,
-    "file": "branch-australia-2200.webp"
    }
   ]
  },
@@ -556,11 +526,6 @@
     "w": 1600,
     "h": 696,
     "file": "branch-japan-1600.webp"
-   },
-   {
-    "w": 2200,
-    "h": 957,
-    "file": "branch-japan-2200.webp"
    }
   ]
  },
@@ -573,6 +538,392 @@
     "w": 480,
     "h": 480,
     "file": "branch-singapore-480.webp"
+   }
+  ]
+ },
+ "programs-banner": {
+  "w": 2500,
+  "h": 1000,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 192,
+    "file": "programs-banner-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 360,
+    "file": "programs-banner-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 640,
+    "file": "programs-banner-1600.webp"
+   }
+  ]
+ },
+ "dharma-hero": {
+  "w": 2500,
+  "h": 1000,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 192,
+    "file": "dharma-hero-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 360,
+    "file": "dharma-hero-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 640,
+    "file": "dharma-hero-1600.webp"
+   }
+  ]
+ },
+ "mindfulness-hero": {
+  "w": 2188,
+  "h": 875,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 192,
+    "file": "mindfulness-hero-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 360,
+    "file": "mindfulness-hero-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 640,
+    "file": "mindfulness-hero-1600.webp"
+   }
+  ]
+ },
+ "taichi-hero": {
+  "w": 1580,
+  "h": 1080,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 328,
+    "file": "taichi-hero-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 615,
+    "file": "taichi-hero-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 1094,
+    "file": "taichi-hero-1600.webp"
+   }
+  ]
+ },
+ "taichi-alt": {
+  "w": 1580,
+  "h": 1080,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 328,
+    "file": "taichi-alt-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 615,
+    "file": "taichi-alt-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 1094,
+    "file": "taichi-alt-1600.webp"
+   }
+  ]
+ },
+ "hospice-hero": {
+  "w": 1800,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 160,
+    "file": "hospice-hero-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 300,
+    "file": "hospice-hero-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 533,
+    "file": "hospice-hero-1600.webp"
+   }
+  ]
+ },
+ "happiness-hero": {
+  "w": 900,
+  "h": 604,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 322,
+    "file": "happiness-hero-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 604,
+    "file": "happiness-hero-900.webp"
+   }
+  ]
+ },
+ "volunteer-hero": {
+  "w": 2560,
+  "h": 1003,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 188,
+    "file": "volunteer-hero-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 353,
+    "file": "volunteer-hero-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 627,
+    "file": "volunteer-hero-1600.webp"
+   }
+  ]
+ },
+ "donate-hero": {
+  "w": 580,
+  "h": 800,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 662,
+    "file": "donate-hero-480.webp"
+   }
+  ]
+ },
+ "whale-earth": {
+  "w": 800,
+  "h": 800,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 480,
+    "file": "whale-earth-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 900,
+    "file": "whale-earth-900.webp"
+   }
+  ]
+ },
+ "book-en": {
+  "w": 1600,
+  "h": 2560,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 768,
+    "file": "book-en-480.webp"
+   },
+   {
+    "w": 760,
+    "h": 1216,
+    "file": "book-en-760.webp"
+   }
+  ]
+ },
+ "book-de": {
+  "w": 1810,
+  "h": 2560,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 679,
+    "file": "book-de-480.webp"
+   },
+   {
+    "w": 760,
+    "h": 1075,
+    "file": "book-de-760.webp"
+   }
+  ]
+ },
+ "book-fr": {
+  "w": 1810,
+  "h": 2560,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 679,
+    "file": "book-fr-480.webp"
+   },
+   {
+    "w": 760,
+    "h": 1075,
+    "file": "book-fr-760.webp"
+   }
+  ]
+ },
+ "book-nl": {
+  "w": 1810,
+  "h": 2560,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 679,
+    "file": "book-nl-480.webp"
+   },
+   {
+    "w": 760,
+    "h": 1075,
+    "file": "book-nl-760.webp"
+   }
+  ]
+ },
+ "tibetan-book": {
+  "w": 400,
+  "h": 650,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 400,
+    "h": 650,
+    "file": "tibetan-book-400.webp"
+   }
+  ]
+ },
+ "paypal": {
+  "w": 593,
+  "h": 585,
+  "alpha": true,
+  "variants": [
+   {
+    "w": 480,
+    "h": 474,
+    "file": "paypal-480.webp"
+   }
+  ]
+ },
+ "qr-1": {
+  "w": 1051,
+  "h": 991,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 453,
+    "file": "qr-1-480.webp"
+   },
+   {
+    "w": 640,
+    "h": 603,
+    "file": "qr-1-640.webp"
+   }
+  ]
+ },
+ "qr-2": {
+  "w": 1048,
+  "h": 979,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 448,
+    "file": "qr-2-480.webp"
+   },
+   {
+    "w": 640,
+    "h": 598,
+    "file": "qr-2-640.webp"
+   }
+  ]
+ },
+ "avatar-1": {
+  "w": 75,
+  "h": 75,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 75,
+    "h": 75,
+    "file": "avatar-1-75.webp"
+   }
+  ]
+ },
+ "avatar-2": {
+  "w": 75,
+  "h": 75,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 75,
+    "h": 75,
+    "file": "avatar-2-75.webp"
+   }
+  ]
+ },
+ "avatar-3": {
+  "w": 75,
+  "h": 75,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 75,
+    "h": 75,
+    "file": "avatar-3-75.webp"
+   }
+  ]
+ },
+ "avatar-4": {
+  "w": 75,
+  "h": 75,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 75,
+    "h": 75,
+    "file": "avatar-4-75.webp"
+   }
+  ]
+ },
+ "avatar-5": {
+  "w": 75,
+  "h": 75,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 75,
+    "h": 75,
+    "file": "avatar-5-75.webp"
    }
   ]
  },

@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import Img from "../../components/Img.astro";
-import { programs, site } from "../../data/site";
+import { programs, site, books } from "../../data/site";
 import { url } from "../../lib/url";
 
 export function getStaticPaths() {
@@ -20,8 +20,8 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
         <h1 data-reveal style="--i:1">{program.title}</h1>
         <p class="lede" data-reveal style="--i:2">{program.summary}</p>
       </div>
-      <div class="prog-head__media media media--tile" data-reveal style="--i:2">
-        <Img name={program.image} alt={program.title} sizes="(max-width: 900px) 100vw, 42vw" loading="eager" />
+      <div class="prog-head__media media" data-reveal style="--i:2">
+        <Img name={program.hero} alt={program.title} sizes="(max-width: 900px) 100vw, 42vw" loading="eager" />
       </div>
     </div>
   </header>
@@ -69,6 +69,52 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
               <h3>{t.title}</h3>
               <p>{t.body}</p>
             </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {program.gallery && (
+    <section class="section section--cream">
+      <div class="wrap">
+        <div class="gallery">
+          {program.gallery.map((g, i) => (
+            <figure class="gallery__item" data-reveal style={`--i:${i}`}>
+              <div class="media" style={`aspect-ratio:${g.ratio ?? "4/3"}`}>
+                <Img name={g.image} alt={g.caption} sizes="(max-width: 800px) 100vw, 46vw" />
+              </div>
+              <figcaption class="caption">{g.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {program.bookGrid && (
+    <section class="section section--cream">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" data-reveal>Free download</span>
+            <h2 class="h2" data-reveal style="--i:1">The book, in four languages.</h2>
+          </div>
+          <p class="small muted" data-reveal style="max-width:32ch">
+            A text version of the series, translated and offered freely. Share it with anyone.
+          </p>
+        </div>
+        <div class="books">
+          {books.map((b, i) => (
+            <figure class="book" data-reveal style={`--i:${i}`}>
+              <div class="media" style="aspect-ratio:2/3">
+                <Img name={b.image} alt={`${b.title} — ${b.lang}`} sizes="(max-width: 800px) 44vw, 22vw" />
+              </div>
+              <figcaption>
+                <span class="book__lang">{b.lang}</span>
+                <span class="book__title">{b.title}</span>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>
@@ -242,7 +288,33 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
   .other h3 { font-size: var(--step-2); font-weight: 300; }
   .section--ink .link-arrow { border-color: rgba(236, 230, 216, 0.3); color: rgba(236, 230, 216, 0.85); }
 
+  .gallery {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: start;
+  }
+
+  .gallery__item { margin: 0; display: grid; gap: 0.8rem; }
+  .gallery__item:nth-child(2) { margin-top: clamp(2rem, 6vw, 5rem); }
+
+  .books {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1rem, 2.5vw, 2rem);
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .book { margin: 0; display: grid; gap: 0.9rem; }
+  .book .media { box-shadow: var(--shadow-soft); }
+  .book figcaption { display: grid; gap: 0.25rem; }
+  .book__lang { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron); }
+  .book__title { font-family: var(--font-display); font-size: 1rem; line-height: 1.2; }
+
   @media (max-width: 900px) {
+    .books { grid-template-columns: repeat(2, 1fr); }
+    .gallery { grid-template-columns: 1fr; }
+    .gallery__item:nth-child(2) { margin-top: 0; }
     .prog-head__inner { grid-template-columns: 1fr; }
     .prog-head__media { aspect-ratio: 16/10; }
     .truths, .highlights, .others { grid-template-columns: 1fr; }
