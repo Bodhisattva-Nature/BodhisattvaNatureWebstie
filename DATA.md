@@ -33,7 +33,7 @@ categories, 1 product, 1 give form, 1 post archive. That is the whole public sur
 api/         raw JSON, exactly as returned (23 MB)
 raw/         homepage HTML + urls.txt from the sitemaps
 content/     extracted content, one JSON per page (plus content/text/*.txt flat text)
-media/       812 downloaded uploads, original filenames preserved (431 MB)
+media/       818 downloaded uploads, original filenames preserved (468 MB)
 ```
 
 `content/pages/*.json` and `content/posts/*.json` hold an ordered block list per page: headings, paragraphs,
@@ -60,8 +60,9 @@ stripped from page content and rebuilt once as site-wide data.
   reconstructed from the rendered `<ul id="menu-...">` in the homepage HTML instead.
 - **Settings.** `/wp/v2/settings` is 401 as well. Nothing needed it.
 - **Drafts, revisions, private and trashed content.** Not public, not fetched.
-- **Media.** 811 of 817 attachments are listed; the API reports 817 in `X-WP-Total`. Six are likely
-  orphaned or restricted. All 812 URLs referenced by content or media records downloaded successfully.
+- **Media.** 811 of 817 attachments are listed; the API reports 817 in `X-WP-Total` and 6 records are
+  filtered out of the public collection. Every URL the API does return is on disk: 818 files, including the
+  four non-image uploads (`recite.zip`, `SINGAPORE.zip`, `条状装饰.zip`, a 32 MB `.mov`).
 - **Text inside images.** Several pages carry their content only in poster graphics (the Tibetan Book of
   Living and Dying page is 62 images and 31 words). That text is not recoverable without OCR and was left
   out of the rebuild.
