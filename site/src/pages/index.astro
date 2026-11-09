@@ -131,8 +131,95 @@ const ticker = [
     </div>
   </section>
 
+  <!-- RETREAT + SCHEDULE -->
+  <section class="section section--ink">
+    <div class="wrap grid grid--2" style="gap:clamp(2.5rem,6vw,6rem);align-items:center">
+      <div data-reveal>
+        <span class="eyebrow">{retreat.title}</span>
+        <h2 class="h2" style="margin-block:0.4em 1rem">A weekend to stop.</h2>
+        <p style="color:rgba(236,230,216,.72);max-width:44ch">
+          {retreat.goal}
+        </p>
+        <ul class="retreat-list">
+          {retreat.content.map((c) => <li>{c}</li>)}
+        </ul>
+        <a href={url("/community/")} class="btn" style="margin-top:2rem">See the calendar</a>
+      </div>
+      <div data-reveal style="--i:1">
+        <p class="caption" style="color:rgba(236,230,216,.45);margin-bottom:1rem">A day at the centre</p>
+        <div class="schedule" style="border-color:rgba(236,230,216,.16)">
+          {schedule.map((s) => (
+            <div class="schedule__row" style="border-color:rgba(236,230,216,.16)">
+              <span class="schedule__time">{s.time}</span>
+              <span class="schedule__label" style="color:rgba(236,230,216,.78)">{s.label}</span>
+            </div>
+          ))}
+        </div>
+        <figure class="media" style="margin:2rem 0 0;aspect-ratio:16/9">
+          <Img name="clouds" alt="A sea of cloud under a pale sky" sizes="(max-width: 980px) 100vw, 46vw" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>What's on</span>
+          <h2 class="h2" data-reveal style="--i:1">Every week.</h2>
+        </div>
+        <a href={url("/events/")} class="link-arrow" data-reveal style="--i:2">All events</a>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:clamp(2rem,4vw,3rem)">
+        {events.map((e, i) => (
+          <a class="event-card" href={url("/events/")} data-reveal style={`--i:${i}`}>
+            <div class="media zoom" style="aspect-ratio:16/10">
+              <Img name={e.image} alt={`${e.title} poster`} sizes="(max-width: 860px) 100vw, 46vw" />
+            </div>
+            <div class="event-card__body">
+              <span class="pillar__sub">{e.cadence}</span>
+              <h3>{e.title}{e.titleCn && <span> · {e.titleCn}</span>}</h3>
+              <p>{e.time} · {e.place}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Divider />
+
+  <!-- PILLARS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>What we stand for</span>
+          <h2 class="h2" data-reveal style="--i:1">Three commitments.</h2>
+        </div>
+      </div>
+      <div class="grid grid--3" style="margin-top:3rem">
+        {pillars.map((p, i) => (
+          <article class="pillar" data-reveal style={`--i:${i}`}>
+            <div class="card__media" style="aspect-ratio:4/5">
+              <Img name={p.image} alt={p.title} sizes="(max-width: 980px) 100vw, 32vw" />
+            </div>
+            <div class="pillar__head">
+              <h3>{p.title}</h3>
+              <span class="pillar__sub">{p.subtitle}</span>
+            </div>
+            <p>{p.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- VOLUNTEER -->
-  <section class="section section--tight">
+  <section class="section section--volunteer">
     <div class="wrap">
       <div class="volunteer-band" data-reveal>
         <div class="volunteer-band__quote">
@@ -173,65 +260,6 @@ const ticker = [
         Over 100 dharma talks, 324 group classes, 365 daily classes and 54 retreats each year — all free. Contributions
         pay for the hardware, software, books, videos and internet that make them possible.
       </p>
-    </div>
-  </section>
-
-  <Divider />
-
-  <!-- PILLARS -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow" data-reveal>What we stand for</span>
-          <h2 class="h2" data-reveal style="--i:1">Three commitments.</h2>
-        </div>
-      </div>
-      <div class="grid grid--3" style="margin-top:3rem">
-        {pillars.map((p, i) => (
-          <article class="pillar" data-reveal style={`--i:${i}`}>
-            <div class="card__media" style="aspect-ratio:4/5">
-              <Img name={p.image} alt={p.title} sizes="(max-width: 980px) 100vw, 32vw" />
-            </div>
-            <div class="pillar__head">
-              <h3>{p.title}</h3>
-              <span class="pillar__sub">{p.subtitle}</span>
-            </div>
-            <p>{p.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- RETREAT + SCHEDULE -->
-  <section class="section section--ink">
-    <div class="wrap grid grid--2" style="gap:clamp(2.5rem,6vw,6rem);align-items:center">
-      <div data-reveal>
-        <span class="eyebrow">{retreat.title}</span>
-        <h2 class="h2" style="margin-block:0.4em 1rem">A weekend to stop.</h2>
-        <p style="color:rgba(236,230,216,.72);max-width:44ch">
-          {retreat.goal}
-        </p>
-        <ul class="retreat-list">
-          {retreat.content.map((c) => <li>{c}</li>)}
-        </ul>
-        <a href={url("/community/")} class="btn" style="margin-top:2rem">See the calendar</a>
-      </div>
-      <div data-reveal style="--i:1">
-        <p class="caption" style="color:rgba(236,230,216,.45);margin-bottom:1rem">A day at the centre</p>
-        <div class="schedule" style="border-color:rgba(236,230,216,.16)">
-          {schedule.map((s) => (
-            <div class="schedule__row" style="border-color:rgba(236,230,216,.16)">
-              <span class="schedule__time">{s.time}</span>
-              <span class="schedule__label" style="color:rgba(236,230,216,.78)">{s.label}</span>
-            </div>
-          ))}
-        </div>
-        <figure class="media" style="margin:2rem 0 0;aspect-ratio:16/9">
-          <Img name="clouds" alt="A sea of cloud under a pale sky" sizes="(max-width: 980px) 100vw, 46vw" />
-        </figure>
-      </div>
     </div>
   </section>
 
@@ -294,34 +322,6 @@ const ticker = [
               <span>{t.role}</span>
             </div>
           </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- EVENTS -->
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow" data-reveal>What's on</span>
-          <h2 class="h2" data-reveal style="--i:1">Every week.</h2>
-        </div>
-        <a href={url("/events/")} class="link-arrow" data-reveal style="--i:2">All events</a>
-      </div>
-
-      <div class="grid grid--2" style="margin-top:clamp(2rem,4vw,3rem)">
-        {events.map((e, i) => (
-          <a class="event-card" href={url("/events/")} data-reveal style={`--i:${i}`}>
-            <div class="media zoom" style="aspect-ratio:16/10">
-              <Img name={e.image} alt={`${e.title} poster`} sizes="(max-width: 860px) 100vw, 46vw" />
-            </div>
-            <div class="event-card__body">
-              <span class="pillar__sub">{e.cadence}</span>
-              <h3>{e.title}{e.titleCn && <span> · {e.titleCn}</span>}</h3>
-              <p>{e.time} · {e.place}</p>
-            </div>
-          </a>
         ))}
       </div>
     </div>

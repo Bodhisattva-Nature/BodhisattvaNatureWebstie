@@ -136,6 +136,9 @@ a {
 
 /* pull two related sections together */
 .section--tight-bottom { padding-bottom: clamp(2rem, 4vw, 3.5rem); }
+
+/* the callout sits directly under the previous section's own spacing */
+.section--volunteer { padding-top: 0; }
 .section--tight-top { padding-top: clamp(2rem, 4vw, 3.5rem); }
 
 .section--jade {
