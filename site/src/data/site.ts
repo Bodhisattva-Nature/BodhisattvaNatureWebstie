@@ -549,7 +549,7 @@ export const books = [
 
 export const connections = [
   { region: "Australia", places: "Sydney" },
-  { region: "America", places: "Los Angeles · Raleigh · New York" },
+  { region: "America", places: "Los Angeles · Raleigh · New York · Seattle · Buffalo" },
   { region: "Thailand", places: "Bangkok · Chiang Mai · Phuket" },
   { region: "Japan", places: "Nara" },
   { region: "Malaysia", places: "Kuala Lumpur · Malacca" },
