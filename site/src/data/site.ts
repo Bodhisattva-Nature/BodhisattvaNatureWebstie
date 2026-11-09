@@ -385,11 +385,10 @@ export const programs: Program[] = [
 ];
 
 export const schedule = [
-  { time: "04:30", label: "Prostration & Meditation" },
-  { time: "06:30", label: "Morning Class" },
-  { time: "14:00", label: "Afternoon Class" },
-  { time: "16:30", label: "Mindfulness Tai Chi" },
-  { time: "17:30", label: "Prostration" },
+  { time: "06:00", label: "Prostration & Meditation" },
+  { time: "08:45", label: "Morning Class" },
+  { time: "14:30", label: "Afternoon Class" },
+  { time: "17:00", label: "Prostration" },
   { time: "19:00", label: "Evening Class & Meditation" },
 ];
 
