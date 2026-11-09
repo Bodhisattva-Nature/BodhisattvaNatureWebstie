@@ -927,6 +927,84 @@
    }
   ]
  },
+ "event-retreat": {
+  "w": 2000,
+  "h": 1300,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 312,
+    "file": "event-retreat-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 585,
+    "file": "event-retreat-900.webp"
+   },
+   {
+    "w": 1400,
+    "h": 910,
+    "file": "event-retreat-1400.webp"
+   }
+  ]
+ },
+ "event-online": {
+  "w": 2000,
+  "h": 1300,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 312,
+    "file": "event-online-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 585,
+    "file": "event-online-900.webp"
+   },
+   {
+    "w": 1400,
+    "h": 910,
+    "file": "event-online-1400.webp"
+   }
+  ]
+ },
+ "event-wisdom": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 480,
+    "file": "event-wisdom-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 900,
+    "file": "event-wisdom-900.webp"
+   }
+  ]
+ },
+ "event-mindfulness": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 480,
+    "file": "event-mindfulness-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 900,
+    "file": "event-mindfulness-900.webp"
+   }
+  ]
+ },
  "teacher-zhenjue": {
   "w": 392,
   "h": 600,

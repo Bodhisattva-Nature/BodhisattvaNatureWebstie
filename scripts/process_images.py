@@ -88,6 +88,12 @@ MANIFEST = {
     "avatar-4": "2022/05/75x75_auto7.png",
     "avatar-5": "2022/05/75x75_auto1.png",
 
+    # upcoming-events posters
+    "event-retreat": "2024/04/3-1.png",
+    "event-online": "2024/04/4-1.png",
+    "event-wisdom": "2024/04/2-1.png",
+    "event-mindfulness": "2024/04/1-1.png",
+
     # teachers
     "teacher-zhenjue": "2022/07/zhenjue-shifu-photo-5.png",
     "teacher-deyang": "2026/01/WechatIMG3426.jpg",
@@ -114,6 +120,8 @@ WIDTH_OVERRIDES = {
     "teacher-zhenjue": [392, 600],
     "teacher-deyang": [371, 560],
     "hero": [480, 900, 1600],
+    "event-retreat": [480, 900, 1400],
+    "event-online": [480, 900, 1400],
     "programs-banner": [480, 900, 1600],
     "contact-hero": [480, 900, 1600],
     "community-ill": [480, 900, 1600],

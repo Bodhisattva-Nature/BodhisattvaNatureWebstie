@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Img from "../components/Img.astro";
 import Divider from "../components/Divider.astro";
 import { site, stats, pillars, programs, teachers, testimonials, schedule, retreat } from "../data/site";
+import { events } from "../data/events";
 import { url } from "../lib/url";
 import quotes from "../data/quotes.json";
 
@@ -284,6 +285,34 @@ const ticker = [
     </div>
   </section>
 
+  <!-- EVENTS -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>What's on</span>
+          <h2 class="h2" data-reveal style="--i:1">Every week.</h2>
+        </div>
+        <a href={url("/events/")} class="link-arrow" data-reveal style="--i:2">All events</a>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:clamp(2rem,4vw,3rem)">
+        {events.map((e, i) => (
+          <a class="event-card" href={url("/events/")} data-reveal style={`--i:${i}`}>
+            <div class="media zoom" style="aspect-ratio:16/10">
+              <Img name={e.image} alt={`${e.title} poster`} sizes="(max-width: 860px) 100vw, 46vw" />
+            </div>
+            <div class="event-card__body">
+              <span class="pillar__sub">{e.cadence}</span>
+              <h3>{e.title}{e.titleCn && <span> · {e.titleCn}</span>}</h3>
+              <p>{e.time} · {e.place}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- DONATE -->
   <section class="section">
     <div class="wrap">
@@ -408,6 +437,12 @@ const ticker = [
 
   .quote-dots button.active { background: var(--ink); }
 
+  .event-card { display: grid; gap: 1rem; align-content: start; }
+  .event-card__body { display: grid; gap: 0.35rem; }
+  .event-card h3 { font-size: var(--step-2); font-weight: 300; }
+  .event-card h3 span { font-size: 0.55em; letter-spacing: 0.12em; color: var(--muted); }
+  .event-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
   .donate-band {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
@@ -419,7 +454,13 @@ const ticker = [
   }
 
   @media (max-width: 860px) {
-    .donate-band { grid-template-columns: 1fr; }
+    .event-card { display: grid; gap: 1rem; align-content: start; }
+  .event-card__body { display: grid; gap: 0.35rem; }
+  .event-card h3 { font-size: var(--step-2); font-weight: 300; }
+  .event-card h3 span { font-size: 0.55em; letter-spacing: 0.12em; color: var(--muted); }
+  .event-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+  .donate-band { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 640px) {

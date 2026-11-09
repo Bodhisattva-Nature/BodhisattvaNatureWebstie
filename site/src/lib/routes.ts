@@ -7,6 +7,7 @@ export const routes: string[] = [
   ...programs.map((p) => `/programs/${p.slug}/`),
   "/wisdom/",
   "/community/",
+  "/events/",
   "/volunteer/",
   "/donate/",
   "/contact/",

@@ -63,11 +63,13 @@ site/
     fonts/              Fraunces + Inter, latin subsets, self-hosted
 ```
 
-14 routes: home, about, programmes index, 5 programme pages, wisdom, community, volunteer, donate, visit,
-404. The original's 52 pages collapse into those 14. Most of the old pages were duplicate Divi layouts for the
+15 routes: home, about, programmes index, 5 programme pages, wisdom, community, events, volunteer, donate,
+visit, 404. The original's 52 pages collapse into those 14. Most of the old pages were duplicate Divi layouts for the
 same five programmes and five branch addresses.
 
 ![Programmes index](docs/preview-programs.jpg)
+
+![What's on](docs/preview-events.jpg)
 
 ## Design notes
 
@@ -107,8 +109,8 @@ third-party requests.
 - No client framework. The only JavaScript is the header, the drawer, the search palette and a quote
   rotator: about 3 KB of inline script per page, zero JS bundles.
 - Breakpoints at 980px, 860px and 640px; the 390px layout stacks the hero and drops the arch to 4:5.
-- Build metrics: 14 routes, 50 source images, 112 WebP derivatives, 5.5 MB of media, 6.3 MB in `dist`, and
-  0.85 MB transferred for a full home page visit in 18 requests.
+- Build metrics: 15 routes, 54 source images, 122 WebP derivatives, 5.9 MB of media, 6.8 MB in `dist`, and
+  under 1 MB transferred for a full home page visit.
 - `site/dist` is 6.3 MB, of which 5.5 MB is WebP across 112 files; a home page visit transfers 0.85 MB in 18
   requests. The archive behind it is 516 MB across 844 files.
 
