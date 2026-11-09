@@ -1,0 +1,137 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import { site, donateMethods, stats } from "../data/site";
+import { url } from "../lib/url";
+---
+
+<Base title={`Donate — ${site.name}`} description="All dharma talks, retreats and classes are free. Your contribution pays for the books, videos, software and spaces that carry them.">
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>Support</span>
+      <h1 data-reveal style="--i:1">Each dollar<br />goes into <span class="serif-italic">merits.</span></h1>
+      <p class="lede" data-reveal style="--i:2">
+        {site.name} is a registered non-profit initiated by Venerable Zhenjue. Everything here is offered free of charge.
+      </p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <div class="split__body">
+        <span class="eyebrow" data-reveal>What your gift carries</span>
+        <p class="lede" data-reveal style="--i:1">
+          Over 100 dharma talks, 324 group classes, 365 daily classes and 54 retreats each year. All of it free. Your
+          contribution pays for the hardware, software, books, videos, internet services and accommodation that make it
+          possible.
+        </p>
+        <p class="muted" data-reveal style="--i:2">
+          We encourage anyone who wishes to contribute to set up a recurring donation — a steady source of income lets
+          the foundation plan a year rather than a month.
+        </p>
+        <div class="stats-row" data-reveal style="--i:3">
+          {stats.map((s) => (
+            <div class="stat">
+              <span class="value">{s.value}</span>
+              <span class="label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <figure class="split__media media" data-reveal style="--i:2">
+        <Img name="stones" alt="Balanced stones on a shoreline" sizes="(max-width: 980px) 100vw, 46vw" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>Ways to give</span>
+      <div class="methods">
+        {donateMethods.map((m, i) => (
+          <article class="method" data-reveal style={`--i:${i}`}>
+            <h2>{m.title}</h2>
+            <p>{m.body}</p>
+            <a class="link-arrow" href={m.action.href} target={m.action.href.startsWith("http") ? "_blank" : undefined} rel="noopener">
+              {m.action.label}
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap cta-card" data-reveal>
+      <div>
+        <span class="eyebrow">Talk to a person</span>
+        <h2 class="h2" style="margin-top:0.6rem">No gift is too small,<br />and no question is awkward.</h2>
+      </div>
+      <div>
+        <p class="muted" style="max-width:38ch">
+          Write to us about any aspect of your contribution — including estate planning. We will work with you
+          personally.
+        </p>
+        <div class="hero__actions" style="margin-top:1.5rem">
+          <a class="btn" href={`mailto:${site.email}`}>{site.email}</a>
+          <a class="btn btn--ghost" href={url("/contact/")}>Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem 2rem;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .stat { display: grid; gap: 0.2rem; }
+  .stat .value { font-family: var(--font-display); font-size: var(--step-3); font-weight: 300; line-height: 1; }
+  .stat .label { font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+  .methods {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--line);
+    margin-top: 2rem;
+  }
+
+  .method {
+    padding: clamp(1.4rem, 3vw, 2.4rem) clamp(1.4rem, 3vw, 2.4rem) clamp(1.4rem, 3vw, 2.4rem) 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    gap: 0.8rem;
+    align-content: start;
+  }
+
+  .method:nth-child(odd) { border-right: 1px solid var(--line); }
+  .method:nth-child(even) { padding-left: clamp(1.4rem, 3vw, 2.4rem); }
+
+  .method h2 { font-size: var(--step-2); font-weight: 300; }
+  .method p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+  .method .link-arrow { justify-self: start; margin-top: 0.4rem; }
+
+  .cta-card {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: center;
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid var(--line);
+    background: var(--paper-deep);
+  }
+
+  @media (max-width: 860px) {
+    .methods, .cta-card { grid-template-columns: 1fr; }
+    .method:nth-child(odd) { border-right: 0; }
+    .method, .method:nth-child(even) { padding-inline: 0; }
+  }
+</style>

@@ -1,0 +1,207 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import { site, schedule, retreat, testimonials } from "../data/site";
+import { url } from "../lib/url";
+---
+
+<Base title={`Community — ${site.name}`} description="Weekly sittings, Tai Chi in Richmond, retreats and hospice care education.">
+  <header class="page-head">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>Community</span>
+      <h1 data-reveal style="--i:1">The week<br /><span class="serif-italic">has a shape.</span></h1>
+      <p class="lede" data-reveal style="--i:2">
+        Classes every morning and evening, Tai Chi on Fridays, retreats through the year. Nothing asks you to be
+        anything other than what you are.
+      </p>
+    </div>
+    <div class="wrap">
+      <div class="page-head__media" data-reveal style="--i:3">
+        <Img name="walkers" alt="A group walking together at the water's edge" sizes="(max-width: 900px) 100vw, 90vw" />
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="split__body">
+        <span class="eyebrow" data-reveal>Daily rhythm</span>
+        <h2 class="h2" data-reveal style="--i:1">From before dawn.</h2>
+        <p data-reveal style="--i:2" class="muted">
+          The centre keeps a traditional schedule. You are welcome to any part of it — no registration, no fee. Online
+          attendance is possible for most sessions.
+        </p>
+        <div class="schedule" style="margin-top:1.5rem">
+          {schedule.map((s) => (
+            <div class="schedule__row">
+              <span class="schedule__time">{s.time}</span>
+              <span class="schedule__label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <figure class="split__media" data-reveal style="--i:2">
+        <Img name="dawn-bench" alt="A figure sitting on a bench at sunrise" sizes="(max-width: 980px) 100vw, 46vw" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>Gatherings</span>
+          <h2 class="h2" data-reveal style="--i:1">Three ways we meet.</h2>
+        </div>
+      </div>
+
+      <div class="meetings">
+        <article class="meeting" data-reveal>
+          <div class="meeting__media media">
+            <Img name="group" alt="A group sitting together outdoors" sizes="(max-width: 900px) 100vw, 60vw" />
+          </div>
+          <div class="meeting__body">
+            <span class="pillar__sub">Retreats</span>
+            <h3>Weekend retreat</h3>
+            <p>
+              An immersive environment for practice — guided meditation, silent periods, mindful movement and dharma
+              study, held in a quiet natural setting.
+            </p>
+            <ul class="pills">
+              {retreat.content.map((c) => <li>{c}</li>)}
+            </ul>
+            <p class="small muted">Held regularly through the year. Write to us for the next date.</p>
+          </div>
+        </article>
+
+        <article class="meeting" data-reveal>
+          <div class="meeting__media media">
+            <Img name="sunflowers" alt="Sunflowers in a field" sizes="(max-width: 900px) 100vw, 60vw" />
+          </div>
+          <div class="meeting__body">
+            <span class="pillar__sub">Movement</span>
+            <h3>Tai Chi in Richmond</h3>
+            <p>
+              Two free Tai Chi classes every Friday, morning and afternoon. Slow, gentle movement that improves
+              strength, flexibility and balance — and settles the mind.
+            </p>
+            <a class="link-arrow" href={url("/contact/")} style="margin-top:1rem">
+              Register
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="meeting" data-reveal>
+          <div class="meeting__media media">
+            <Img name="heart-hands" alt="Hands making the shape of a heart against the sky" sizes="(max-width: 900px) 100vw, 60vw" />
+          </div>
+          <div class="meeting__body">
+            <span class="pillar__sub">Care</span>
+            <h3>Hospice care education</h3>
+            <p>
+              Palliative care relieves pain, supports families, respects wishes and protects dignity. Buddhism adds a
+              distinct understanding of what the mind needs at the end of life.
+            </p>
+            <a class="link-arrow" href={url("/programs/hospice-care/")} style="margin-top:1rem">
+              Learn more
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>Voices</span>
+          <h2 class="h2" data-reveal style="--i:1">What people noticed.</h2>
+        </div>
+        <a class="link-arrow" href={url("/about/")} data-reveal>Our teachers</a>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:2.5rem">
+      <div class="rail">
+        {testimonials.map((t, i) => (
+          <article class="tcard" data-reveal style={`--i:${i}`}>
+            <div>
+              <h3>{t.title}</h3>
+              <p style="margin-top:1rem">{t.quote}</p>
+            </div>
+            <div class="tcard__who">
+              <strong>{t.name}</strong>
+              <span>{t.role}</span>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink">
+    <div class="wrap cta-row">
+      <div>
+        <span class="eyebrow">Past events</span>
+        <h2 class="h2" style="margin-top:0.6rem">See what it's like.</h2>
+      </div>
+      <div>
+        <p style="color:rgba(236,230,216,.72);max-width:40ch">
+          Recordings from previous retreats, classes and chanting sessions are collected on our channel.
+        </p>
+        <div class="hero__actions" style="margin-top:1.6rem">
+          <a class="btn" href="https://youtube.com/playlist?list=PLp-bkW_-IYjNlppT0ucOQAd-ISRkoK9qN" target="_blank" rel="noopener">Watch past events</a>
+          <a class="btn btn--ghost" href={url("/contact/")}>Ask what's next</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .section-head .h2 { margin-top: 0.5rem; }
+
+  .meetings { display: grid; gap: clamp(2.5rem, 6vw, 5rem); margin-top: clamp(2.5rem, 5vw, 4rem); }
+
+  .meeting {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    align-items: center;
+    padding-bottom: clamp(2rem, 4vw, 3.5rem);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .meeting:nth-child(even) .meeting__media { order: 2; }
+  .meeting__media { aspect-ratio: 4/3; }
+  .meeting__body { display: grid; gap: 0.9rem; align-content: center; }
+  .meeting__body h3 { font-size: var(--step-3); font-weight: 300; }
+  .meeting__body p { color: var(--muted); margin: 0; max-width: 46ch; }
+
+  .pills { list-style: none; padding: 0; margin: 0.8rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .pills li {
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.35em 0.85em;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+
+  .cta-row { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+
+  @media (max-width: 860px) {
+    .meeting { grid-template-columns: 1fr; }
+    .meeting:nth-child(even) .meeting__media { order: 0; }
+    .cta-row { grid-template-columns: 1fr; }
+  }
+</style>

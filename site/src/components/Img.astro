@@ -1,0 +1,35 @@
+---
+import manifest from "../data/images.json";
+
+interface Props {
+  name: string;
+  alt: string;
+  sizes?: string;
+  class?: string;
+  loading?: "lazy" | "eager";
+  fetchpriority?: "high" | "low" | "auto";
+  ratio?: boolean;
+}
+
+const { name, alt, sizes = "100vw", class: cls, loading = "lazy", fetchpriority = "auto" } = Astro.props;
+const entry = (manifest as Record<string, { w: number; h: number; variants: { w: number; h: number; file: string }[] }>)[name];
+if (!entry) throw new Error(`Unknown image: ${name}`);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const srcset = entry.variants.map((v) => `${base}/media/${v.file} ${v.w}w`).join(", ");
+const fallback = entry.variants[Math.min(2, entry.variants.length - 1)];
+const width = entry.variants[0].w;
+const height = Math.round((entry.h / entry.w) * width);
+---
+
+<img
+  src={`${base}/media/${fallback.file}`}
+  srcset={srcset}
+  sizes={sizes}
+  alt={alt}
+  width={width}
+  height={height}
+  loading={loading}
+  fetchpriority={fetchpriority}
+  decoding="async"
+  class={cls}
+/>

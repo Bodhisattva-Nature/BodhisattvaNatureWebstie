@@ -1,0 +1,104 @@
+---
+import global from "../styles/global.css?url";
+import fontCssRaw from "../fonts.css?raw";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description = site.description, image } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://example.com").href;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const ogImage = image ? `${base}/media/${image}-1600.webp` : undefined;
+const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#f5f0e6" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href={`${base}/favicon.svg`} type="image/svg+xml" />
+    <link rel="preload" href={`${base}/fonts/fraunces-normal-300_700-latin.woff2`} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={`${base}/fonts/inter-normal-300_700-latin.woff2`} as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href={global} />
+    <style is:inline set:html={fontCss}></style>
+    <script is:inline>
+      // set header state before paint to avoid a flash on inner pages
+      if (!document.querySelector(".hero")) document.documentElement.dataset.inner = "true";
+    </script>
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+    <script>
+      const header = document.querySelector(".header") as HTMLElement | null;
+      const isInner = !document.querySelector(".hero");
+
+      function syncHeader() {
+        if (!header) return;
+        header.classList.toggle("is-solid", isInner || window.scrollY > 24);
+      }
+      syncHeader();
+      window.addEventListener("scroll", syncHeader, { passive: true });
+
+      // reveal on scroll
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-in");
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.06 }
+      );
+      function observe() {
+        document.querySelectorAll("[data-reveal]:not(.is-in)").forEach((el) => io.observe(el));
+      }
+      observe();
+      document.addEventListener("astro:page-load", () => {
+        observe();
+        syncHeader();
+      });
+
+      // mobile drawer
+      const burger = document.querySelector(".burger") as HTMLButtonElement | null;
+      const drawer = document.querySelector(".drawer") as HTMLElement | null;
+      burger?.addEventListener("click", () => {
+        const open = burger.getAttribute("aria-expanded") === "true";
+        burger.setAttribute("aria-expanded", String(!open));
+        drawer?.setAttribute("data-open", String(!open));
+        document.body.style.overflow = open ? "" : "hidden";
+        // the drawer is paper-coloured, so the header must flip back to ink while it is open
+        if (!open) header?.classList.add("is-solid");
+        else syncHeader();
+      });
+      drawer?.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          burger?.setAttribute("aria-expanded", "false");
+          drawer.setAttribute("data-open", "false");
+          document.body.style.overflow = "";
+          syncHeader();
+        })
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+# build output
+site/dist/
+site/node_modules/
+site/.astro/
+
+# local archive (scraped source data — not part of the published site)
+api/
+media/
+content/
+raw/
+scripts/
+.venv/
+*.log

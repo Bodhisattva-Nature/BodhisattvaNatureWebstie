@@ -1,0 +1,353 @@
+{
+ "hero": {
+  "w": 2000,
+  "h": 660,
+  "variants": [
+   {
+    "w": 480,
+    "h": 158,
+    "file": "hero-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 297,
+    "file": "hero-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 528,
+    "file": "hero-1600.webp"
+   },
+   {
+    "w": 2200,
+    "h": 726,
+    "file": "hero-2200.webp"
+   }
+  ]
+ },
+ "monk-beach": {
+  "w": 900,
+  "h": 568,
+  "variants": [
+   {
+    "w": 480,
+    "h": 303,
+    "file": "monk-beach-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 568,
+    "file": "monk-beach-900.webp"
+   }
+  ]
+ },
+ "meditate": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "meditate-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "meditate-900.webp"
+   }
+  ]
+ },
+ "book": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "book-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "book-900.webp"
+   }
+  ]
+ },
+ "forest-rays": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "forest-rays-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "forest-rays-900.webp"
+   }
+  ]
+ },
+ "still-water": {
+  "w": 2000,
+  "h": 841,
+  "variants": [
+   {
+    "w": 480,
+    "h": 202,
+    "file": "still-water-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 378,
+    "file": "still-water-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 673,
+    "file": "still-water-1600.webp"
+   },
+   {
+    "w": 2200,
+    "h": 925,
+    "file": "still-water-2200.webp"
+   }
+  ]
+ },
+ "ocean": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "ocean-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "ocean-900.webp"
+   }
+  ]
+ },
+ "dawn-bench": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "dawn-bench-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "dawn-bench-900.webp"
+   }
+  ]
+ },
+ "lone-tree": {
+  "w": 900,
+  "h": 596,
+  "variants": [
+   {
+    "w": 480,
+    "h": 318,
+    "file": "lone-tree-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 596,
+    "file": "lone-tree-900.webp"
+   }
+  ]
+ },
+ "meadow": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "meadow-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "meadow-900.webp"
+   }
+  ]
+ },
+ "heart-hands": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "heart-hands-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "heart-hands-900.webp"
+   }
+  ]
+ },
+ "walkers": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "walkers-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "walkers-900.webp"
+   }
+  ]
+ },
+ "sunflowers": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "sunflowers-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "sunflowers-900.webp"
+   }
+  ]
+ },
+ "shore": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "shore-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "shore-900.webp"
+   }
+  ]
+ },
+ "stones": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "stones-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "stones-900.webp"
+   }
+  ]
+ },
+ "valley": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "valley-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "valley-900.webp"
+   }
+  ]
+ },
+ "field": {
+  "w": 426,
+  "h": 427,
+  "variants": [
+   {
+    "w": 480,
+    "h": 481,
+    "file": "field-480.webp"
+   }
+  ]
+ },
+ "group": {
+  "w": 900,
+  "h": 600,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "group-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "group-900.webp"
+   }
+  ]
+ },
+ "taichi": {
+  "w": 2000,
+  "h": 698,
+  "variants": [
+   {
+    "w": 480,
+    "h": 168,
+    "file": "taichi-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 314,
+    "file": "taichi-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 558,
+    "file": "taichi-1600.webp"
+   },
+   {
+    "w": 2200,
+    "h": 768,
+    "file": "taichi-2200.webp"
+   }
+  ]
+ },
+ "teacher-zhenjue": {
+  "w": 392,
+  "h": 600,
+  "variants": [
+   {
+    "w": 392,
+    "h": 600,
+    "file": "teacher-zhenjue-392.webp"
+   }
+  ]
+ },
+ "teacher-deyang": {
+  "w": 371,
+  "h": 556,
+  "variants": [
+   {
+    "w": 371,
+    "h": 556,
+    "file": "teacher-deyang-371.webp"
+   }
+  ]
+ }
+}
