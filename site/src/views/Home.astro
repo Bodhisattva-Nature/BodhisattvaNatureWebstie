@@ -152,30 +152,27 @@ const alt = isZh
   </section>
 
   <!-- RETREAT + SCHEDULE -->
-  <section class="section section--ink">
-    <div class="wrap grid grid--2" style="gap:clamp(2.5rem,6vw,6rem);align-items:center">
-      <div data-reveal>
+  <section class="section section--retreat">
+    <div class="wrap retreat">
+      <div class="retreat__intro" data-reveal>
         <span class="eyebrow">{t.home.retreatEyebrow}</span>
-        <h2 class="h2" style="margin-block:0.4em 1rem">{t.home.retreatTitle}</h2>
-        <p style="color:rgba(236,230,216,.72);max-width:44ch">{retreat.goal}</p>
+        <h2 class="h2">{t.home.retreatTitle}</h2>
+        <p class="retreat__goal">{retreat.goal}</p>
         <ul class="retreat-list">
           {retreat.content.map((c) => <li>{c}</li>)}
         </ul>
-        <a href={href("/community/", lang)} class="btn" style="margin-top:2rem">{t.programsIndex.ctaSchedule}</a>
+        <a href={href("/community/", lang)} class="btn">{t.programsIndex.ctaSchedule}</a>
       </div>
-      <div data-reveal style="--i:1">
-        <p class="caption" style="color:rgba(236,230,216,.45);margin-bottom:1rem">{t.home.retreatCaption}</p>
-        <div class="schedule" style="border-color:rgba(236,230,216,.16)">
+      <div class="retreat__schedule" data-reveal style="--i:1">
+        <p class="caption">{t.home.retreatCaption}</p>
+        <div class="schedule">
           {schedule.map((s) => (
-            <div class="schedule__row" style="border-color:rgba(236,230,216,.16)">
+            <div class="schedule__row">
               <span class="schedule__time">{s.time}</span>
-              <span class="schedule__label" style="color:rgba(236,230,216,.78)">{s.label}</span>
+              <span class="schedule__label">{s.label}</span>
             </div>
           ))}
         </div>
-        <figure class="media" style="margin:2rem 0 0;aspect-ratio:16/9">
-          <Img name="clouds" alt={alt.clouds} sizes="(max-width: 980px) 100vw, 46vw" />
-        </figure>
       </div>
     </div>
   </section>
@@ -349,12 +346,12 @@ const alt = isZh
   }
 
   .retreat-list li {
-    border: 1px solid rgba(217, 171, 84, 0.42);
+    border: 1px solid rgba(27, 20, 16, 0.18);
     border-radius: 999px;
-    padding: 0.45em 1em;
-    font-size: 0.78rem;
+    padding: 0.4em 0.95em;
+    font-size: 0.76rem;
     letter-spacing: 0.04em;
-    color: rgba(243, 231, 210, 0.88);
+    color: var(--ink-soft);
   }
 
   .quote-carousel {
