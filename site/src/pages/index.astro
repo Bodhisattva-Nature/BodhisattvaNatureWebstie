@@ -100,24 +100,6 @@ const ticker = [
     </div>
   </section>
 
-  <!-- STATEMENT -->
-  <section class="section section--cream">
-    <div class="wrap">
-      <div class="statement">
-        <span class="eyebrow" data-reveal>The whole of it</span>
-        <p data-reveal style="--i:1">
-          The world is so connected. <span class="accent">When you are involved,</span> the world becomes different.
-        </p>
-        <div data-reveal style="--i:2">
-          <a href={url("/volunteer/")} class="link-arrow">
-            Join us
-            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- PROGRAMS -->
   <section class="section">
     <div class="wrap">
@@ -149,10 +131,37 @@ const ticker = [
     </div>
   </section>
 
+  <!-- VOLUNTEER -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="volunteer-band" data-reveal>
+        <div class="volunteer-band__quote">
+          <span class="eyebrow">Volunteer</span>
+          <p>
+            The world is so connected.
+            <span class="accent">When you are involved,</span> the world becomes different.
+          </p>
+        </div>
+        <div class="volunteer-band__body">
+          <p>
+            The foundation is run entirely by volunteers: dubbing, editing, translating, coordinating retreats and
+            events — or whatever you happen to be good at. However much time you have, there is a place for it.
+          </p>
+          <a class="btn" href={url("/volunteer/")}>
+            Volunteer with us
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M2 8h11M9 4l4 4-4 4" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- STATS -->
   <section class="section section--jade section--tight">
     <div class="wrap">
-      <div class="grid grid--3" style="grid-template-columns:repeat(4,1fr)">
+      <div class="stat-grid">
         {stats.map((s, i) => (
           <div class="card card--stat" data-reveal style={`--i:${i}`}>
             <span class="value">{s.value}</span>
