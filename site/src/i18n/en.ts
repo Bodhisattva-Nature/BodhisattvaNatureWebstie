@@ -10,7 +10,7 @@ export const en = {
 
   site: {
     name: "Bodhisattva Nature Foundation",
-    tagline: "Peace. Balance. Truth.",
+    tagline: "Peace. Freedom. Truth.",
     description:
       "A registered non-profit sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
   },
@@ -45,8 +45,8 @@ export const en = {
   },
 
   home: {
-    title: "Bodhisattva Nature Foundation — Peace. Balance. Truth.",
-    heroLines: ["Peace.", "Balance.", "Truth."],
+    title: "Bodhisattva Nature Foundation — Peace. Freedom. Truth.",
+    heroLines: ["Peace.", "Freedom.", "Truth."],
     heroLede:
       "A registered non-profit sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
     locations: "Vancouver · Calgary · Toronto · New York · Los Angeles · Seattle · Buffalo",

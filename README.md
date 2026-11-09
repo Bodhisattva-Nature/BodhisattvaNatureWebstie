@@ -82,8 +82,8 @@ languages. Every page is one view component under `src/views/` that takes a `lan
 prop; each route is a three-line wrapper. Pages set `<html lang>`, emit reciprocal `hreflang` links, and the
 search palette has its own index per language.
 
-Chinese is written rather than translated. The hero is 安乐 · 中道 · 真谛 rather than a literal Peace / Balance /
-Truth: 安乐 for peace-and-ease, 中道 the middle way for balance, 真谛 the ultimate truth. The three commitments
+Chinese is written rather than translated. The hero is 安乐 · 自在 · 真谛 rather than a literal Peace / Freedom /
+Truth: 安乐 for peace-and-ease, 自在 the Mahayana word for freedom (观自在, 得大自在), 真谛 the ultimate truth. The three commitments
 become 同体 (one body, as in 同体大悲) · 环境 · 觉悟, and the path is the canonical 闻 · 思 · 修. Terminology
 follows 汉传 usage throughout — 四圣谛, 八正道, 临终关怀, 护持, 学员心得.
 

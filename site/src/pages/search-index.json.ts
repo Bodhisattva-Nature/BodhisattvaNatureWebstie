@@ -7,7 +7,7 @@ type Doc = { t: string; d: string; u: string; k: string };
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const pages: Doc[] = [
-  { t: "Home", d: "Peace. Balance. Truth.", u: "/", k: "page" },
+  { t: "Home", d: "Peace. Freedom. Truth.", u: "/", k: "page" },
   { t: "About", d: "What is Bodhisattva Nature? Our mission, path and teachers.", u: "/about/", k: "page" },
   { t: "Programs", d: "Five ways in — study, mindfulness, movement, care and inquiry.", u: "/programs/", k: "page" },
   { t: "Wisdom Words", d: "Fourteen short teachings on practice and the nature of mind.", u: "/wisdom/", k: "page" },

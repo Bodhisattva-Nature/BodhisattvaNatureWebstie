@@ -1,7 +1,7 @@
 export const site = {
   name: "Bodhisattva Nature Foundation",
   shortName: "Bodhisattva Nature",
-  tagline: "Peace. Balance. Truth.",
+  tagline: "Peace. Freedom. Truth.",
   description:
     "A registered non-profit sharing the Buddha's teachings on wisdom, compassion and the nature of mind — through daily classes, retreats, hospice care education and volunteer service.",
   email: "peace@bodhinature.com",
