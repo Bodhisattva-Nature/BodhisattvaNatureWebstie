@@ -1,5 +1,5 @@
 ---
-import { site, branches, connections } from "../data/site";
+import { site, branches } from "../data/site";
 import { url } from "../lib/url";
 import Lotus from "./Lotus.astro";
 const year = new Date().getFullYear();
@@ -9,7 +9,7 @@ const year = new Date().getFullYear();
   <div class="wrap">
     <Lotus class="footer__lotus" />
     <div class="footer__top">
-      <div>
+      <div class="footer__brandcol">
         <p class="footer__brand">Peace. Balance. Truth.</p>
         <p class="small" style="margin-top:1.5rem;max-width:34ch">
           {site.name} is a registered non-profit organisation initiated by Venerable Zhenjue, operated entirely by
@@ -24,21 +24,23 @@ const year = new Date().getFullYear();
           <li><a href={url("/programs/")}>Programs</a></li>
           <li><a href={url("/wisdom/")}>Wisdom</a></li>
           <li><a href={url("/community/")}>Community</a></li>
+          <li><a href={url("/events/")}>Events</a></li>
           <li><a href={url("/volunteer/")}>Volunteer</a></li>
           <li><a href={url("/donate/")}>Donate</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>Reach us</h4>
+        <h4>Contact</h4>
         <ul>
           <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
           <li><a href={`tel:${site.phoneHref}`}>{site.phone}</a></li>
-          <li class="small" style="margin-top:0.6rem;color:rgba(236,230,216,.45)">
-            {branches.map((b) => b.city).join(" · ")}
-          </li>
         </ul>
-        <h4 style="margin-top:2rem">Branches</h4>
+        <p class="footer__note">Questions on practice, hospice care, volunteering and visiting.</p>
+      </div>
+
+      <div>
+        <h4>Branches</h4>
         <ul>
           {branches.map((b) => (
             <li><a href={url(`/contact/#${b.slug}`)}>{b.country}</a></li>
@@ -49,9 +51,12 @@ const year = new Date().getFullYear();
 
     <div class="footer__bottom">
       <span>© {year} {site.name}. All teachings offered freely.</span>
-      <div class="footer__places">
-        {connections.slice(0, 5).map((c) => <span>{c.region}</span>)}
-      </div>
+      <a class="footer__all" href={url("/contact/#connections")}>
+        All locations, worldwide
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M2 8h11M9 4l4 4-4 4" />
+        </svg>
+      </a>
     </div>
   </div>
 </footer>
