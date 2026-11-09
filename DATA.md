@@ -79,6 +79,10 @@ python3 -m venv .venv && ./.venv/bin/pip install beautifulsoup4 lxml requests pi
 ```
 
 `harvest.py` paginates with `per_page=100`, reads `X-WP-TotalPages`, and retries on 5xx with a 240-second
-timeout; the pages endpoint alone returns 5 MB when `_embed=1` is set and takes 19 seconds. `process_images.py`
-resizes the curated 20 images to WebP at 480/900/1600/2200 px and writes `site/src/data/images.json`, which
-the `<Img>` component reads for srcset and intrinsic dimensions.
+timeout; the pages endpoint alone returns 5 MB when `_embed=1` is set and takes 19 seconds.
+
+`process_images.py` takes 30 files straight out of `media/`: the hero banner, the five programme
+illustrations, the oneness photographs, the branch banners, the volunteer photos. It emits WebP at
+480/900/1600/2200 px into `site/public/media`, writing `site/src/data/images.json` for the `<Img>` component.
+Transparency is preserved (the programme icons are PNGs with alpha), and two source files needed repair:
+`bodhisattva.png` ships with a baked-in white background, which is flood-filled to transparent from the border.

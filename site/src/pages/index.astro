@@ -24,10 +24,6 @@ const ticker = [
 <Base title={`${site.name} — ${site.tagline}`}>
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__media">
-      <Img name="hero" alt="Practitioners gathered on a hillside at dusk" sizes="100vw" loading="eager" fetchpriority="high" />
-    </div>
-    <div class="hero__scrim"></div>
     <div class="wrap hero__inner">
       <span class="eyebrow hero__eyebrow" data-reveal>Bodhisattva Nature Foundation</span>
       <h1 data-reveal style="--i:1">
@@ -47,6 +43,9 @@ const ticker = [
         <span>Vancouver · Calgary · Toronto</span>
         <span>Teachings offered freely</span>
       </div>
+    </div>
+    <div class="hero__media">
+      <Img name="hero" alt="A golden Buddha seated among trees" sizes="(max-width: 900px) 100vw, 50vw" loading="eager" fetchpriority="high" />
     </div>
   </section>
 
@@ -88,7 +87,7 @@ const ticker = [
         </a>
       </div>
       <figure class="split__media" data-reveal style="--i:2">
-        <Img name="monk-beach" alt="A monk sitting in meditation on the shore at dusk" sizes="(max-width: 980px) 100vw, 46vw" />
+        <Img name="oneness" alt="A tree growing inside a glass sphere" sizes="(max-width: 980px) 100vw, 46vw" />
       </figure>
     </div>
   </section>
@@ -135,7 +134,7 @@ const ticker = [
                 <path d="M2 8h11M9 4l4 4-4 4" />
               </svg>
             </span>
-            <img class="program-row__peek" src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/media/${p.image}-900.webp`} alt="" loading="lazy" />
+            <img class="program-row__peek" loading="lazy" src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/media/${p.image}-900.webp`} alt="" loading="lazy" />
           </a>
         ))}
       </div>
@@ -211,7 +210,7 @@ const ticker = [
           ))}
         </div>
         <figure class="media" style="margin:2rem 0 0;aspect-ratio:16/9">
-          <Img name="shore" alt="Clear water meeting sand" sizes="(max-width: 980px) 100vw, 46vw" />
+          <Img name="clouds" alt="A sea of cloud under a pale sky" sizes="(max-width: 980px) 100vw, 46vw" />
         </figure>
       </div>
     </div>

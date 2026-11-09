@@ -22,7 +22,7 @@ import { url } from "../../lib/url";
       <div class="program-grid">
         {programs.map((p, i) => (
           <a class="pcard" href={url(`/programs/${p.slug}/`)} data-reveal style={`--i:${i}`}>
-            <div class="pcard__media media zoom">
+            <div class="pcard__media media media--tile zoom">
               <Img name={p.image} alt={p.title} sizes="(max-width: 860px) 100vw, 46vw" />
               <span class="pcard__no">{p.no}</span>
             </div>
@@ -75,6 +75,7 @@ import { url } from "../../lib/url";
 
   .pcard:nth-child(1) { grid-column: 1 / -1; grid-template-columns: 1.1fr 0.9fr; gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
   .pcard:nth-child(1) .pcard__media { aspect-ratio: 16/10; }
+  .pcard:nth-child(1) .pcard__media img { width: 62%; height: 82%; }
 
   .pcard__media {
     position: relative;

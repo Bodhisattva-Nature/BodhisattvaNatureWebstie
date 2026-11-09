@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Img from "../components/Img.astro";
+import Img from "../components/Img.astro";
 import { site, volunteerRoles } from "../data/site";
 import { url } from "../lib/url";
 ---
@@ -22,6 +23,9 @@ import { url } from "../lib/url";
       <div class="roles">
         {volunteerRoles.map((r, i) => (
           <article class="role" data-reveal style={`--i:${i}`}>
+            <div class="role__media media">
+              <Img name={r.image} alt={r.title} sizes="(max-width: 800px) 100vw, 30vw" />
+            </div>
             <div class="role__head">
               <span class="role__no">{String(i + 1).padStart(2, "0")}</span>
               <div>
@@ -51,7 +55,7 @@ import { url } from "../lib/url";
         </div>
       </div>
       <figure class="split__media media" data-reveal style="--i:2;aspect-ratio:4/5">
-        <Img name="meditate" alt="A practitioner sitting in meditation on a hillside" sizes="(max-width: 980px) 100vw, 46vw" />
+        <Img name="lilac" alt="Lilac trees in bloom" sizes="(max-width: 980px) 100vw, 46vw" />
       </figure>
     </div>
   </section>
@@ -86,6 +90,8 @@ import { url } from "../lib/url";
   .role:nth-child(odd) { border-right: 1px solid var(--line); }
   .role:nth-child(even) { padding-left: clamp(1.5rem, 3vw, 2.6rem); }
   .role:hover { background: var(--cream); }
+
+  .role__media { aspect-ratio: 16/10; margin-bottom: 0.4rem; }
 
   .role__head { display: flex; gap: 1.2rem; align-items: baseline; }
 

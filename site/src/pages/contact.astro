@@ -27,7 +27,7 @@ import { url } from "../lib/url";
     </div>
     <div class="wrap">
       <div class="page-head__media" data-reveal style="--i:4">
-        <Img name="meadow" alt="A wildflower meadow at dusk" sizes="(max-width: 900px) 100vw, 90vw" />
+        <Img name="contact-hero" alt="Illustrated banner reading Contact Us" sizes="(max-width: 900px) 100vw, 90vw" />
       </div>
     </div>
   </header>
@@ -123,7 +123,8 @@ import { url } from "../lib/url";
 
   .branch { display: grid; gap: 1.1rem; align-content: start; scroll-margin-top: 110px; }
 
-  .branch__media { position: relative; aspect-ratio: 4/3; }
+  .branch__media { position: relative; aspect-ratio: 16/9; background: var(--cream); }
+  .branch__media img { object-position: center; }
 
   .branch__flag {
     position: absolute;

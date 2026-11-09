@@ -78,9 +78,11 @@ site has no third-party requests at runtime.
   than boxes and shadows.
 - **Motion is restrained.** Fade-and-rise on scroll, a slow Ken Burns on the hero image, a marquee of
   programme and city names. All of it disabled under `prefers-reduced-motion`.
-- **Photography over graphics.** The original site leans on Divi banner graphics with baked-in text. Those
-  were dropped in favour of the photographs buried in its own media library. The lake, forest, shore and stone
-  images are all from bodhinature.com.
+- **The foundation's own imagery, throughout.** 30 files drawn from `media/`. The hero is their golden-Buddha banner, the five programme
+  cards are their illustrated icons (monk, flower figure, Tai Chi pair, hospice house, fish spiral), the
+  branches use their map banners, and the About page uses the bodhi-leaf emblem and the oneness photographs.
+  Nothing was substituted from stock; the only processing is WebP conversion and, for the emblem, keying its
+  white background to transparent.
 - **Search is local.** ⌘K opens a command palette over a JSON index built at compile time. No service, no
   key, no network.
 
@@ -92,8 +94,8 @@ site has no third-party requests at runtime.
 - Two variable fonts, latin and latin-ext subsets, 412 KB total, `font-display: swap`, preloaded.
 - No client framework. The only JavaScript is the header, the drawer, the search palette and a quote
   rotator: about 3 KB of inline script per page, zero JS bundles.
-- `site/dist` is 3.3 MB: 2.6 MB of WebP, 412 KB of fonts, one 20 KB stylesheet, and 14 HTML files.
-  The source archive is 431 MB across 812 original uploads, reduced to 43 WebP derivatives.
+- `site/dist` is 5.1 MB: 4.4 MB of WebP across 74 files, 412 KB of fonts, one 20 KB stylesheet, and 14 HTML
+  files. The source archive is 431 MB across 812 original uploads.
 
 ## Content provenance
 

@@ -38,10 +38,6 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
     <link rel="preload" href={`${base}/fonts/inter-normal-300_700-latin.woff2`} as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href={global} />
     <style is:inline set:html={fontCss}></style>
-    <script is:inline>
-      // set header state before paint to avoid a flash on inner pages
-      if (!document.querySelector(".hero")) document.documentElement.dataset.inner = "true";
-    </script>
   </head>
   <body>
     <Header />
@@ -49,11 +45,10 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
     <Footer />
     <script>
       const header = document.querySelector(".header") as HTMLElement | null;
-      const isInner = !document.querySelector(".hero");
 
       function syncHeader() {
         if (!header) return;
-        header.classList.toggle("is-solid", isInner || window.scrollY > 24);
+        header.classList.toggle("is-solid", window.scrollY > 16);
       }
       syncHeader();
       window.addEventListener("scroll", syncHeader, { passive: true });

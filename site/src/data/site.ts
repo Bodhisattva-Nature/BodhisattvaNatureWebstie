@@ -33,21 +33,21 @@ export const pillars = [
     subtitle: "Peace",
     body:
       "For thousands of years, sages have reminded us that no one is isolated — that people of every country, race and skin colour are like hands and feet. We cooperate, we support, we do not compete.",
-    image: "walkers",
+    image: "peace",
   },
   {
     title: "Environment",
     subtitle: "Balance",
     body:
       "The Buddha saw the environment as a condition for the happiness of all sentient beings. Protecting it is a kind of practice: to meet nature with an open mind, and abandon the desire to possess it.",
-    image: "lone-tree",
+    image: "aurora",
   },
   {
     title: "Enlightenment",
     subtitle: "Truth",
     body:
       "Buddha means “the awakened one” — not a deity. Anyone who realises the truth may attain it. Buddhism is not exclusive; it is a way of seeing the world as it is, and being freed by that seeing.",
-    image: "forest-rays",
+    image: "practicing",
   },
 ];
 
@@ -114,7 +114,7 @@ export const programs: Program[] = [
     kicker: "Study",
     summary:
       "The Four Noble Truths, impermanence, karma and the nature of mind — the Buddha's own analysis of suffering and its ending, studied plainly.",
-    image: "book",
+    image: "program-dharma",
     intro: [
       "Buddhism traces its origins to Siddhartha Gautama, born in ancient India around the sixth century BCE, who renounced a life of luxury to seek enlightenment and became known as the Buddha — the awakened one.",
       "At the centre of the teaching are the Four Noble Truths and the Noble Eightfold Path: ethical conduct, mental discipline and wisdom, guiding the practitioner toward liberation from suffering.",
@@ -200,7 +200,7 @@ export const programs: Program[] = [
     kicker: "Practice",
     summary:
       "Present-moment awareness, taught in the old way — posture, breath, stretching, and a mind that watches without judging.",
-    image: "meditate",
+    image: "program-mindfulness",
     intro: [
       "Mindfulness retreats and classes cultivate present-moment awareness: through guided meditation, mindful movement and walking, and teachings from experienced instructors, you learn to observe thoughts and sensations without judgement.",
       "The benefits extend past the cushion — improved concentration, greater resilience, and a way of meeting stress that carries into ordinary days.",
@@ -254,7 +254,7 @@ export const programs: Program[] = [
     kicker: "Body",
     summary:
       "Slow, graceful movement that stretches, strengthens and settles the mind — traditional Chinese exercise as spiritual practice.",
-    image: "taichi",
+    image: "program-taichi",
     intro: [
       "Tai Chi takes the dialectical concept of Taiji and Yin-Yang as its core idea, joining the changes of the I Ching, the meridians of traditional Chinese medicine, ancient Daoyin and Tuna breathing.",
       "With slow and graceful movements it helps you stretch, breathe and find balance — calming the body and emotions, and reducing stress, anxiety and depression. Long-term practice opens the Qi channels, strengthening the body and steadying temperament.",
@@ -290,7 +290,7 @@ export const programs: Program[] = [
     kicker: "Care",
     summary:
       "Buddhist end-of-life care — how to help someone die with a clear, peaceful mind, and how to hold a family through it.",
-    image: "heart-hands",
+    image: "program-hospice",
     intro: [
       "Buddhism holds a profound understanding of life and death, and sees the mentality of the dying as crucial for what follows. Hospice care is therefore the final and most important help we can offer.",
       "End-of-life care is approached with deep compassion and mindfulness: easing the transition with dignity and spiritual preparedness, cultivating acceptance of impermanence and letting go of attachments.",
@@ -336,7 +336,7 @@ export const programs: Program[] = [
     kicker: "Inquiry",
     summary:
       "A fifteen-part series on what happiness and freedom actually are — and why pursuing them as external gain keeps missing.",
-    image: "ocean",
+    image: "program-happiness",
     intro: [
       "The myriad beings hustle through life striving for happiness and freedom. Yet our understanding of them is often one-sided, narrow and even mistaken — and much of the interpersonal and psychological difficulty in society grows from that misdirected search.",
       "We equate satisfying desire with happiness, and so pursue the external relentlessly: success brings joy, failure brings sorrow. Wise voices remind us of deeper forms, unaffected by external change — and assure us that reaching them is within our grasp.",
@@ -374,7 +374,7 @@ export const schedule = [
 
 export const retreat = {
   title: "Weekend Retreat",
-  image: "group",
+  image: "clouds",
   goal:
     "Learning, reflecting and practising — the same threefold path that runs through every course we offer.",
   content: [
@@ -391,30 +391,35 @@ export const volunteerRoles = [
   {
     title: "Dubbing",
     meta: "Audiobooks · Videos",
+    image: "vol-dubbing",
     body:
       "We are adding English voices to dharma videos, meditations and books so more people can understand them — Happiness and Freedom, Wisdom Quotes from Ven. Renze, the Four Seals, and meditation guidance.",
   },
   {
     title: "Editor",
     meta: "Books · Videos · Documents",
+    image: "vol-editor",
     body:
       "Thousands of books, videos and documents need editing by people with good English who have taken some basic classes with the foundation.",
   },
   {
     title: "Translator",
     meta: "Chinese → English",
+    image: "vol-translate",
     body:
       "All of Master Renze's English books and videos are translated and edited by volunteers around the world. We are looking for people fluent in both languages, ready to grow, willing to help.",
   },
   {
     title: "Coordinator",
     meta: "Events · Retreats · Community",
+    image: "vol-coordinate",
     body:
       "We run online classes, local retreats and local events regularly. We need volunteers who communicate well and love meditation, Tai Chi and dharma.",
   },
   {
     title: "Others",
     meta: "Whatever you can offer",
+    image: "lilac",
     body:
       "There are more opportunities than these — tell us what you're good at and we'll find the place for it.",
   },
@@ -469,7 +474,7 @@ export const branches: Branch[] = [
     address: ["Richmond, British Columbia", "Calgary, Alberta"],
     phone: "+1 587 890 8888",
     email: "peace@bodhinature.com",
-    image: "lone-tree",
+    image: "branch-canada",
     note: "Our home base. Daily classes, weekly Tai Chi in Richmond, and local retreats.",
   },
   {
@@ -480,7 +485,7 @@ export const branches: Branch[] = [
     address: ["21030 Blossom Way", "Diamond Bar, CA 91765"],
     phone: "(626) 232-8143",
     email: "usa@yimingpureland.org",
-    image: "valley",
+    image: "branch-us",
   },
   {
     slug: "australia",
@@ -490,7 +495,7 @@ export const branches: Branch[] = [
     address: ["13 Genders Ave", "Burwood NSW 2134"],
     phone: "+61 493 725 853",
     email: "lightofpractice@gmail.com",
-    image: "shore",
+    image: "branch-australia",
   },
   {
     slug: "japan",
@@ -500,7 +505,7 @@ export const branches: Branch[] = [
     address: ["〒550-0024", "大阪府大阪市西区 境川 1丁目 6-26"],
     phone: "+81 80-5088-1594",
     email: "jy-519@outlook.com",
-    image: "sunflowers",
+    image: "branch-japan",
     note: "Contact: 嘉阳",
   },
   {
@@ -510,7 +515,7 @@ export const branches: Branch[] = [
     flag: "SG",
     address: ["Singapore"],
     email: "peace@bodhinature.com",
-    image: "field",
+    image: "branch-singapore",
   },
 ];
 

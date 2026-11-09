@@ -1,336 +1,585 @@
 {
  "hero": {
   "w": 2000,
-  "h": 660,
+  "h": 715,
+  "alpha": false,
   "variants": [
    {
     "w": 480,
-    "h": 158,
+    "h": 172,
     "file": "hero-480.webp"
    },
    {
     "w": 900,
-    "h": 297,
+    "h": 322,
     "file": "hero-900.webp"
    },
    {
     "w": 1600,
-    "h": 528,
+    "h": 572,
     "file": "hero-1600.webp"
    },
    {
     "w": 2200,
-    "h": 726,
+    "h": 787,
     "file": "hero-2200.webp"
    }
   ]
  },
- "monk-beach": {
-  "w": 900,
-  "h": 568,
+ "contact-hero": {
+  "w": 2300,
+  "h": 1000,
+  "alpha": false,
   "variants": [
    {
     "w": 480,
-    "h": 303,
-    "file": "monk-beach-480.webp"
+    "h": 209,
+    "file": "contact-hero-480.webp"
    },
    {
     "w": 900,
-    "h": 568,
-    "file": "monk-beach-900.webp"
-   }
-  ]
- },
- "meditate": {
-  "w": 900,
-  "h": 600,
-  "variants": [
-   {
-    "w": 480,
-    "h": 320,
-    "file": "meditate-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 600,
-    "file": "meditate-900.webp"
-   }
-  ]
- },
- "book": {
-  "w": 900,
-  "h": 600,
-  "variants": [
-   {
-    "w": 480,
-    "h": 320,
-    "file": "book-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 600,
-    "file": "book-900.webp"
-   }
-  ]
- },
- "forest-rays": {
-  "w": 900,
-  "h": 600,
-  "variants": [
-   {
-    "w": 480,
-    "h": 320,
-    "file": "forest-rays-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 600,
-    "file": "forest-rays-900.webp"
-   }
-  ]
- },
- "still-water": {
-  "w": 2000,
-  "h": 841,
-  "variants": [
-   {
-    "w": 480,
-    "h": 202,
-    "file": "still-water-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 378,
-    "file": "still-water-900.webp"
+    "h": 391,
+    "file": "contact-hero-900.webp"
    },
    {
     "w": 1600,
-    "h": 673,
-    "file": "still-water-1600.webp"
+    "h": 696,
+    "file": "contact-hero-1600.webp"
    },
    {
     "w": 2200,
-    "h": 925,
-    "file": "still-water-2200.webp"
+    "h": 957,
+    "file": "contact-hero-2200.webp"
    }
   ]
  },
- "ocean": {
-  "w": 900,
-  "h": 600,
+ "emblem": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": true,
   "variants": [
    {
     "w": 480,
-    "h": 320,
-    "file": "ocean-480.webp"
+    "h": 480,
+    "file": "emblem-480.webp"
    },
    {
     "w": 900,
-    "h": 600,
-    "file": "ocean-900.webp"
+    "h": 900,
+    "file": "emblem-900.webp"
    }
   ]
  },
- "dawn-bench": {
-  "w": 900,
-  "h": 600,
+ "program-dharma": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": true,
   "variants": [
    {
     "w": 480,
-    "h": 320,
-    "file": "dawn-bench-480.webp"
+    "h": 480,
+    "file": "program-dharma-480.webp"
    },
    {
     "w": 900,
-    "h": 600,
-    "file": "dawn-bench-900.webp"
+    "h": 900,
+    "file": "program-dharma-900.webp"
    }
   ]
  },
- "lone-tree": {
-  "w": 900,
-  "h": 596,
+ "program-mindfulness": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": true,
   "variants": [
    {
     "w": 480,
-    "h": 318,
-    "file": "lone-tree-480.webp"
+    "h": 480,
+    "file": "program-mindfulness-480.webp"
    },
    {
     "w": 900,
-    "h": 596,
-    "file": "lone-tree-900.webp"
+    "h": 900,
+    "file": "program-mindfulness-900.webp"
    }
   ]
  },
- "meadow": {
-  "w": 900,
-  "h": 600,
+ "program-taichi": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": true,
   "variants": [
    {
     "w": 480,
-    "h": 320,
-    "file": "meadow-480.webp"
+    "h": 480,
+    "file": "program-taichi-480.webp"
    },
    {
     "w": 900,
-    "h": 600,
-    "file": "meadow-900.webp"
+    "h": 900,
+    "file": "program-taichi-900.webp"
    }
   ]
  },
- "heart-hands": {
-  "w": 900,
-  "h": 600,
+ "program-happiness": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": true,
   "variants": [
    {
     "w": 480,
-    "h": 320,
-    "file": "heart-hands-480.webp"
+    "h": 480,
+    "file": "program-happiness-480.webp"
    },
    {
     "w": 900,
-    "h": 600,
-    "file": "heart-hands-900.webp"
+    "h": 900,
+    "file": "program-happiness-900.webp"
    }
   ]
  },
- "walkers": {
-  "w": 900,
-  "h": 600,
+ "program-wisdom": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": true,
   "variants": [
    {
     "w": 480,
-    "h": 320,
-    "file": "walkers-480.webp"
+    "h": 480,
+    "file": "program-wisdom-480.webp"
    },
    {
     "w": 900,
-    "h": 600,
-    "file": "walkers-900.webp"
+    "h": 900,
+    "file": "program-wisdom-900.webp"
    }
   ]
  },
- "sunflowers": {
-  "w": 900,
-  "h": 600,
+ "program-hospice": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": true,
   "variants": [
    {
     "w": 480,
-    "h": 320,
-    "file": "sunflowers-480.webp"
+    "h": 480,
+    "file": "program-hospice-480.webp"
    },
    {
     "w": 900,
-    "h": 600,
-    "file": "sunflowers-900.webp"
+    "h": 900,
+    "file": "program-hospice-900.webp"
    }
   ]
  },
- "shore": {
-  "w": 900,
-  "h": 600,
+ "community-ill": {
+  "w": 2500,
+  "h": 1000,
+  "alpha": false,
   "variants": [
    {
     "w": 480,
-    "h": 320,
-    "file": "shore-480.webp"
+    "h": 192,
+    "file": "community-ill-480.webp"
    },
    {
     "w": 900,
-    "h": 600,
-    "file": "shore-900.webp"
-   }
-  ]
- },
- "stones": {
-  "w": 900,
-  "h": 600,
-  "variants": [
-   {
-    "w": 480,
-    "h": 320,
-    "file": "stones-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 600,
-    "file": "stones-900.webp"
-   }
-  ]
- },
- "valley": {
-  "w": 900,
-  "h": 600,
-  "variants": [
-   {
-    "w": 480,
-    "h": 320,
-    "file": "valley-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 600,
-    "file": "valley-900.webp"
-   }
-  ]
- },
- "field": {
-  "w": 426,
-  "h": 427,
-  "variants": [
-   {
-    "w": 480,
-    "h": 481,
-    "file": "field-480.webp"
-   }
-  ]
- },
- "group": {
-  "w": 900,
-  "h": 600,
-  "variants": [
-   {
-    "w": 480,
-    "h": 320,
-    "file": "group-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 600,
-    "file": "group-900.webp"
-   }
-  ]
- },
- "taichi": {
-  "w": 2000,
-  "h": 698,
-  "variants": [
-   {
-    "w": 480,
-    "h": 168,
-    "file": "taichi-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 314,
-    "file": "taichi-900.webp"
+    "h": 360,
+    "file": "community-ill-900.webp"
    },
    {
     "w": 1600,
-    "h": 558,
-    "file": "taichi-1600.webp"
+    "h": 640,
+    "file": "community-ill-1600.webp"
    },
    {
     "w": 2200,
-    "h": 768,
-    "file": "taichi-2200.webp"
+    "h": 880,
+    "file": "community-ill-2200.webp"
+   }
+  ]
+ },
+ "peace": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 480,
+    "file": "peace-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 900,
+    "file": "peace-900.webp"
+   }
+  ]
+ },
+ "oneness": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 480,
+    "file": "oneness-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 900,
+    "file": "oneness-900.webp"
+   }
+  ]
+ },
+ "aurora": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 480,
+    "file": "aurora-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 900,
+    "file": "aurora-900.webp"
+   }
+  ]
+ },
+ "mountain-ill": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": true,
+  "variants": [
+   {
+    "w": 480,
+    "h": 480,
+    "file": "mountain-ill-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 900,
+    "file": "mountain-ill-900.webp"
+   }
+  ]
+ },
+ "temple": {
+  "w": 1080,
+  "h": 1080,
+  "alpha": true,
+  "variants": [
+   {
+    "w": 480,
+    "h": 480,
+    "file": "temple-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 900,
+    "file": "temple-900.webp"
+   }
+  ]
+ },
+ "learning": {
+  "w": 500,
+  "h": 250,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 240,
+    "file": "learning-480.webp"
+   }
+  ]
+ },
+ "reflecting": {
+  "w": 500,
+  "h": 250,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 240,
+    "file": "reflecting-480.webp"
+   }
+  ]
+ },
+ "practicing": {
+  "w": 500,
+  "h": 250,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 240,
+    "file": "practicing-480.webp"
+   }
+  ]
+ },
+ "feather": {
+  "w": 900,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "feather-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "feather-900.webp"
+   }
+  ]
+ },
+ "clouds": {
+  "w": 900,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "clouds-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "clouds-900.webp"
+   }
+  ]
+ },
+ "lilac": {
+  "w": 900,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "lilac-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "lilac-900.webp"
+   }
+  ]
+ },
+ "leaves": {
+  "w": 900,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "leaves-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "leaves-900.webp"
+   }
+  ]
+ },
+ "vol-dubbing": {
+  "w": 900,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "vol-dubbing-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "vol-dubbing-900.webp"
+   }
+  ]
+ },
+ "vol-editor": {
+  "w": 900,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "vol-editor-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "vol-editor-900.webp"
+   }
+  ]
+ },
+ "vol-translate": {
+  "w": 900,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "vol-translate-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "vol-translate-900.webp"
+   }
+  ]
+ },
+ "vol-coordinate": {
+  "w": 900,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "vol-coordinate-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "vol-coordinate-900.webp"
+   }
+  ]
+ },
+ "branch-canada": {
+  "w": 2300,
+  "h": 1000,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 209,
+    "file": "branch-canada-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 391,
+    "file": "branch-canada-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 696,
+    "file": "branch-canada-1600.webp"
+   },
+   {
+    "w": 2200,
+    "h": 957,
+    "file": "branch-canada-2200.webp"
+   }
+  ]
+ },
+ "branch-us": {
+  "w": 2300,
+  "h": 1000,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 209,
+    "file": "branch-us-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 391,
+    "file": "branch-us-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 696,
+    "file": "branch-us-1600.webp"
+   },
+   {
+    "w": 2200,
+    "h": 957,
+    "file": "branch-us-2200.webp"
+   }
+  ]
+ },
+ "branch-australia": {
+  "w": 2300,
+  "h": 1000,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 209,
+    "file": "branch-australia-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 391,
+    "file": "branch-australia-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 696,
+    "file": "branch-australia-1600.webp"
+   },
+   {
+    "w": 2200,
+    "h": 957,
+    "file": "branch-australia-2200.webp"
+   }
+  ]
+ },
+ "branch-japan": {
+  "w": 2300,
+  "h": 1000,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 209,
+    "file": "branch-japan-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 391,
+    "file": "branch-japan-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 696,
+    "file": "branch-japan-1600.webp"
+   },
+   {
+    "w": 2200,
+    "h": 957,
+    "file": "branch-japan-2200.webp"
+   }
+  ]
+ },
+ "branch-singapore": {
+  "w": 600,
+  "h": 600,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 480,
+    "file": "branch-singapore-480.webp"
    }
   ]
  },
  "teacher-zhenjue": {
   "w": 392,
   "h": 600,
+  "alpha": true,
   "variants": [
    {
     "w": 392,
@@ -342,6 +591,7 @@
  "teacher-deyang": {
   "w": 371,
   "h": 556,
+  "alpha": false,
   "variants": [
    {
     "w": 371,

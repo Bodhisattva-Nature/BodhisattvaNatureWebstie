@@ -20,7 +20,7 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
         <h1 data-reveal style="--i:1">{program.title}</h1>
         <p class="lede" data-reveal style="--i:2">{program.summary}</p>
       </div>
-      <div class="prog-head__media media" data-reveal style="--i:2">
+      <div class="prog-head__media media media--tile" data-reveal style="--i:2">
         <Img name={program.image} alt={program.title} sizes="(max-width: 900px) 100vw, 42vw" loading="eager" />
       </div>
     </div>
@@ -106,7 +106,7 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
       <div class="others">
         {others.map((p, i) => (
           <a class="other" href={url(`/programs/${p.slug}/`)} data-reveal style={`--i:${i}`}>
-            <div class="other__media media zoom">
+            <div class="other__media media media--tile zoom">
               <Img name={p.image} alt={p.title} sizes="(max-width: 800px) 100vw, 30vw" />
             </div>
             <span class="other__no">{p.no}</span>
