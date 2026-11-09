@@ -3,6 +3,7 @@ import Base from "../layouts/Base.astro";
 import Img from "../components/Img.astro";
 import { site, branches, connections } from "../data/site";
 import { url } from "../lib/url";
+import Lotus from "../components/Lotus.astro";
 ---
 
 <Base title={`Visit & contact — ${site.name}`} description="Where to find us: Richmond and Calgary, Diamond Bar, Sydney, Osaka and Singapore.">
@@ -39,15 +40,21 @@ import { url } from "../lib/url";
         {branches.map((b, i) => (
           <article class="branch" id={b.slug} data-reveal style={`--i:${i}`}>
             <div class="branch__media media">
-              <Img name={b.image} alt={`${b.city}, ${b.country}`} sizes="(max-width: 860px) 100vw, 30vw" />
+              {b.image ? (
+                <Img name={b.image} alt={`${b.city}, ${b.country}`} sizes="(max-width: 860px) 100vw, 30vw" />
+              ) : (
+                <span class="branch__blank" aria-hidden="true"><Lotus /></span>
+              )}
               <span class="branch__flag">{b.flag}</span>
             </div>
             <div class="branch__body">
               <h2>{b.city}</h2>
-              <span class="branch__country">{b.country}</span>
-              <address>
-                {b.address.map((l) => <span>{l}</span>)}
-              </address>
+              {b.country !== b.city && <span class="branch__country">{b.country}</span>}
+              {b.address.length > 0 && (
+                <address>
+                  {b.address.map((l) => <span>{l}</span>)}
+                </address>
+              )}
               <div class="branch__links">
                 <a href={`mailto:${b.email}`}>{b.email}</a>
                 {b.phone && <a href={`tel:${b.phone.replace(/[^\d+]/g, "")}`}>{b.phone}</a>}
@@ -128,7 +135,21 @@ import { url } from "../lib/url";
 
   .branch { display: grid; gap: 1.1rem; align-content: start; scroll-margin-top: 110px; }
 
-  .branch__media { position: relative; aspect-ratio: 16/9; background: var(--cream); }
+  .branch__media { position: relative; aspect-ratio: 16/9; background: var(--cream); display: grid; place-items: center; }
+
+  .branch__blank {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--gold);
+    background-image: var(--mandala-img);
+    background-size: 66%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .branch__blank :global(.lotus) { width: 68px; opacity: 0.7; }
   .branch__media img { object-position: center; }
 
   .branch__flag {

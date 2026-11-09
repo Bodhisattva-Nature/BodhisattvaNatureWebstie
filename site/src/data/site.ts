@@ -481,7 +481,7 @@ export type Branch = {
   address: string[];
   phone?: string;
   email: string;
-  image: string;
+  image?: string;
   note?: string;
 };
 
@@ -537,6 +537,33 @@ export const branches: Branch[] = [
     email: "peace@bodhinature.com",
     image: "branch-singapore",
   },
+  {
+    slug: "thailand",
+    city: "Bangkok",
+    country: "Thailand",
+    flag: "TH",
+    address: ["Bangkok · Chiang Mai · Phuket"],
+    email: "peace@bodhinature.com",
+    note: "Write to us for the current meeting place.",
+  },
+  {
+    slug: "malaysia",
+    city: "Kuala Lumpur",
+    country: "Malaysia",
+    flag: "MY",
+    address: ["Kuala Lumpur · Malacca"],
+    email: "peace@bodhinature.com",
+    note: "Write to us for the current meeting place.",
+  },
+  {
+    slug: "sweden",
+    city: "Sweden",
+    country: "Sweden",
+    flag: "SE",
+    address: [],
+    email: "peace@bodhinature.com",
+    note: "Contact us for the current meeting place.",
+  },
 ];
 
 export const books = [
@@ -549,9 +576,7 @@ export const books = [
 export const connections = [
   { region: "Australia", places: "Sydney" },
   { region: "America", places: "Los Angeles · Raleigh · New York · Seattle · Buffalo" },
-  { region: "Thailand", places: "Bangkok · Chiang Mai · Phuket" },
   { region: "Japan", places: "Nara" },
-  { region: "Malaysia", places: "Kuala Lumpur · Malacca" },
   { region: "Singapore", places: "" },
   { region: "South Korea", places: "" },
   { region: "Taiwan, China", places: "" },
