@@ -134,6 +134,10 @@ a {
 
 .section--tight { padding-block: clamp(3rem, 6vw, 5rem); }
 
+/* pull two related sections together */
+.section--tight-bottom { padding-bottom: clamp(2rem, 4vw, 3.5rem); }
+.section--tight-top { padding-top: clamp(2rem, 4vw, 3.5rem); }
+
 .section--jade {
   background: var(--jade);
   color: #f1ead9;
