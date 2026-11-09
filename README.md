@@ -7,6 +7,8 @@ The original is WordPress 7.1.4 with the Divi builder, WooCommerce and GiveWP. E
 harvested first (52 pages, 4 posts, 811 media items, 5 testimonials; see `DATA.md`), then the prose was
 re-edited into a structured content model and a new front end was designed around it.
 
+![Home page](docs/preview-home.jpg)
+
 ---
 
 ## Run it
@@ -64,6 +66,8 @@ site/
 14 routes: home, about, programmes index, five programme pages, wisdom, community, volunteer, donate, visit,
 404. The original's 52 pages collapse into those 14. Most of the old pages were duplicate Divi layouts for the
 same five programmes and five branch addresses.
+
+![Programmes index](docs/preview-programs.jpg)
 
 ## Design notes
 
