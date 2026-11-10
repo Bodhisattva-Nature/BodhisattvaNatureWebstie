@@ -22,8 +22,9 @@ npm run preview     # localhost only
 npm run preview:lan # bound to 0.0.0.0 — reachable from phones on the same Wi-Fi
 ```
 
-`preview:lan` prints the LAN addresses. Astro's preview server reads `allowedHosts` from `server` (not
-`preview`), so the Bonjour name works as well as the IP; that setting is in `astro.config.mjs`.
+`preview:lan` prints the LAN addresses — on this machine `http://192.168.1.203:4321/bodhinature/`, plus the
+Bonjour name `http://Air-2.local:4321/bodhinature/`. Astro's preview server reads `allowedHosts` from `server`
+(not `preview`), which is why the hostname works alongside the IP; the setting is in `astro.config.mjs`.
 
 Node 22+ required. Astro 5 (pinned below 7 because this machine runs 22.23.2, and Astro 7 wants 22.23.4).
 
