@@ -16,10 +16,14 @@ re-edited into a structured content model and a new front end was designed aroun
 ```bash
 cd site
 npm install
-npm run dev      # http://localhost:4321/bodhinature/
-npm run build    # static output in site/dist
-npm run preview
+npm run dev         # http://localhost:4321/bodhinature/
+npm run build       # static output in site/dist
+npm run preview     # localhost only
+npm run preview:lan # bound to 0.0.0.0 — reachable from phones on the same Wi-Fi
 ```
+
+`preview:lan` prints the LAN addresses. Astro's preview server reads `allowedHosts` from `server` (not
+`preview`), so the Bonjour name works as well as the IP; that setting is in `astro.config.mjs`.
 
 Node 22+ required. Astro 5 (pinned below 7 because this machine runs 22.23.2, and Astro 7 wants 22.23.4).
 
