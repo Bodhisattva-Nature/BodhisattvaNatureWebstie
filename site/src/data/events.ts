@@ -6,6 +6,7 @@ export type Event = {
   time?: string;
   place?: string;
   image?: string;
+  oneOff?: boolean;
   notes?: string[];
   themes?: string[];
   cta: string;
@@ -13,16 +14,20 @@ export type Event = {
 
 /**
  * The weekly online sitting comes from the poster on bodhinature.com/upcomingevents/.
- * Walk for Peace has no published date, place or poster yet, so those fields are
- * left empty and the views render a "details to be announced" state.
+ * Walk for Peace is a one-off: Sunday 15 November, New York City. No time was given,
+ * so the views omit the time row.
  */
 export const events: Event[] = [
   {
     slug: "walk-for-peace",
     title: "Walk for Peace",
     titleCn: "和平步行",
+    cadence: "Sunday 15 November",
+    place: "New York City",
+    image: "event-walk",
+    oneOff: true,
     notes: ["A walking practice — no charge, no registration"],
-    cta: "Ask for the date",
+    cta: "Ask for the meeting point",
   },
   {
     slug: "online-meditation-centre",

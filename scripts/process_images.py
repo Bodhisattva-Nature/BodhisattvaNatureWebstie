@@ -89,6 +89,7 @@ MANIFEST = {
     "avatar-5": "2022/05/75x75_auto1.png",
 
     # upcoming-events posters
+    "event-walk": "2026/11/walk-for-peace.jpg",
     "event-retreat": "2024/04/3-1.png",
     "event-online": "2024/04/4-1.png",
     "event-wisdom": "2024/04/2-1.png",
@@ -125,6 +126,7 @@ WIDTH_OVERRIDES = {
     "hero": [480, 900, 1600],
     "logo": [180, 360],
     "event-retreat": [480, 900, 1400],
+    "event-walk": [480, 900, 1400],
     "event-online": [480, 900, 1400],
     "programs-banner": [480, 900, 1600],
     "contact-hero": [480, 900, 1600],

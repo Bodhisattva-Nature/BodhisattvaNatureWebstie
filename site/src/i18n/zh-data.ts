@@ -468,8 +468,12 @@ export const events = [
     slug: "walk-for-peace",
     title: "和平步行",
     titleCn: "Walk for Peace",
+    cadence: "11月15日（周日）",
+    place: "纽约市",
+    image: "event-walk",
+    oneOff: true,
     notes: ["以行走为修行——免费，无须报名"],
-    cta: "询问日期",
+    cta: "询问集合地点",
   },
   {
     slug: "online-meditation-centre",

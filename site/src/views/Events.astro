@@ -32,7 +32,7 @@ const { t, events, eventPosters } = getContent(lang);
             </figure>
 
             <div class="event__body">
-              <span class="eyebrow">{e.cadence ? t.events.weekly : t.events.event}</span>
+              <span class="eyebrow">{e.oneOff || !e.cadence ? t.events.event : t.events.weekly}</span>
               <h2>
                 {e.title}
                 {e.titleCn && <span class="event__cn">{e.titleCn}</span>}

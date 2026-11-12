@@ -277,7 +277,7 @@ export const en = {
     headingLine1: "What's",
     headingLine2: "on.",
     lede:
-      "A weekly online sitting, and a walk for peace announced as its date is set. Both are free, and both are open to anyone.",
+      "A walk for peace on Sunday 15 November in New York, and a weekly online sitting for Europe and the UK. Both are free, and both are open to anyone.",
     weekly: "Weekly",
     event: "Event",
     tba: "Date and place to be announced",
