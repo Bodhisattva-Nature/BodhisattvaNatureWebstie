@@ -77,7 +77,7 @@ export const en = {
     testimonialTitle: "What changed.",
     testimonialNote: "Students describing what they noticed after taking part.",
     eventsEyebrow: "What's on",
-    eventsTitle: "Every week.",
+    eventsTitle: "Gather with us.",
     donateEyebrow: "Support",
     donateTitle: "Each dollar you give goes into merits and virtues.",
     donateBody:
@@ -277,8 +277,10 @@ export const en = {
     headingLine1: "What's",
     headingLine2: "on.",
     lede:
-      "Two gatherings run every week — one on the mat in Richmond, one online for Europe and the UK. Both are free, and both are open to anyone.",
+      "A weekly online sitting, and a walk for peace announced as its date is set. Both are free, and both are open to anyone.",
     weekly: "Weekly",
+    event: "Event",
+    tba: "Date and place to be announced",
     when: "When",
     time: "Time",
     where: "Where",

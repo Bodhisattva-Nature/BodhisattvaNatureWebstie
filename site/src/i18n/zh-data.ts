@@ -465,15 +465,11 @@ export const books = [
 
 export const events = [
   {
-    slug: "mindfulness-retreat",
-    title: "正念禅修",
-    titleCn: "Mindfulness Retreat",
-    cadence: "每周三、周六",
-    time: "10:00 – 16:00",
-    place: "温哥华 / 列治文",
-    image: "event-retreat",
-    notes: ["含免费午餐", "一天六小时，在安静的禅堂进行", "免费，不必带任何东西"],
-    cta: "报名参加",
+    slug: "walk-for-peace",
+    title: "和平步行",
+    titleCn: "Walk for Peace",
+    notes: ["以行走为修行——免费，无须报名"],
+    cta: "询问日期",
   },
   {
     slug: "online-meditation-centre",

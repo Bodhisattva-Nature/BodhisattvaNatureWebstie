@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Img from "../components/Img.astro";
 import Divider from "../components/Divider.astro";
+import Lotus from "../components/Lotus.astro";
 import { getContent, type Lang } from "../i18n";
 import { href } from "../lib/url";
 
@@ -137,13 +138,21 @@ const alt = isZh
       <div class="grid grid--2" style="margin-top:clamp(2rem,4vw,3rem)">
         {events.map((e, i) => (
           <a class="event-card" href={href("/events/", lang)} data-reveal style={`--i:${i}`}>
-            <div class="media zoom" style="aspect-ratio:16/10">
-              <Img name={e.image} alt={`${e.title}`} sizes="(max-width: 860px) 100vw, 46vw" />
-            </div>
+            {e.image ? (
+              <div class="media zoom" style="aspect-ratio:16/10">
+                <Img name={e.image} alt={e.title} sizes="(max-width: 860px) 100vw, 46vw" />
+              </div>
+            ) : (
+              <div class="media event-card__blank" style="aspect-ratio:16/10">
+                <Lotus />
+              </div>
+            )}
             <div class="event-card__body">
-              <span class="pillar__sub">{e.cadence}</span>
-              <h3>{e.title}</h3>
-              <p>{e.time} · {e.place}</p>
+              {e.cadence && <span class="pillar__sub">{e.cadence}</span>}
+              <h3>{e.title}{e.titleCn && <span> · {e.titleCn}</span>}</h3>
+              {e.time || e.place
+                ? <p>{[e.time, e.place].filter(Boolean).join(" · ")}</p>
+                : <p>{t.events.tba}</p>}
             </div>
           </a>
         ))}
@@ -427,6 +436,16 @@ const alt = isZh
   .quote-dots button.active { background: var(--ink); }
 
   .event-card { display: grid; gap: 1rem; align-content: start; }
+  .event-card__blank {
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    background-image: var(--mandala-img);
+    background-size: 42%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .event-card__blank :global(.lotus) { width: 54px; opacity: 0.75; }
   .event-card__body { display: grid; gap: 0.35rem; }
   .event-card h3 { font-size: var(--step-2); font-weight: 300; }
   .event-card h3 span { font-size: 0.55em; letter-spacing: 0.12em; color: var(--muted); }
@@ -444,6 +463,16 @@ const alt = isZh
 
   @media (max-width: 860px) {
     .event-card { display: grid; gap: 1rem; align-content: start; }
+  .event-card__blank {
+    display: grid;
+    place-items: center;
+    color: var(--gold);
+    background-image: var(--mandala-img);
+    background-size: 42%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .event-card__blank :global(.lotus) { width: 54px; opacity: 0.75; }
   .event-card__body { display: grid; gap: 0.35rem; }
   .event-card h3 { font-size: var(--step-2); font-weight: 300; }
   .event-card h3 span { font-size: 0.55em; letter-spacing: 0.12em; color: var(--muted); }

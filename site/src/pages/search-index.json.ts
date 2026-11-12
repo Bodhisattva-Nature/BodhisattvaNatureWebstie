@@ -13,7 +13,7 @@ const pages: Doc[] = [
   { t: "Wisdom Words", d: "Fourteen short teachings on practice and the nature of mind.", u: "/wisdom/", k: "page" },
   { t: "Community", d: "Daily schedule, retreats, Tai Chi in Richmond, hospice care.", u: "/community/", k: "page" },
   { t: "What's on", d: "Mindfulness retreat Wednesday and Saturday, online meditation centre for Europe.", u: "/events/", k: "page" },
-  { t: "Mindfulness Retreat", d: "Wednesday and Saturday, 10:00-16:00, Vancouver / Richmond, free lunch.", u: "/events/", k: "event" },
+  { t: "Walk for Peace", d: "A walking practice; date and meeting point announced when set.", u: "/events/", k: "event" },
   { t: "Online Meditation Centre", d: "Saturday and Sunday, 07:00 CET / 06:00 UK, about two hours.", u: "/events/", k: "event" },
   { t: "Volunteer", d: "Dubbing, editing, translating, coordinating.", u: "/volunteer/", k: "page" },
   { t: "Donate", d: "Ways to give, and what your contribution carries.", u: "/donate/", k: "page" },

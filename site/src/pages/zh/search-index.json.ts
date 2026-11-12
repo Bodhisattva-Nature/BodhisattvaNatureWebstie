@@ -13,6 +13,7 @@ export const GET: APIRoute = () => {
     { t: "智慧法语", d: t.wisdom.lede, u: "/wisdom/", k: "页面" },
     { t: "共修", d: t.community.lede, u: "/community/", k: "页面" },
     { t: "近期活动", d: t.events.lede, u: "/events/", k: "页面" },
+    { t: "和平步行", d: "以行走为修行；日期与集合地点确定后公告。", u: "/events/", k: "活动" },
     { t: "义工", d: t.volunteer.lede, u: "/volunteer/", k: "页面" },
     { t: "护持", d: t.donate.lede, u: "/donate/", k: "页面" },
     { t: "来访与联系", d: t.contact.lede, u: "/contact/", k: "页面" },

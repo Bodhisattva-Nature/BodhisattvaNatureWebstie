@@ -2,30 +2,27 @@ export type Event = {
   slug: string;
   title: string;
   titleCn?: string;
-  cadence: string;
-  time: string;
-  place: string;
-  image: string;
+  cadence?: string;
+  time?: string;
+  place?: string;
+  image?: string;
   notes?: string[];
   themes?: string[];
   cta: string;
 };
 
 /**
- * Transcribed from the four posters on bodhinature.com/upcomingevents/.
- * Neither poster carries a date — both are standing weekly gatherings.
+ * The weekly online sitting comes from the poster on bodhinature.com/upcomingevents/.
+ * Walk for Peace has no published date, place or poster yet, so those fields are
+ * left empty and the views render a "details to be announced" state.
  */
 export const events: Event[] = [
   {
-    slug: "mindfulness-retreat",
-    title: "Mindfulness Retreat",
-    titleCn: "正念禅修",
-    cadence: "Wednesday & Saturday",
-    time: "10:00 – 16:00",
-    place: "Vancouver / Richmond",
-    image: "event-retreat",
-    notes: ["A free lunch is included", "Six hours, held in a quiet room", "No charge, and nothing to bring"],
-    cta: "Register for a session",
+    slug: "walk-for-peace",
+    title: "Walk for Peace",
+    titleCn: "和平步行",
+    notes: ["A walking practice — no charge, no registration"],
+    cta: "Ask for the date",
   },
   {
     slug: "online-meditation-centre",
