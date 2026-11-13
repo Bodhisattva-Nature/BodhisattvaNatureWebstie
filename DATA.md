@@ -47,7 +47,7 @@ Divi renders real HTML into `content.rendered`, not bare shortcodes, so the page
 exceptions: `top-course` and the `weekend-retreat` post return unrendered shortcode text, and both were
 rebuilt by hand from their AIOSEO description and rendered siblings.
 
-`scripts/extract.py` walks the rendered HTML in document order, keeps block-level elements, drops anything
+`tools/extract.py` walks the rendered HTML in document order, keeps block-level elements, drops anything
 inside `nav`/`footer`/`header`/`form`, unescapes entities, collapses whitespace and removes exact duplicate
 blocks. Divi repeats sections constantly — "ABOUT US" appears twice on one page — so deduplication matters
 more than it sounds.
@@ -74,16 +74,16 @@ stripped from page content and rebuilt once as site-wide data.
 ```bash
 cd /Users/pavan/temp/bodhinature-modern
 python3 -m venv .venv && ./.venv/bin/pip install beautifulsoup4 lxml requests pillow
-./.venv/bin/python scripts/harvest.py          # REST endpoints → api/
-./.venv/bin/python scripts/extract.py          # Divi HTML → content/
-./.venv/bin/python scripts/download_media.py   # uploads → media/
-./.venv/bin/python scripts/process_images.py   # curated → site/public/media + manifest
+./.venv/bin/python tools/harvest.py          # REST endpoints → api/
+./.venv/bin/python tools/extract.py          # Divi HTML → content/
+./.venv/bin/python tools/download_media.py   # uploads → media/
+./.venv/bin/python tools/process_images.py   # curated → site/public/media + manifest
 ```
 
 `harvest.py` paginates with `per_page=100`, reads `X-WP-TotalPages`, and retries on 5xx with a 240-second
 timeout; the pages endpoint alone returns 5 MB when `_embed=1` is set and takes 19 seconds.
 
-The page crawl (`scripts/crawl.py`) fetches all 105 URLs, walks every `<img>`, `srcset`, inline `background-image`
+The page crawl (`tools/crawl.py`) fetches all 105 URLs, walks every `<img>`, `srcset`, inline `background-image`
 and `<link>`, and records 360 unique image URLs. That is how the Smart Slider cache and the theme assets were
 found: they are not in the media library, and 22 homepage slides plus a Divi preloader only show up in rendered
 HTML.

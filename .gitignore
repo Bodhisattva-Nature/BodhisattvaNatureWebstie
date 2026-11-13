@@ -1,12 +1,28 @@
-# build output
+# ---- build output ----
 site/dist/
 site/node_modules/
 site/.astro/
 
-# local archive (scraped source data — not part of the published site)
+# ---- python env ----
+.venv/
+__pycache__/
+*.pyc
+
+# ---- local archive (scraped source data, regenerable with tools/) ----
 api/
 media/
 content/
 raw/
-.venv/
+
+# ---- local snapshots ----
+backups/
+*.tar.gz
+
+# ---- macOS ----
+.DS_Store
+
+# ---- unrelated working folders in this checkout ----
+deck-build/
+deliverables/
+review/
 *.log
