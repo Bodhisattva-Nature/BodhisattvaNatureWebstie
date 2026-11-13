@@ -14,7 +14,7 @@ export type Event = {
 
 /**
  * The weekly online sitting comes from the poster on bodhinature.com/upcomingevents/.
- * Walk for Peace is a one-off: Sunday 15 November, New York City. No time was given,
+ * Walk for Peace is a one-off: Tuesday 1 December 2026, New York City. No time was given,
  * so the views omit the time row.
  */
 export const events: Event[] = [
@@ -22,7 +22,7 @@ export const events: Event[] = [
     slug: "walk-for-peace",
     title: "Walk for Peace",
     titleCn: "和平步行",
-    cadence: "Sunday 15 November",
+    cadence: "Tuesday 1 December",
     place: "New York City",
     image: "event-walk",
     oneOff: true,

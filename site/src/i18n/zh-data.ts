@@ -468,7 +468,7 @@ export const events = [
     slug: "walk-for-peace",
     title: "和平步行",
     titleCn: "Walk for Peace",
-    cadence: "11月15日（周日）",
+    cadence: "12月1日（周二）",
     place: "纽约市",
     image: "event-walk",
     oneOff: true,
