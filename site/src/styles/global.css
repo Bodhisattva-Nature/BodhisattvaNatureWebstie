@@ -1098,6 +1098,45 @@ a {
   filter: grayscale(15%);
 }
 
+/* ---------- retreat band (light) ---------- */
+
+.section--retreat {
+  background: #f2e3d2;
+  color: var(--ink);
+  border-top: 1px solid rgba(164, 119, 31, 0.32);
+  border-bottom: 1px solid rgba(164, 119, 31, 0.32);
+  padding-block: clamp(2.75rem, 5vw, 4.5rem);
+}
+
+.retreat {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.retreat__intro { display: grid; gap: 0.9rem; justify-items: start; }
+.retreat__intro .h2 { margin-block: 0.1rem 0; }
+.retreat__goal { margin: 0; color: var(--ink-soft); max-width: 42ch; }
+.retreat__intro .btn { margin-top: 0.6rem; }
+
+.retreat__schedule { align-self: center; }
+.retreat__schedule .caption { color: var(--muted); margin-bottom: 0.9rem; }
+
+.section--retreat .schedule { border-top-color: rgba(27, 20, 16, 0.16); }
+.section--retreat .schedule__row { padding-block: 0.62rem; border-color: rgba(27, 20, 16, 0.13); }
+.section--retreat .schedule__label { color: var(--ink-soft); }
+
+.section--retreat .retreat-list { margin: 0; }
+.section--retreat .retreat-list li {
+  border-color: rgba(27, 20, 16, 0.18);
+  color: var(--ink-soft);
+}
+
+@media (max-width: 860px) {
+  .retreat { grid-template-columns: 1fr; gap: 1.75rem; }
+}
+
 /* ---------- schedule ---------- */
 
 .schedule {
