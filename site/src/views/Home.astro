@@ -8,7 +8,7 @@ import { href } from "../lib/url";
 
 interface Props { lang?: Lang }
 const lang: Lang = Astro.props.lang ?? "en";
-const { t, isZh, stats, pillars, programs, testimonials, schedule, retreat, events, quotes, branches } = getContent(lang);
+const { t, isZh, stats, pillars, programs, testimonials, events, quotes } = getContent(lang);
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const featured = [...quotes].sort((a, b) => a.body.length - b.body.length).slice(0, 3);
@@ -21,7 +21,6 @@ const alt = isZh
       pillar1: "山间平静的湖面",
       pillar2: "夜空中的极光",
       pillar3: "静坐中的人",
-      clouds: "云海与天光",
       event: "活动海报",
     }
   : {
@@ -30,7 +29,6 @@ const alt = isZh
       pillar1: "A still lake between mountains",
       pillar2: "Aurora over a dark landscape",
       pillar3: "A figure sitting in meditation",
-      clouds: "A sea of cloud under a pale sky",
       event: "Event poster",
     };
 ---
@@ -156,32 +154,6 @@ const alt = isZh
             </div>
           </a>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- RETREAT + SCHEDULE -->
-  <section class="section section--retreat">
-    <div class="wrap retreat">
-      <div class="retreat__intro" data-reveal>
-        <span class="eyebrow">{t.home.retreatEyebrow}</span>
-        <h2 class="h2">{t.home.retreatTitle}</h2>
-        <p class="retreat__goal">{retreat.goal}</p>
-        <ul class="retreat-list">
-          {retreat.content.map((c) => <li>{c}</li>)}
-        </ul>
-        <a href={href("/community/", lang)} class="btn">{t.programsIndex.ctaSchedule}</a>
-      </div>
-      <div class="retreat__schedule" data-reveal style="--i:1">
-        <p class="caption">{t.home.retreatCaption}</p>
-        <div class="schedule">
-          {schedule.map((s) => (
-            <div class="schedule__row">
-              <span class="schedule__time">{s.time}</span>
-              <span class="schedule__label">{s.label}</span>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   </section>
@@ -344,24 +316,6 @@ const alt = isZh
   }
 
   .section-head .h2 { margin-top: 0.5rem; }
-
-  .retreat-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.8rem 0 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-  }
-
-  .retreat-list li {
-    border: 1px solid rgba(27, 20, 16, 0.18);
-    border-radius: 999px;
-    padding: 0.4em 0.95em;
-    font-size: 0.76rem;
-    letter-spacing: 0.04em;
-    color: var(--ink-soft);
-  }
 
   .quote-carousel {
     margin-top: clamp(2rem, 4vw, 3.5rem);
