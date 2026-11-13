@@ -9,10 +9,11 @@ __pycache__/
 *.pyc
 
 # ---- local archive (scraped source data, regenerable with tools/) ----
-api/
-media/
-content/
-raw/
+# anchored to the repository root: site/public/media/ must stay tracked
+/api/
+/media/
+/content/
+/raw/
 
 # ---- local snapshots ----
 backups/
