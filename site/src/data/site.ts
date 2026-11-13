@@ -564,6 +564,15 @@ export const branches: Branch[] = [
     email: "peace@bodhinature.com",
     note: "Contact us for the current meeting place.",
   },
+  {
+    slug: "france",
+    city: "France",
+    country: "France",
+    flag: "FR",
+    address: [],
+    email: "peace@bodhinature.com",
+    note: "Contact us for the current meeting place.",
+  },
 ];
 
 export const books = [

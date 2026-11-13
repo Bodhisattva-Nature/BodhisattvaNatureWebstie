@@ -64,7 +64,7 @@ schedule, branches, volunteer roles, donation methods, events. Do not dump pages
   right, type on parchment at the left.
 - **Programme cards:** their five illustrated icons (reading monk, flower figure, Tai Chi pair, hospice
   house, fish spiral). They are 1080×1080 transparent PNGs. Keep the alpha and place them on a tinted tile.
-- **Branches:** their illustrated country-map banners. Thailand, Malaysia and Sweden have no banner, so use a
+- **Branches:** their illustrated country-map banners. Thailand, Malaysia, Sweden and France have no banner, so use a
   mandala-and-lotus tile rather than a borrowed photo.
 - **Events:** their posters where they exist. Where you are given a photo, crop the phone watermark off the
   bottom and reframe to the card ratio.
@@ -112,11 +112,11 @@ Home, in this order:
 10. **Wisdom words**: quote rotator
 11. **What changed**: testimonial rail with portraits
 12. **Support**: donation band
-13. Footer: brand, Explore, Contact, Branches (8), "All locations, worldwide"
+13. Footer: brand, Explore, Contact, Branches (9), "All locations, worldwide"
 
 Content to carry across: 5 programmes (Dharma Study, Mindfulness, Tai Chi & Movement, Hospice Care,
-Happiness & Freedom), 14 wisdom sayings, 8 branches (Canada, United States, Australia, Japan, Singapore,
-Thailand, Malaysia, Sweden), 5 testimonials with names and roles, the daily schedule
+Happiness & Freedom), 14 wisdom sayings, 9 branches (Canada, United States, Australia, Japan, Singapore,
+Thailand, Malaysia, Sweden, France), 5 testimonials with names and roles, the daily schedule
 (06:00 prostration & meditation, 08:45 morning class, 14:30 afternoon class, 17:00 prostration,
 19:00 evening class), the four-language book covers on the Happiness page, PayPal + both QR codes on donate,
 their CONTACT US banner and whale-earth illustration on the contact page.

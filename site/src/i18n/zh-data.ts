@@ -402,6 +402,15 @@ export const branches = [
     email: "peace@bodhinature.com",
     note: "共修地点请来信询问。",
   },
+  {
+    slug: "france",
+    city: "法国",
+    country: "法国",
+    flag: "FR",
+    address: [],
+    email: "peace@bodhinature.com",
+    note: "共修地点请来信询问。",
+  },
 ];
 
 export const connections = [

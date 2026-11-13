@@ -84,7 +84,7 @@ rebuilt with `tools/`; see [`docs/EXTRACT.md`](docs/EXTRACT.md).
 | Sitemap coverage | 105 URLs across 9 sub-sitemaps |
 | Wisdom quotes | 14 |
 | Testimonials | 5 |
-| Branches | 8 |
+| Branches | 9 |
 | Archive size | 620 MB (`api` 23, `media` 516, `raw` 81, `content` 0.6) |
 
 ## The site
