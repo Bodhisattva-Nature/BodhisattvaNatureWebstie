@@ -110,6 +110,11 @@ Custom domain**. With a root base, the site expects to be served from `/`, so a 
 
 No third-party requests: no analytics, no font CDN, no embeds.
 
+`npm run check:site` verifies the build without a server: it walks `dist/`, resolves every internal
+`href`/`src`/`srcset`, confirms every `#fragment` exists on its target page, checks `<html lang>` and
+reciprocal `hreflang`, and enforces the size budgets. It reads the base path off the output, so it works for
+`/bodhinature/` and `/BodhisattvaNatureWebstie/` alike. Run it after every build.
+
 ## Troubleshooting
 
 **Every link 404s but the homepage loads.** `BASE_PATH` does not match where the site is served. Check the

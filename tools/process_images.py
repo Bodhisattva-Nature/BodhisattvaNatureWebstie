@@ -90,6 +90,15 @@ MANIFEST = {
 
     # upcoming-events posters
     "event-walk": "2026/11/walk-for-peace.jpg",
+    # season + past events (posters from wp-content/uploads/2026/10)
+    "event-dawn": "2026/10/微信图片_2026-10-20_173844_916-scaled.png",
+    "event-journey": "2026/10/微信图片_2026-10-20_175047_944-scaled.png",
+    "event-awakening": "2026/10/微信图片_2026-10-20_173856_361.png",
+    "event-bodhi": "2026/10/微信图片_2026-10-20_182225_695.png",
+    "past-journey": "2024/09/Journey-正方形.jpg",
+    "past-thailand": "2024/07/recent-activities-in-Thailand-2024.png",
+    "past-malaysia": "2024/04/malaysia-family-camp.png",
+
     "event-retreat": "2024/04/3-1.png",
     "event-online": "2024/04/4-1.png",
     "event-wisdom": "2024/04/2-1.png",
@@ -127,6 +136,13 @@ WIDTH_OVERRIDES = {
     "logo": [180, 360],
     "event-retreat": [480, 900, 1400],
     "event-walk": [480, 900, 1400],
+    "event-dawn": [360, 720],
+    "event-journey": [360, 720],
+    "event-awakening": [360, 720],
+    "event-bodhi": [360, 720],
+    "past-journey": [300],
+    "past-thailand": [360, 720],
+    "past-malaysia": [360, 720],
     "event-online": [480, 900, 1400],
     "programs-banner": [480, 900, 1600],
     "contact-hero": [480, 900, 1600],

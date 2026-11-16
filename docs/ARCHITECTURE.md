@@ -38,7 +38,7 @@ adding a third language is a dictionary plus a route tree, not a rewrite.
 | `src/pages/` | Route wrappers only. `pages/zh/**` mirrors `pages/**`. |
 | `src/i18n/` | Language layer: dictionaries, Chinese collections, the `getContent` merge. |
 | `src/data/` | The English content model (626 lines) and the generated image manifest. |
-| `src/components/` | 6 shared components: Header, Footer, Img, Search, Lotus, Divider. |
+| `src/components/` | 8 shared components: Header, Footer, Img, Search, Lotus, Divider, PrayerFlags, EventCard. |
 | `src/layouts/Base.astro` | `<html>`, head, metadata, hreflang, global scripts. |
 | `src/styles/global.css` | The entire design system in 1,611 lines. |
 | `src/lib/` | `url.ts` (link building) and `routes.ts` (sitemap). |

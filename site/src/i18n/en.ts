@@ -279,6 +279,13 @@ export const en = {
     lede:
       "A walk for peace on Tuesday 1 December in New York, and a weekly online sitting for Europe and the UK. Both are free, and both are open to anyone.",
     weekly: "Weekly",
+    seasonEyebrow: "Coming up",
+    seasonAll: "All events →",
+    seasonTitle: "Retreats and courses.",
+    seasonNote: "Read from the posters in the homepage slider on bodhinature.com. Dates as printed there.",
+    pastEyebrowLabel: "Past",
+    pastTitleLabel: "Past gatherings.",
+
     event: "Event",
     tba: "Date and place to be announced",
     when: "When",

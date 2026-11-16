@@ -949,6 +949,120 @@
    }
   ]
  },
+ "event-dawn": {
+  "w": 1707,
+  "h": 2560,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 540,
+    "file": "event-dawn-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 1080,
+    "file": "event-dawn-720.webp"
+   }
+  ]
+ },
+ "event-journey": {
+  "w": 1707,
+  "h": 2560,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 540,
+    "file": "event-journey-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 1080,
+    "file": "event-journey-720.webp"
+   }
+  ]
+ },
+ "event-awakening": {
+  "w": 1280,
+  "h": 1920,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 540,
+    "file": "event-awakening-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 1080,
+    "file": "event-awakening-720.webp"
+   }
+  ]
+ },
+ "event-bodhi": {
+  "w": 1024,
+  "h": 1536,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 540,
+    "file": "event-bodhi-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 1080,
+    "file": "event-bodhi-720.webp"
+   }
+  ]
+ },
+ "past-journey": {
+  "w": 300,
+  "h": 300,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 300,
+    "h": 300,
+    "file": "past-journey-300.webp"
+   }
+  ]
+ },
+ "past-thailand": {
+  "w": 2800,
+  "h": 1800,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 231,
+    "file": "past-thailand-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 463,
+    "file": "past-thailand-720.webp"
+   }
+  ]
+ },
+ "past-malaysia": {
+  "w": 2800,
+  "h": 1800,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 231,
+    "file": "past-malaysia-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 463,
+    "file": "past-malaysia-720.webp"
+   }
+  ]
+ },
  "event-retreat": {
   "w": 2000,
   "h": 1300,

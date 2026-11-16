@@ -1,4 +1,5 @@
 ---
+import PrayerFlags from "./PrayerFlags.astro";
 import { getContent, contact, type Lang } from "../i18n";
 import { href, oppositeHref } from "../lib/url";
 import Search from "./Search.astro";
@@ -15,7 +16,7 @@ const other = oppositeHref(Astro.url.pathname, lang);
 ---
 
 <header class="header">
-  <span class="flagline" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+  <PrayerFlags />
   <div class="wrap header__inner">
     <a href={href("/", lang)} class="brand" aria-label={t.site.name}>
       <Img name="logo" alt={t.site.name} class="brand__logo" sizes="180px" loading="eager" />

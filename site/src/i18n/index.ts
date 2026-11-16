@@ -1,7 +1,7 @@
 import { en } from "./en";
 import { zh } from "./zh";
 import * as enData from "../data/site";
-import { events as enEvents, eventPosters as enPosters } from "../data/events";
+import { events as enEvents, eventPosters as enPosters, seasonEvents as enSeason, pastEvents as enPast } from "../data/events";
 import enQuotes from "../data/quotes.json";
 import * as zhData from "./zh-data";
 
@@ -39,6 +39,8 @@ export function getContent(lang: Lang = "en") {
     books: isZh ? zhData.books : enData.books,
     events: isZh ? zhData.events : enEvents,
     eventPosters: isZh ? zhData.eventPosters : enPosters,
+    seasonEvents: isZh ? zhData.seasonEvents : enSeason,
+    pastEvents: isZh ? zhData.pastEvents : enPast,
     quotes: isZh ? zhData.quotes : (enQuotes as { title: string; body: string }[]),
   };
 }

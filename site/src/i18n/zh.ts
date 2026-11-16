@@ -270,6 +270,13 @@ export const zh = {
     lede:
       "十二月一日（周二）在纽约的和平步行，以及每周为欧洲与英国举办的线上共修。两者皆免费，皆欢迎任何人。",
     weekly: "每周",
+    seasonEyebrow: "即将举行",
+    seasonAll: "全部活动 →",
+    seasonTitle: "禅修营与课程。",
+    seasonNote: "转录自 bodhinature.com 首页轮播中的海报，日期依海报所印。",
+    pastEyebrowLabel: "往期",
+    pastTitleLabel: "往期活动。",
+
     event: "活动",
     tba: "日期与地点待公布",
     when: "时间",

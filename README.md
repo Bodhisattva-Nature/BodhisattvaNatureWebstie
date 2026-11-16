@@ -27,6 +27,7 @@ To build and serve the real output:
 npm run build          # → site/dist
 npm run preview        # localhost only
 npm run preview:lan    # bound to 0.0.0.0, shareable on the local network
+npm run check:site     # verify every link, fragment, hreflang pair and budget in dist
 ```
 
 ## Documentation
@@ -38,7 +39,6 @@ npm run preview:lan    # bound to 0.0.0.0, shareable on the local network
 | [`docs/BUILD.md`](docs/BUILD.md) | Build, base paths, deploy to GitHub Pages, LAN preview, troubleshooting |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | How the code is organised: routes, i18n, data model, images, CSS |
 | [`DATA.md`](DATA.md) | What was harvested, what could not be, and why |
-| [`PROMPT.md`](PROMPT.md) | A from-scratch build prompt describing this project end to end |
 
 ## Repository layout
 
@@ -68,7 +68,6 @@ npm run preview:lan    # bound to 0.0.0.0, shareable on the local network
 ├── docs/                  documentation and preview images
 ├── .github/workflows/     Pages deployment
 ├── DATA.md                archive inventory and method
-├── PROMPT.md              from-scratch build prompt
 └── README.md
 ```
 
@@ -85,6 +84,7 @@ rebuilt with `tools/`; see [`docs/EXTRACT.md`](docs/EXTRACT.md).
 | Wisdom quotes | 14 |
 | Testimonials | 5 |
 | Branches | 9 |
+| Event listings | 2 weekly + 4 season retreats + 3 past |
 | Archive size | 620 MB (`api` 23, `media` 516, `raw` 81, `content` 0.6) |
 
 ## The site
