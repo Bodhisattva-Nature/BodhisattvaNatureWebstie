@@ -312,8 +312,13 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   .pcard .scard__text { max-width: 60ch; }
 
   @media (max-width: 1100px) { .season { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px) {
-    .season { grid-template-columns: 1fr; }
+  @media (max-width: 700px) {
+    /* four full-width posters made the page 4 screens longer; show them as rows */
+    .season { grid-template-columns: 1fr; gap: 1.5rem; }
+    .scard { grid-template-columns: 104px 1fr; gap: 1rem; align-items: start; }
+    .scard__body { padding-top: 0.15rem; }
+    .scard h3 { font-size: 1.05rem; }
+    .scard__text { font-size: 0.84rem; }
     .pcard { grid-template-columns: 96px 1fr; gap: 1rem; }
   }
 
@@ -361,8 +366,13 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   .pcard .scard__text { max-width: 60ch; }
 
   @media (max-width: 1100px) { .season { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 640px) {
-    .season { grid-template-columns: 1fr; }
+  @media (max-width: 700px) {
+    /* four full-width posters made the page 4 screens longer; show them as rows */
+    .season { grid-template-columns: 1fr; gap: 1.5rem; }
+    .scard { grid-template-columns: 104px 1fr; gap: 1rem; align-items: start; }
+    .scard__body { padding-top: 0.15rem; }
+    .scard h3 { font-size: 1.05rem; }
+    .scard__text { font-size: 0.84rem; }
     .pcard { grid-template-columns: 96px 1fr; gap: 1rem; }
   }
 

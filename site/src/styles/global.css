@@ -104,6 +104,8 @@ html[lang="zh-Hans"] .volunteer-band__quote p {
   letter-spacing: 0.01em;
 }
 
+figure { margin: 0; }
+
 body {
   margin: 0;
   background: var(--paper);
@@ -643,9 +645,8 @@ a {
   to { transform: scale(1); }
 }
 
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; min-height: 0; }
-  .hero__more {
+/* hero meta link — base styles, not just on phones */
+.hero__more {
   display: inline-block;
   margin-left: 0.15em;
   color: var(--saffron);
@@ -656,14 +657,18 @@ a {
 
 .hero__more:hover { color: var(--ink); border-color: var(--ink); }
 
-.hero__media {
-    order: -1;
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  /* headline first, then the lede and buttons, then the photograph */
+  .hero__media {
+    order: 3;
     aspect-ratio: 4 / 5;
     min-height: 0;
     padding: 0.9rem var(--gutter) 2rem 0.9rem;
   }
   .hero__media img { min-height: 0; height: 100%; }
   .hero__media::before { inset: 0 calc(var(--gutter) - 0.9rem + 0.9rem) 1.1rem 0; }
+  .hero__meta { order: 4; }
   .hero__inner { padding-block: clamp(2rem, 6vw, 3rem) clamp(2.5rem, 7vw, 4rem); }
   .hero h1 { font-size: clamp(2.6rem, 11vw, 4rem); }
 }
@@ -1323,7 +1328,7 @@ a {
   .split--reverse .split__media { order: 0; }
   .grid--3 { grid-template-columns: repeat(2, 1fr); }
   .footer__top { grid-template-columns: 1fr 1fr; row-gap: 2.5rem; }
-  .program-row { grid-template-columns: 2.5rem 1fr auto; }
+  .program-row { grid-template-columns: 2rem 1fr auto; gap: 1rem; padding-block: 1.15rem; }
   .program-row__desc { display: none; }
 }
 
