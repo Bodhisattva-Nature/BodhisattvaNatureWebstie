@@ -21,12 +21,12 @@ const year = new Date().getFullYear();
       <div>
         <h4>{t.footer.explore}</h4>
         <ul>
-          {t.nav.map((item) => (
-            <li><a href={href(item.href, lang)}>{item.label}</a></li>
-          ))}
-          <li><a href={href("/volunteer/", lang)}>{t.volunteer.eyebrow}</a></li>
-          <li><a href={href("/donate/", lang)}>{t.cta.donate}</a></li>
-          <li><a href={href("/wisdom/#downloads", lang)}>{t.wisdom.downloadsEyebrow}</a></li>
+          {t.nav
+            .filter((item) => item.href !== "/community/" && item.href !== "/volunteer/")
+            .map((item) => (
+              <li><a href={href(item.href, lang)}>{item.label}</a></li>
+            ))}
+          <li><a href={href("/activities/", "zh")}>{t.external.activities.headerLabel}</a></li>
         </ul>
       </div>
 
