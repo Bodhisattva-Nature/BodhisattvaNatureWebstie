@@ -1358,5 +1358,41 @@
     "file": "activity-schedule-east-1200.webp"
    }
   ]
+ },
+ "activity-gallery-taichi": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-taichi-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-spring": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-spring-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-clouds": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-clouds-1600.webp"
+   }
+  ]
  }
 }

@@ -142,16 +142,19 @@ const eventsHref = href("/events/", "zh");
         <p class="small muted gallery-note" data-reveal style="--i:2">{activities.galleryNote}</p>
       </div>
 
-      <div class="placeholder-gallery" data-gallery data-reveal>
-        <div class="gallery-stage" aria-roledescription="carousel">
+      <div class="gallery-carousel" data-carousel data-reveal>
+        <div class="gallery-track" data-track aria-roledescription="carousel" aria-label="历次活动图片">
           {activities.gallery.map((item, i) => (
-            <figure class="gallery-slide" data-slide data-active={i === 0 ? "" : undefined} aria-hidden={i === 0 ? "false" : "true"}>
-              <Img
-                name={item.image}
-                alt={item.alt}
-                sizes="(max-width: 1000px) 100vw, 1240px"
-                loading={i === 0 ? "eager" : "lazy"}
-              />
+            <figure class="gallery-card">
+              <div class="gallery-card__media">
+                <Img
+                  name={item.image}
+                  alt={item.alt}
+                  sizes="(max-width: 700px) 42vw, 33vw"
+                  loading={i < 3 ? "eager" : "lazy"}
+                />
+              </div>
+              <figcaption>{item.caption}</figcaption>
             </figure>
           ))}
         </div>
@@ -161,11 +164,6 @@ const eventsHref = href("/events/", "zh");
               <path d="M13 8H3M7 4 3 8l4 4" />
             </svg>
           </button>
-          <div class="gallery-dots" role="group" aria-label="选择活动图片">
-            {activities.gallery.map((item, i) => (
-              <button type="button" class="gallery-dot" aria-label={item.caption} aria-current={i === 0 ? "true" : "false"} data-dot></button>
-            ))}
-          </div>
           <button type="button" class="gallery-arrow" data-next aria-label="下一张">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" />
@@ -306,25 +304,46 @@ const eventsHref = href("/events/", "zh");
       });
     }
 
-    // Placeholder gallery.
-    document.querySelectorAll<HTMLElement>("[data-gallery]").forEach((gallery) => {
-      const slides = Array.from(gallery.querySelectorAll<HTMLElement>("[data-slide]"));
-      const dots = Array.from(gallery.querySelectorAll<HTMLButtonElement>("[data-dot]"));
-      const prev = gallery.querySelector<HTMLButtonElement>("[data-prev]");
-      const next = gallery.querySelector<HTMLButtonElement>("[data-next]");
-      let current = 0;
-      const show = (index: number) => {
-        current = (index + slides.length) % slides.length;
-        slides.forEach((slide, i) => {
-          slide.toggleAttribute("data-active", i === current);
-          slide.setAttribute("aria-hidden", String(i !== current));
-        });
-        dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === current)));
+    // Three-up gallery with a slow automatic advance.
+    document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((carousel) => {
+      const track = carousel.querySelector<HTMLElement>("[data-track]");
+      const cards = Array.from(carousel.querySelectorAll<HTMLElement>(".gallery-card"));
+      const prev = carousel.querySelector<HTMLButtonElement>("[data-prev]");
+      const next = carousel.querySelector<HTMLButtonElement>("[data-next]");
+      if (!track || cards.length === 0) return;
+
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let timer: number | undefined;
+
+      const step = () => {
+        const gap = Number.parseFloat(getComputedStyle(track).columnGap || "0") || 0;
+        return cards[0].getBoundingClientRect().width + gap;
       };
-      dots.forEach((dot, i) => dot.addEventListener("click", () => show(i)));
-      prev?.addEventListener("click", () => show(current - 1));
-      next?.addEventListener("click", () => show(current + 1));
-      show(0);
+      const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+
+      const advance = () => {
+        if (atEnd()) track.scrollTo({ left: 0, behavior: "smooth" });
+        else track.scrollBy({ left: step(), behavior: "smooth" });
+      };
+      const stop = () => {
+        if (timer) window.clearInterval(timer);
+        timer = undefined;
+      };
+      const start = () => {
+        stop();
+        if (!reduced) timer = window.setInterval(advance, 4200);
+      };
+
+      prev?.addEventListener("click", () => { track.scrollBy({ left: -step(), behavior: "smooth" }); start(); });
+      next?.addEventListener("click", () => { advance(); start(); });
+      carousel.addEventListener("mouseenter", stop);
+      carousel.addEventListener("mouseleave", start);
+      carousel.addEventListener("focusin", stop);
+      carousel.addEventListener("focusout", (event) => {
+        if (!carousel.contains(event.relatedTarget as Node)) start();
+      });
+
+      start();
     });
   </script>
 </Base>
@@ -581,35 +600,55 @@ const eventsHref = href("/events/", "zh");
 
   .gallery-note { max-width: 34ch; }
 
-  .placeholder-gallery { margin-top: clamp(2rem, 4vw, 3rem); }
+  .gallery-carousel {
+    --gallery-gap: clamp(0.8rem, 2vw, 1.4rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
 
-  .gallery-stage {
-    position: relative;
+  .gallery-track {
+    display: flex;
+    gap: var(--gallery-gap);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gallery-track::-webkit-scrollbar { display: none; }
+
+  .gallery-card {
+    flex: 0 0 calc((100% - var(--gallery-gap) * 2) / 3);
+    margin: 0;
+    display: grid;
+    gap: 0.55rem;
+    scroll-snap-align: start;
+  }
+
+  .gallery-card__media {
     aspect-ratio: 16 / 7;
+    overflow: hidden;
     background: var(--cream);
     border: 1px solid var(--line);
-    overflow: hidden;
   }
 
-  .gallery-slide {
-    position: absolute;
-    inset: 0;
-    margin: 0;
-    opacity: 0;
-    transition: opacity 0.5s var(--ease);
-    pointer-events: none;
-  }
-
-  .gallery-slide[data-active] { opacity: 1; pointer-events: auto; }
-
-  .gallery-slide :global(img) {
+  .gallery-card__media :global(img) {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.6s var(--ease);
   }
 
-  .gallery-controls { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-top: 1rem; }
+  .gallery-card:hover .gallery-card__media :global(img) { transform: scale(1.035); }
+
+  .gallery-card figcaption {
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+  }
+
+  .gallery-controls { display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; margin-top: 1rem; }
 
   .gallery-arrow {
     display: grid;
@@ -625,21 +664,6 @@ const eventsHref = href("/events/", "zh");
   }
 
   .gallery-arrow:hover { background: var(--ink); color: var(--cream); }
-
-  .gallery-dots { display: flex; gap: 0.55rem; }
-
-  .gallery-dot {
-    width: 7px;
-    height: 7px;
-    padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: var(--line-strong);
-    cursor: pointer;
-    transition: background 0.2s var(--ease), transform 0.2s var(--ease);
-  }
-
-  .gallery-dot[aria-current="true"] { background: var(--saffron); transform: scale(1.3); }
 
   .videos-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
   .videos-head .h2 { margin-top: 0.5rem; }
@@ -713,7 +737,6 @@ const eventsHref = href("/events/", "zh");
     .explorer-preview { margin-top: 1rem; padding-top: 0; }
     .type-grid { grid-template-columns: 1fr; }
     .online-head { grid-template-columns: 1fr; }
-    .gallery-stage { aspect-ratio: 16 / 9; }
   }
 
   @media (max-width: 800px) {
@@ -721,6 +744,9 @@ const eventsHref = href("/events/", "zh");
   }
 
   @media (max-width: 640px) {
+    .gallery-carousel { --gallery-gap: 0.45rem; }
+    .gallery-card__media { aspect-ratio: 4 / 5; }
+    .gallery-card figcaption { font-size: 0.6rem; }
     .poster-pair { gap: 0.7rem; }
     .poster-card figcaption { font-size: 0.68rem; }
     .schedule-grid { grid-template-columns: 1fr; }
