@@ -108,6 +108,7 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
         burger.setAttribute("aria-expanded", String(!open));
         drawer?.setAttribute("data-open", String(!open));
         document.body.style.overflow = open ? "" : "hidden";
+        document.documentElement.style.overflow = open ? "" : "hidden";
         // the drawer is paper-coloured, so the header must flip back to ink while it is open
         if (!open) {
           header?.classList.add("is-solid", "is-menu-open");
@@ -122,6 +123,7 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
           burger?.setAttribute("aria-expanded", "false");
           drawer.setAttribute("data-open", "false");
           document.body.style.overflow = "";
+          document.documentElement.style.overflow = "";
           header?.classList.remove("is-menu-open");
           syncHeader();
         })
