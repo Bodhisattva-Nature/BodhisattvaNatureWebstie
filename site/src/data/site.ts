@@ -506,11 +506,20 @@ export const branches: Branch[] = [
   },
 ];
 
-export const books = [
-  { image: "book-en", lang: "English", title: "The Essence of Happiness and True Freedom" },
-  { image: "book-de", lang: "Deutsch", title: "Die Essenz von Glück und wahrer Freiheit" },
-  { image: "book-fr", lang: "Français", title: "L'essence du bonheur et de la vraie liberté" },
-  { image: "book-nl", lang: "Nederlands", title: "De Essentie van Geluk en Ware Vrijheid" },
+export type Book = {
+  image: string;
+  lang: string;
+  title: string;
+  /** PDF in public/downloads, as offered by the old site's download manager */
+  file?: string;
+  size?: string;
+};
+
+export const books: Book[] = [
+  { image: "book-en", lang: "English", title: "The Essence of Happiness and True Freedom", file: "the-essence-of-happiness-and-true-freedom-en.pdf", size: "4.1 MB" },
+  { image: "book-de", lang: "Deutsch", title: "Die Essenz von Glück und wahrer Freiheit", file: "die-essenz-von-gluck-und-wahrer-freiheit-de.pdf", size: "4.7 MB" },
+  { image: "book-fr", lang: "Français", title: "L'essence du bonheur et de la vraie liberté", file: "lessence-du-bonheur-et-de-la-vraie-liberte-fr.pdf", size: "4.5 MB" },
+  { image: "book-nl", lang: "Nederlands", title: "De Essentie van Geluk en Ware Vrijheid", file: "de-essentie-van-geluk-en-ware-vrijheid-nl.pdf", size: "4.5 MB" },
 ];
 
 /**

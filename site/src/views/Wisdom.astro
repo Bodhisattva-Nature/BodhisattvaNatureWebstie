@@ -6,7 +6,8 @@ import { href } from "../lib/url";
 
 interface Props { lang?: Lang }
 const lang: Lang = Astro.props.lang ?? "en";
-const { t, quotes } = getContent(lang);
+const { t, quotes, books } = getContent(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const byLength = [...quotes].sort((a, b) => a.body.length - b.body.length);
 const featured = byLength[2];
@@ -48,6 +49,33 @@ const rest = quotes.filter((q) => q !== featured);
           </article>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section section--cream" id="downloads">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{t.wisdom.downloadsEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{t.wisdom.downloadsTitle}</h2>
+          <p class="small muted" data-reveal style="--i:2;margin-top:0.8rem;max-width:44ch">{t.wisdom.downloadsNote}</p>
+        </div>
+      </div>
+      <ul class="dl-list">
+        {books.map((b) => (
+          <li data-reveal>
+            <div>
+              <span class="dl-list__lang">{b.lang}</span>
+              <span class="dl-list__title">{b.title}</span>
+            </div>
+            {b.file && (
+              <a class="dl-list__link" href={`${base}/downloads/${b.file}`} download>
+                {t.programDetail.download} <span>PDF · {b.size}</span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -139,6 +167,23 @@ const rest = quotes.filter((q) => q !== featured);
 
   .qcard:nth-child(3n) { border-right: 0; }
   .qcard:hover { background: var(--cream); }
+
+  .dl-list { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 0; }
+  .dl-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-block: 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .dl-list li:last-child { border-bottom: 1px solid var(--line); }
+  .dl-list__lang { display: block; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--saffron); }
+  .dl-list__title { font-family: var(--font-display); font-size: 1.05rem; }
+  .dl-list__link { font-size: 0.74rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--maroon); text-decoration: none; border-bottom: 1px solid rgba(58,12,22,.3); padding-bottom: 2px; white-space: nowrap; }
+  .dl-list__link span { color: var(--muted); letter-spacing: 0.04em; text-transform: none; }
+  .dl-list__link:hover { border-color: var(--maroon); }
 
   .qcard__no {
     font-size: 0.64rem;

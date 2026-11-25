@@ -7,6 +7,7 @@ import { href } from "../lib/url";
 interface Props { lang?: Lang; program: any }
 const lang: Lang = Astro.props.lang ?? "en";
 const { program } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const { t, isZh, programs, books } = getContent(lang);
 const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
 ---
@@ -110,6 +111,11 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
               <figcaption>
                 <span class="book__lang">{b.lang}</span>
                 <span class="book__title">{b.title}</span>
+                {b.file && (
+                  <a class="book__dl" href={`${base}/downloads/${b.file}`} download>
+                    {t.programDetail.download} <span>PDF · {b.size}</span>
+                  </a>
+                )}
               </figcaption>
             </figure>
           ))}
@@ -306,6 +312,23 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
   .book .media { box-shadow: var(--shadow-soft); }
   .book figcaption { display: grid; gap: 0.25rem; }
   .book__lang { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--saffron); }
+  .book__dl {
+    margin-top: 0.5rem;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: baseline;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--maroon);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(58, 12, 22, 0.3);
+    padding-bottom: 2px;
+  }
+  .book__dl:hover { border-color: var(--maroon); }
+  .book__dl span { color: var(--muted); letter-spacing: 0.04em; text-transform: none; font-size: 0.72rem; }
+
   .book__title { font-family: var(--font-display); font-size: 1rem; line-height: 1.2; }
 
   @media (max-width: 900px) {
