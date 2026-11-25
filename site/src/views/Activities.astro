@@ -149,8 +149,8 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
       <div class="gallery-carousel" data-carousel data-reveal>
         <div class="gallery-viewport">
           <div class="gallery-track" data-track aria-roledescription="carousel" aria-label="历次活动图片">
-            {[...galleryPages, galleryPages[0]].map((page, pageIndex) => (
-              <div class="gallery-page" aria-hidden={pageIndex === galleryPages.length ? "true" : undefined}>
+            {[galleryPages[galleryPages.length - 1], ...galleryPages, galleryPages[0]].map((page, pageIndex) => (
+              <div class="gallery-page" aria-hidden={pageIndex === 0 || pageIndex === galleryPages.length + 1 ? "true" : undefined}>
                 {page.map((item, i) => (
                   <figure class="gallery-card">
                     <div class="gallery-card__media">
@@ -320,44 +320,60 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
       if (!track || dots.length === 0) return;
 
       const pageCount = dots.length;
+      const firstPage = 1;
+      const lastPage = pageCount;
+      const cloneFirst = pageCount + 1;
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      let current = 0;
+      let current = firstPage;
       let timer: number | undefined;
       let wrapTimer: number | undefined;
       let jumping = false;
 
+      const dotFor = (index: number) => ((index - firstPage) % pageCount + pageCount) % pageCount;
+
       const render = (index: number, animate = true) => {
         track.style.transition = animate && !reduced ? "transform 0.9s cubic-bezier(0.33, 1, 0.68, 1)" : "none";
         track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
-        if (index < pageCount) {
-          dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === index)));
-        }
+        const active = dotFor(index);
+        dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === active)));
       };
 
-      const finishWrap = () => {
+      const settleWrap = (target: number) => {
         if (!jumping) return;
         jumping = false;
         if (wrapTimer) window.clearTimeout(wrapTimer);
         wrapTimer = undefined;
-        render(0, false);
+        render(target, false);
         void track.offsetWidth;
         window.requestAnimationFrame(() => {
           track.style.transition = "";
-          current = 0;
+          current = target;
         });
       };
 
       track.addEventListener("transitionend", (event) => {
-        if (event.propertyName === "transform" && current === pageCount) finishWrap();
+        if (event.propertyName !== "transform" || !jumping) return;
+        if (current === cloneFirst) settleWrap(firstPage);
+        else if (current === 0) settleWrap(lastPage);
       });
 
-      const advance = () => {
+      const next = () => {
         if (jumping) return;
         current += 1;
         render(current);
-        if (current === pageCount) {
+        if (current === cloneFirst) {
           jumping = true;
-          wrapTimer = window.setTimeout(finishWrap, 1100);
+          wrapTimer = window.setTimeout(() => settleWrap(firstPage), 1100);
+        }
+      };
+
+      const prev = () => {
+        if (jumping) return;
+        current -= 1;
+        render(current);
+        if (current === 0) {
+          jumping = true;
+          wrapTimer = window.setTimeout(() => settleWrap(lastPage), 1100);
         }
       };
 
@@ -367,19 +383,41 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
       };
       const start = () => {
         stop();
-        if (!reduced) timer = window.setInterval(advance, 4000);
+        if (!reduced) timer = window.setInterval(next, 4000);
       };
 
       dots.forEach((dot, i) => dot.addEventListener("click", () => {
-        if (jumping) {
-          jumping = false;
-          if (wrapTimer) window.clearTimeout(wrapTimer);
-          wrapTimer = undefined;
-        }
-        current = i;
-        render(i);
+        if (jumping) return;
+        current = i + firstPage;
+        render(current);
         start();
       }));
+
+      const viewport = carousel.querySelector<HTMLElement>(".gallery-viewport");
+      let startX = 0;
+      let startY = 0;
+      let tracking = false;
+
+      viewport?.addEventListener("touchstart", (event) => {
+        if (event.touches.length !== 1) return;
+        startX = event.touches[0].clientX;
+        startY = event.touches[0].clientY;
+        tracking = true;
+        stop();
+      }, { passive: true });
+
+      viewport?.addEventListener("touchend", (event) => {
+        if (!tracking) return;
+        tracking = false;
+        const touch = event.changedTouches[0];
+        const dx = touch.clientX - startX;
+        const dy = touch.clientY - startY;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) next();
+          else prev();
+        }
+        start();
+      }, { passive: true });
 
       carousel.addEventListener("mouseenter", stop);
       carousel.addEventListener("mouseleave", start);
@@ -388,7 +426,7 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
         if (!carousel.contains(event.relatedTarget as Node)) start();
       });
 
-      render(0, false);
+      render(firstPage, false);
       start();
     });
   </script>
@@ -651,7 +689,7 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     margin-top: clamp(2rem, 4vw, 3rem);
   }
 
-  .gallery-viewport { overflow: hidden; }
+  .gallery-viewport { overflow: hidden; touch-action: pan-y; }
 
   .gallery-track {
     display: flex;
