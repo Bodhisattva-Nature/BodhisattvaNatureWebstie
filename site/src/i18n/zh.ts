@@ -29,6 +29,7 @@ export const zh = {
     donate: "供养",
     explore: "浏览课程",
     support: "供养道场",
+    join: "联系我们",
     volunteer: "发心当义工",
     readMore: "了解更多",
     seeAll: "全部活动",

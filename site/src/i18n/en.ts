@@ -29,6 +29,7 @@ export const en = {
     donate: "Donate",
     explore: "Explore programs",
     support: "Support the work",
+    join: "Join us",
     volunteer: "Volunteer with us",
     readMore: "Read more",
     seeAll: "All events",
