@@ -31,9 +31,8 @@ const eventsHref = href("/events/", "zh");
       <div class="explorer-menu">
         <span class="eyebrow" data-reveal>{activities.explorerEyebrow}</span>
         <h2 class="h2" data-reveal style="--i:1;margin-top:.55rem">{activities.explorerTitle}</h2>
-        <p class="small muted explorer-note" data-reveal style="--i:2">{activities.explorerNote}</p>
 
-        <ul class="region-list" data-reveal style="--i:3">
+        <ul class="region-list" data-reveal style="--i:2">
           {activities.regions.map((region, i) => (
             <li class="region-item" data-region>
               <button
@@ -121,7 +120,12 @@ const eventsHref = href("/events/", "zh");
             <span class="type-card__index">0{i + 1}</span>
             <h3>{group.title}</h3>
             <ul>
-              {group.items.map((item) => <li>{item}</li>)}
+              {group.items.map((item) => (
+                <li class="type-item" tabindex="0">
+                  <span>{item.name}</span>
+                  <span class="type-item__pop" role="tooltip">{item.description}</span>
+                </li>
+              ))}
             </ul>
           </article>
         ))}
@@ -349,7 +353,7 @@ const eventsHref = href("/events/", "zh");
     align-items: start;
   }
 
-  .explorer-note { max-width: 34ch; margin: 1rem 0 0; }
+
 
   .region-list {
     list-style: none;
@@ -433,7 +437,7 @@ const eventsHref = href("/events/", "zh");
     padding-bottom: 0.1rem;
   }
 
-  .explorer-preview { min-width: 0; }
+  .explorer-preview { min-width: 0; padding-top: clamp(2.4rem, 4vw, 3.25rem); }
 
   .poster-pair {
     display: grid;
@@ -465,9 +469,19 @@ const eventsHref = href("/events/", "zh");
     letter-spacing: 0.05em;
   }
 
-  .poster-single { margin: 0; display: grid; gap: 0.75rem; }
-  .poster-single__media { aspect-ratio: 3 / 4; }
-  .poster-single figcaption { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.76rem; }
+  .poster-single {
+    margin: clamp(2rem, 5vw, 4rem) 0 0;
+    display: grid;
+    gap: 0.75rem;
+    justify-items: center;
+  }
+  .poster-single__media {
+    height: clamp(320px, 46vh, 420px);
+    width: auto;
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+  }
+  .poster-single figcaption { width: 100%; display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.76rem; }
   .poster-single figcaption small { color: var(--saffron); }
 
   .section-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
@@ -512,6 +526,49 @@ const eventsHref = href("/events/", "zh");
     height: 4px;
     border-radius: 50%;
     background: var(--gold);
+  }
+
+  .type-item { cursor: help; outline: none; }
+
+  .type-item > span:first-child { border-bottom: 1px dotted var(--line-strong); }
+
+  .type-item:focus-visible > span:first-child { border-color: var(--saffron); color: var(--saffron); }
+
+  .type-item__pop {
+    position: absolute;
+    left: -0.9rem;
+    bottom: calc(100% + 0.55rem);
+    z-index: 8;
+    width: min(280px, 68vw);
+    padding: 0.65rem 0.75rem;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 0.74rem;
+    line-height: 1.55;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(4px);
+    box-shadow: 0 16px 36px rgba(17, 12, 8, 0.22);
+    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s;
+  }
+
+  .type-item__pop::after {
+    content: "";
+    position: absolute;
+    left: 1.2rem;
+    bottom: -5px;
+    width: 8px;
+    height: 8px;
+    background: var(--ink);
+    transform: rotate(45deg);
+  }
+
+  .type-item:hover .type-item__pop,
+  .type-item:focus .type-item__pop {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   .gallery-note { max-width: 34ch; }
@@ -646,7 +703,7 @@ const eventsHref = href("/events/", "zh");
 
   @media (max-width: 1000px) {
     .activity-explorer { grid-template-columns: 1fr; }
-    .explorer-preview { margin-top: 1rem; }
+    .explorer-preview { margin-top: 1rem; padding-top: 0; }
     .type-grid { grid-template-columns: 1fr; }
     .online-head { grid-template-columns: 1fr; }
     .gallery-stage { aspect-ratio: 4 / 3; }

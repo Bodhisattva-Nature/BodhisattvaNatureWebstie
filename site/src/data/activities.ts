@@ -11,9 +11,14 @@ export interface ActivityRegion {
   centers: ActivityCenter[];
 }
 
+export interface ActivityItem {
+  name: string;
+  description: string;
+}
+
 export interface ActivityType {
   title: string;
-  items: string[];
+  items: ActivityItem[];
 }
 
 export interface ActivityPoster {
@@ -39,8 +44,7 @@ export const activities = {
   facts: ["线下共修", "禅修课程", "每日线上"],
 
   explorerEyebrow: "线下活动",
-  explorerTitle: "选择地区",
-  explorerNote: "将鼠标移到地区上，查看当地道场与共修点。",
+  explorerTitle: "线下道场",
   defaultPosterNote: "最新活动",
   defaultCenterNote: "各地最新活动",
 
@@ -120,15 +124,36 @@ export const activities = {
   types: [
     {
       title: "禅修与闭关",
-      items: ["半日禅、一日禅", "止观禅修（三、五、七日）", "忏悔禅修", "二十一日精进禅修", "短期闭关"],
+      items: [
+        { name: "半日禅、一日禅", description: "适合初次接触禅修，或想在半天、一天中收摄身心的人；提供坐姿与呼吸的基础引导。" },
+        { name: "止观禅修（三、五、七日）", description: "以止观为核心的系统禅修，按三日、五日、七日循序渐进，练习安住与观照。" },
+        { name: "忏悔禅修", description: "通过礼拜、忏悔与发愿，清理身心负担，重新检视自己的身口意。" },
+        { name: "二十一日精进禅修", description: "较长周期的密集用功，适合已有禅修基础、希望深入者。" },
+        { name: "短期闭关", description: "数日至数周的封闭式修持，减少外缘，专一念佛、持咒或观修。" },
+      ],
     },
     {
       title: "身心与生活",
-      items: ["禅茶", "中医养生", "情绪管理", "正念太极", "正念颂钵", "正念书法", "正念徒步（和平步行）", "临终关怀"],
+      items: [
+        { name: "禅茶", description: "在泡茶、奉茶与品茶中练习专注与觉知，让日常的一盏茶成为修行。" },
+        { name: "中医养生", description: "从饮食、作息与经络理解身心调养，学习顺应四时的养护方法。" },
+        { name: "情绪管理", description: "以正念觉察情绪的生灭，学习看见、接纳而不被情绪带走。" },
+        { name: "正念太极", description: "以缓慢动作训练身体觉察与呼吸相随，在动中保持安定。" },
+        { name: "正念颂钵", description: "透过颂钵的音声与振动，帮助身心放松，回到当下的感受。" },
+        { name: "正念书法", description: "在一笔一画中收摄心念，练习专注、耐心与当下。" },
+        { name: "正念徒步（和平步行）", description: "把每一步交给觉知，在行走中培养和平、慈悲与相互连接。" },
+        { name: "临终关怀", description: "陪伴临终者与家属，学习面对生死、表达关怀与告别的智慧。" },
+      ],
     },
     {
       title: "家庭与少年",
-      items: ["智慧父母", "亲子营", "少儿功夫", "论语共学", "宠物皈依"],
+      items: [
+        { name: "智慧父母", description: "以佛法与心理学的视角，练习亲子沟通、情绪陪伴与界限。" },
+        { name: "亲子营", description: "父母与孩子共同参与的体验式营队，在游戏与相处中学习觉察。" },
+        { name: "少儿功夫", description: "以武术基本功培养专注、纪律与身体协调，也学习尊师重道。" },
+        { name: "论语共学", description: "共读《论语》，将传统智慧落实于日常待人处世与自我反省。" },
+        { name: "宠物皈依", description: "为宠物授三皈依，种下解脱善根，并学习尊重、护念一切生命。" },
+      ],
     },
   ] as ActivityType[],
 
