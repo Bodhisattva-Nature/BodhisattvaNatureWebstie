@@ -69,6 +69,44 @@ The XML export (`wp-admin/export.php`) was not usable: the endpoint answers 202 
 submitting the form in-browser returns no file. The REST dump above covers the same ground: every post,
 page, media record and menu, including the drafts the export would add.
 
+
+## The complete XML export (25 November 2026)
+
+`wp-admin/export.php` answers 202 to a scripted POST, so the first attempts failed. It works through a real
+browser download: `Page.setDownloadBehavior` on the automation Chrome, then submitting the form in page
+context. Result: `bodhinaturefoundation.WordPress.2026-11-25.xml`, 9.0 MB, 1,138 items, saved as
+`raw/bodhinature-export.xml` (gitignored).
+
+| Item type | Count |
+| --- | --- |
+| attachment | 817 |
+| give_payment | 131 |
+| et_pb_layout (Divi) | 80 |
+| page | 58 |
+| nav_menu_item | 23 |
+| post | 7 |
+| dlm_download + versions | 5 + 5 |
+| testimonial | 5 |
+| frm_form_actions, frm_styles, tss-sc | 2 + 1 + 1 |
+| product, give_forms, custom_css | 1 each |
+
+Plus 5,148 `postmeta` rows and 25 terms.
+
+**Treat this file as confidential.** The 131 `give_payment` entries are donation records, and the export also
+carries donor and form-submission metadata. It is excluded from git by `/raw/` and must not be published,
+committed or shared outside the foundation.
+
+What the export adds over the REST harvest: the Divi layout library, the Formidable form definitions behind
+the old contact and volunteer forms, the menu structure (HOME, PROGRAM, ABOUT, COMMUNITY, CONTACT, VOLUNTEER,
+DONATE, CN/中文), the download-manager entries for the four books, and every custom field.
+
+## Server access
+
+No shell on the host. Ports 22 and 2222 refuse connections; FTP (21) and MySQL (3306) are open but no
+credentials exist for either, and guessing them is not something to do. Everything above was obtained through
+the WordPress admin session instead, which is why the export above matters: it is the closest thing to a
+dump available without the host's login.
+
 ## How the extraction works
 
 Divi renders real HTML into `content.rendered`, not bare shortcodes, so the pages parse cleanly. Two

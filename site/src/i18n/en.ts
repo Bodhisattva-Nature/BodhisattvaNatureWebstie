@@ -22,6 +22,7 @@ export const en = {
     { label: "Wisdom", href: "/wisdom/" },
     { label: "Community", href: "/community/" },
     { label: "Events", href: "/events/" },
+    { label: "Volunteer", href: "/volunteer/" },
     { label: "Join us", href: "/contact/" },
   ],
 
