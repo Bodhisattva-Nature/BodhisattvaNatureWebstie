@@ -34,7 +34,7 @@ export interface ActivityVideo {
 
 export interface ActivitySchedule {
   label: string;
-  note: string;
+  image: string;
 }
 
 export const activities = {
@@ -159,8 +159,12 @@ export const activities = {
 
   galleryEyebrow: "往期活动回顾",
   galleryTitle: "历次活动",
-  galleryNote: "三张活动图片待上传。",
-  galleryPlaceholders: ["活动图片待上传 01", "活动图片待上传 02", "活动图片待上传 03"],
+  galleryNote: "共修、供花与道场的片刻。",
+  gallery: [
+    { image: "activity-gallery-retreat", alt: "周末共修，林间佛像", caption: "周末共修" },
+    { image: "activity-gallery-flowers", alt: "铜盘中的供花与清水", caption: "供花与发愿" },
+    { image: "activity-gallery-manjushri", alt: "林间文殊师利像", caption: "道场一隅" },
+  ] as ActivityPoster[],
 
   videosEyebrow: "往期活动",
   videosTitle: "YouTube 视频",
@@ -175,8 +179,8 @@ export const activities = {
   onlineBody: "加西与加东，每日共修。免费参加，无需报名，来信索取 Zoom 链接。",
   onlineCta: "来信索取 Zoom 链接",
   schedules: [
-    { label: "美西课表", note: "课表图片待上传" },
-    { label: "美东课表", note: "课表图片待上传" },
+    { label: "美西课表", image: "activity-schedule-west" },
+    { label: "美东课表", image: "activity-schedule-east" },
   ] as ActivitySchedule[],
 };
 

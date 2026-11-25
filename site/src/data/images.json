@@ -1298,5 +1298,65 @@
     "file": "event-new-york-weekend-1170.webp"
    }
   ]
+ },
+ "activity-gallery-retreat": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-retreat-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-flowers": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-flowers-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-manjushri": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-manjushri-1600.webp"
+   }
+  ]
+ },
+ "activity-schedule-west": {
+  "w": 1200,
+  "h": 900,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1200,
+    "h": 900,
+    "file": "activity-schedule-west-1200.webp"
+   }
+  ]
+ },
+ "activity-schedule-east": {
+  "w": 1200,
+  "h": 900,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1200,
+    "h": 900,
+    "file": "activity-schedule-east-1200.webp"
+   }
+  ]
  }
 }
