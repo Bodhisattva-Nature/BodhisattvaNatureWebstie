@@ -223,12 +223,12 @@ export const en = {
   },
 
   donate: {
-    headingA: "Each dollar",
-    headingB: "goes into merits.",
+    headingA: "Every gift",
+    headingB: "becomes an offering.",
     title: "Donate",
     eyebrow: "Support",
-    headingLine1: "Each dollar",
-    headingLine2: "goes into merits.",
+    headingLine1: "Every gift",
+    headingLine2: "becomes an offering.",
     lede:
       "Bodhisattva Nature Foundation is a registered charity initiated by Venerable Zhenjue. Everything here is offered free of charge.",
     carriesEyebrow: "What your gift carries",

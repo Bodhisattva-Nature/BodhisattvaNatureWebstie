@@ -200,11 +200,11 @@ export const zh = {
 
   volunteer: {
     headingA: "当你",
-    headingB: "参与其中。",
+    headingB: "参与其中",
     title: "义工",
     eyebrow: "义工",
     headingLine1: "当你",
-    headingLine2: "参与其中。",
+    headingLine2: "参与其中",
     lede:
       "菩萨本性基金会为依法注册的慈善团体，全由义工支持运作。世界因缘相牵——你一投入，世界便不一样了。",
     joinEyebrow: "加入我们",
@@ -218,11 +218,11 @@ export const zh = {
 
   donate: {
     headingA: "一分一毫",
-    headingB: "都成为功德。",
+    headingB: "都成为功德",
     title: "供养",
     eyebrow: "供养",
     headingLine1: "每一分钱",
-    headingLine2: "皆成功德。",
+    headingLine2: "皆成功德",
     lede: "菩萨本性基金会是由真觉法师发起的注册慈善团体。此处一切，皆免费提供。",
     carriesEyebrow: "你的供养成就什么",
     carriesBody:
@@ -244,7 +244,7 @@ export const zh = {
 
   contact: {
     headingA: "何处",
-    headingB: "寻我们。",
+    headingB: "寻我们",
     title: "来访与联系",
     eyebrow: "来访",
     headingLine1: "如何",
@@ -267,11 +267,11 @@ export const zh = {
 
   events: {
     headingA: "近期",
-    headingB: "活动。",
+    headingB: "活动",
     title: "近期活动",
     eyebrow: "活动",
     headingLine1: "近期",
-    headingLine2: "活动。",
+    headingLine2: "活动",
     lede:
       "十二月一日（周二）在纽约的和平步行，以及每周为欧洲与英国举办的线上共修。两者皆免费，皆欢迎任何人。",
     weekly: "每周",
@@ -302,9 +302,9 @@ export const zh = {
 
   notFound: {
     headingA: "这条路",
-    headingB: "到此为止。",
+    headingB: "到此为止",
     title: "找不到页面",
-    heading: "这条路到此为止。",
+    heading: "这条路到此为止",
     body: "你要找的页面已不在原处。不妨从这几个地方开始。",
     home: "首页",
     programs: "课程",
