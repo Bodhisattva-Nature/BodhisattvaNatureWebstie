@@ -39,7 +39,8 @@ export const zh = {
   },
 
   external: {
-    activities: { label: "中文活动", href: "https://www.yimingzhiguang.com/" },
+    activities: { label: "中文活动", headerLabel: "活动", href: "https://www.yimingzhiguang.com/" },
+    website: { label: "中文网站", href: "https://www.yimingzhiguang.com/" },
   },
 
   footer: {

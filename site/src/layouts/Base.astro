@@ -98,17 +98,54 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
         drawer?.setAttribute("data-open", String(!open));
         document.body.style.overflow = open ? "" : "hidden";
         // the drawer is paper-coloured, so the header must flip back to ink while it is open
-        if (!open) header?.classList.add("is-solid");
-        else syncHeader();
+        if (!open) {
+          header?.classList.add("is-solid", "is-menu-open");
+          drawer?.scrollTo({ top: 0 });
+        } else {
+          header?.classList.remove("is-menu-open");
+          syncHeader();
+        }
       });
       drawer?.querySelectorAll("a").forEach((a) =>
         a.addEventListener("click", () => {
           burger?.setAttribute("aria-expanded", "false");
           drawer.setAttribute("data-open", "false");
           document.body.style.overflow = "";
+          header?.classList.remove("is-menu-open");
           syncHeader();
         })
       );
+
+      // desktop header dropdowns
+      const drops = Array.from(document.querySelectorAll<HTMLElement>(".nav__drop"));
+      const setDrop = (drop: HTMLElement, open: boolean) => {
+        drop.querySelector<HTMLButtonElement>(".nav__drop-toggle")?.setAttribute("aria-expanded", String(open));
+        drop.setAttribute("data-open", String(open));
+      };
+      for (const drop of drops) {
+        const toggle = drop.querySelector<HTMLButtonElement>(".nav__drop-toggle");
+        toggle?.addEventListener("click", () => {
+          setDrop(drop, toggle.getAttribute("aria-expanded") !== "true");
+        });
+        drop.addEventListener("mouseenter", () => setDrop(drop, true));
+        drop.addEventListener("mouseleave", () => setDrop(drop, false));
+        drop.addEventListener("focusout", (event) => {
+          if (!drop.contains(event.relatedTarget as Node)) setDrop(drop, false);
+        });
+      }
+      document.addEventListener("click", (event) => {
+        for (const drop of drops) {
+          if (!drop.contains(event.target as Node)) setDrop(drop, false);
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        for (const drop of drops) {
+          const inside = drop.contains(document.activeElement);
+          setDrop(drop, false);
+          if (inside) drop.querySelector<HTMLButtonElement>(".nav__drop-toggle")?.focus();
+        }
+      });
     </script>
   </body>
 </html>

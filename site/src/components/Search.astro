@@ -8,12 +8,10 @@ const indexHref = lang === "zh" ? `${base}/zh/search-index.json` : `${base}/sear
 ---
 
 <div class="search" data-search data-index={indexHref} data-empty={t.search.empty}>
-  <button class="search__trigger" type="button" aria-label="Search the site" data-search-open>
-    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
+  <button class="search__trigger" type="button" aria-label={t.search.button} title={t.search.button} data-search-open>
+    <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
       <circle cx="7" cy="7" r="4.6" /><path d="m10.6 10.6 3 3" />
     </svg>
-    <span>{t.search.button}</span>
-    <kbd>⌘K</kbd>
   </button>
 
   <div class="search__overlay" data-search-overlay hidden>
