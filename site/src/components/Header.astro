@@ -12,10 +12,12 @@ const { t, isZh, programs } = getContent(lang);
 const path = Astro.url.pathname.replace(import.meta.env.BASE_URL.replace(/\/$/, ""), "") || "/";
 const isActive = (h: string) =>
   isZh ? path === "/zh" + h || path.startsWith("/zh" + h) : (h === "/" ? path === "/" : path.startsWith(h));
-const other = oppositeHref(Astro.url.pathname, lang);
+const isZhOnlyPage = path === "/zh/activities" || path.startsWith("/zh/activities/");
+const other = isZhOnlyPage ? href("/", "en") : oppositeHref(Astro.url.pathname, lang);
 const community = t.nav.find((item) => item.href === "/community/");
 const programsActive = isActive("/programs/") || isActive("/community/");
 const joinActive = isActive("/contact/") || isActive("/volunteer/");
+let drawerNo = 0;
 ---
 
 <header class="header">
@@ -95,7 +97,7 @@ const joinActive = isActive("/contact/") || isActive("/volunteer/");
         }
         return <a href={href(item.href, lang)} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>;
       })}
-      <a class="nav__external" href={t.external.activities.href} target="_blank" rel="noopener">{t.external.activities.headerLabel}</a>
+      <a class="nav__external" href={href("/activities/", "zh")} aria-current={isActive("/activities/") ? "page" : undefined}>{t.external.activities.headerLabel}</a>
     </nav>
 
     <div class="zh-menu" role="group" aria-label={isZh ? "语言与中文网站" : "Language and Chinese website"}>
@@ -128,12 +130,14 @@ const joinActive = isActive("/contact/") || isActive("/volunteer/");
     </a>
     {t.nav.map((item, i) => {
       if (item.href === "/community/" || item.href === "/volunteer/") return null;
+      drawerNo += 1;
+      const no = String(drawerNo).padStart(2, "0");
       if (item.href === "/programs/") {
         return (
           <details class="drawer__group" open={programsActive}>
             <summary>
               {item.label}
-              <span>0{i + 1}</span>
+              <span>{no}</span>
             </summary>
             <div class="drawer__sub">
               <a href={href("/programs/", lang)}>{t.programDetail.allPrograms}</a>
@@ -150,7 +154,7 @@ const joinActive = isActive("/contact/") || isActive("/volunteer/");
           <details class="drawer__group" open={joinActive}>
             <summary>
               {item.label}
-              <span>0{i + 1}</span>
+              <span>{no}</span>
             </summary>
             <div class="drawer__sub">
               <a href={href("/contact/", lang)}>{t.cta.contact}</a>
@@ -162,16 +166,20 @@ const joinActive = isActive("/contact/") || isActive("/volunteer/");
       return (
         <a href={href(item.href, lang)}>
           {item.label}
-          <span>0{i + 1}</span>
+          <span>{no}</span>
         </a>
       );
     })}
     <a href={href("/donate/", lang)}>
       {t.cta.donate}
-      <span>08</span>
+      <span>06</span>
     </a>
-    <a href={t.external.activities.href} target="_blank" rel="noopener">
+    <a href={href("/activities/", "zh")}>
       {t.external.activities.label}
+      <span>07</span>
+    </a>
+    <a href={t.external.website.href} target="_blank" rel="noopener">
+      {t.external.website.label}
       <span>↗</span>
     </a>
   </nav>

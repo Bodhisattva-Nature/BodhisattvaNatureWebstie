@@ -1,0 +1,665 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import Lotus from "../components/Lotus.astro";
+import { activities } from "../data/activities";
+import { href } from "../lib/url";
+
+const contactHref = href("/contact/", "zh");
+const eventsHref = href("/events/", "zh");
+---
+
+<Base
+  lang="zh"
+  zhOnly
+  title={`${activities.title} — 菩萨本性基金会`}
+  description={activities.lede}
+>
+  <header class="page-head activities-head">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal>{activities.eyebrow}</span>
+      <h1 data-reveal style="--i:1">{activities.title}</h1>
+      <p class="lede" data-reveal style="--i:2">{activities.lede}</p>
+      <ul class="activities-facts" data-reveal style="--i:3">
+        {activities.facts.map((fact) => <li>{fact}</li>)}
+      </ul>
+    </div>
+  </header>
+
+  <section class="section section--tight-top">
+    <div class="wrap activity-explorer" data-explorer>
+      <div class="explorer-menu">
+        <span class="eyebrow" data-reveal>{activities.explorerEyebrow}</span>
+        <h2 class="h2" data-reveal style="--i:1;margin-top:.55rem">{activities.explorerTitle}</h2>
+        <p class="small muted explorer-note" data-reveal style="--i:2">{activities.explorerNote}</p>
+
+        <ul class="region-list" data-reveal style="--i:3">
+          {activities.regions.map((region, i) => (
+            <li class="region-item" data-region>
+              <button
+                type="button"
+                class="region-btn"
+                aria-expanded="false"
+                aria-controls={`centers-${i}`}
+                data-region-btn
+              >
+                <span>{region.name}</span>
+                <span class="region-btn__meta">
+                  {region.centers.length}
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+                    <path d="m4 6 4 4 4-4" />
+                  </svg>
+                </span>
+              </button>
+              <ul class="center-list" id={`centers-${i}`} data-center-list hidden>
+                {region.centers.map((center) => (
+                  <li>
+                    <button type="button" class="center-btn" data-center={center.name}>
+                      <span>{center.name}</span>
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  </li>
+                ))}
+                <li class="region-page-row">
+                  <a class="region-page-link" href={href(`/activities/${region.slug}/`, "zh")}>
+                    查看{region.name}全部活动
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="explorer-preview" data-preview>
+        <div class="poster-pair" data-poster-pair>
+          {activities.latestPosters.map((poster, i) => (
+            <figure class="poster-card" data-reveal style={`--i:${i}`}>
+              <div class="poster-card__media">
+                <Img
+                  name={poster.image}
+                  alt={poster.alt}
+                  sizes="(max-width: 900px) 46vw, 30vw"
+                  loading="eager"
+                />
+              </div>
+              <figcaption>{poster.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <figure class="poster-single" data-poster-single hidden>
+          <div class="poster-single__media">
+            <Img
+              name={activities.centerPoster.image}
+              alt={activities.centerPoster.alt}
+              sizes="(max-width: 900px) 100vw, 48vw"
+            />
+          </div>
+          <figcaption>
+            <span>{activities.centerPoster.caption}</span>
+            <small data-center-caption>{activities.defaultCenterNote}</small>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{activities.typesEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{activities.typesTitle}</h2>
+        </div>
+      </div>
+
+      <div class="type-grid">
+        {activities.types.map((group, i) => (
+          <article class="type-card" data-reveal style={`--i:${i}`}>
+            <span class="type-card__index">0{i + 1}</span>
+            <h3>{group.title}</h3>
+            <ul>
+              {group.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>{activities.galleryEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{activities.galleryTitle}</h2>
+        </div>
+        <p class="small muted gallery-note" data-reveal style="--i:2">{activities.galleryNote}</p>
+      </div>
+
+      <div class="placeholder-gallery" data-gallery data-reveal>
+        <div class="gallery-stage" aria-roledescription="carousel">
+          {activities.galleryPlaceholders.map((label, i) => (
+            <figure class="gallery-slide" data-slide data-active={i === 0 ? "" : undefined} aria-hidden={i === 0 ? "false" : "true"}>
+              <Lotus />
+              <figcaption>{label}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <div class="gallery-controls">
+          <button type="button" class="gallery-arrow" data-prev aria-label="上一张">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <path d="M13 8H3M7 4 3 8l4 4" />
+            </svg>
+          </button>
+          <div class="gallery-dots" role="group" aria-label="选择活动图片">
+            {activities.galleryPlaceholders.map((label, i) => (
+              <button type="button" class="gallery-dot" aria-label={label} aria-current={i === 0 ? "true" : "false"} data-dot></button>
+            ))}
+          </div>
+          <button type="button" class="gallery-arrow" data-next aria-label="下一张">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="wrap">
+      <div class="videos-head">
+        <div>
+          <span class="eyebrow" data-reveal>{activities.videosEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{activities.videosTitle}</h2>
+        </div>
+        <p class="small muted" data-reveal style="--i:2">{activities.videosNote}</p>
+      </div>
+
+      <div class="video-embeds">
+        {activities.videos.map((video, i) => (
+          <figure class="video-embed" data-reveal style={`--i:${i}`}>
+            <div class="video-embed__frame">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
+                title={video.label}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <figcaption>{video.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ink activities-online">
+    <div class="wrap">
+      <div class="online-head">
+        <div>
+          <span class="eyebrow" data-reveal>{activities.onlineEyebrow}</span>
+          <h2 class="h2" data-reveal style="--i:1">{activities.onlineTitle}</h2>
+        </div>
+        <div>
+          <p class="online-lede" data-reveal style="--i:2">{activities.onlineBody}</p>
+          <a class="btn" href={contactHref} data-reveal style="--i:3">{activities.onlineCta}</a>
+        </div>
+      </div>
+
+      <div class="schedule-grid">
+        {activities.schedules.map((schedule, i) => (
+          <figure class="schedule" data-reveal style={`--i:${i}`}>
+            <figcaption>{schedule.label}</figcaption>
+            <div class="schedule__media">
+              <span>{schedule.note}</span>
+            </div>
+          </figure>
+        ))}
+      </div>
+      <span class="online-word" aria-hidden="true">Zoom</span>
+    </div>
+  </section>
+
+  <script>
+    // Region explorer: continents first, centres on hover/click, poster on centre hover.
+    const explorer = document.querySelector<HTMLElement>("[data-explorer]");
+    if (explorer) {
+      const regions = Array.from(explorer.querySelectorAll<HTMLElement>("[data-region]"));
+      const pair = explorer.querySelector<HTMLElement>("[data-poster-pair]");
+      const single = explorer.querySelector<HTMLElement>("[data-poster-single]");
+      const centerCaption = explorer.querySelector<HTMLElement>("[data-center-caption]");
+      const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+      const closeAll = () => {
+        for (const region of regions) {
+          region.querySelector<HTMLButtonElement>("[data-region-btn]")?.setAttribute("aria-expanded", "false");
+          const list = region.querySelector<HTMLElement>("[data-center-list]");
+          if (list) list.hidden = true;
+        }
+      };
+      const showPair = () => {
+        if (pair) pair.hidden = false;
+        if (single) single.hidden = true;
+      };
+      const openRegion = (region: HTMLElement) => {
+        closeAll();
+        region.querySelector<HTMLButtonElement>("[data-region-btn]")?.setAttribute("aria-expanded", "true");
+        const list = region.querySelector<HTMLElement>("[data-center-list]");
+        if (list) list.hidden = false;
+        showPair();
+      };
+      const showCenter = (name: string) => {
+        if (pair) pair.hidden = true;
+        if (single) single.hidden = false;
+        if (centerCaption) centerCaption.textContent = `${name} · ${activitiesCaption()}`;
+      };
+      const activitiesCaption = () => "最新活动";
+      const reset = () => {
+        closeAll();
+        showPair();
+        if (centerCaption) centerCaption.textContent = "各地最新活动";
+      };
+
+      for (const region of regions) {
+        const regionBtn = region.querySelector<HTMLButtonElement>("[data-region-btn]");
+        const centerBtns = Array.from(region.querySelectorAll<HTMLButtonElement>("[data-center]"));
+        if (!regionBtn) continue;
+        if (canHover) regionBtn.addEventListener("mouseenter", () => openRegion(region));
+        regionBtn.addEventListener("click", () => {
+          const isOpen = regionBtn.getAttribute("aria-expanded") === "true";
+          if (isOpen) reset();
+          else openRegion(region);
+        });
+        for (const centerBtn of centerBtns) {
+          const name = centerBtn.dataset.center ?? "";
+          if (canHover) centerBtn.addEventListener("mouseenter", () => showCenter(name));
+          centerBtn.addEventListener("click", () => showCenter(name));
+        }
+      }
+
+      explorer.addEventListener("mouseleave", () => {
+        if (canHover) reset();
+      });
+      document.addEventListener("click", (event) => {
+        if (!explorer.contains(event.target as Node)) reset();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") reset();
+      });
+    }
+
+    // Placeholder gallery.
+    document.querySelectorAll<HTMLElement>("[data-gallery]").forEach((gallery) => {
+      const slides = Array.from(gallery.querySelectorAll<HTMLElement>("[data-slide]"));
+      const dots = Array.from(gallery.querySelectorAll<HTMLButtonElement>("[data-dot]"));
+      const prev = gallery.querySelector<HTMLButtonElement>("[data-prev]");
+      const next = gallery.querySelector<HTMLButtonElement>("[data-next]");
+      let current = 0;
+      const show = (index: number) => {
+        current = (index + slides.length) % slides.length;
+        slides.forEach((slide, i) => {
+          slide.toggleAttribute("data-active", i === current);
+          slide.setAttribute("aria-hidden", String(i !== current));
+        });
+        dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === current)));
+      };
+      dots.forEach((dot, i) => dot.addEventListener("click", () => show(i)));
+      prev?.addEventListener("click", () => show(current - 1));
+      next?.addEventListener("click", () => show(current + 1));
+      show(0);
+    });
+  </script>
+</Base>
+
+<style>
+  :global([hidden]) { display: none !important; }
+
+  .activities-head { padding-bottom: clamp(1.5rem, 4vw, 3rem); }
+  .activities-head h1 { max-width: 13ch; }
+  .activities-head .lede { max-width: 58ch; }
+
+  .activities-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+  }
+
+  .activities-facts li {
+    border: 1px solid rgba(164, 119, 31, 0.42);
+    border-radius: 999px;
+    padding: 0.42em 1em;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+  }
+
+  .activity-explorer {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .explorer-note { max-width: 34ch; margin: 1rem 0 0; }
+
+  .region-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .region-item { border-bottom: 1px solid var(--line); }
+
+  .region-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 3.4vw, 2.35rem);
+    font-weight: 300;
+    line-height: 1.1;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.25s var(--ease);
+  }
+
+  .region-btn__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+
+  .region-btn__meta svg { transition: transform 0.3s var(--ease); }
+  .region-btn[aria-expanded="true"] { color: var(--saffron); }
+  .region-btn[aria-expanded="true"] .region-btn__meta svg { transform: rotate(180deg); }
+
+  .center-list {
+    list-style: none;
+    padding: 0 0 1rem 1rem;
+    margin: 0;
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .center-btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.45rem 0;
+    border: 0;
+    background: none;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+    transition: color 0.2s var(--ease);
+  }
+
+  .center-btn:hover,
+  .center-btn:focus-visible { color: var(--saffron); }
+
+  .region-page-row { padding-top: 0.55rem; }
+
+  .region-page-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--saffron);
+    border-bottom: 1px solid rgba(191, 106, 30, 0.35);
+    padding-bottom: 0.1rem;
+  }
+
+  .explorer-preview { min-width: 0; }
+
+  .poster-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(0.9rem, 2.5vw, 1.6rem);
+  }
+
+  .poster-card { margin: 0; display: grid; gap: 0.6rem; }
+
+  .poster-card__media,
+  .poster-single__media {
+    overflow: hidden;
+    background: var(--cream);
+    border: 1px solid var(--line);
+  }
+
+  .poster-card__media { aspect-ratio: 3 / 4; }
+  .poster-card__media :global(img),
+  .poster-single__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .poster-card figcaption {
+    color: var(--muted);
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+  }
+
+  .poster-single { margin: 0; display: grid; gap: 0.75rem; }
+  .poster-single__media { aspect-ratio: 3 / 4; }
+  .poster-single figcaption { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.76rem; }
+  .poster-single figcaption small { color: var(--saffron); }
+
+  .section-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
+  .section-head .h2 { margin-top: 0.5rem; }
+
+  .type-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 clamp(2rem, 5vw, 4rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .type-card {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    column-gap: 0.7rem;
+    padding: 1.5rem 0 1.8rem;
+    border-top: 1px solid var(--line);
+    align-content: start;
+  }
+
+  .type-card__index { color: var(--saffron); font-size: 0.68rem; letter-spacing: 0.1em; padding-top: 0.4rem; }
+
+  .type-card h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .type-card ul { grid-column: 2; list-style: none; padding: 0; margin: 0.9rem 0 0; display: grid; gap: 0.4rem; }
+
+  .type-card li { position: relative; padding-left: 0.9rem; color: var(--ink-soft); font-size: 0.88rem; line-height: 1.55; }
+
+  .type-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .gallery-note { max-width: 34ch; }
+
+  .placeholder-gallery { margin-top: clamp(2rem, 4vw, 3rem); }
+
+  .gallery-stage {
+    position: relative;
+    aspect-ratio: 16 / 7;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .gallery-slide {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    align-content: center;
+    color: var(--gold);
+    background-image: var(--mandala-img);
+    background-size: 34%;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease);
+    pointer-events: none;
+  }
+
+  .gallery-slide[data-active] { opacity: 1; pointer-events: auto; }
+  .gallery-slide :global(.lotus) { width: 58px; opacity: 0.55; }
+  .gallery-slide figcaption { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.1em; }
+
+  .gallery-controls { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-top: 1rem; }
+
+  .gallery-arrow {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    background: none;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  }
+
+  .gallery-arrow:hover { background: var(--ink); color: var(--cream); }
+
+  .gallery-dots { display: flex; gap: 0.55rem; }
+
+  .gallery-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--line-strong);
+    cursor: pointer;
+    transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+  }
+
+  .gallery-dot[aria-current="true"] { background: var(--saffron); transform: scale(1.3); }
+
+  .videos-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
+  .videos-head .h2 { margin-top: 0.5rem; }
+  .videos-head .small { max-width: 34ch; }
+  .video-embeds {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(1.5rem, 4vw, 3rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .video-embed { margin: 0; display: grid; gap: 0.7rem; }
+
+  .video-embed__frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--ink);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .video-embed__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .video-embed figcaption {
+    color: var(--muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  .activities-online { overflow: hidden; }
+  .online-head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: end; }
+  .online-lede { color: rgba(243, 231, 210, 0.76); max-width: 42ch; line-height: 1.6; margin: 0 0 1.5rem; }
+
+  .schedule-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 3rem); margin-top: clamp(2.5rem, 5vw, 4rem); position: relative; z-index: 1; }
+
+  .schedule { margin: 0; display: grid; gap: 0.8rem; }
+  .schedule figcaption { color: var(--gold-bright); font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 300; }
+  .schedule__media {
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(243, 231, 210, 0.3);
+    color: rgba(243, 231, 210, 0.55);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    background: rgba(253, 248, 234, 0.03);
+  }
+
+  .online-word {
+    position: absolute;
+    right: -0.1em;
+    bottom: -0.28em;
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 16vw, 14rem);
+    line-height: 0.8;
+    color: rgba(253, 248, 234, 0.06);
+    pointer-events: none;
+  }
+
+  @media (max-width: 1000px) {
+    .activity-explorer { grid-template-columns: 1fr; }
+    .explorer-preview { margin-top: 1rem; }
+    .type-grid { grid-template-columns: 1fr; }
+    .online-head { grid-template-columns: 1fr; }
+    .gallery-stage { aspect-ratio: 4 / 3; }
+  }
+
+  @media (max-width: 800px) {
+    .video-embeds { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .poster-pair { gap: 0.7rem; }
+    .poster-card figcaption { font-size: 0.68rem; }
+    .schedule-grid { grid-template-columns: 1fr; }
+    .activities-facts li { font-size: 0.64rem; }
+  }
+</style>

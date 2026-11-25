@@ -1276,5 +1276,27 @@
     "file": "teacher-deyang-371.webp"
    }
   ]
+ },
+ "event-new-york-weekend": {
+  "w": 1170,
+  "h": 1554,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 638,
+    "file": "event-new-york-weekend-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 1195,
+    "file": "event-new-york-weekend-900.webp"
+   },
+   {
+    "w": 1170,
+    "h": 1554,
+    "file": "event-new-york-weekend-1170.webp"
+   }
+  ]
  }
 }

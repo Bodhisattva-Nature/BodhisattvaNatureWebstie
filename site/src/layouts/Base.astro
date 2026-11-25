@@ -11,9 +11,11 @@ interface Props {
   description?: string;
   image?: string;
   lang?: Lang;
+  zhOnly?: boolean;
 }
 
 const lang: Lang = Astro.props.lang ?? "en";
+const zhOnly = Astro.props.zhOnly ?? false;
 const { t } = getContent(lang);
 const { title, description = t.site.description, image } = Astro.props;
 const alternate = oppositeHref(Astro.url.pathname, lang);
@@ -35,9 +37,18 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang={lang === "zh" ? "en" : "zh-Hans"} href={new URL(alternate, Astro.site ?? "https://example.com").href} />
-    <link rel="alternate" hreflang={lang === "zh" ? "zh-Hans" : "en"} href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={lang === "zh" ? new URL(alternate, Astro.site ?? "https://example.com").href : canonical} />
+    {zhOnly ? (
+      <>
+        <link rel="alternate" hreflang="zh-Hans" href={canonical} />
+        <link rel="alternate" hreflang="x-default" href={canonical} />
+      </>
+    ) : (
+      <>
+        <link rel="alternate" hreflang={lang === "zh" ? "en" : "zh-Hans"} href={new URL(alternate, Astro.site ?? "https://example.com").href} />
+        <link rel="alternate" hreflang={lang === "zh" ? "zh-Hans" : "en"} href={canonical} />
+        <link rel="alternate" hreflang="x-default" href={lang === "zh" ? new URL(alternate, Astro.site ?? "https://example.com").href : canonical} />
+      </>
+    )}
     <meta name="theme-color" content="#f5f0e6" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -127,8 +138,10 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
         toggle?.addEventListener("click", () => {
           setDrop(drop, toggle.getAttribute("aria-expanded") !== "true");
         });
-        drop.addEventListener("mouseenter", () => setDrop(drop, true));
-        drop.addEventListener("mouseleave", () => setDrop(drop, false));
+        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+          drop.addEventListener("mouseenter", () => setDrop(drop, true));
+          drop.addEventListener("mouseleave", () => setDrop(drop, false));
+        }
         drop.addEventListener("focusout", (event) => {
           if (!drop.contains(event.relatedTarget as Node)) setDrop(drop, false);
         });
