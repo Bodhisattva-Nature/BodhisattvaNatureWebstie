@@ -1,12 +1,15 @@
 ---
 import Base from "../layouts/Base.astro";
 import Img from "../components/Img.astro";
-import Lotus from "../components/Lotus.astro";
 import { activities } from "../data/activities";
 import { href } from "../lib/url";
 
 const contactHref = href("/contact/", "zh");
 const eventsHref = href("/events/", "zh");
+const galleryPages = [];
+for (let i = 0; i < activities.gallery.length; i += 3) {
+  galleryPages.push(activities.gallery.slice(i, i + 3));
+}
 ---
 
 <Base
@@ -31,9 +34,8 @@ const eventsHref = href("/events/", "zh");
       <div class="explorer-menu">
         <span class="eyebrow" data-reveal>{activities.explorerEyebrow}</span>
         <h2 class="h2" data-reveal style="--i:1;margin-top:.55rem">{activities.explorerTitle}</h2>
-        <p class="small muted explorer-note" data-reveal style="--i:2">{activities.explorerNote}</p>
 
-        <ul class="region-list" data-reveal style="--i:3">
+        <ul class="region-list" data-reveal style="--i:2">
           {activities.regions.map((region, i) => (
             <li class="region-item" data-region>
               <button
@@ -121,7 +123,12 @@ const eventsHref = href("/events/", "zh");
             <span class="type-card__index">0{i + 1}</span>
             <h3>{group.title}</h3>
             <ul>
-              {group.items.map((item) => <li>{item}</li>)}
+              {group.items.map((item) => (
+                <li class="type-item" tabindex="0">
+                  <span>{item.name}</span>
+                  <span class="type-item__pop" role="tooltip">{item.description}</span>
+                </li>
+              ))}
             </ul>
           </article>
         ))}
@@ -139,31 +146,38 @@ const eventsHref = href("/events/", "zh");
         <p class="small muted gallery-note" data-reveal style="--i:2">{activities.galleryNote}</p>
       </div>
 
-      <div class="placeholder-gallery" data-gallery data-reveal>
-        <div class="gallery-stage" aria-roledescription="carousel">
-          {activities.galleryPlaceholders.map((label, i) => (
-            <figure class="gallery-slide" data-slide data-active={i === 0 ? "" : undefined} aria-hidden={i === 0 ? "false" : "true"}>
-              <Lotus />
-              <figcaption>{label}</figcaption>
-            </figure>
-          ))}
-        </div>
-        <div class="gallery-controls">
-          <button type="button" class="gallery-arrow" data-prev aria-label="上一张">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-              <path d="M13 8H3M7 4 3 8l4 4" />
-            </svg>
-          </button>
-          <div class="gallery-dots" role="group" aria-label="选择活动图片">
-            {activities.galleryPlaceholders.map((label, i) => (
-              <button type="button" class="gallery-dot" aria-label={label} aria-current={i === 0 ? "true" : "false"} data-dot></button>
+      <div class="gallery-carousel" data-carousel data-reveal>
+        <div class="gallery-viewport">
+          <div class="gallery-track" data-track aria-roledescription="carousel" aria-label="历次活动图片">
+            {[...galleryPages, galleryPages[0]].map((page, pageIndex) => (
+              <div class="gallery-page" aria-hidden={pageIndex === galleryPages.length ? "true" : undefined}>
+                {page.map((item, i) => (
+                  <figure class="gallery-card">
+                    <div class="gallery-card__media">
+                      <Img
+                        name={item.image}
+                        alt={item.alt}
+                        sizes="(max-width: 700px) 33vw, 33vw"
+                        loading={pageIndex === 0 && i < 3 ? "eager" : "lazy"}
+                      />
+                    </div>
+                    <figcaption>{item.caption}</figcaption>
+                  </figure>
+                ))}
+              </div>
             ))}
           </div>
-          <button type="button" class="gallery-arrow" data-next aria-label="下一张">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" />
-            </svg>
-          </button>
+        </div>
+        <div class="gallery-dots" role="group" aria-label="选择活动图片">
+          {galleryPages.map((_, i) => (
+            <button
+              type="button"
+              class="gallery-dot"
+              aria-label={`第 ${i + 1} 组`}
+              aria-current={i === 0 ? "true" : "false"}
+              data-dot
+            ></button>
+          ))}
         </div>
       </div>
     </div>
@@ -217,7 +231,12 @@ const eventsHref = href("/events/", "zh");
           <figure class="schedule" data-reveal style={`--i:${i}`}>
             <figcaption>{schedule.label}</figcaption>
             <div class="schedule__media">
-              <span>{schedule.note}</span>
+              <Img
+                name={schedule.image}
+                alt={schedule.label}
+                sizes="(max-width: 700px) 100vw, 46vw"
+                loading="lazy"
+              />
             </div>
           </figure>
         ))}
@@ -294,25 +313,66 @@ const eventsHref = href("/events/", "zh");
       });
     }
 
-    // Placeholder gallery.
-    document.querySelectorAll<HTMLElement>("[data-gallery]").forEach((gallery) => {
-      const slides = Array.from(gallery.querySelectorAll<HTMLElement>("[data-slide]"));
-      const dots = Array.from(gallery.querySelectorAll<HTMLButtonElement>("[data-dot]"));
-      const prev = gallery.querySelector<HTMLButtonElement>("[data-prev]");
-      const next = gallery.querySelector<HTMLButtonElement>("[data-next]");
+    // Infinite three-up gallery with dots and a seamless cloned first page.
+    document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((carousel) => {
+      const track = carousel.querySelector<HTMLElement>("[data-track]");
+      const dots = Array.from(carousel.querySelectorAll<HTMLButtonElement>("[data-dot]"));
+      if (!track || dots.length === 0) return;
+
+      const pageCount = dots.length;
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       let current = 0;
-      const show = (index: number) => {
-        current = (index + slides.length) % slides.length;
-        slides.forEach((slide, i) => {
-          slide.toggleAttribute("data-active", i === current);
-          slide.setAttribute("aria-hidden", String(i !== current));
-        });
-        dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === current)));
+      let timer: number | undefined;
+      let jumping = false;
+
+      const render = (index: number, animate = true) => {
+        track.style.transition = animate && !reduced ? "transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)" : "none";
+        track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+        if (index < pageCount) {
+          dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === index)));
+        }
       };
-      dots.forEach((dot, i) => dot.addEventListener("click", () => show(i)));
-      prev?.addEventListener("click", () => show(current - 1));
-      next?.addEventListener("click", () => show(current + 1));
-      show(0);
+
+      const advance = () => {
+        if (jumping) return;
+        current += 1;
+        render(current);
+        if (current === pageCount) {
+          jumping = true;
+          window.setTimeout(() => {
+            render(0, false);
+            void track.offsetWidth;
+            track.style.transition = "";
+            current = 0;
+            jumping = false;
+          }, 820);
+        }
+      };
+
+      const stop = () => {
+        if (timer) window.clearInterval(timer);
+        timer = undefined;
+      };
+      const start = () => {
+        stop();
+        if (!reduced) timer = window.setInterval(advance, 4600);
+      };
+
+      dots.forEach((dot, i) => dot.addEventListener("click", () => {
+        current = i;
+        render(i);
+        start();
+      }));
+
+      carousel.addEventListener("mouseenter", stop);
+      carousel.addEventListener("mouseleave", start);
+      carousel.addEventListener("focusin", stop);
+      carousel.addEventListener("focusout", (event) => {
+        if (!carousel.contains(event.relatedTarget as Node)) start();
+      });
+
+      render(0, false);
+      start();
     });
   </script>
 </Base>
@@ -349,7 +409,7 @@ const eventsHref = href("/events/", "zh");
     align-items: start;
   }
 
-  .explorer-note { max-width: 34ch; margin: 1rem 0 0; }
+
 
   .region-list {
     list-style: none;
@@ -433,7 +493,7 @@ const eventsHref = href("/events/", "zh");
     padding-bottom: 0.1rem;
   }
 
-  .explorer-preview { min-width: 0; }
+  .explorer-preview { min-width: 0; padding-top: clamp(2.4rem, 4vw, 3.25rem); }
 
   .poster-pair {
     display: grid;
@@ -465,9 +525,19 @@ const eventsHref = href("/events/", "zh");
     letter-spacing: 0.05em;
   }
 
-  .poster-single { margin: 0; display: grid; gap: 0.75rem; }
-  .poster-single__media { aspect-ratio: 3 / 4; }
-  .poster-single figcaption { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.76rem; }
+  .poster-single {
+    margin: clamp(2rem, 5vw, 4rem) 0 0;
+    display: grid;
+    gap: 0.75rem;
+    justify-items: center;
+  }
+  .poster-single__media {
+    height: clamp(320px, 46vh, 420px);
+    width: auto;
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+  }
+  .poster-single figcaption { width: 100%; display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.76rem; }
   .poster-single figcaption small { color: var(--saffron); }
 
   .section-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
@@ -514,58 +584,104 @@ const eventsHref = href("/events/", "zh");
     background: var(--gold);
   }
 
+  .type-item { cursor: help; outline: none; }
+
+  .type-item > span:first-child { border-bottom: 1px dotted var(--line-strong); }
+
+  .type-item:focus-visible > span:first-child { border-color: var(--saffron); color: var(--saffron); }
+
+  .type-item__pop {
+    position: absolute;
+    left: -0.9rem;
+    bottom: calc(100% + 0.55rem);
+    z-index: 8;
+    width: min(280px, 68vw);
+    padding: 0.65rem 0.75rem;
+    background: var(--ink);
+    color: var(--cream);
+    font-size: 0.74rem;
+    line-height: 1.55;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(4px);
+    box-shadow: 0 16px 36px rgba(17, 12, 8, 0.22);
+    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s;
+  }
+
+  .type-item__pop::after {
+    content: "";
+    position: absolute;
+    left: 1.2rem;
+    bottom: -5px;
+    width: 8px;
+    height: 8px;
+    background: var(--ink);
+    transform: rotate(45deg);
+  }
+
+  .type-item:hover .type-item__pop,
+  .type-item:focus .type-item__pop {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
   .gallery-note { max-width: 34ch; }
 
-  .placeholder-gallery { margin-top: clamp(2rem, 4vw, 3rem); }
-
-  .gallery-stage {
-    position: relative;
-    aspect-ratio: 16 / 7;
-    background: var(--cream);
-    border: 1px solid var(--line);
-    overflow: hidden;
+  .gallery-carousel {
+    --gallery-gap: clamp(0.8rem, 2vw, 1.4rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
   }
 
-  .gallery-slide {
-    position: absolute;
-    inset: 0;
+  .gallery-viewport { overflow: hidden; }
+
+  .gallery-track { display: flex; align-items: flex-start; }
+
+  .gallery-page {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gallery-gap);
+  }
+
+  .gallery-card {
+    min-width: 0;
     margin: 0;
     display: grid;
-    place-items: center;
-    gap: 1rem;
-    align-content: center;
-    color: var(--gold);
-    background-image: var(--mandala-img);
-    background-size: 34%;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.5s var(--ease);
-    pointer-events: none;
+    gap: 0.55rem;
   }
 
-  .gallery-slide[data-active] { opacity: 1; pointer-events: auto; }
-  .gallery-slide :global(.lotus) { width: 58px; opacity: 0.55; }
-  .gallery-slide figcaption { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.1em; }
-
-  .gallery-controls { display: flex; align-items: center; justify-content: center; gap: 1.2rem; margin-top: 1rem; }
-
-  .gallery-arrow {
-    display: grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
-    border: 1px solid var(--line-strong);
-    border-radius: 50%;
-    background: none;
-    color: var(--ink-soft);
-    cursor: pointer;
-    transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  .gallery-card__media {
+    aspect-ratio: 16 / 7;
+    overflow: hidden;
+    background: var(--cream);
+    border: 1px solid var(--line);
   }
 
-  .gallery-arrow:hover { background: var(--ink); color: var(--cream); }
+  .gallery-card__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s var(--ease);
+  }
 
-  .gallery-dots { display: flex; gap: 0.55rem; }
+  .gallery-card:hover .gallery-card__media :global(img) { transform: scale(1.035); }
+
+  .gallery-card figcaption {
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+  }
+
+  .gallery-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 1.2rem;
+  }
 
   .gallery-dot {
     width: 7px;
@@ -575,10 +691,13 @@ const eventsHref = href("/events/", "zh");
     border-radius: 50%;
     background: var(--line-strong);
     cursor: pointer;
-    transition: background 0.2s var(--ease), transform 0.2s var(--ease);
+    transition: background 0.25s var(--ease), transform 0.25s var(--ease);
   }
 
-  .gallery-dot[aria-current="true"] { background: var(--saffron); transform: scale(1.3); }
+  .gallery-dot[aria-current="true"] {
+    background: var(--saffron);
+    transform: scale(1.35);
+  }
 
   .videos-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
   .videos-head .h2 { margin-top: 0.5rem; }
@@ -624,13 +743,16 @@ const eventsHref = href("/events/", "zh");
   .schedule figcaption { color: var(--gold-bright); font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 300; }
   .schedule__media {
     aspect-ratio: 4 / 3;
-    display: grid;
-    place-items: center;
+    overflow: hidden;
     border: 1px solid rgba(243, 231, 210, 0.3);
-    color: rgba(243, 231, 210, 0.55);
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    background: rgba(253, 248, 234, 0.03);
+    background: var(--paper);
+  }
+
+  .schedule__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .online-word {
@@ -646,10 +768,9 @@ const eventsHref = href("/events/", "zh");
 
   @media (max-width: 1000px) {
     .activity-explorer { grid-template-columns: 1fr; }
-    .explorer-preview { margin-top: 1rem; }
+    .explorer-preview { margin-top: 1rem; padding-top: 0; }
     .type-grid { grid-template-columns: 1fr; }
     .online-head { grid-template-columns: 1fr; }
-    .gallery-stage { aspect-ratio: 4 / 3; }
   }
 
   @media (max-width: 800px) {
@@ -657,6 +778,9 @@ const eventsHref = href("/events/", "zh");
   }
 
   @media (max-width: 640px) {
+    .gallery-carousel { --gallery-gap: 0.45rem; }
+    .gallery-card__media { aspect-ratio: 4 / 5; }
+    .gallery-card figcaption { font-size: 0.6rem; }
     .poster-pair { gap: 0.7rem; }
     .poster-card figcaption { font-size: 0.68rem; }
     .schedule-grid { grid-template-columns: 1fr; }

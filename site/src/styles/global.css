@@ -568,6 +568,11 @@ a {
   .zh-menu__item:last-child { display: none; }
 }
 
+@media (max-width: 340px) {
+  .header__inner { gap: 0.6rem; }
+  .brand__logo { height: 44px; }
+}
+
 .burger { flex: none; }
 
 @media (max-width: 1120px) {
@@ -768,15 +773,22 @@ html[lang="zh-Hans"] .nav a.nav__external { font-size: 0.74rem; }
 /* mobile drawer */
 .drawer {
   position: fixed;
-  inset: 0;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 99;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   background: var(--paper);
-  padding: 110px var(--gutter) var(--gutter);
+  padding: calc(110px + env(safe-area-inset-top, 0px)) var(--gutter) calc(var(--gutter) + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
   -webkit-overflow-scrolling: touch;
   clip-path: inset(0 0 100% 0);
   transition: clip-path 0.7s var(--ease);

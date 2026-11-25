@@ -1298,5 +1298,137 @@
     "file": "event-new-york-weekend-1170.webp"
    }
   ]
+ },
+ "activity-gallery-retreat": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-retreat-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-flowers": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-flowers-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-manjushri": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-manjushri-1600.webp"
+   }
+  ]
+ },
+ "activity-schedule-west": {
+  "w": 1200,
+  "h": 900,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1200,
+    "h": 900,
+    "file": "activity-schedule-west-1200.webp"
+   }
+  ]
+ },
+ "activity-schedule-east": {
+  "w": 1200,
+  "h": 900,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1200,
+    "h": 900,
+    "file": "activity-schedule-east-1200.webp"
+   }
+  ]
+ },
+ "activity-gallery-taichi": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-taichi-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-spring": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-spring-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-clouds": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-clouds-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-lake": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-lake-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-lilac": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-lilac-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-leaf": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-leaf-1600.webp"
+   }
+  ]
  }
 }
