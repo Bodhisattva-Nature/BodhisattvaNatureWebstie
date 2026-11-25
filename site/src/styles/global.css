@@ -439,8 +439,33 @@ a {
 .header__ext:hover { color: var(--saffron); border-color: rgba(191, 106, 30, 0.45); }
 .header__ext svg { opacity: 0.7; }
 
+/* the nav grew a seventh item plus the Chinese activities link; tighten
+   the row before it can push the Donate button off the edge */
+@media (max-width: 1440px) {
+  .header__inner { gap: 1rem; }
+  .nav { gap: 1.05rem; }
+}
+
+@media (max-width: 1240px) {
+  .nav { gap: 0.8rem; }
+  .header__ext { padding: 0.5em 0.45em; font-size: 0.68rem; }
+  .search__trigger span, .search__trigger kbd { display: none; }
+  .search__trigger { padding: 0.6em; }
+}
+
 @media (max-width: 1120px) {
   .header__ext { padding: 0.5em 0.55em; font-size: 0.7rem; }
+  .nav { gap: 0.7rem; }
+  .lang-toggle span { display: none; }
+}
+
+/* below this the row cannot hold eight items at full size; shrink type
+   and the mark rather than dropping a navigation target */
+@media (max-width: 1080px) {
+  .brand__logo { height: 46px; }
+  .nav { gap: 0.65rem; }
+  .nav a { font-size: 0.68rem; letter-spacing: 0.12em; }
+  .header__ext { font-size: 0.66rem; }
 }
 
 .lang-toggle {
@@ -481,8 +506,33 @@ a {
 .header__ext:hover { color: var(--saffron); border-color: rgba(191, 106, 30, 0.45); }
 .header__ext svg { opacity: 0.7; }
 
+/* the nav grew a seventh item plus the Chinese activities link; tighten
+   the row before it can push the Donate button off the edge */
+@media (max-width: 1440px) {
+  .header__inner { gap: 1rem; }
+  .nav { gap: 1.05rem; }
+}
+
+@media (max-width: 1240px) {
+  .nav { gap: 0.8rem; }
+  .header__ext { padding: 0.5em 0.45em; font-size: 0.68rem; }
+  .search__trigger span, .search__trigger kbd { display: none; }
+  .search__trigger { padding: 0.6em; }
+}
+
 @media (max-width: 1120px) {
   .header__ext { padding: 0.5em 0.55em; font-size: 0.7rem; }
+  .nav { gap: 0.7rem; }
+  .lang-toggle span { display: none; }
+}
+
+/* below this the row cannot hold eight items at full size; shrink type
+   and the mark rather than dropping a navigation target */
+@media (max-width: 1080px) {
+  .brand__logo { height: 46px; }
+  .nav { gap: 0.65rem; }
+  .nav a { font-size: 0.68rem; letter-spacing: 0.12em; }
+  .header__ext { font-size: 0.66rem; }
 }
 
 .lang-toggle { padding: 0.55em; }

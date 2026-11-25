@@ -39,7 +39,7 @@ export const en = {
   },
 
   external: {
-    activities: { label: "Chinese site", href: "https://www.yimingzhiguang.com/" },
+    activities: { label: "中文活动", href: "https://www.yimingzhiguang.com/" },
   },
 
   footer: {
