@@ -159,3 +159,14 @@ export const pastEvents: Listing[] = [
     image: "past-malaysia",
   },
 ];
+
+/**
+ * The fifteen-part series on the Happiness & Freedom page of the old site.
+ * Thumbnails are cached locally in public/series so the page loads no
+ * third-party requests until a visitor actually presses play.
+ */
+export const happinessSeries: string[] = [
+  "cYlQKwvJli4", "uPD00y08_UE", "DlYPPhcQ_LI", "BrV3rfYv3Pc", "oEODC7LuOA4",
+  "DUZPxI3JkAg", "scKUYEYtCgQ", "zrYqCDTx5aQ", "GgFXEB39zWU", "vfo5VYlFKPs",
+  "ald1oGQu9j0", "2SqMiAMAWDs", "u72Asz7TSE0", "SU66ffWBJOw", "mjUuNM9EHYs",
+];

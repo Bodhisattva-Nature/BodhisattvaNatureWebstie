@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import Img from "../components/Img.astro";
 import { getContent, type Lang } from "../i18n";
+import { happinessSeries } from "../data/events";
 import { href } from "../lib/url";
 
 interface Props { lang?: Lang; program: any }
@@ -93,7 +94,7 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
   )}
 
   {program.bookGrid && (
-    <section class="section section--cream">
+    <section class="section section--cream" id="books">
       <div class="wrap">
         <div class="section-head">
           <div>
@@ -116,6 +117,39 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
                     {t.programDetail.download} <span>PDF · {b.size}</span>
                   </a>
                 )}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {program.slug === "happiness-and-freedom" && (
+    <section class="section" id="series">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" data-reveal>{t.programDetail.seriesEyebrow}</span>
+            <h2 class="h2" data-reveal style="--i:1">{t.programDetail.seriesTitle}</h2>
+          </div>
+          <p class="small muted" data-reveal style="--i:2;max-width:34ch">
+            {t.programDetail.seriesNote}{" "}
+            <a href="#books" class="link-inline">{t.programDetail.seriesBooksLink}</a>
+          </p>
+        </div>
+        <div class="series">
+          {happinessSeries.map((id, i) => (
+            <figure class="episode" data-reveal style={`--i:${i % 3}`}>
+              <button class="episode__play" type="button" data-video={id} aria-label={`${t.programDetail.seriesPlay} ${i + 1}`}>
+                <img src={`${base}/series/${String(i + 1).padStart(2, "0")}.jpg`} alt="" width="640" height="360" loading="lazy" />
+                <span class="episode__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+                </span>
+              </button>
+              <figcaption>
+                <span class="episode__no">{String(i + 1).padStart(2, "0")}</span>
+                {t.programDetail.seriesEpisode} {i + 1}
               </figcaption>
             </figure>
           ))}
@@ -170,6 +204,22 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
     </div>
   </section>
 </Base>
+
+<script>
+  for (const btn of document.querySelectorAll<HTMLButtonElement>(".episode__play")) {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.video;
+      if (!id) return;
+      const frame = document.createElement("iframe");
+      frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      frame.title = btn.getAttribute("aria-label") ?? "Video";
+      frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+      frame.allowFullscreen = true;
+      frame.loading = "lazy";
+      btn.replaceWith(frame);
+    });
+  }
+</script>
 
 <style>
   .prog-head {
@@ -301,6 +351,28 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
   .gallery__item { margin: 0; display: grid; gap: 0.8rem; }
   .gallery__item:nth-child(2) { margin-top: clamp(2rem, 6vw, 5rem); }
 
+  .link-inline { color: var(--maroon); text-decoration: none; border-bottom: 1px solid rgba(58,12,22,.3); }
+
+  .series { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.2rem, 2.5vw, 2rem); margin-top: clamp(2rem, 4vw, 3rem); }
+  .episode { display: grid; gap: 0.6rem; }
+  .episode__play {
+    position: relative; padding: 0; border: 0; cursor: pointer; display: block;
+    background: var(--cream); aspect-ratio: 16/9; overflow: hidden;
+  }
+  .episode__play img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+  .episode__play:hover img { transform: scale(1.03); }
+  .episode__icon {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    color: var(--cream); background: rgba(27, 20, 16, 0.18); transition: background 0.3s var(--ease);
+  }
+  .episode__icon svg { width: 46px; height: 46px; filter: drop-shadow(0 2px 8px rgba(0,0,0,.45)); }
+  .episode__play:hover .episode__icon { background: rgba(27, 20, 16, 0.32); }
+  .episode iframe { width: 100%; aspect-ratio: 16/9; border: 0; }
+  .episode figcaption { font-size: 0.82rem; color: var(--muted); }
+  .episode__no { color: var(--saffron); letter-spacing: 0.14em; margin-right: 0.5rem; font-size: 0.7rem; }
+  @media (max-width: 860px) { .series { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .series { grid-template-columns: 1fr; } }
+
   .books {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -332,7 +404,29 @@ const others = programs.filter((p) => p.slug !== program.slug).slice(0, 3);
   .book__title { font-family: var(--font-display); font-size: 1rem; line-height: 1.2; }
 
   @media (max-width: 900px) {
-    .books { grid-template-columns: repeat(2, 1fr); }
+    .link-inline { color: var(--maroon); text-decoration: none; border-bottom: 1px solid rgba(58,12,22,.3); }
+
+  .series { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.2rem, 2.5vw, 2rem); margin-top: clamp(2rem, 4vw, 3rem); }
+  .episode { display: grid; gap: 0.6rem; }
+  .episode__play {
+    position: relative; padding: 0; border: 0; cursor: pointer; display: block;
+    background: var(--cream); aspect-ratio: 16/9; overflow: hidden;
+  }
+  .episode__play img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+  .episode__play:hover img { transform: scale(1.03); }
+  .episode__icon {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    color: var(--cream); background: rgba(27, 20, 16, 0.18); transition: background 0.3s var(--ease);
+  }
+  .episode__icon svg { width: 46px; height: 46px; filter: drop-shadow(0 2px 8px rgba(0,0,0,.45)); }
+  .episode__play:hover .episode__icon { background: rgba(27, 20, 16, 0.32); }
+  .episode iframe { width: 100%; aspect-ratio: 16/9; border: 0; }
+  .episode figcaption { font-size: 0.82rem; color: var(--muted); }
+  .episode__no { color: var(--saffron); letter-spacing: 0.14em; margin-right: 0.5rem; font-size: 0.7rem; }
+  @media (max-width: 860px) { .series { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .series { grid-template-columns: 1fr; } }
+
+  .books { grid-template-columns: repeat(2, 1fr); }
     .gallery { grid-template-columns: 1fr; }
     .gallery__item:nth-child(2) { margin-top: 0; }
     .prog-head__inner { grid-template-columns: 1fr; }
