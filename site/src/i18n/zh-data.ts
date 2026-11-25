@@ -27,7 +27,7 @@ export const pillars = [
     subtitle: "真谛",
     body:
       "「佛陀」意为圆满的觉醒，非神。任何人证得真理，皆可成佛。佛法并不排他；它是如实观照世间，并因这份观照而得自在。",
-    image: "practicing",
+    image: "buddha-radiant",
   },
 ];
 

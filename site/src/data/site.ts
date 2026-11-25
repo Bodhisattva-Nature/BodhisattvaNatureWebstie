@@ -48,7 +48,7 @@ export const pillars = [
     subtitle: "Truth",
     body:
       "Buddha means “completely awakening” — not a deity. Anyone who realises the truth may attain it. Buddhism is not exclusive; it is a way of seeing the world as it is, and being freed by that seeing.",
-    image: "practicing",
+    image: "buddha-radiant",
   },
 ];
 
