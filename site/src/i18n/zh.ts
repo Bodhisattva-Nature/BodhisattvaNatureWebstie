@@ -110,7 +110,7 @@ export const zh = {
     missionEyebrow: "本会宗旨",
     missionTitle: "三事共勉",
     pathEyebrow: "如何达成",
-    pathTitle: "闻。思。修。",
+    pathTitle: "闻·思·修",
     pathNote: "整条道路，三个次第——反复行之，直至合一。",
     teachersEyebrow: "我们的法师",
     teachersTitle: "传法之人。",
