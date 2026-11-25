@@ -378,7 +378,7 @@ export const programs: Program[] = [
     links: [
       {
         label: "Watch the video series",
-        href: "https://bodhinature.com/happiness-and-freedom/",
+        href: "https://www.youtube.com/@bodhinature",
       },
     ],
     cta: "Watch the series",

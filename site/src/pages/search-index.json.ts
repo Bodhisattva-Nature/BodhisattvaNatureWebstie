@@ -1,5 +1,5 @@
 import type { APIRoute } from "astro";
-import { programs, branches, site } from "../data/site";
+import { programs, branches, connections, site } from "../data/site";
 import { seasonEvents, pastEvents } from "../data/events";
 import quotes from "../data/quotes.json";
 
@@ -38,7 +38,14 @@ const branchDocs: Doc[] = branches.map((b) => ({
 }));
 
 export const GET: APIRoute = () => {
-  const docs = [...pages, ...eventDocs, ...progDocs, ...quoteDocs, ...branchDocs].map((d) => ({ ...d, u: base + d.u }));
+  const connDocs: Doc[] = connections.map((c) => ({
+  t: [c.country, c.cities].filter(Boolean).join(" · "),
+  d: [c.email, c.phone, c.note].filter(Boolean).join(" · "),
+  u: `/contact/#${c.slug}`,
+  k: "connection",
+}));
+
+const docs = [...pages, ...eventDocs, ...progDocs, ...quoteDocs, ...branchDocs, ...connDocs].map((d) => ({ ...d, u: base + d.u }));
   return new Response(
     JSON.stringify({ docs, contact: { email: site.email, phone: site.phone } }),
     { headers: { "Content-Type": "application/json" } }

@@ -2,7 +2,7 @@ import type { APIRoute } from "astro";
 import { getContent, contact } from "../../i18n";
 
 export const GET: APIRoute = () => {
-  const { t, programs, branches, quotes, seasonEvents, pastEvents } = getContent("zh");
+  const { t, programs, branches, connections, quotes, seasonEvents, pastEvents } = getContent("zh");
   const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   const p = (u: string) => base + (u === "/" ? "/zh/" : "/zh" + u);
 
@@ -22,6 +22,7 @@ export const GET: APIRoute = () => {
     ...quotes.map((q) => ({ t: q.title, d: q.body.slice(0, 90), u: "/wisdom/", k: "法语" })),
     ...[...seasonEvents, ...pastEvents].map((e) => ({ t: e.title, d: `${e.date} · ${e.place}。${e.body}`, u: `/events/#${e.slug}`, k: "活动" })),
     ...branches.map((b) => ({ t: `${b.city} — ${b.country}`, d: [...b.address, b.email].join(" · "), u: `/contact/#${b.slug}`, k: "分会" })),
+    ...connections.map((c) => ({ t: [c.country, c.cities].filter(Boolean).join(" · "), d: [c.email, c.phone, c.note].filter(Boolean).join(" · "), u: `/contact/#${c.slug}`, k: "共修团体" })),
   ].map((d) => ({ ...d, u: p(d.u) }));
 
   return new Response(JSON.stringify({ docs, contact }), {

@@ -240,7 +240,7 @@ export const programs = [
       { title: "幸福与自由的本质", body: "十五个短片，从更深的层面拆解这个问题。" },
       { title: "四种语言", body: "系列的文字版译为四种语言，欢迎免费下载分享。" },
     ],
-    links: [{ label: "观看影片", href: "https://bodhinature.com/happiness-and-freedom/" }],
+    links: [{ label: "观看影片", href: "https://www.youtube.com/@bodhinature" }],
     cta: "观看系列",
   },
 ];
