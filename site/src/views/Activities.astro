@@ -158,7 +158,7 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
                         name={item.image}
                         alt={item.alt}
                         sizes="(max-width: 700px) 33vw, 33vw"
-                        loading={pageIndex === 0 && i < 3 ? "eager" : "lazy"}
+                        loading="eager"
                       />
                     </div>
                     <figcaption>{item.caption}</figcaption>
@@ -323,15 +323,33 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       let current = 0;
       let timer: number | undefined;
+      let wrapTimer: number | undefined;
       let jumping = false;
 
       const render = (index: number, animate = true) => {
-        track.style.transition = animate && !reduced ? "transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)" : "none";
+        track.style.transition = animate && !reduced ? "transform 0.9s cubic-bezier(0.33, 1, 0.68, 1)" : "none";
         track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
         if (index < pageCount) {
           dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === index)));
         }
       };
+
+      const finishWrap = () => {
+        if (!jumping) return;
+        jumping = false;
+        if (wrapTimer) window.clearTimeout(wrapTimer);
+        wrapTimer = undefined;
+        render(0, false);
+        void track.offsetWidth;
+        window.requestAnimationFrame(() => {
+          track.style.transition = "";
+          current = 0;
+        });
+      };
+
+      track.addEventListener("transitionend", (event) => {
+        if (event.propertyName === "transform" && current === pageCount) finishWrap();
+      });
 
       const advance = () => {
         if (jumping) return;
@@ -339,13 +357,7 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
         render(current);
         if (current === pageCount) {
           jumping = true;
-          window.setTimeout(() => {
-            render(0, false);
-            void track.offsetWidth;
-            track.style.transition = "";
-            current = 0;
-            jumping = false;
-          }, 820);
+          wrapTimer = window.setTimeout(finishWrap, 1100);
         }
       };
 
@@ -355,10 +367,15 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
       };
       const start = () => {
         stop();
-        if (!reduced) timer = window.setInterval(advance, 4600);
+        if (!reduced) timer = window.setInterval(advance, 4000);
       };
 
       dots.forEach((dot, i) => dot.addEventListener("click", () => {
+        if (jumping) {
+          jumping = false;
+          if (wrapTimer) window.clearTimeout(wrapTimer);
+          wrapTimer = undefined;
+        }
         current = i;
         render(i);
         start();
@@ -636,7 +653,11 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
 
   .gallery-viewport { overflow: hidden; }
 
-  .gallery-track { display: flex; align-items: flex-start; }
+  .gallery-track {
+    display: flex;
+    align-items: flex-start;
+    will-change: transform;
+  }
 
   .gallery-page {
     flex: 0 0 100%;
