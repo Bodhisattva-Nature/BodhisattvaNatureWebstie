@@ -167,6 +167,9 @@ export const activities = {
     { image: "activity-gallery-taichi", alt: "水墨山水中的正念太极", caption: "正念太极" },
     { image: "activity-gallery-spring", alt: "春日花开的共修场景", caption: "春日共修" },
     { image: "activity-gallery-clouds", alt: "云海之上的云水共修", caption: "云水之间" },
+    { image: "activity-gallery-lake", alt: "群山环抱的静心湖畔", caption: "静心湖畔" },
+    { image: "activity-gallery-lilac", alt: "春日花开的共学场景", caption: "春华共学" },
+    { image: "activity-gallery-leaf", alt: "一枝绿叶，一叶知心", caption: "一叶知心" },
   ] as ActivityPoster[],
 
   videosEyebrow: "往期活动",

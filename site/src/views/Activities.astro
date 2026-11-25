@@ -6,6 +6,10 @@ import { href } from "../lib/url";
 
 const contactHref = href("/contact/", "zh");
 const eventsHref = href("/events/", "zh");
+const galleryPages = [];
+for (let i = 0; i < activities.gallery.length; i += 3) {
+  galleryPages.push(activities.gallery.slice(i, i + 3));
+}
 ---
 
 <Base
@@ -143,32 +147,37 @@ const eventsHref = href("/events/", "zh");
       </div>
 
       <div class="gallery-carousel" data-carousel data-reveal>
-        <div class="gallery-track" data-track aria-roledescription="carousel" aria-label="历次活动图片">
-          {activities.gallery.map((item, i) => (
-            <figure class="gallery-card">
-              <div class="gallery-card__media">
-                <Img
-                  name={item.image}
-                  alt={item.alt}
-                  sizes="(max-width: 700px) 42vw, 33vw"
-                  loading={i < 3 ? "eager" : "lazy"}
-                />
+        <div class="gallery-viewport">
+          <div class="gallery-track" data-track aria-roledescription="carousel" aria-label="历次活动图片">
+            {[...galleryPages, galleryPages[0]].map((page, pageIndex) => (
+              <div class="gallery-page" aria-hidden={pageIndex === galleryPages.length ? "true" : undefined}>
+                {page.map((item, i) => (
+                  <figure class="gallery-card">
+                    <div class="gallery-card__media">
+                      <Img
+                        name={item.image}
+                        alt={item.alt}
+                        sizes="(max-width: 700px) 33vw, 33vw"
+                        loading={pageIndex === 0 && i < 3 ? "eager" : "lazy"}
+                      />
+                    </div>
+                    <figcaption>{item.caption}</figcaption>
+                  </figure>
+                ))}
               </div>
-              <figcaption>{item.caption}</figcaption>
-            </figure>
-          ))}
+            ))}
+          </div>
         </div>
-        <div class="gallery-controls">
-          <button type="button" class="gallery-arrow" data-prev aria-label="上一张">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-              <path d="M13 8H3M7 4 3 8l4 4" />
-            </svg>
-          </button>
-          <button type="button" class="gallery-arrow" data-next aria-label="下一张">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" />
-            </svg>
-          </button>
+        <div class="gallery-dots" role="group" aria-label="选择活动图片">
+          {galleryPages.map((_, i) => (
+            <button
+              type="button"
+              class="gallery-dot"
+              aria-label={`第 ${i + 1} 组`}
+              aria-current={i === 0 ? "true" : "false"}
+              data-dot
+            ></button>
+          ))}
         </div>
       </div>
     </div>
@@ -304,38 +313,57 @@ const eventsHref = href("/events/", "zh");
       });
     }
 
-    // Three-up gallery with a slow automatic advance.
+    // Infinite three-up gallery with dots and a seamless cloned first page.
     document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((carousel) => {
       const track = carousel.querySelector<HTMLElement>("[data-track]");
-      const cards = Array.from(carousel.querySelectorAll<HTMLElement>(".gallery-card"));
-      const prev = carousel.querySelector<HTMLButtonElement>("[data-prev]");
-      const next = carousel.querySelector<HTMLButtonElement>("[data-next]");
-      if (!track || cards.length === 0) return;
+      const dots = Array.from(carousel.querySelectorAll<HTMLButtonElement>("[data-dot]"));
+      if (!track || dots.length === 0) return;
 
+      const pageCount = dots.length;
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let current = 0;
       let timer: number | undefined;
+      let jumping = false;
 
-      const step = () => {
-        const gap = Number.parseFloat(getComputedStyle(track).columnGap || "0") || 0;
-        return cards[0].getBoundingClientRect().width + gap;
+      const render = (index: number, animate = true) => {
+        track.style.transition = animate && !reduced ? "transform 0.8s cubic-bezier(0.22, 1, 0.36, 1)" : "none";
+        track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+        if (index < pageCount) {
+          dots.forEach((dot, i) => dot.setAttribute("aria-current", String(i === index)));
+        }
       };
-      const atEnd = () => track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
 
       const advance = () => {
-        if (atEnd()) track.scrollTo({ left: 0, behavior: "smooth" });
-        else track.scrollBy({ left: step(), behavior: "smooth" });
+        if (jumping) return;
+        current += 1;
+        render(current);
+        if (current === pageCount) {
+          jumping = true;
+          window.setTimeout(() => {
+            render(0, false);
+            void track.offsetWidth;
+            track.style.transition = "";
+            current = 0;
+            jumping = false;
+          }, 820);
+        }
       };
+
       const stop = () => {
         if (timer) window.clearInterval(timer);
         timer = undefined;
       };
       const start = () => {
         stop();
-        if (!reduced) timer = window.setInterval(advance, 4200);
+        if (!reduced) timer = window.setInterval(advance, 4600);
       };
 
-      prev?.addEventListener("click", () => { track.scrollBy({ left: -step(), behavior: "smooth" }); start(); });
-      next?.addEventListener("click", () => { advance(); start(); });
+      dots.forEach((dot, i) => dot.addEventListener("click", () => {
+        current = i;
+        render(i);
+        start();
+      }));
+
       carousel.addEventListener("mouseenter", stop);
       carousel.addEventListener("mouseleave", start);
       carousel.addEventListener("focusin", stop);
@@ -343,6 +371,7 @@ const eventsHref = href("/events/", "zh");
         if (!carousel.contains(event.relatedTarget as Node)) start();
       });
 
+      render(0, false);
       start();
     });
   </script>
@@ -605,24 +634,22 @@ const eventsHref = href("/events/", "zh");
     margin-top: clamp(2rem, 4vw, 3rem);
   }
 
-  .gallery-track {
-    display: flex;
+  .gallery-viewport { overflow: hidden; }
+
+  .gallery-track { display: flex; align-items: flex-start; }
+
+  .gallery-page {
+    flex: 0 0 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--gallery-gap);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
   }
 
-  .gallery-track::-webkit-scrollbar { display: none; }
-
   .gallery-card {
-    flex: 0 0 calc((100% - var(--gallery-gap) * 2) / 3);
+    min-width: 0;
     margin: 0;
     display: grid;
     gap: 0.55rem;
-    scroll-snap-align: start;
   }
 
   .gallery-card__media {
@@ -648,22 +675,29 @@ const eventsHref = href("/events/", "zh");
     letter-spacing: 0.06em;
   }
 
-  .gallery-controls { display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; margin-top: 1rem; }
-
-  .gallery-arrow {
-    display: grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
-    border: 1px solid var(--line-strong);
-    border-radius: 50%;
-    background: none;
-    color: var(--ink-soft);
-    cursor: pointer;
-    transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  .gallery-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 1.2rem;
   }
 
-  .gallery-arrow:hover { background: var(--ink); color: var(--cream); }
+  .gallery-dot {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--line-strong);
+    cursor: pointer;
+    transition: background 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+
+  .gallery-dot[aria-current="true"] {
+    background: var(--saffron);
+    transform: scale(1.35);
+  }
 
   .videos-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
   .videos-head .h2 { margin-top: 0.5rem; }

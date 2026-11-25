@@ -1394,5 +1394,41 @@
     "file": "activity-gallery-clouds-1600.webp"
    }
   ]
+ },
+ "activity-gallery-lake": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-lake-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-lilac": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-lilac-1600.webp"
+   }
+  ]
+ },
+ "activity-gallery-leaf": {
+  "w": 1600,
+  "h": 700,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 1600,
+    "h": 700,
+    "file": "activity-gallery-leaf-1600.webp"
+   }
+  ]
  }
 }
