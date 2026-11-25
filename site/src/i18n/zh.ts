@@ -38,6 +38,10 @@ export const zh = {
     sendMessage: "来信",
   },
 
+  external: {
+    activities: { label: "中文活动", href: "https://www.yimingzhiguang.com/" },
+  },
+
   footer: {
     explore: "浏览",
     contact: "联系",

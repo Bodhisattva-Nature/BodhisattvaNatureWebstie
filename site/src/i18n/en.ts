@@ -38,6 +38,10 @@ export const en = {
     sendMessage: "Send a message",
   },
 
+  external: {
+    activities: { label: "Chinese site", href: "https://www.yimingzhiguang.com/" },
+  },
+
   footer: {
     explore: "Explore",
     contact: "Contact",
