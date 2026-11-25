@@ -949,6 +949,23 @@
    }
   ]
  },
+ "about-bodhisattva": {
+  "w": 2400,
+  "h": 1028,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 900,
+    "h": 386,
+    "file": "about-bodhisattva-900.webp"
+   },
+   {
+    "w": 1600,
+    "h": 685,
+    "file": "about-bodhisattva-1600.webp"
+   }
+  ]
+ },
  "event-dawn": {
   "w": 1707,
   "h": 2560,

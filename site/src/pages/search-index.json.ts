@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { programs, branches, site } from "../data/site";
+import { seasonEvents, pastEvents } from "../data/events";
 import quotes from "../data/quotes.json";
 
 type Doc = { t: string; d: string; u: string; k: string };
@@ -13,8 +14,8 @@ const pages: Doc[] = [
   { t: "Wisdom Words", d: "Fourteen short teachings on practice and the nature of mind.", u: "/wisdom/", k: "page" },
   { t: "Community", d: "Daily schedule, retreats, Tai Chi in Richmond, hospice care.", u: "/community/", k: "page" },
   { t: "What's on", d: "Mindfulness retreat Wednesday and Saturday, online meditation centre for Europe.", u: "/events/", k: "page" },
-  { t: "Walk for Peace", d: "Tuesday 1 December 2026, New York City. A walking practice, free and open to all.", u: "/events/", k: "event" },
-  { t: "Online Meditation Centre", d: "Saturday and Sunday, 07:00 CET / 06:00 UK, about two hours.", u: "/events/", k: "event" },
+  { t: "Walk for Peace", d: "Tuesday 1 December 2026, New York City. A walking practice, free and open to all.", u: "/events/#walk-for-peace", k: "event" },
+  { t: "Online Meditation Centre", d: "Saturday and Sunday, 07:00 CET / 06:00 UK, about two hours.", u: "/events/#online-meditation-centre", k: "event" },
   { t: "Volunteer", d: "Dubbing, editing, translating, coordinating.", u: "/volunteer/", k: "page" },
   { t: "Donate", d: "Ways to give, and what your contribution carries.", u: "/donate/", k: "page" },
   { t: "Visit", d: "Branches, addresses and spiritual connection points.", u: "/contact/", k: "page" },
@@ -22,6 +23,13 @@ const pages: Doc[] = [
 
 const progDocs: Doc[] = programs.map((p) => ({ t: p.title, d: p.summary, u: `/programs/${p.slug}/`, k: "program" }));
 const quoteDocs: Doc[] = quotes.map((q) => ({ t: q.title, d: q.body.slice(0, 180), u: "/wisdom/", k: "teaching" }));
+const eventDocs: Doc[] = [...seasonEvents, ...pastEvents].map((e) => ({
+  t: e.title,
+  d: `${e.date} · ${e.place}. ${e.body}`,
+  u: `/events/#${e.slug}`,
+  k: "event",
+}));
+
 const branchDocs: Doc[] = branches.map((b) => ({
   t: `${b.city} — ${b.country}`,
   d: [...b.address, b.email].join(" · "),
@@ -30,7 +38,7 @@ const branchDocs: Doc[] = branches.map((b) => ({
 }));
 
 export const GET: APIRoute = () => {
-  const docs = [...pages, ...progDocs, ...quoteDocs, ...branchDocs].map((d) => ({ ...d, u: base + d.u }));
+  const docs = [...pages, ...eventDocs, ...progDocs, ...quoteDocs, ...branchDocs].map((d) => ({ ...d, u: base + d.u }));
   return new Response(
     JSON.stringify({ docs, contact: { email: site.email, phone: site.phone } }),
     { headers: { "Content-Type": "application/json" } }

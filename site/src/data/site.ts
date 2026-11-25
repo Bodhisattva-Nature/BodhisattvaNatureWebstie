@@ -8,7 +8,7 @@ export const site = {
   phone: "+1 587 890 8888",
   phoneHref: "+15878908888",
   donateEmail: "bodhinature.f@gmail.com",
-  volunteerForm: "https://forms.gle/vu8sDNMc44ABsQij6",
+  volunteerEmail: "peace@bodhinature.com",
   youtube: "https://www.youtube.com/@bodhinature",
 } as const;
 
@@ -47,7 +47,7 @@ export const pillars = [
     title: "Enlightenment",
     subtitle: "Truth",
     body:
-      "Buddha means “the awakened one” — not a deity. Anyone who realises the truth may attain it. Buddhism is not exclusive; it is a way of seeing the world as it is, and being freed by that seeing.",
+      "Buddha means “completely awakening” — not a deity. Anyone who realises the truth may attain it. Buddhism is not exclusive; it is a way of seeing the world as it is, and being freed by that seeing.",
     image: "practicing",
   },
 ];
@@ -447,24 +447,19 @@ export const volunteerRoles = [
 
 export const donateMethods = [
   {
-    title: "Online",
-    body: "Give by card through our secure donation page. One-time or recurring — recurring gifts are what let us plan the year.",
-    action: { label: "Donate online", href: "https://bodhinature.com/donate/" },
-  },
-  {
     title: "Interac e-Transfer",
-    body: "Send an e-transfer to our donations inbox.",
-    action: { label: "bodhinature.f@gmail.com", href: "mailto:bodhinature.f@gmail.com" },
+    body: "Send an e-transfer to our donations inbox. The address is below; tap to copy.",
+    action: { label: "bodhinature.f@gmail.com", href: "mailto:bodhinature.f@gmail.com", copy: "bodhinature.f@gmail.com" },
   },
   {
     title: "Bank transfer & cheque",
     body: "Write to us and we will send the full bank transfer details.",
-    action: { label: "Request details", href: "mailto:peace@bodhinature.com" },
+    action: { label: "peace@bodhinature.com", href: "mailto:peace@bodhinature.com" },
   },
   {
-    title: "QR code",
-    body: "Scan with your phone's camera or QR scanner, enter an amount and complete the gift.",
-    action: { label: "Ask for the QR code", href: "mailto:peace@bodhinature.com" },
+    title: "Alipay & UnionPay",
+    body: "Scan either code with your phone, enter an amount and complete the gift.",
+    action: { label: "Scan the codes", href: "#qr" },
   },
   {
     title: "Estate planning",
@@ -488,10 +483,10 @@ export type Branch = {
 export const branches: Branch[] = [
   {
     slug: "canada",
-    city: "Richmond / Calgary",
+    city: "Vancouver · Toronto · Calgary",
     country: "Canada",
     flag: "CA",
-    address: ["Richmond, British Columbia", "Calgary, Alberta"],
+    address: ["Langley, British Columbia", "Toronto, Ontario", "Calgary, Alberta"],
     phone: "+1 587 890 8888",
     email: "peace@bodhinature.com",
     image: "branch-canada",
@@ -499,79 +494,14 @@ export const branches: Branch[] = [
   },
   {
     slug: "united-states",
-    city: "Diamond Bar",
+    city: "New York · Los Angeles · Seattle · Buffalo",
     country: "United States",
     flag: "US",
-    address: ["21030 Blossom Way", "Diamond Bar, CA 91765"],
-    phone: "(626) 232-8143",
+    address: [],
     email: "usa@yimingpureland.org",
+    phone: "(626) 232-8143",
     image: "branch-us",
-  },
-  {
-    slug: "australia",
-    city: "Sydney",
-    country: "Australia",
-    flag: "AU",
-    address: ["13 Genders Ave", "Burwood NSW 2134"],
-    phone: "+61 493 725 853",
-    email: "lightofpractice@gmail.com",
-    image: "branch-australia",
-  },
-  {
-    slug: "japan",
-    city: "Osaka",
-    country: "Japan",
-    flag: "JP",
-    address: ["〒550-0024", "大阪府大阪市西区 境川 1丁目 6-26"],
-    phone: "+81 80-5088-1594",
-    email: "jy-519@outlook.com",
-    image: "branch-japan",
-    note: "Contact: 嘉阳",
-  },
-  {
-    slug: "singapore",
-    city: "Singapore",
-    country: "Singapore",
-    flag: "SG",
-    address: ["Singapore"],
-    email: "peace@bodhinature.com",
-    image: "branch-singapore",
-  },
-  {
-    slug: "thailand",
-    city: "Bangkok",
-    country: "Thailand",
-    flag: "TH",
-    address: ["Bangkok · Chiang Mai · Phuket"],
-    email: "peace@bodhinature.com",
-    note: "Write to us for the current meeting place.",
-  },
-  {
-    slug: "malaysia",
-    city: "Kuala Lumpur",
-    country: "Malaysia",
-    flag: "MY",
-    address: ["Kuala Lumpur · Malacca"],
-    email: "peace@bodhinature.com",
-    note: "Write to us for the current meeting place.",
-  },
-  {
-    slug: "sweden",
-    city: "Sweden",
-    country: "Sweden",
-    flag: "SE",
-    address: [],
-    email: "peace@bodhinature.com",
-    note: "Contact us for the current meeting place.",
-  },
-  {
-    slug: "france",
-    city: "France",
-    country: "France",
-    flag: "FR",
-    address: [],
-    email: "peace@bodhinature.com",
-    note: "Contact us for the current meeting place.",
+    note: "Group practice and retreats across the four cities. Write to us for the current meeting place.",
   },
 ];
 
@@ -582,13 +512,30 @@ export const books = [
   { image: "book-nl", lang: "Nederlands", title: "De Essentie van Geluk en Ware Vrijheid" },
 ];
 
-export const connections = [
-  { region: "Australia", places: "Sydney" },
-  { region: "America", places: "Los Angeles · Raleigh · New York · Seattle · Buffalo" },
-  { region: "Japan", places: "Nara" },
-  { region: "Singapore", places: "" },
-  { region: "South Korea", places: "" },
-  { region: "Taiwan, China", places: "" },
+/**
+ * Countries where there is a practice group rather than a branch.
+ * Restructured on review feedback: only Canada and the United States are
+ * branches; everything else is a spiritual connection.
+ */
+export type Connection = {
+  slug: string;
+  country: string;
+  cities?: string;
+  email?: string;
+  phone?: string;
+  note?: string;
+};
+
+export const connections: Connection[] = [
+  { slug: "australia", country: "Australia", cities: "Sydney", email: "lightofpractice@gmail.com", phone: "+61 493 725 853" },
+  { slug: "japan", country: "Japan", cities: "Osaka · Nara", email: "jy-519@outlook.com", phone: "+81 80-5088-1594", note: "Contact: 嘉阳" },
+  { slug: "singapore", country: "Singapore", cities: "Singapore", email: "peace@bodhinature.com" },
+  { slug: "thailand", country: "Thailand", cities: "Bangkok · Chiang Mai · Phuket", email: "peace@bodhinature.com", note: "Write to us for the current meeting place." },
+  { slug: "malaysia", country: "Malaysia", cities: "Kuala Lumpur · Malacca", email: "peace@bodhinature.com", note: "Write to us for the current meeting place." },
+  { slug: "sweden", country: "Sweden", email: "peace@bodhinature.com", note: "Write to us for the current meeting place." },
+  { slug: "france", country: "France", email: "peace@bodhinature.com", note: "Write to us for the current meeting place." },
+  { slug: "south-korea", country: "South Korea", note: "Write to us and we will put you in touch." },
+  { slug: "taiwan", country: "Taiwan, China", note: "Write to us and we will put you in touch." },
 ];
 
 export const testimonials = [

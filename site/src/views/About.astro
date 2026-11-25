@@ -10,8 +10,8 @@ const { t, isZh, pillars, path, teachers } = getContent(lang);
 
 const qualities = t.about.qualities.map((q, i) => ({ n: String(i + 1).padStart(2, "0"), t: q }));
 const alt = isZh
-  ? { lilac: "盛开的紫藤", emblem: "菩提叶中静坐的人", teacher: "法师肖像" }
-  : { lilac: "Lilac trees in bloom", emblem: "Bodhi leaf with a seated figure at its heart", teacher: "Portrait of a teacher" };
+  ? { bodhisattva: "林间放光的文殊菩萨", emblem: "菩提叶中静坐的人", teacher: "法师肖像" }
+  : { bodhisattva: "Manjushri, radiant among trees", emblem: "Bodhi leaf with a seated figure at its heart", teacher: "Portrait of a teacher" };
 ---
 
 <Base lang={lang} title={`${t.about.title} — ${t.site.name}`} description={t.about.lede}>
@@ -23,7 +23,7 @@ const alt = isZh
     </div>
     <div class="wrap">
       <div class="page-head__media" data-reveal style="--i:3">
-        <Img name="lilac" alt={alt.lilac} sizes="(max-width: 900px) 100vw, 90vw" />
+        <Img name="about-bodhisattva" alt={alt.bodhisattva} sizes="(max-width: 900px) 100vw, 90vw" loading="eager" />
       </div>
     </div>
   </header>

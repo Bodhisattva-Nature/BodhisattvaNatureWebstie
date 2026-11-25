@@ -9,11 +9,11 @@ import { href } from "../lib/url";
 
 interface Props { lang?: Lang }
 const lang: Lang = Astro.props.lang ?? "en";
-const { t, isZh, stats, pillars, programs, testimonials, schedule, retreat, events, seasonEvents, quotes, branches } = getContent(lang);
+const { t, isZh, stats, pillars, programs, testimonials, schedule, retreat, events, seasonEvents, quotes } = getContent(lang);
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const featured = [...quotes].sort((a, b) => a.body.length - b.body.length).slice(0, 3);
-const ticker = [...programs.map((p) => p.title), ...t.home.locations.split(" · ")];
+const ticker = [...programs.map((p) => p.title), ...seasonEvents.map((e) => e.title)];
 
 const alt = isZh
   ? {
@@ -47,7 +47,7 @@ const alt = isZh
         <p>{t.home.heroLede}</p>
         <div class="hero__actions">
           <a class="btn" href={href("/programs/", lang)}>{t.cta.explore}</a>
-          <a class="btn btn--ghost" href={href("/donate/", lang)}>{t.cta.support}</a>
+          <a class="btn btn--ghost" href={href("/contact/", lang)}>{t.nav.visit}</a>
         </div>
       </div>
       <div class="hero__meta" data-reveal style="--i:2">

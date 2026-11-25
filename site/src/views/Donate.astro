@@ -47,10 +47,17 @@ const { t, stats, donateMethods } = getContent(lang);
           <article class="method" data-reveal style={`--i:${i}`}>
             <h2>{m.title}</h2>
             <p>{m.body}</p>
-            <a class="link-arrow" href={m.action.href} target={m.action.href.startsWith("http") ? "_blank" : undefined} rel="noopener">
-              {m.action.label}
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
-            </a>
+            {(m.action as any).copy ? (
+              <button class="link-arrow copy-btn" type="button" data-copy={(m.action as any).copy}>
+                {m.action.label}
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5.5" y="5.5" width="8" height="8" rx="1.4" /><path d="M10.5 3.5H4a1.5 1.5 0 0 0-1.5 1.5v6.5" /></svg>
+              </button>
+            ) : (
+              <a class="link-arrow" href={m.action.href}>
+                {m.action.label}
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 8h11M9 4l4 4-4 4" /></svg>
+              </a>
+            )}
           </article>
         ))}
       </div>
@@ -59,11 +66,7 @@ const { t, stats, donateMethods } = getContent(lang);
 
   <section class="section" style="padding-top:0">
     <div class="wrap">
-      <div class="give-now" data-reveal>
-        <figure class="give-now__pay pay-mark">
-          <Img name="paypal" alt="PayPal" sizes="120px" />
-          <figcaption class="caption">{t.donate.cardCaption}</figcaption>
-        </figure>
+      <div class="give-now give-now--qr-only" id="qr" data-reveal>
         <div class="give-now__qr">
           <div>
             <div class="qr media"><Img name="qr-1" alt={t.donate.scan} sizes="200px" /></div>
@@ -96,7 +99,41 @@ const { t, stats, donateMethods } = getContent(lang);
   </section>
 </Base>
 
+<script>
+  for (const btn of document.querySelectorAll<HTMLButtonElement>(".copy-btn")) {
+    btn.addEventListener("click", async () => {
+      const value = btn.dataset.copy ?? "";
+      try {
+        await navigator.clipboard.writeText(value);
+        const label = btn.firstChild;
+        const original = label?.textContent ?? "";
+        if (label) label.textContent = "Copied ";
+        btn.classList.add("is-copied");
+        setTimeout(() => {
+          if (label) label.textContent = original;
+          btn.classList.remove("is-copied");
+        }, 1800);
+      } catch {
+        // clipboard blocked: the address is visible in the button, so nothing else is needed
+      }
+    });
+  }
+</script>
+
 <style>
+  .copy-btn {
+    background: none;
+    border: 0;
+    padding: 0;
+    font: inherit;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: left;
+  }
+  .copy-btn.is-copied { color: var(--jade); }
+
+  .give-now--qr-only { grid-template-columns: 1fr; }
+
   .stats-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

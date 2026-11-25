@@ -50,6 +50,10 @@ const other = oppositeHref(Astro.url.pathname, lang);
 
 <div class="drawer" id="drawer" data-open="false">
   <nav aria-label="Mobile">
+    <a href={href("/", lang)}>
+      {t.navHome}
+      <span>00</span>
+    </a>
     {t.nav.map((item, i) => (
       <a href={href(item.href, lang)}>
         {item.label}

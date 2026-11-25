@@ -90,6 +90,7 @@ MANIFEST = {
 
     # upcoming-events posters
     "event-walk": "2026/11/walk-for-peace.jpg",
+    "about-bodhisattva": "2022/06/bodhisattva-forest.jpg",
     # season + past events (posters from wp-content/uploads/2026/10)
     "event-dawn": "2026/10/微信图片_2026-10-20_173844_916-scaled.png",
     "event-journey": "2026/10/微信图片_2026-10-20_175047_944-scaled.png",
@@ -136,6 +137,7 @@ WIDTH_OVERRIDES = {
     "logo": [180, 360],
     "event-retreat": [480, 900, 1400],
     "event-walk": [480, 900, 1400],
+    "about-bodhisattva": [900, 1600],
     "event-dawn": [360, 720],
     "event-journey": [360, 720],
     "event-awakening": [360, 720],

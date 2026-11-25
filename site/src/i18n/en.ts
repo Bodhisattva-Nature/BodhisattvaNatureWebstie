@@ -12,16 +12,17 @@ export const en = {
     name: "Bodhisattva Nature Foundation",
     tagline: "Peace. Freedom. Truth.",
     description:
-      "A registered non-profit sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
+      "A registered charity sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
   },
 
+  navHome: "Home",
   nav: [
     { label: "About", href: "/about/" },
     { label: "Programs", href: "/programs/" },
     { label: "Wisdom", href: "/wisdom/" },
     { label: "Community", href: "/community/" },
     { label: "Events", href: "/events/" },
-    { label: "Visit", href: "/contact/" },
+    { label: "Join us", href: "/contact/" },
   ],
 
   cta: {
@@ -48,7 +49,7 @@ export const en = {
     title: "Bodhisattva Nature Foundation — Peace. Freedom. Truth.",
     heroLines: ["Peace.", "Freedom.", "Truth."],
     heroLede:
-      "A registered non-profit sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
+      "A registered charity sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
     locations: "Vancouver · Calgary · Toronto · New York · Los Angeles · Seattle · Buffalo",
     moreLocations: "+ more worldwide",
     introEyebrow: "Who we are",
@@ -118,7 +119,7 @@ export const en = {
     eyebrow: "Programs",
     heading: "Five ways in.",
     lede:
-      "Study the teaching, train the mind, move the body, sit with the dying, and ask what happiness actually is. Every class, talk and retreat is free of charge.",
+      "Study the teaching, train the mind, move the body, care for the dying, and ask what happiness actually is. Every class, talk and retreat is free of charge.",
     explore: "Explore",
     ctaEyebrow: "Not sure where to start?",
     ctaTitle: "Come to a morning class.",
@@ -209,7 +210,7 @@ export const en = {
     headingLine1: "When you are",
     headingLine2: "involved.",
     lede:
-      "Bodhisattva Nature Foundation is a registered non-profit, operated entirely by volunteering. The world is so connected — when you are involved, the world becomes different.",
+      "Bodhisattva Nature Foundation is a registered charity, operated entirely by volunteers. The world is so connected — when you are involved, the world becomes different.",
     joinEyebrow: "Join us",
     joinTitle: "It will make a difference if you are involved.",
     joinBody:
@@ -228,7 +229,7 @@ export const en = {
     headingLine1: "Each dollar",
     headingLine2: "goes into merits.",
     lede:
-      "Bodhisattva Nature Foundation is a registered non-profit initiated by Venerable Zhenjue. Everything here is offered free of charge.",
+      "Bodhisattva Nature Foundation is a registered charity initiated by Venerable Zhenjue. Everything here is offered free of charge.",
     carriesEyebrow: "What your gift carries",
     carriesBody:
       "Over 100 dharma talks, 324 group classes, 365 daily classes and 54 retreats each year. All of it free. Your contribution pays for the hardware, software, books, videos, internet services and accommodation that make it possible.",
@@ -253,7 +254,7 @@ export const en = {
     headingLine1: "Where to",
     headingLine2: "find us.",
     lede:
-      "A home base in Canada, branches across four countries, and groups in many more. Write first — someone always answers.",
+      "A home base in Canada, with spiritual connections across multiple countries, and groups in many more. Write first — someone always answers.",
     email: "Email",
     phone: "Phone",
     branchesEyebrow: "Branches",

@@ -16,7 +16,7 @@ const { t, branches, connections } = getContent(lang);
       <span class="eyebrow" data-reveal>{t.contact.eyebrow}</span>
       <h1 data-reveal style="--i:1">{t.contact.headingLine1}<br /><span class="serif-italic">{t.contact.headingLine2}</span></h1>
       <p class="lede" data-reveal style="--i:2">{t.contact.lede}</p>
-      <div class="head-contact" data-reveal style="--i:3">
+      <div class="head-contact" id="contact-details" data-reveal style="--i:3">
         <a href={`mailto:${contact.email}`} class="head-contact__item">
           <span class="caption">{t.contact.email}</span>
           <strong>{contact.email}</strong>
@@ -80,14 +80,21 @@ const { t, branches, connections } = getContent(lang);
         <figure class="conn-figure media">
           <Img name="whale-earth" alt={t.contact.connectionsTitle} sizes="(max-width: 900px) 100vw, 40vw" />
         </figure>
-        <div class="connections">
-          {connections.map((c: any) => (
-            <div class="conn">
-              <strong>{c.region}</strong>
-              {c.places && <span>{c.places}</span>}
-            </div>
+        <ul class="connections">
+          {connections.map((c) => (
+            <li class="conn" id={c.slug}>
+              <div class="conn__head">
+                <strong>{c.country}</strong>
+                {c.cities && <span>{c.cities}</span>}
+              </div>
+              <div class="conn__links">
+                {c.email && <a href={`mailto:${c.email}`}>{c.email}</a>}
+                {c.phone && <a href={`tel:${c.phone.replace(/[^\d+]/g, "")}`}>{c.phone}</a>}
+              </div>
+              {c.note && <p class="small muted">{c.note}</p>}
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   </section>
@@ -101,7 +108,7 @@ const { t, branches, connections } = getContent(lang);
       <div>
         <p class="muted" style="max-width:38ch">{t.contact.sayBody}</p>
         <div class="hero__actions" style="margin-top:1.5rem">
-          <a class="btn" href={`mailto:${contact.email}`}>{t.contact.sayCta}</a>
+          <a class="btn" href="#contact-details">{t.contact.sayCta}</a>
           <a class="btn btn--ghost" href={href("/programs/", lang)}>{t.contact.sayPrograms}</a>
         </div>
       </div>
@@ -120,12 +127,7 @@ const { t, branches, connections } = getContent(lang);
   .head-contact__item { display: grid; gap: 0.3rem; }
   .head-contact__item strong { font-family: var(--font-display); font-size: var(--step-1); font-weight: 400; }
 
-  .branches {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(1.5rem, 3.5vw, 3rem);
-    margin-top: 2.5rem;
-  }
+  .branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(2rem, 4vw, 3.5rem); margin-top: 2.5rem; }
 
   .branch { display: grid; gap: 1.1rem; align-content: start; scroll-margin-top: 110px; }
 
@@ -169,6 +171,14 @@ const { t, branches, connections } = getContent(lang);
   .branch__links a:hover { color: var(--saffron); }
 
   #connections { scroll-margin-top: calc(var(--header-h) + 1.5rem); }
+
+  .connections { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: 1.1rem; }
+  .conn { display: grid; gap: 0.25rem; padding-top: 0.9rem; border-top: 1px solid var(--line); }
+  .conn__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.6rem; }
+  .conn__head strong { font-weight: 500; }
+  .conn__head span { font-size: 0.82rem; color: var(--muted); }
+  .conn__links { display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.86rem; }
+  .conn__links a { color: var(--ink-soft); }
 
   .conn-wrap { display: grid; gap: 1.5rem; }
   .conn-figure { margin: 0; aspect-ratio: 16/9; }
