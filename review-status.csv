@@ -1,0 +1,57 @@
+Page,S No,Issue (from sheet),What shipped,Status
+main page,1,导航栏 visit 不明确,Join us,Fixed
+main page,2,donate 五个链接，部分跳老站，e-transfer 跳 Gmail,removed old-site payment link; e-transfer copies; QR anchor,Fixed
+main page,3,在线捐款功能需决策（支付安全）,payment page removed; QR + instructions only,Fixed
+main page,4,Support the work 不应在首页,hero CTA now Join us; donate band stays lower,Fixed
+about,1,紫色花的图片换成相关的菩萨/放光的菩萨,"Manjushri banner (own library, 2022/06)",Fixed
+about,2,三个图片换成与文字相关,kept: water/aurora/meditation match the paragraphs,Needs asset
+about,3,Buddha means the awakened one,completely awakening,Fixed
+programs,1,sit with the dying → care for the dying,care for the dying,Fixed
+visit,1,A home base… four countries,spiritual connections across multiple countries,Fixed
+visit,2,"Branches outdated (Langley, Toronto; US cities; others → connections)",Canada + US branches; 9 spiritual connections,Fixed
+donate,1,registered non-profit → charity,registered charity,Fixed
+donate,2,REQUEST DETAILS → peace@bodhinature.com,"address shown, mailto kept",Fixed
+donate,3,ASK FOR THE QR CODE → show SNAPPAY/ALIPAY QR,QR codes on page; method links to #qr,Fixed
+donate,4,DONATE missing on another monitor,button kept visible to 560px; verified at 1280,Fixed
+中文主页,1,安乐。自在。真谛。去句号,removed,Fixed
+中文主页,2,首页导语改写,reviewer text applied,Fixed
+中文主页,3,护持 → 供养,applied sitewide,Fixed
+中文主页,4,本会简介 → 基金会简介,applied,Fixed
+中文主页,5,古道同行，共修一处。→ 古道同行,applied,Fixed
+中文主页,6,成立缘起段改写,reviewer text applied,Fixed
+中文主页,7,真觉法师段改写,reviewer text applied,Fixed
+中文主页,8,法务课程 → 修学与服务,applied,Fixed
+中文主页,9,五门修学。→ 五条修学路径,applied,Fixed
+中文主页,10,太极与身体 → 太极与养生,applied sitewide,Fixed
+中文主页,11,临终关怀 → 生命关怀,applied sitewide,Fixed
+中文主页,12,幸福与自由 → 安乐与自在,applied sitewide,Fixed
+中文主页,13,与我们相聚。→ 与我们同行,applied,Fixed
+中文主页,14,线上视讯 → 线上直播,applied,Fixed
+中文主页,15,诵经 → 祈愿,applied,Fixed
+中文主页,16,每年每日课程 → 每日课程,applied,Fixed
+中文主页,17,供养段改写,reviewer text applied,Fixed
+中文主页,18,五条入门之路。去句号,applied,Fixed
+中文主页,19,课程导语改写,reviewer text applied,Fixed
+中文主页,20,四圣谛摘要改写,reviewer text applied,Fixed
+中文主页,21,线上与现场 → 线上与线下,applied,Fixed
+中文主页,22,城市列表改为有中心的城市,温哥华·多伦多·卡尔加里·兰里·线上,Fixed
+中文主页,23,如何找到我们段改写,"applied, count adjusted to the new structure",Fixed
+中文主页,24,佛教宇宙观取消「影片系列」,applied,Fixed
+中文主页,25,离开首页无返回途径,Home added to the drawer; logo already links home,Fixed
+中文主页,26,五取蕴苦句读,reviewer text applied,Fixed
+中文主页,27,渴爱 → 贪爱,applied in 集谛/灭谛/道谛,Fixed
+中文主页,28,本课程涵盖。去句号,applied,Fixed
+中文主页,29,报名周五课程 → 报名太极与养生课程,applied,Fixed
+中文主页,30,临终关怀摘要改写,reviewer text applied,Fixed
+中文主页,31,中阴闻教得度--录音 去后缀,applied,Fixed
+中文主页,32,西藏生死书--影片系列 去后缀,applied,Fixed
+中文主页,33,本课程涵盖。去句号（课程内容）,applied,Fixed
+中文主页,34,搜索：正念之旅搜不到；两条结果同一页,retreats indexed; per-event anchors,Fixed
+中文主页,35,滚动字幕混合课程与城市,courses and retreats only,Fixed
+中文主页,36,义工表单收集个人信息（安全）,form removed; email application,Fixed
+关于,1,菩提自性 → 菩萨本性,"applied sitewide (name, titles, meta)",Fixed
+关于,2,成立段改写,reviewer text applied,Fixed
+关于,3,太极与身体 → 太极与养生,applied,Fixed
+关于,4,临终关怀 → 生命关怀,applied,Fixed
+课程,1,引导禅修视频是英语发音,needs a Chinese-audio URL,Blocked
+联系,1,写信给我们跳转老站,scrolls to the contact details on the same page,Fixed

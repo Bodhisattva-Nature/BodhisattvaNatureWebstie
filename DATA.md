@@ -41,6 +41,34 @@ media/       844 files: the media library, the Smart Slider cache, theme assets 
 lists, quotes, buttons and images, with the page's SEO title and description. `content/index.json` has word
 and block counts for all 49 non-empty pages.
 
+
+## The authenticated harvest (25 November 2026)
+
+The public API hides a layer the foundation can see. Signed in as `YiFan` in the browser, the same endpoints
+return more, and two of them return at all:
+
+| Endpoint | Public | Authenticated | File |
+| --- | --- | --- | --- |
+| `/wp/v2/pages` | 52 | **58** (6 drafts) | `api/admin_pages.json` |
+| `/wp/v2/posts` | 4 | **7** (3 drafts) | `api/admin_posts.json` |
+| `/wp/v2/media` | 811 | **817** | `api/admin_media.json` |
+| `/wp/v2/menus` | 401 | **2** — "primary menu", "contact us 菜单" | `api/admin_menus.json` |
+
+REST cookie authentication needs the `X-WP-Nonce` from `wpApiSettings` on any wp-admin page; without it every
+request answers 401 even with a valid login cookie.
+
+**The six extra media records are documents, not pictures.** The 817 files break down as 798 images, 9 PDFs,
+5 MP4, 1 MOV and 3 ZIPs. The PDFs are the four translated books of *The Essence of Happiness and True
+Freedom*: English, French, German and Dutch, plus duplicates the download-manager plugin keeps under
+`dlm_uploads/`. All were already on disk from the original crawl; the only genuinely missing file was a
+75×75 avatar-sized PNG.
+
+`media-index.csv` lists all 817 with date, MIME type, title, path, size and source URL.
+
+The XML export (`wp-admin/export.php`) was not usable: the endpoint answers 202 to a scripted POST, and
+submitting the form in-browser returns no file. The REST dump above covers the same ground: every post,
+page, media record and menu, including the drafts the export would add.
+
 ## How the extraction works
 
 Divi renders real HTML into `content.rendered`, not bare shortcodes, so the pages parse cleanly. Two
