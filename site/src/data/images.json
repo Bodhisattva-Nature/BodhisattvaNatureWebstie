@@ -978,6 +978,72 @@
    }
   ]
  },
+ "environment": {
+  "w": 2560,
+  "h": 1707,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 320,
+    "file": "environment-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 600,
+    "file": "environment-900.webp"
+   },
+   {
+    "w": 1400,
+    "h": 934,
+    "file": "environment-1400.webp"
+   }
+  ]
+ },
+ "event-wisdom-practice": {
+  "w": 2560,
+  "h": 1440,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "event-wisdom-practice-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 506,
+    "file": "event-wisdom-practice-900.webp"
+   },
+   {
+    "w": 1400,
+    "h": 788,
+    "file": "event-wisdom-practice-1400.webp"
+   }
+  ]
+ },
+ "past-journey-calgary": {
+  "w": 2560,
+  "h": 1440,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "past-journey-calgary-480.webp"
+   },
+   {
+    "w": 900,
+    "h": 506,
+    "file": "past-journey-calgary-900.webp"
+   },
+   {
+    "w": 1400,
+    "h": 788,
+    "file": "past-journey-calgary-1400.webp"
+   }
+  ]
+ },
  "event-dawn": {
   "w": 1707,
   "h": 2560,

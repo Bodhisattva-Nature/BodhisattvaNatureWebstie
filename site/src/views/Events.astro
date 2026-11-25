@@ -84,7 +84,7 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
       <div class="season">
         {seasonEvents.map((s, i) => (
           <article class="scard" id={s.slug} data-reveal style={`--i:${i % 2}`}>
-            <div class="scard__media media">
+            <div class:list={["scard__media", "media", s.fit === "contain" && "media--contain"]}>
               <Img name={s.image} alt={`${s.title} poster`} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 46vw, 23vw" />
             </div>
             <div class="scard__body">
@@ -285,7 +285,7 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   .section-head .h2 { margin-top: 0.5rem; }
 
 
-  .season { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(2rem, 4vw, 3rem); }
+  .season { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(2rem, 4vw, 3rem); }
   .scard { display: grid; gap: 1.1rem; align-content: start; }
   .scard__media { aspect-ratio: 2/3; background: var(--cream); border: 1px solid var(--line); }
   .scard__body { display: grid; gap: 0.35rem; }
@@ -310,6 +310,8 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   .pcard__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
   .pcard h3 { font-size: 1.15rem; font-weight: 400; margin: 0.15rem 0 0.25rem; }
   .pcard .scard__text { max-width: 60ch; }
+
+  .scard__media.media--contain { aspect-ratio: 16 / 10; }
 
   @media (max-width: 1100px) { .season { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 700px) {
@@ -339,7 +341,7 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
     .event__poster { aspect-ratio: 16/11; }
     .cta-row { grid-template-columns: 1fr; }
   
-  .season { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(2rem, 4vw, 3rem); }
+  .season { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.5rem, 3vw, 2.5rem); margin-top: clamp(2rem, 4vw, 3rem); }
   .scard { display: grid; gap: 1.1rem; align-content: start; }
   .scard__media { aspect-ratio: 2/3; background: var(--cream); border: 1px solid var(--line); }
   .scard__body { display: grid; gap: 0.35rem; }
@@ -364,6 +366,8 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   .pcard__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
   .pcard h3 { font-size: 1.15rem; font-weight: 400; margin: 0.15rem 0 0.25rem; }
   .pcard .scard__text { max-width: 60ch; }
+
+  .scard__media.media--contain { aspect-ratio: 16 / 10; }
 
   @media (max-width: 1100px) { .season { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 700px) {

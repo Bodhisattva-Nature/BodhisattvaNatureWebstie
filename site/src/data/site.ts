@@ -9,6 +9,7 @@ export const site = {
   phoneHref: "+15878908888",
   donateEmail: "bodhinature.f@gmail.com",
   volunteerEmail: "peace@bodhinature.com",
+  volunteerForm: "https://forms.gle/vu8sDNMc44ABsQij6",
   youtube: "https://www.youtube.com/@bodhinature",
 } as const;
 
@@ -41,7 +42,7 @@ export const pillars = [
     subtitle: "Balance",
     body:
       "The Buddha saw the environment as a condition for the happiness of all sentient beings. Protecting it is a kind of practice: to meet nature with an open mind, and abandon the desire to possess it.",
-    image: "aurora",
+    image: "environment",
   },
   {
     title: "Enlightenment",
@@ -529,13 +530,14 @@ export type Connection = {
 export const connections: Connection[] = [
   { slug: "australia", country: "Australia", cities: "Sydney", email: "lightofpractice@gmail.com", phone: "+61 493 725 853" },
   { slug: "japan", country: "Japan", cities: "Osaka · Nara", email: "jy-519@outlook.com", phone: "+81 80-5088-1594", note: "Contact: 嘉阳" },
-  { slug: "singapore", country: "Singapore", cities: "Singapore", email: "peace@bodhinature.com" },
+  { slug: "singapore", country: "Singapore", cities: "Singapore", email: "peace@bodhinature.com", phone: "+65 8413 8197" },
   { slug: "thailand", country: "Thailand", cities: "Bangkok · Chiang Mai · Phuket", email: "peace@bodhinature.com", note: "Write to us for the current meeting place." },
   { slug: "malaysia", country: "Malaysia", cities: "Kuala Lumpur · Malacca", email: "peace@bodhinature.com", note: "Write to us for the current meeting place." },
   { slug: "sweden", country: "Sweden", email: "peace@bodhinature.com", note: "Write to us for the current meeting place." },
   { slug: "france", country: "France", email: "peace@bodhinature.com", note: "Write to us for the current meeting place." },
   { slug: "south-korea", country: "South Korea", note: "Write to us and we will put you in touch." },
-  { slug: "taiwan", country: "Taiwan, China", note: "Write to us and we will put you in touch." },
+  { slug: "taiwan", country: "Taiwan, China", cities: "Taoyuan", note: "Write to us and we will put you in touch." },
+  { slug: "indonesia", country: "Indonesia", note: "Write to us and we will put you in touch." },
 ];
 
 export const testimonials = [

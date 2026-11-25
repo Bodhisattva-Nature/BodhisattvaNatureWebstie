@@ -58,6 +58,8 @@ export type Listing = {
   place: string;
   body: string;
   image: string;
+  /** landscape posters need "contain" so their text is not cropped */
+  fit?: "cover" | "contain";
 };
 
 export const seasonEvents: Listing[] = [
@@ -92,6 +94,17 @@ export const seasonEvents: Listing[] = [
     image: "event-awakening",
   },
   {
+    slug: "wisdom-practicing",
+    title: "Wisdom Practicing",
+    titleCn: "智慧修习",
+    kicker: "Course · ongoing · free of charge",
+    date: "Ongoing",
+    place: "Zoom · Vancouver, Calgary, Toronto, Los Angeles, Seattle, Buffalo, New York",
+    body: "Pursue awakening systematically: flexible timing, live tutoring, one-to-one guidance and offline group practice.",
+    image: "event-wisdom-practice",
+    fit: "contain",
+  },
+  {
     slug: "bodhi-class",
     title: "Bodhi Class",
     titleCn: "菩提班 · 第十五期",
@@ -113,6 +126,17 @@ export const pastEvents: Listing[] = [
     place: "Calgary, Canada",
     body: "Five days on the Analects, the Book of Changes and meditation. Tuition-free; the venue was sponsored by alumni.",
     image: "past-journey",
+  },
+  {
+    slug: "journey-calgary-10",
+    title: "Journey to Mindfulness",
+    titleCn: "正念之旅 · 第十期",
+    kicker: "Retreat · 10th edition",
+    date: "5–9 November 2026",
+    place: "Calgary, Canada",
+    body: "The tenth edition, five days in Calgary: the sages' teaching, the original aspiration.",
+    image: "past-journey-calgary",
+    fit: "contain",
   },
   {
     slug: "thailand-2024",

@@ -899,6 +899,9 @@ a {
   object-fit: cover;
 }
 
+.media--contain { background: var(--cream); border: 1px solid var(--line); }
+.media--contain img { object-fit: contain; }
+
 .media--tile {
   display: grid;
   place-items: center;

@@ -20,7 +20,7 @@ export const pillars = [
     subtitle: "和谐",
     body:
       "佛陀视环境为众生安乐之所依。护持环境即是修行：以开阔之心面对自然，舍离占有之欲。",
-    image: "aurora",
+    image: "environment",
   },
   {
     title: "觉悟",
@@ -346,13 +346,14 @@ export const branches = [
 export const connections = [
   { slug: "australia", country: "澳大利亚", cities: "悉尼", email: "lightofpractice@gmail.com", phone: "+61 493 725 853" },
   { slug: "japan", country: "日本", cities: "大阪 · 奈良", email: "jy-519@outlook.com", phone: "+81 80-5088-1594", note: "联络人：嘉阳" },
-  { slug: "singapore", country: "新加坡", cities: "新加坡", email: "peace@bodhinature.com" },
+  { slug: "singapore", country: "新加坡", cities: "新加坡", email: "peace@bodhinature.com", phone: "+65 8413 8197" },
   { slug: "thailand", country: "泰国", cities: "曼谷 · 清迈 · 普吉", email: "peace@bodhinature.com", note: "共修地点请来信询问。" },
   { slug: "malaysia", country: "马来西亚", cities: "吉隆坡 · 马六甲", email: "peace@bodhinature.com", note: "共修地点请来信询问。" },
   { slug: "sweden", country: "瑞典", email: "peace@bodhinature.com", note: "共修地点请来信询问。" },
   { slug: "france", country: "法国", email: "peace@bodhinature.com", note: "共修地点请来信询问。" },
   { slug: "south-korea", country: "韩国", note: "来信告知所在城市，我们为您联系。" },
-  { slug: "taiwan", country: "中国台湾", note: "来信告知所在城市，我们为您联系。" },
+  { slug: "taiwan", country: "中国台湾", cities: "桃园", note: "来信告知所在城市，我们为您联系。" },
+  { slug: "indonesia", country: "印度尼西亚", note: "来信告知所在城市，我们为您联系。" },
 ];
 
 export const testimonials = [
@@ -541,6 +542,17 @@ export const seasonEvents = [
     image: "event-awakening",
   },
   {
+    slug: "wisdom-practicing",
+    title: "智慧修习",
+    titleCn: "Wisdom Practicing",
+    kicker: "课程 · 常年开课 · 学费全免",
+    date: "常年开课",
+    place: "Zoom · 温哥华、卡尔加里、多伦多、洛杉矶、西雅图、水牛城、纽约",
+    body: "以系统而有趣的方式走向觉悟：时间自由、线上共学、一对一指导，以及线下共修实践。",
+    image: "event-wisdom-practice",
+    fit: "contain",
+  },
+  {
     slug: "bodhi-class",
     title: "菩提班",
     titleCn: "第十五期",
@@ -562,6 +574,17 @@ export const pastEvents = [
     place: "加拿大 卡尔加里",
     body: "五日营，研读《论语》《易经》与禅修。免学费，场地由校友赞助。",
     image: "past-journey",
+  },
+  {
+    slug: "journey-calgary-10",
+    title: "正念之旅",
+    titleCn: "第十期 · 卡尔加里",
+    kicker: "禅修营 · 第十期",
+    date: "2026年11月5–9日",
+    place: "加拿大 卡尔加里",
+    body: "第十期，卡尔加里五日：随学圣哲，找回初心。",
+    image: "past-journey-calgary",
+    fit: "contain",
   },
   {
     slug: "thailand-2024",

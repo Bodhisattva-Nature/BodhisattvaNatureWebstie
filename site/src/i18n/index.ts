@@ -15,6 +15,7 @@ export const contact = {
   phoneHref: enData.site.phoneHref,
   donateEmail: enData.site.donateEmail,
   volunteerEmail: enData.site.volunteerEmail,
+  volunteerForm: enData.site.volunteerForm,
   youtube: enData.site.youtube,
 };
 
