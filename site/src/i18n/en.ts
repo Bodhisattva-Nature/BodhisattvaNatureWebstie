@@ -101,6 +101,9 @@ export const en = {
     nameBody:
       "“Bodhisattva” names a being whose whole effort is directed toward awakening for the sake of others. The foundation takes its name from five qualities that are not separate from us:",
     qualities: ["Enlightenment", "Altruism and selflessness", "Immeasurability", "Equality", "Emptiness of person and phenomena"],
+    videoEyebrow: "Watch",
+    videoTitle: "What is Bodhisattva Nature?",
+    videoBody: "Fifteen seconds on the five qualities the foundation takes its name from.",
     missionEyebrow: "Our mission",
     missionTitle: "Three commitments.",
     pathEyebrow: "How to achieve",
@@ -304,7 +307,7 @@ export const en = {
     cost: "Cost",
     free: "Free",
     alsoEyebrow: "Also running",
-    alsoTitle: "Two more doors.",
+    alsoTitle: "Also on the noticeboard.",
     alsoNote: "Posters from the foundation's own noticeboard — write to us and we'll tell you when the next one opens.",
     datesEyebrow: "Dates",
     datesTitle: "Dates are set. Reserve a place.",

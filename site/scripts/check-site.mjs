@@ -88,7 +88,7 @@ for (const file of html) {
 
 // Size budgets. Downloadable books are opt-in files, not page weight,
 // so they are measured separately rather than counted against the budget.
-const isDownload = (f) => f.includes("/downloads/");
+const isDownload = (f) => f.includes("/downloads/") || f.includes("/video/");
 const pageFiles = files.filter((f) => !isDownload(f));
 const downloadBytes = files.filter(isDownload).reduce((n, f) => n + statSync(f).size, 0);
 const bytes = pageFiles.reduce((n, f) => n + statSync(f).size, 0);
@@ -100,7 +100,7 @@ if (homeBytes > 1.4 * 1024 * 1024) warnings.push(`index.html is ${(homeBytes / 1
 console.log(`base        ${base}`);
 console.log(`pages       ${html.length}`);
 console.log(`links       ${checked} checked`);
-console.log(`size        ${mb(bytes)} MB of pages, ${(homeBytes / 1024).toFixed(0)} KB home, ${mb(downloadBytes)} MB of downloads`);
+console.log(`size        ${mb(bytes)} MB of pages, ${(homeBytes / 1024).toFixed(0)} KB home, ${mb(downloadBytes)} MB of downloads and video`);
 
 if (warnings.length) {
   console.log(`\n${warnings.length} warning(s):`);

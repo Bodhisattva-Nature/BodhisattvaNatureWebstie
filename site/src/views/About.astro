@@ -7,6 +7,7 @@ import { href } from "../lib/url";
 interface Props { lang?: Lang }
 const lang: Lang = Astro.props.lang ?? "en";
 const { t, isZh, pillars, path, teachers } = getContent(lang);
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const qualities = t.about.qualities.map((q, i) => ({ n: String(i + 1).padStart(2, "0"), t: q }));
 const alt = isZh
@@ -48,6 +49,29 @@ const alt = isZh
       </figure>
     </div>
   </section>
+
+  {!isZh && (
+  <section class="section">
+    <div class="wrap">
+      <div class="video-block" data-reveal>
+        <video
+          controls
+          preload="none"
+          playsinline
+          poster={`${base}/video/what-is-bodhisattva-nature-poster.jpg`}
+          aria-label={t.about.videoTitle}
+        >
+          <source src={`${base}/video/what-is-bodhisattva-nature.mp4`} type="video/mp4" />
+        </video>
+        <div class="video-block__body">
+          <span class="eyebrow">{t.about.videoEyebrow}</span>
+          <h2 class="h2">{t.about.videoTitle}</h2>
+          <p class="muted">{t.about.videoBody}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  )}
 
   <section class="section section--cream">
     <div class="wrap">
@@ -131,6 +155,16 @@ const alt = isZh
 </Base>
 
 <style>
+  .video-block {
+    display: grid;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+  }
+  .video-block video { width: 100%; border: 1px solid var(--line); background: var(--cream); aspect-ratio: 16/9; }
+  .video-block__body { display: grid; gap: 0.7rem; align-content: center; }
+  @media (max-width: 860px) { .video-block { grid-template-columns: 1fr; } }
+
   .qualities {
     list-style: none;
     margin: 2rem 0 0;
