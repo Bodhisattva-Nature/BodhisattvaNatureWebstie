@@ -12,14 +12,14 @@ export const pillars = [
     title: "同体",
     subtitle: "安乐",
     body:
-      "数千年来，圣者一再示导：无人孤立。国族、种族、肤色各异的人，如同手足。当相扶相成，而非相争相害。",
+      "数千年来，圣者一再示导：无人孤立。国族、种族、肤色各异的人，如同手足。当相辅相成，而非相争相害。",
     image: "peace",
   },
   {
     title: "环境",
     subtitle: "和谐",
     body:
-      "佛陀视环境为众生安乐之所依。护持环境即是修行：以开阔之心面对自然，舍离占有之欲。",
+      "佛陀视环境为众生安乐之所依。爱护环境即是修行：以开阔之心面对自然，舍离占有之欲。",
     image: "environment",
   },
   {
@@ -35,12 +35,12 @@ export const path = [
   {
     step: "01",
     title: "闻",
-    body: "透过听闻真理，你知道该修什么、该止什么。",
+    body: "透过听闻真理，你知道该修什么、该断什么。",
   },
   {
     step: "02",
     title: "思",
-    body: "反复以理思维，验证并加深对真理的认解，直到方法融入日常。",
+    body: "反复以理思惟，验证并加深对真理的信解，直到方法融入日常。",
   },
   {
     step: "03",
@@ -88,7 +88,7 @@ export const programs = [
       { title: "四圣谛", body: "苦、集、灭、道。一切修行的基础。" },
       {
         title: "三苦",
-        body: "「诸行皆苦」是四法印之一。然而欲望满足时，我们明明感到快乐——佛陀究竟在说什么？",
+        body: "「有漏皆苦」是四法印之一。然而欲望满足时，我们明明感到快乐——佛陀究竟在说什么？",
       },
       { title: "佛教宇宙观", body: "佛陀关于时间与空间、生死与认知界限的说明。" },
       {
@@ -183,7 +183,7 @@ export const programs = [
       { title: "莲花生动功", body: "源于武术与气功的传统功法：动作、呼吸与意念三者相合。" },
       { title: "它能带来什么", body: "柔软度、肌力、心肺功能与精力——以及身体之外的平静与情绪平衡。" },
       { title: "每周免费课程", body: "每周五上午与下午各一堂，地点在列治文。欢迎任何人。" },
-      { title: "正念太极", body: "作息表上 16:30 的那一堂，把动与坐中的觉知连成一片。" },
+      { title: "正念太极", body: "周五下午的太极课，把动中与坐中的觉知连成一片。" },
     ],
     cta: "报名太极与养生课程",
   },
@@ -272,7 +272,7 @@ export const volunteerRoles = [
     title: "编辑",
     meta: "书籍 · 影片 · 文件",
     image: "vol-editor",
-    body: "数千册书籍、影片与文稿需要编辑，欢迎英语良好、上过基金会基础课程的朋友加入。",
+    body: "数千种书籍、影片与文稿需要编辑，欢迎英语良好、上过基金会基础课程的朋友加入。",
   },
   {
     title: "翻译",
@@ -297,7 +297,7 @@ export const volunteerRoles = [
 
 export const donateMethods = [
   {
-    title: "银行电邮转账（Interac e-Transfer）",
+    title: "Interac 电子转账（e-Transfer）",
     body: "将捐款发送至我们的收款邮箱，地址见下，点击即可复制。",
     action: { label: "bodhinature.f@gmail.com", href: "mailto:bodhinature.f@gmail.com", copy: "bodhinature.f@gmail.com" },
   },
@@ -345,7 +345,7 @@ export const branches = [
 
 export const connections = [
   { slug: "australia", country: "澳大利亚", cities: "悉尼", email: "lightofpractice@gmail.com", phone: "+61 493 725 853" },
-  { slug: "japan", country: "日本", cities: "大阪 · 奈良", email: "jy-519@outlook.com", phone: "+81 80-5088-1594", note: "联络人：嘉阳" },
+  { slug: "japan", country: "日本", cities: "大阪 · 奈良", email: "jy-519@outlook.com", phone: "+81 80-5088-1594", note: "联系人：嘉阳" },
   { slug: "singapore", country: "新加坡", cities: "新加坡", email: "peace@bodhinature.com", phone: "+65 8413 8197" },
   { slug: "thailand", country: "泰国", cities: "曼谷 · 清迈 · 普吉", email: "peace@bodhinature.com", note: "共修地点请来信询问。" },
   { slug: "malaysia", country: "马来西亚", cities: "吉隆坡 · 马六甲", email: "peace@bodhinature.com", note: "共修地点请来信询问。" },

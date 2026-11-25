@@ -48,7 +48,6 @@ const { t, volunteerRoles } = getContent(lang);
         <p data-reveal style="--i:2;color:rgba(239,233,220,.75)">{t.volunteer.joinBody}</p>
         <div class="hero__actions" style="margin-top:1.8rem" data-reveal>
           <a class="btn" href={contact.volunteerForm} target="_blank" rel="noopener">{t.volunteer.joinCta}</a>
-          <a class="btn btn--ghost" href={`mailto:${contact.volunteerEmail}?subject=Volunteer%20application`}>{t.volunteer.joinAsk}</a>
           <a class="btn btn--ghost" href={href("/contact/", lang)}>{t.volunteer.joinAsk}</a>
         </div>
       </div>

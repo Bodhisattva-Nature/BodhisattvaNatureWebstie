@@ -66,7 +66,7 @@ export const en = {
     volunteerEyebrow: "Volunteer",
     volunteerQuote: "The world is so connected. When you are involved, the world becomes different.",
     volunteerBody:
-      "The foundation is run entirely by volunteers: dubbing, editing, translating, coordinating retreats and events — or whatever you happen to be good at. However much time you have, there is a place for it.",
+      "The foundation is run entirely by volunteers: dubbing, editing, translating, coordinating retreats and events — or whatever you happen to be good at. However much time you have, there is a place for you.",
     pillarsEyebrow: "What we stand for",
     pillarsTitle: "Three commitments.",
     retreatEyebrow: "Weekend Retreat",
@@ -81,7 +81,7 @@ export const en = {
     eventsEyebrow: "What's on",
     eventsTitle: "Gather with us.",
     donateEyebrow: "Support",
-    donateTitle: "Each dollar you give goes into merits and virtues.",
+    donateTitle: "Every gift becomes an offering.",
     donateBody:
       "All dharma talks, retreats and classes are free. Your contribution pays for the books, videos, software and spaces that carry them.",
     donateVolunteer: "Volunteer instead",
@@ -99,7 +99,7 @@ export const en = {
     nameTitle: "Five qualities, one nature.",
     nameBody:
       "“Bodhisattva” names a being whose whole effort is directed toward awakening for the sake of others. The foundation takes its name from five qualities that are not separate from us:",
-    qualities: ["Enlightenment", "Altruism and selflessness", "Immeasurability", "Equality", "Emptiness of self"],
+    qualities: ["Enlightenment", "Altruism and selflessness", "Immeasurability", "Equality", "Emptiness of person and phenomena"],
     missionEyebrow: "Our mission",
     missionTitle: "Three commitments.",
     pathEyebrow: "How to achieve",
@@ -213,7 +213,7 @@ export const en = {
     lede:
       "Bodhisattva Nature Foundation is a registered charity, operated entirely by volunteers. The world is so connected — when you are involved, the world becomes different.",
     joinEyebrow: "Join us",
-    joinTitle: "It will make a difference if you are involved.",
+    joinTitle: "You will make a difference.",
     joinBody:
       "Tell us what you're good at and how much time you have. There is no minimum, and no prior study required for most roles.",
     joinCta: "Sign up",
@@ -240,6 +240,9 @@ export const en = {
     cardCaption: "Card and PayPal via the online form",
     scan: "Scan to give",
     scanNote: "Open your phone's QR scanner, scan either code, enter an amount and complete the gift.",
+    copied: "Copied ",
+    scanAlipay: "Alipay payment code",
+    scanUnionPay: "UnionPay payment code",
     talkEyebrow: "Talk to a person",
     talkTitle: "No gift is too small, and no question is awkward.",
     talkBody:
@@ -255,7 +258,7 @@ export const en = {
     headingLine1: "Where to",
     headingLine2: "find us.",
     lede:
-      "A home base in Canada, with spiritual connections across multiple countries, and groups in many more. Write first — someone always answers.",
+      "Branches in Canada and the United States, with practice groups in many other countries. Write first; someone always answers.",
     email: "Email",
     phone: "Phone",
     branchesEyebrow: "Branches",
@@ -284,7 +287,7 @@ export const en = {
     seasonEyebrow: "Coming up",
     seasonAll: "All events →",
     seasonTitle: "Retreats and courses.",
-    seasonNote: "Read from the posters in the homepage slider on bodhinature.com. Dates as printed there.",
+    seasonNote: "Dates are confirmed for the 2026–27 season. Write to us to reserve a place.",
     pastEyebrowLabel: "Past",
     pastTitleLabel: "Past gatherings.",
 
@@ -299,9 +302,9 @@ export const en = {
     alsoTitle: "Two more doors.",
     alsoNote: "Posters from the foundation's own noticeboard — write to us and we'll tell you when the next one opens.",
     datesEyebrow: "Dates",
-    datesTitle: "Nothing is fixed until you ask.",
+    datesTitle: "Dates are set. Reserve a place.",
     datesBody:
-      "The weekly gatherings above run continuously. Retreats and one-off courses are announced by email — write to us and we'll put you on the list for the next date.",
+      "The weekly gatherings above run continuously. Retreats and one-off courses are announced by email; write to us and we will send what is next.",
     datesCta: "Ask what's next",
     datesSchedule: "See the daily schedule",
   },

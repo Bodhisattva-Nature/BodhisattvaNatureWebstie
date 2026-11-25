@@ -50,7 +50,7 @@ export const zh = {
     title: "菩萨本性基金会 — 安乐 · 自在 · 真谛",
     heroLines: ["安乐", "自在", "真谛"],
     heroLede:
-      "本会为注册非营利团体，致力于透过每日共修、禅修营与义工服务，弘扬佛陀关于智慧、慈悲与心性的教法。所有课程与活动皆为纯公益结缘。",
+      "本会为依法注册的慈善团体，致力于透过每日共修、禅修营与义工服务，弘扬佛陀关于智慧、慈悲与心性的教法。所有课程与活动皆免费开放，广结善缘。",
     locations: "温哥华 · 卡尔加里 · 多伦多 · 纽约 · 洛杉矶 · 西雅图 · 水牛城",
     moreLocations: "＋ 更多地区",
     introEyebrow: "基金会简介",
@@ -92,9 +92,9 @@ export const zh = {
     title: "关于我们",
     eyebrow: "关于我们",
     heading: "何谓菩萨本性？",
-    lede: "由一群发心善友共同发起，是依法注册的慈善团体，旨在将《菩提道次第》的教法落实于日常行持之中。",
+    lede: "本会由一群发心善友共同发起，是依法注册的慈善团体，旨在将《菩提道次第广论》的教法落实于日常行持之中。",
     nameEyebrow: "名义所自",
-    nameTitle: "五种德性，同一本性",
+    nameTitle: "五种性德，同一本性",
     nameBody:
       "「菩提萨埵」意为觉有情——以一切行愿回向众生觉悟的修行者。本会之名，取自五种本自具足、从未与我们分离的德性：",
     qualities: ["觉悟", "无我与利他", "无量", "平等", "人法二空"],
@@ -177,7 +177,7 @@ export const zh = {
     retreatsTitle: "周末禅修",
     retreatsBody:
       "一段沉浸式的修行时光——引导禅修、静默、动中禅与佛法研读，在安静的自然环境中进行。",
-    retreatsNote: "一年定期举办。下一期日期，请来信询问。",
+    retreatsNote: "每年定期举办。下一期日期，请来信询问。",
     taiChiKicker: "动",
     taiChiTitle: "列治文太极班",
     taiChiBody:
@@ -193,7 +193,7 @@ export const zh = {
     voicesLink: "我们的法师",
     pastEyebrow: "往期活动",
     pastTitle: "看看往期的样子",
-    pastBody: "过往禅修营、课程与祈愿的录影，都收在我们的频道里。",
+    pastBody: "过往禅修营、课程与诵念的录像，都收在我们的频道里。",
     pastWatch: "观看往期活动",
     pastAsk: "询问下一期",
   },
@@ -228,11 +228,14 @@ export const zh = {
     carriesBody:
       "每年超过 100 场佛法讲座、324 堂团体课程、365 天每日课程与 54 次禅修营，全部免费。您的每一份供养，成就硬件、软件、书籍、影像、网络与场地。",
     carriesBody2:
-      "我们希望有心供养的人设立定期捐款——稳定的收入，让基金会能以一年为单位规划，而不只是应付一个月的开销。",
+      "我们希望有心供养的人设定定期捐款——稳定的收入，让基金会能以一年为单位规划，而不只是应付一个月的开销。",
     waysEyebrow: "供养方式",
     cardCaption: "可经线上表单以信用卡或 PayPal 捐款",
     scan: "扫码供养",
     scanNote: "打开手机的二维码扫描器，扫描任一二维码，输入金额即可完成。",
+    copied: "已复制 ",
+    scanAlipay: "支付宝付款码",
+    scanUnionPay: "云闪付付款码",
     talkEyebrow: "与人谈谈",
     talkTitle: "没有太小的捐款，也没有难以启齿的问题。",
     talkBody: "关于供养的任何方面——包括遗产规划——都欢迎来信。我们会亲自与您商量。",
@@ -254,7 +257,7 @@ export const zh = {
     connectionsTitle: "更远一些的团体",
     connectionsBody:
       "这些地点的共修与禅修活动由当地团体各自举办，并非由基金会运营、资助或管理。",
-    connectionsNote: "这些地点并不代表菩萨本性基金会的分会或营运据点。",
+    connectionsNote: "这些地点并不代表菩萨本性基金会的分会或运营据点。",
     sayEyebrow: "打个招呼",
     sayTitle: "问一堂课、一次禅修，或者什么都不问。",
     sayBody: "修行、生命关怀、义工与来访的问题，我们都愿意回答——没有太基本的问题。",
@@ -275,7 +278,7 @@ export const zh = {
     seasonEyebrow: "即将举行",
     seasonAll: "全部活动 →",
     seasonTitle: "禅修营与课程",
-    seasonNote: "转录自 bodhinature.com 首页轮播中的海报，日期依海报所印。",
+    seasonNote: "日期已定。来信即可报名，或询问最新安排。",
     pastEyebrowLabel: "往期",
     pastTitleLabel: "往期活动",
 
@@ -290,7 +293,7 @@ export const zh = {
     alsoTitle: "另外两扇门。",
     alsoNote: "摘自基金会自家布告栏的海报——来信询问，我们会告诉您下一期何时开始。",
     datesEyebrow: "日期",
-    datesTitle: "问了，才有确定的日子。",
+    datesTitle: "日期已定，来信即可报名。",
     datesBody:
       "上述每周共修持续进行。禅修营与单次课程以电子邮件公告——来信，我们会把下一期的消息寄给你。",
     datesCta: "询问下一期",

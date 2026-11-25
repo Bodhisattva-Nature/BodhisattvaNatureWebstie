@@ -42,7 +42,7 @@ const rest = quotes.filter((q) => q !== featured);
       <div class="quote-grid">
         {rest.map((q, i) => (
           <article class="qcard" data-reveal style={`--i:${i % 3}`}>
-            <span class="qcard__no">{String(i + 2).padStart(2, "0")}</span>
+            <span class="qcard__no">{String(i + 1).padStart(2, "0")}</span>
             <h2>{q.title}</h2>
             <p>{q.body}</p>
           </article>

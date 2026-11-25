@@ -137,7 +137,7 @@ export const programs: Program[] = [
           "“All conditioned things are suffering” is one of the Four Seals. Yet we clearly experience happiness when desire is satisfied — so what did the Buddha mean?",
       },
       {
-        title: "Buddhist Astronomy",
+        title: "Buddhist Cosmology",
         body:
           "The Buddha's account of time and space, of life and death, and of the limits of ordinary cognition.",
       },
@@ -181,7 +181,7 @@ export const programs: Program[] = [
     ],
     links: [
       {
-        label: "Buddhist Astronomy — video series",
+        label: "Buddhist Cosmology — video series",
         href: "https://youtube.com/playlist?list=PLdph_MCVJGB2PCZWsXqSkt4_eMRDXndJW",
       },
       {
@@ -244,7 +244,7 @@ export const programs: Program[] = [
         href: "https://www.youtube.com/watch?v=_6s-uy47WSc&list=PLdph_MCVJGB0GXdmta5qbT96ShikZek2g",
       },
       {
-        label: "Mindfulness in Plain — video series",
+        label: "Mindfulness in Daily Life — video series",
         href: "https://youtube.com/playlist?list=PLdph_MCVJGB050U1T9cLdb1o3psnFad-m",
       },
       {
@@ -294,7 +294,7 @@ export const programs: Program[] = [
       {
         title: "Mindfulness Tai Chi",
         body:
-          "The 16:30 session in our daily schedule, joining movement with the same awareness cultivated in sitting practice.",
+          "The Friday afternoon class, joining movement with the same awareness cultivated in sitting practice.",
       },
     ],
     cta: "Register for a Friday class",
@@ -322,9 +322,9 @@ export const programs: Program[] = [
           "A critical point is conversation: “You are about to move on — do you have concerns still bothering you?” Let them make arrangements, and take care of them.",
       },
       {
-        title: "Sustain a positive mind",
+        title: "Keep the mind mindful and wholesome",
         body:
-          "Avoid expressing grievance in front of them. Repeatedly remind them to let go of worldly attachments. Help them enter death with righteous thoughts — humble respect, love and compassion.",
+          "Avoid expressing grievance in front of them. Gently remind them to let go of worldly attachments. Help them meet death with wholesome thoughts: humility, love and compassion.",
       },
       {
         title: "Attitude",

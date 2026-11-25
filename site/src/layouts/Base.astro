@@ -17,9 +17,13 @@ const lang: Lang = Astro.props.lang ?? "en";
 const { t } = getContent(lang);
 const { title, description = t.site.description, image } = Astro.props;
 const alternate = oppositeHref(Astro.url.pathname, lang);
-const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://example.com").href;
+const SITE = Astro.site ?? new URL("https://example.com");
+// /404/ is not a page that exists; point the error page at its language home
+const is404 = /\/404\/?$/.test(Astro.url.pathname);
+const canonical = new URL(is404 ? (lang === "zh" ? "/zh/" : "/") : Astro.url.pathname, SITE).href;
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
-const ogImage = image ? `${base}/media/${image}-1600.webp` : undefined;
+// every page needs a share image; fall back to the hero
+const ogImage = new URL(`${base}/media/${image ?? "hero"}-1600.webp`, SITE).href;
 const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
 ---
 
@@ -33,12 +37,14 @@ const fontCss = fontCssRaw.replaceAll("url('/fonts/", `url('${base}/fonts/`);
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang={lang === "zh" ? "en" : "zh-Hans"} href={new URL(alternate, Astro.site ?? "https://example.com").href} />
     <link rel="alternate" hreflang={lang === "zh" ? "zh-Hans" : "en"} href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={lang === "zh" ? new URL(alternate, Astro.site ?? "https://example.com").href : canonical} />
     <meta name="theme-color" content="#f5f0e6" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href={`${base}/favicon.ico`} sizes="32x32" />
     <link rel="icon" href={`${base}/icon-192.png`} type="image/png" sizes="192x192" />

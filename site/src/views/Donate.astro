@@ -48,7 +48,7 @@ const { t, stats, donateMethods } = getContent(lang);
             <h2>{m.title}</h2>
             <p>{m.body}</p>
             {(m.action as any).copy ? (
-              <button class="link-arrow copy-btn" type="button" data-copy={(m.action as any).copy}>
+              <button class="link-arrow copy-btn" type="button" data-copy={(m.action as any).copy} data-copied={t.donate.copied}>
                 {m.action.label}
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5.5" y="5.5" width="8" height="8" rx="1.4" /><path d="M10.5 3.5H4a1.5 1.5 0 0 0-1.5 1.5v6.5" /></svg>
               </button>
@@ -69,11 +69,11 @@ const { t, stats, donateMethods } = getContent(lang);
       <div class="give-now give-now--qr-only" id="qr" data-reveal>
         <div class="give-now__qr">
           <div>
-            <div class="qr media"><Img name="qr-1" alt={t.donate.scan} sizes="200px" /></div>
+            <div class="qr media"><Img name="qr-1" alt={t.donate.scanAlipay} sizes="200px" /></div>
             <span class="caption">{t.donate.scan}</span>
           </div>
           <div>
-            <div class="qr media"><Img name="qr-2" alt={t.donate.scan} sizes="200px" /></div>
+            <div class="qr media"><Img name="qr-2" alt={t.donate.scanUnionPay} sizes="200px" /></div>
             <span class="caption">{t.donate.scan}</span>
           </div>
           <p class="small muted">{t.donate.scanNote}</p>
@@ -107,7 +107,7 @@ const { t, stats, donateMethods } = getContent(lang);
         await navigator.clipboard.writeText(value);
         const label = btn.firstChild;
         const original = label?.textContent ?? "";
-        if (label) label.textContent = "Copied ";
+        if (label) label.textContent = btn.dataset.copied ?? "Copied ";
         btn.classList.add("is-copied");
         setTimeout(() => {
           if (label) label.textContent = original;
@@ -131,8 +131,6 @@ const { t, stats, donateMethods } = getContent(lang);
     text-align: left;
   }
   .copy-btn.is-copied { color: var(--jade); }
-
-  .give-now--qr-only { grid-template-columns: 1fr; }
 
   .stats-row {
     display: grid;
@@ -169,6 +167,8 @@ const { t, stats, donateMethods } = getContent(lang);
   .method h2 { font-size: var(--step-2); font-weight: 300; }
   .method p { color: var(--muted); margin: 0; font-size: 0.95rem; }
   .method .link-arrow { justify-self: start; margin-top: 0.4rem; }
+
+  .give-now.give-now--qr-only { grid-template-columns: 1fr; }
 
   .give-now {
     display: grid;
