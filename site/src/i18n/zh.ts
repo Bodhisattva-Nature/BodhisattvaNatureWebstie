@@ -21,7 +21,7 @@ export const zh = {
     { label: "课程", href: "/programs/" },
     { label: "法语", href: "/wisdom/" },
     { label: "共修", href: "/community/" },
-    { label: "活动", href: "/events/" },
+    { label: "近期活动", href: "/events/" },
     { label: "义工", href: "/volunteer/" },
     { label: "联系", href: "/contact/" },
   ],

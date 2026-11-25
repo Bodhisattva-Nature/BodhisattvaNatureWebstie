@@ -1,4 +1,5 @@
 import { programs } from "../data/site";
+import { activityRoutes } from "../data/activities";
 
 export const routes: string[] = [
   "/",
@@ -14,4 +15,7 @@ export const routes: string[] = [
 ];
 
 /** Chinese counterparts, served under /zh/. */
-export const zhRoutes: string[] = routes.map((r) => (r === "/" ? "/zh/" : "/zh" + r));
+export const zhRoutes: string[] = [
+  ...routes.map((r) => (r === "/" ? "/zh/" : "/zh" + r)),
+  ...activityRoutes.map((r) => "/zh" + r),
+];

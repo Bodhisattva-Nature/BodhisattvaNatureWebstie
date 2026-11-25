@@ -6,8 +6,9 @@ import { href } from "../lib/url";
 
 interface Props { lang?: Lang }
 const lang: Lang = Astro.props.lang ?? "en";
-const { t, quotes, books } = getContent(lang);
+const { t, quotes, books, seasonEvents, isZh } = getContent(lang);
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const bodhiClass = seasonEvents.find((event) => event.slug === "bodhi-class");
 
 const byLength = [...quotes].sort((a, b) => a.body.length - b.body.length);
 const featured = byLength[2];
@@ -51,6 +52,26 @@ const rest = quotes.filter((q) => q !== featured);
       </div>
     </div>
   </section>
+
+  {isZh && bodhiClass && (
+    <section class="section section--cream" id="bodhi-class">
+      <div class="wrap bodhi">
+        <div>
+          <span class="eyebrow" data-reveal>共修课程</span>
+          <h2 class="h2" data-reveal style="--i:1">
+            {bodhiClass.title}
+            {bodhiClass.titleCn && <span class="bodhi__cn">· {bodhiClass.titleCn}</span>}
+          </h2>
+          <p class="lede" data-reveal style="--i:2;margin-top:1.2rem">{bodhiClass.body}</p>
+        </div>
+        <div class="bodhi__side" data-reveal style="--i:2">
+          <p class="bodhi__date">{bodhiClass.date}</p>
+          <p class="bodhi__place">{bodhiClass.place}</p>
+          <a class="btn" href={href("/contact/", "zh")}>咨询报名</a>
+        </div>
+      </div>
+    </section>
+  )}
 
   <section class="section section--cream" id="downloads">
     <div class="wrap">
@@ -200,6 +221,33 @@ const rest = quotes.filter((q) => q !== featured);
 
   .qcard p { color: var(--muted); margin: 0; font-size: 0.92rem; line-height: 1.6; }
 
+  .bodhi {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: end;
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 1px solid var(--line);
+  }
+
+  .bodhi__cn {
+    color: var(--muted);
+    font-size: 0.55em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .bodhi__side {
+    display: grid;
+    gap: 0.5rem;
+    justify-items: start;
+    padding-left: clamp(0rem, 3vw, 2.5rem);
+    border-left: 1px solid var(--line);
+  }
+
+  .bodhi__date { margin: 0; font-family: var(--font-display); font-size: 1.25rem; }
+  .bodhi__place { margin: 0 0 1rem; color: var(--muted); font-size: 0.88rem; }
+
   .cta-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -217,6 +265,8 @@ const rest = quotes.filter((q) => q !== featured);
     .qcard:nth-child(3n) { border-right: 1px solid var(--line); }
     .qcard:nth-child(2n) { border-right: 0; }
     .cta-row { grid-template-columns: 1fr; }
+    .bodhi { grid-template-columns: 1fr; }
+    .bodhi__side { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; padding-top: 1.2rem; }
   }
 
   @media (max-width: 640px) {

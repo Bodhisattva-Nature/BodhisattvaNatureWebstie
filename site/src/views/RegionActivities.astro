@@ -1,0 +1,269 @@
+---
+import Base from "../layouts/Base.astro";
+import Img from "../components/Img.astro";
+import { activities } from "../data/activities";
+import { getContent } from "../i18n";
+import { href } from "../lib/url";
+
+interface Props {
+  regionSlug: string;
+}
+
+const regionSlug = Astro.props.regionSlug;
+const { events, seasonEvents, pastEvents } = getContent("zh");
+const region = activities.regions.find((item) => item.slug === regionSlug);
+
+if (!region) throw new Error(`Unknown activity region: ${regionSlug}`);
+
+type RegionEvent = {
+  slug: string;
+  title: string;
+  titleCn?: string;
+  meta: string;
+  place: string;
+  body: string;
+  image?: string;
+  fit?: "cover" | "contain";
+};
+
+const bySlug = new Map<string, RegionEvent>();
+
+for (const event of events) {
+  bySlug.set(event.slug, {
+    slug: event.slug,
+    title: event.title,
+    titleCn: event.titleCn,
+    meta: [event.cadence, event.time].filter(Boolean).join(" · "),
+    place: event.place ?? "",
+    body: event.notes?.join(" · ") ?? event.themes?.join(" · ") ?? "",
+    image: event.image,
+  });
+}
+
+for (const event of [...seasonEvents, ...pastEvents]) {
+  bySlug.set(event.slug, {
+    slug: event.slug,
+    title: event.title,
+    titleCn: event.titleCn,
+    meta: event.date,
+    place: event.place,
+    body: event.body,
+    image: event.image,
+    fit: event.fit,
+  });
+}
+
+const regionEvents = region.eventSlugs
+  .map((slug) => bySlug.get(slug))
+  .filter((event): event is RegionEvent => Boolean(event));
+
+const allHref = href("/activities/", "zh");
+const contactHref = href("/contact/", "zh");
+const eventsHref = href("/events/", "zh");
+---
+
+<Base lang="zh" zhOnly title={`${region.name} — ${activities.title} — 菩萨本性基金会`} description={region.intro}>
+  <header class="page-head region-head">
+    <div class="wrap">
+      <nav class="region-crumb" aria-label={activities.title}>
+        <a href={allHref}>{activities.title}</a>
+        <span aria-hidden="true">/</span>
+        <span>{region.name}</span>
+      </nav>
+      <span class="eyebrow" data-reveal>地区</span>
+      <h1 data-reveal style="--i:1">{region.name}</h1>
+      <p class="lede" data-reveal style="--i:2">{region.intro}</p>
+      <ul class="region-head__places" data-reveal style="--i:3">
+        {region.centers.map((center) => <li>{center.name}</li>)}
+      </ul>
+      <nav class="region-switcher" aria-label="地区活动" data-reveal style="--i:4">
+        {activities.regions.map((item) => (
+          <a
+            href={href(`/activities/${item.slug}/`, "zh")}
+            aria-current={item.slug === region.slug ? "page" : undefined}
+          >
+            {item.name}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-reveal>地区活动</span>
+          <h2 class="h2" data-reveal style="--i:1">本地区活动</h2>
+        </div>
+        <p class="small muted region-note" data-reveal style="--i:2">{region.note}</p>
+      </div>
+
+      {regionEvents.length > 0 ? (
+        <div class="region-events">
+          {regionEvents.map((event, i) => (
+            <article class="region-event" data-reveal style={`--i:${i % 2}`}>
+              {event.image && (
+                <figure class:list={["region-event__media", "media", event.fit === "contain" && "media--contain"]}>
+                  <Img
+                    name={event.image}
+                    alt={`${event.title}${event.titleCn ? ` · ${event.titleCn}` : ""}`}
+                    sizes="(max-width: 760px) 100vw, 44vw"
+                  />
+                </figure>
+              )}
+              <div class="region-event__body">
+                <span class="region-event__meta">{event.meta}</span>
+                <h3>
+                  {event.title}
+                  {event.titleCn && <span> · {event.titleCn}</span>}
+                </h3>
+                {event.place && <p class="region-event__place">{event.place}</p>}
+                {event.body && <p class="region-event__text">{event.body}</p>}
+                <a class="link-arrow" href={`${eventsHref}#${event.slug}`}>
+                  了解更多
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" />
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div class="region-empty" data-reveal>
+          <p>暂未列出活动，来信了解最新安排。</p>
+          <a class="btn" href={contactHref}>联系我们</a>
+        </div>
+      )}
+
+      <div class="region-foot">
+        <a class="link-arrow" href={allHref}>
+          ← 返回中文活动
+        </a>
+        <a class="btn btn--ghost" href={contactHref}>联系我们</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .region-head { padding-bottom: clamp(1.5rem, 4vw, 3rem); }
+
+  .region-crumb {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: clamp(2rem, 5vw, 4rem);
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .region-crumb a { border-bottom: 1px solid var(--line-strong); padding-bottom: 0.15rem; transition: border-color 0.25s var(--ease); }
+  .region-crumb a:hover { border-color: var(--ink); }
+  .region-crumb span[aria-hidden] { color: var(--saffron); }
+
+  .region-head h1 { max-width: 14ch; }
+
+  .region-head__places {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0 0;
+  }
+
+  .region-head__places li {
+    border: 1px solid rgba(164, 119, 31, 0.42);
+    border-radius: 999px;
+    padding: 0.42em 1em;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  .region-switcher { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.2rem; }
+
+  .region-switcher a {
+    padding: 0.5em 0.9em;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    transition: background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+  }
+
+  .region-switcher a:hover { border-color: var(--ink-soft); color: var(--ink); }
+  .region-switcher a[aria-current="page"] { background: var(--ink); border-color: var(--ink); color: var(--cream); }
+
+  .section-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
+  .section-head .h2 { margin-top: 0.5rem; }
+  .region-note { max-width: 42ch; }
+
+  .region-events {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+    margin-top: clamp(2rem, 4vw, 3rem);
+  }
+
+  .region-event { display: grid; gap: 1.1rem; align-content: start; }
+
+  .region-event__media {
+    margin: 0;
+    aspect-ratio: 16 / 10;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .region-event__media.media--contain { background: var(--paper-deep); }
+
+  .region-event__media :global(img) { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .region-event__media.media--contain :global(img) { object-fit: contain; }
+
+  .region-event__body { display: grid; gap: 0.35rem; }
+  .region-event__meta { color: var(--saffron); font-size: 0.66rem; letter-spacing: 0.14em; }
+
+  .region-event h3 {
+    margin: 0.1rem 0 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  .region-event h3 span { color: var(--muted); font-size: 0.72em; }
+  .region-event__place { margin: 0; color: var(--muted); font-size: 0.82rem; }
+  .region-event__text { margin: 0.45rem 0 0.6rem; color: var(--ink-soft); font-size: 0.9rem; line-height: 1.6; max-width: 46ch; }
+
+  .region-empty {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    border: 1px solid var(--line);
+    background: var(--cream);
+    display: grid;
+    gap: 1.2rem;
+    justify-items: start;
+  }
+
+  .region-empty p { margin: 0; font-family: var(--font-display); font-size: clamp(1.25rem, 2.4vw, 1.6rem); }
+
+  .region-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: clamp(3rem, 6vw, 5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 760px) {
+    .region-events { grid-template-columns: 1fr; }
+  }
+</style>

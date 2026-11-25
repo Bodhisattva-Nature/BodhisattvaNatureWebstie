@@ -1,0 +1,12 @@
+---
+import RegionActivities from "../../../views/RegionActivities.astro";
+import { activities } from "../../../data/activities";
+
+export function getStaticPaths() {
+  return activities.regions.map((region) => ({ params: { region: region.slug } }));
+}
+
+const { region } = Astro.params;
+---
+
+<RegionActivities regionSlug={region!} />
