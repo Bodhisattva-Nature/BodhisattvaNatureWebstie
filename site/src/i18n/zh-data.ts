@@ -221,7 +221,7 @@ export const programs = [
       { label: "中阴闻教得度", href: "https://youtu.be/IJS4SFlJumM" },
       { label: "《西藏生死书》", href: "https://www.youtube.com/playlist?list=PLp-bkW_-IYjPTN39-gAa8GosM7m9V-f95" },
     ],
-    cta: "与我们谈临终关怀",
+    cta: "与我们谈生命关怀",
   },
   {
     slug: "happiness-and-freedom",
