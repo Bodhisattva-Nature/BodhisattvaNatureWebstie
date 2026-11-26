@@ -77,7 +77,7 @@ export const programs = [
     no: "01",
     title: "佛法研习",
     kicker: "闻思",
-    summary: "四圣谛、无常、因果与心性——以平实易懂的方式，学习佛陀对苦及灭苦的智慧洞见。",
+    summary: "四圣谛、无常、因果与心性——以平实易懂的方式，学习佛陀对苦及其止息的智慧洞见。",
     image: "program-dharma",
     hero: "dharma-hero",
     intro: [
