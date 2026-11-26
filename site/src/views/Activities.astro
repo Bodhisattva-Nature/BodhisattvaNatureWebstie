@@ -29,11 +29,11 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     </div>
   </header>
 
-  <section class="section section--tight-top">
+  <section class="section section--tight-top activities-atlas">
     <div class="wrap activity-explorer" data-explorer>
       <div class="explorer-menu">
-        <span class="eyebrow" data-reveal>{activities.explorerEyebrow}</span>
-        <h2 class="h2" data-reveal style="--i:1;margin-top:.55rem">{activities.explorerTitle}</h2>
+        <span class="eyebrow atlas-eyebrow" data-reveal>{activities.explorerEyebrow}</span>
+        <h2 class="h2 atlas-title" data-reveal style="--i:1;margin-top:.55rem">{activities.explorerTitle}</h2>
 
         <ul class="region-list" data-reveal style="--i:2">
           {activities.regions.map((region, i) => (
@@ -45,7 +45,8 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
                 aria-controls={`centers-${i}`}
                 data-region-btn
               >
-                <span>{region.name}</span>
+                <span class="region-btn__index" aria-hidden="true">{String(i + 1).padStart(2, "0")}</span>
+                <span class="region-btn__name">{region.name}</span>
                 <span class="region-btn__meta">
                   {region.centers.length}
                   <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
@@ -75,6 +76,11 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
       </div>
 
       <div class="explorer-preview" data-preview>
+        <div class="preview-collage" aria-hidden="true">
+          <span class="collage-sun"></span>
+          <span class="collage-sheet"></span>
+        </div>
+
         <div class="poster-pair" data-poster-pair>
           {activities.latestPosters.map((poster, i) => (
             <figure class="poster-card" data-reveal style={`--i:${i}`}>
@@ -124,11 +130,13 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     </div>
   </section>
 
-  <section class="section section--cream">
+  <section class="section activities-types">
+    <span class="types-tear types-tear--top" aria-hidden="true"></span>
+    <span class="types-tear types-tear--bottom" aria-hidden="true"></span>
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head types-head">
         <div>
-          <span class="eyebrow" data-reveal>{activities.typesEyebrow}</span>
+          <span class="eyebrow types-eyebrow" data-reveal>{activities.typesEyebrow}</span>
           <h2 class="h2" data-reveal style="--i:1">{activities.typesTitle}</h2>
         </div>
       </div>
@@ -546,6 +554,41 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     color: var(--ink-soft);
   }
 
+  /* ---------- 线下道场 / 总有一门: torn-paper collage ---------- */
+
+  .activities-atlas,
+  .activities-types {
+    /* Sage, clay and oat paper, borrowed for these two sections only. */
+    --sage: #3f5449;
+    --sage-deep: #26362e;
+    --sage-soft: #5b7164;
+    --clay: #c0623c;
+    --clay-deep: #9d4a29;
+
+    /* Deckled edges. Percent-based so they hold at any card size. */
+    --torn-card: polygon(0% -0.57%, 5.56% 0.91%, 11.11% 0.25%, 16.67% 0.94%, 22.22% -0.99%, 27.78% 0.78%, 33.33% -0.31%, 38.89% -0.98%, 44.44% -0.95%, 50% 1.06%, 55.56% 1.04%, 61.11% 0.07%, 66.67% -0.11%, 72.22% 0.11%, 77.78% 0.23%, 83.33% 0.61%, 88.89% 0.62%, 94.44% -0.18%, 99.74% 0%, 100.39% 12.5%, 99.85% 25%, 99.98% 37.5%, 99.55% 50%, 100.27% 62.5%, 100.37% 75%, 99.84% 87.5%, 94.44% 99.29%, 88.89% 101.06%, 83.33% 99.17%, 77.78% 99.9%, 72.22% 99.9%, 66.67% 99.14%, 61.11% 99.15%, 55.56% 100.27%, 50% 100.6%, 44.44% 99.09%, 38.89% 100.23%, 33.33% 100.94%, 27.78% 99.48%, 22.22% 100.2%, 16.67% 99.68%, 11.11% 99.59%, 5.56% 100.03%, 0.23% 87.5%, -0.21% 75%, -0.38% 62.5%, 0.41% 50%, 0.14% 37.5%, -0.13% 25%, 0.55% 12.5%);
+    --torn-card-alt: polygon(0% -0.46%, 6.25% -0.24%, 12.5% 0.12%, 18.75% 0.03%, 25% 0.38%, 31.25% 0.57%, 37.5% -0.44%, 43.75% 0.38%, 50% -0.53%, 56.25% 0.73%, 62.5% -0.48%, 68.75% -0.02%, 75% -0.75%, 81.25% 0.5%, 87.5% -0.44%, 93.75% -0.48%, 99.9% 0%, 100.15% 14.29%, 99.78% 28.57%, 99.59% 42.86%, 99.93% 57.14%, 99.99% 71.43%, 100.28% 85.71%, 93.75% 100.71%, 87.5% 100.38%, 81.25% 99.87%, 75% 100.48%, 68.75% 99.56%, 62.5% 99.24%, 56.25% 99.7%, 50% 100.64%, 43.75% 100.16%, 37.5% 100.05%, 31.25% 99.68%, 25% 99.34%, 18.75% 100.63%, 12.5% 99.66%, 6.25% 99.24%, 0.13% 85.71%, 0.39% 71.43%, -0.38% 57.14%, 0.04% 42.86%, -0.03% 28.57%, 0.11% 14.29%);
+    --torn-strip: polygon(0% -6.95%, 4.55% 13.93%, 9.09% 10.99%, 13.64% -8.8%, 18.18% 5.86%, 22.73% -6.22%, 27.27% -13.55%, 31.82% -8.34%, 36.36% -3.78%, 40.91% 12.24%, 45.45% -2.81%, 50% 8.82%, 54.55% 4.62%, 59.09% 11.47%, 63.64% -3.69%, 68.18% 3.49%, 72.73% 13.64%, 77.27% 12.18%, 81.82% 3.53%, 86.36% -13.92%, 90.91% 10.06%, 95.45% 3.3%, 99.3% 0%, 99.5% 25%, 100.52% 50%, 99.81% 75%, 95.45% 101.57%, 90.91% 87.74%, 86.36% 104.4%, 81.82% 98.41%, 77.27% 98.18%, 72.73% 96.7%, 68.18% 110.27%, 63.64% 92.69%, 59.09% 93.94%, 54.55% 98.82%, 50% 106.41%, 45.45% 110.48%, 40.91% 108.76%, 36.36% 102.02%, 31.82% 93.22%, 27.27% 101.68%, 22.73% 101.07%, 18.18% 103.78%, 13.64% 109.62%, 9.09% 89.58%, 4.55% 96.41%, 0.56% 75%, 0.01% 50%, -0.74% 25%);
+  }
+
+  .activities-atlas { overflow: clip; }
+
+  .atlas-eyebrow,
+  .types-eyebrow { color: var(--sage); }
+  .atlas-eyebrow::before,
+  .types-eyebrow::before { background: var(--clay); opacity: 1; }
+
+  .atlas-title { position: relative; }
+  .atlas-title::after {
+    content: "";
+    display: block;
+    width: 3.6rem;
+    height: 3px;
+    margin-top: 1.15rem;
+    background: linear-gradient(90deg, var(--clay), var(--clay-deep));
+    clip-path: var(--torn-strip);
+  }
+
   .activity-explorer {
     display: grid;
     grid-template-columns: minmax(260px, 0.78fr) minmax(0, 1.22fr);
@@ -558,19 +601,19 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
   .region-list {
     list-style: none;
     padding: 0;
-    margin: 2rem 0 0;
-    border-top: 1px solid var(--line);
+    margin: 2.2rem 0 0;
+    border-top: 1px solid var(--line-strong);
   }
 
   .region-item { border-bottom: 1px solid var(--line); }
 
   .region-btn {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 0;
+    display: grid;
+    grid-template-columns: 2.4rem minmax(0, 1fr) auto;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.95rem 0;
     border: 0;
     background: none;
     color: var(--ink);
@@ -580,7 +623,22 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     line-height: 1.1;
     cursor: pointer;
     text-align: left;
+  }
+
+  .region-btn__index {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: var(--clay);
     transition: color 0.25s var(--ease);
+  }
+
+  .region-btn__name {
+    display: block;
+    font-size: clamp(1.7rem, 3.4vw, 2.35rem);
+    line-height: 1.1;
+    transition: color 0.25s var(--ease), transform 0.45s var(--ease);
   }
 
   .region-btn__meta {
@@ -591,18 +649,27 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     font-size: 0.62rem;
     letter-spacing: 0.12em;
     color: var(--muted);
+    transition: color 0.25s var(--ease);
   }
 
   .region-btn__meta svg { transition: transform 0.3s var(--ease); }
-  .region-btn[aria-expanded="true"] { color: var(--saffron); }
+  .region-btn:hover .region-btn__name,
+  .region-btn[aria-expanded="true"] .region-btn__name {
+    color: var(--sage-deep);
+    transform: translateX(0.45rem);
+  }
+  .region-btn:hover .region-btn__index,
+  .region-btn[aria-expanded="true"] .region-btn__index { color: var(--clay-deep); }
+  .region-btn:hover .region-btn__meta { color: var(--sage); }
   .region-btn[aria-expanded="true"] .region-btn__meta svg { transform: rotate(180deg); }
 
   .center-list {
     list-style: none;
-    padding: 0 0 1rem 1rem;
+    padding: 0.1rem 0 1.1rem 2.4rem;
     margin: 0;
     display: grid;
     gap: 0.15rem;
+    border-left: 1px solid var(--line);
   }
 
   .center-btn {
@@ -622,7 +689,7 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
   }
 
   .center-btn:hover,
-  .center-btn:focus-visible { color: var(--saffron); }
+  .center-btn:focus-visible { color: var(--clay-deep); }
 
   .region-page-row { padding-top: 0.55rem; }
 
@@ -632,26 +699,73 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     gap: 0.35rem;
     font-size: 0.68rem;
     letter-spacing: 0.08em;
-    color: var(--saffron);
-    border-bottom: 1px solid rgba(191, 106, 30, 0.35);
+    color: var(--sage);
+    border-bottom: 1px solid rgba(63, 84, 73, 0.4);
     padding-bottom: 0.1rem;
+    transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
   }
 
-  .explorer-preview { min-width: 0; padding-top: clamp(2.4rem, 4vw, 3.25rem); }
+  .region-page-link:hover { color: var(--clay-deep); border-color: rgba(157, 74, 41, 0.5); }
+
+  .explorer-preview {
+    position: relative;
+    z-index: 1;
+    min-width: 0;
+    padding-top: clamp(1.6rem, 3vw, 2.6rem);
+  }
+
+  /* Paper scraps and a clay sun sitting under the posters. */
+  .preview-collage {
+    position: absolute;
+    inset: -2% -4% -3% -4%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .collage-sun {
+    position: absolute;
+    top: -3%;
+    right: -3%;
+    width: clamp(150px, 19vw, 250px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle at 34% 28%, #d9825a, var(--clay) 58%, #a34e2c 100%);
+    opacity: 0.95;
+  }
+
+  /* a torn sheet of sage paper the posters are pinned onto */
+  .collage-sheet {
+    position: absolute;
+    inset: 4% -2% 11% 0.5%;
+    rotate: -1.4deg;
+    background:
+      linear-gradient(178deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.14)),
+      linear-gradient(96deg, var(--sage), var(--sage-soft) 70%, var(--sage));
+    clip-path: var(--torn-card);
+    filter: drop-shadow(0 18px 22px rgba(46, 34, 22, 0.2));
+  }
 
   .poster-pair {
+    position: relative;
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(0.9rem, 2.5vw, 1.6rem);
+    gap: clamp(1rem, 2.6vw, 1.9rem);
+    align-items: start;
   }
 
-  .poster-card { margin: 0; display: grid; gap: 0.6rem; }
+  .poster-card { margin: 0; display: grid; gap: 0.7rem; }
+  .poster-card:nth-child(1) { rotate: -1.8deg; }
+  .poster-card:nth-child(2) { rotate: 1.5deg; translate: 0 18px; }
 
   .poster-card__media,
   .poster-single__media {
     overflow: hidden;
-    background: var(--cream);
-    border: 1px solid var(--line);
+    padding: clamp(7px, 0.75vw, 12px);
+    background: linear-gradient(160deg, #fffdf6, var(--cream) 55%, #f1e7d3);
+    border: 0;
+    clip-path: var(--torn-card);
+    filter: drop-shadow(0 24px 26px rgba(46, 34, 22, 0.26));
   }
 
   .poster-card__media { aspect-ratio: 3 / 4; }
@@ -661,12 +775,24 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     height: 100%;
     object-fit: cover;
     display: block;
+    box-shadow: inset 0 0 0 1px rgba(27, 20, 16, 0.14);
   }
 
   .poster-card figcaption {
     color: var(--muted);
-    font-size: 0.74rem;
-    letter-spacing: 0.05em;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    padding-left: 0.15rem;
+  }
+
+  .poster-card figcaption::before {
+    content: "";
+    display: inline-block;
+    width: 1.4rem;
+    height: 1px;
+    margin-right: 0.6rem;
+    vertical-align: middle;
+    background: var(--clay);
   }
 
   .poster-open {
@@ -755,52 +881,110 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     width: auto;
     max-width: 100%;
     aspect-ratio: 3 / 4;
+    clip-path: var(--torn-card-alt);
+    rotate: 1deg;
   }
   .poster-single figcaption { width: 100%; display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: 0.76rem; }
-  .poster-single figcaption small { color: var(--saffron); }
+  .poster-single figcaption small { color: var(--clay-deep); }
 
   .section-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
   .section-head .h2 { margin-top: 0.5rem; }
 
+  .activities-types {
+    position: relative;
+    overflow: clip;
+    background: #efe4cd;
+    padding-block: clamp(4.2rem, 8vw, 7rem);
+  }
+
+  .types-tear {
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    height: 26px;
+    background: var(--paper);
+    clip-path: var(--torn-strip);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .types-tear--top { top: -10px; }
+  .types-tear--bottom { bottom: -10px; }
+
+  .types-head { position: relative; z-index: 1; }
+
+  .types-head .h2 { position: relative; }
+  .types-head .h2::after {
+    content: "";
+    display: block;
+    width: 4.4rem;
+    height: 4px;
+    margin-top: 1.2rem;
+    background: linear-gradient(90deg, var(--sage-soft), var(--sage));
+    clip-path: var(--torn-strip);
+  }
+
   .type-grid {
+    position: relative;
+    z-index: 1;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0 clamp(2rem, 5vw, 4rem);
-    margin-top: clamp(2rem, 4vw, 3rem);
+    gap: clamp(1.3rem, 2.4vw, 2.1rem);
+    margin-top: clamp(2.2rem, 4vw, 3.2rem);
+    align-items: start;
   }
 
   .type-card {
     display: grid;
-    grid-template-columns: 2rem 1fr;
-    column-gap: 0.7rem;
-    padding: 1.5rem 0 1.8rem;
-    border-top: 1px solid var(--line);
     align-content: start;
+    gap: 0.35rem;
+    padding: 1.7rem 1.6rem 2rem;
+    background: linear-gradient(168deg, #fffdf7, var(--cream) 58%, #f3ead7);
+    clip-path: var(--torn-card-alt);
+    filter: drop-shadow(0 18px 24px rgba(48, 36, 24, 0.18));
+    rotate: -0.5deg;
+    transition: filter 0.4s var(--ease), rotate 0.4s var(--ease), translate 0.4s var(--ease);
   }
 
-  .type-card__index { color: var(--saffron); font-size: 0.68rem; letter-spacing: 0.1em; padding-top: 0.4rem; }
+  .type-card:nth-child(2) { rotate: 0.5deg; translate: 0 14px; }
+  .type-card:nth-child(3) { rotate: -0.25deg; translate: 0 4px; }
+
+  .type-card:hover,
+  .type-card:focus-within {
+    rotate: 0deg;
+    translate: 0 -6px;
+    filter: drop-shadow(0 26px 32px rgba(48, 36, 24, 0.24));
+  }
+
+  .type-card__index {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.92rem;
+    letter-spacing: 0.1em;
+    color: var(--clay);
+  }
 
   .type-card h3 {
-    margin: 0;
+    margin: 0.15rem 0 0;
     font-family: var(--font-display);
-    font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+    font-size: clamp(1.35rem, 2.3vw, 1.7rem);
     font-weight: 400;
     line-height: 1.15;
   }
 
-  .type-card ul { grid-column: 2; list-style: none; padding: 0; margin: 0.9rem 0 0; display: grid; gap: 0.4rem; }
+  .type-card ul { list-style: none; padding: 0; margin: 1rem 0 0; display: grid; gap: 0.45rem; }
 
-  .type-card li { position: relative; padding-left: 0.9rem; color: var(--ink-soft); font-size: 0.88rem; line-height: 1.55; }
+  .type-card li { position: relative; padding-left: 1.15rem; color: var(--ink-soft); font-size: 0.88rem; line-height: 1.55; }
 
   .type-card li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 0.65em;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--gold);
+    top: 0.82em;
+    width: 0.62rem;
+    height: 1px;
+    background: var(--clay);
+    opacity: 0.75;
   }
 
   .type-item { cursor: help; outline: none; }
@@ -994,6 +1178,14 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     .explorer-preview { margin-top: 1rem; padding-top: 0; }
     .type-grid { grid-template-columns: 1fr; }
     .online-head { grid-template-columns: 1fr; }
+    .poster-card:nth-child(2) { translate: 0 0; }
+    .type-card,
+    .type-card:nth-child(2),
+    .type-card:nth-child(3) { rotate: 0deg; translate: 0 0; }
+    /* the sheet is sized in percentages of a stacked column; hide it rather than
+       let it slide under the captions */
+    .collage-sheet { display: none; }
+    .preview-collage { inset: -4% -6% -2% -6%; }
   }
 
   @media (max-width: 800px) {
@@ -1005,8 +1197,11 @@ for (let i = 0; i < activities.gallery.length; i += 3) {
     .gallery-card__media { aspect-ratio: 4 / 5; }
     .gallery-card figcaption { font-size: 0.6rem; }
     .poster-pair { gap: 0.7rem; }
+    .poster-card:nth-child(1),
+    .poster-card:nth-child(2) { rotate: 0deg; }
     .poster-card figcaption { font-size: 0.68rem; }
     .schedule-grid { grid-template-columns: 1fr; }
     .activities-facts li { font-size: 0.64rem; }
+    .type-card { padding: 1.4rem 1.3rem 1.6rem; }
   }
 </style>
