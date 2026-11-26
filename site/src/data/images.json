@@ -128,23 +128,6 @@
    }
   ]
  },
- "program-wisdom": {
-  "w": 1080,
-  "h": 1080,
-  "alpha": true,
-  "variants": [
-   {
-    "w": 480,
-    "h": 480,
-    "file": "program-wisdom-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 900,
-    "file": "program-wisdom-900.webp"
-   }
-  ]
- },
  "program-hospice": {
   "w": 1080,
   "h": 1080,
@@ -218,40 +201,6 @@
    }
   ]
  },
- "aurora": {
-  "w": 1080,
-  "h": 1080,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 480,
-    "file": "aurora-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 900,
-    "file": "aurora-900.webp"
-   }
-  ]
- },
- "mountain-ill": {
-  "w": 1080,
-  "h": 1080,
-  "alpha": true,
-  "variants": [
-   {
-    "w": 480,
-    "h": 480,
-    "file": "mountain-ill-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 900,
-    "file": "mountain-ill-900.webp"
-   }
-  ]
- },
  "temple": {
   "w": 1080,
   "h": 1080,
@@ -278,30 +227,6 @@
     "w": 480,
     "h": 240,
     "file": "learning-480.webp"
-   }
-  ]
- },
- "reflecting": {
-  "w": 500,
-  "h": 250,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 240,
-    "file": "reflecting-480.webp"
-   }
-  ]
- },
- "practicing": {
-  "w": 500,
-  "h": 250,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 240,
-    "file": "practicing-480.webp"
    }
   ]
  },
@@ -353,23 +278,6 @@
     "w": 900,
     "h": 600,
     "file": "lilac-900.webp"
-   }
-  ]
- },
- "leaves": {
-  "w": 900,
-  "h": 600,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 320,
-    "file": "leaves-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 600,
-    "file": "leaves-900.webp"
    }
   ]
  },
@@ -482,62 +390,6 @@
     "w": 1600,
     "h": 696,
     "file": "branch-us-1600.webp"
-   }
-  ]
- },
- "branch-australia": {
-  "w": 2300,
-  "h": 1000,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 209,
-    "file": "branch-australia-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 391,
-    "file": "branch-australia-900.webp"
-   },
-   {
-    "w": 1600,
-    "h": 696,
-    "file": "branch-australia-1600.webp"
-   }
-  ]
- },
- "branch-japan": {
-  "w": 2300,
-  "h": 1000,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 209,
-    "file": "branch-japan-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 391,
-    "file": "branch-japan-900.webp"
-   },
-   {
-    "w": 1600,
-    "h": 696,
-    "file": "branch-japan-1600.webp"
-   }
-  ]
- },
- "branch-singapore": {
-  "w": 600,
-  "h": 600,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 480,
-    "file": "branch-singapore-480.webp"
    }
   ]
  },
@@ -690,40 +542,6 @@
    }
   ]
  },
- "volunteer-hero": {
-  "w": 2560,
-  "h": 1003,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 188,
-    "file": "volunteer-hero-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 353,
-    "file": "volunteer-hero-900.webp"
-   },
-   {
-    "w": 1600,
-    "h": 627,
-    "file": "volunteer-hero-1600.webp"
-   }
-  ]
- },
- "donate-hero": {
-  "w": 580,
-  "h": 800,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 662,
-    "file": "donate-hero-480.webp"
-   }
-  ]
- },
  "whale-earth": {
   "w": 800,
   "h": 800,
@@ -818,18 +636,6 @@
     "w": 400,
     "h": 650,
     "file": "tibetan-book-400.webp"
-   }
-  ]
- },
- "paypal": {
-  "w": 593,
-  "h": 585,
-  "alpha": true,
-  "variants": [
-   {
-    "w": 480,
-    "h": 474,
-    "file": "paypal-480.webp"
    }
   ]
  },
@@ -1158,28 +964,6 @@
    }
   ]
  },
- "event-retreat": {
-  "w": 2000,
-  "h": 1300,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 312,
-    "file": "event-retreat-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 585,
-    "file": "event-retreat-900.webp"
-   },
-   {
-    "w": 1400,
-    "h": 910,
-    "file": "event-retreat-1400.webp"
-   }
-  ]
- },
  "event-online": {
   "w": 2000,
   "h": 1300,
@@ -1428,6 +1212,210 @@
     "w": 1600,
     "h": 700,
     "file": "activity-gallery-leaf-1600.webp"
+   }
+  ]
+ },
+ "activity-autumn-park": {
+  "w": 958,
+  "h": 539,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-autumn-park-480.webp"
+   },
+   {
+    "w": 958,
+    "h": 539,
+    "file": "activity-autumn-park-958.webp"
+   }
+  ]
+ },
+ "activity-park-practice": {
+  "w": 1154,
+  "h": 649,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-park-practice-480.webp"
+   },
+   {
+    "w": 960,
+    "h": 540,
+    "file": "activity-park-practice-960.webp"
+   }
+  ]
+ },
+ "activity-vegetarian-meal": {
+  "w": 1773,
+  "h": 997,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-vegetarian-meal-480.webp"
+   },
+   {
+    "w": 960,
+    "h": 540,
+    "file": "activity-vegetarian-meal-960.webp"
+   }
+  ]
+ },
+ "activity-singing-bowls": {
+  "w": 1086,
+  "h": 611,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-singing-bowls-480.webp"
+   },
+   {
+    "w": 960,
+    "h": 540,
+    "file": "activity-singing-bowls-960.webp"
+   }
+  ]
+ },
+ "activity-autumn-portrait": {
+  "w": 1491,
+  "h": 839,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-autumn-portrait-480.webp"
+   },
+   {
+    "w": 960,
+    "h": 540,
+    "file": "activity-autumn-portrait-960.webp"
+   }
+  ]
+ },
+ "activity-hall-portrait": {
+  "w": 480,
+  "h": 270,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-hall-portrait-480.webp"
+   },
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-hall-portrait-480.webp"
+   }
+  ]
+ },
+ "activity-cushions": {
+  "w": 480,
+  "h": 270,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-cushions-480.webp"
+   },
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-cushions-480.webp"
+   }
+  ]
+ },
+ "activity-mandala-table": {
+  "w": 1707,
+  "h": 960,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-mandala-table-480.webp"
+   },
+   {
+    "w": 960,
+    "h": 540,
+    "file": "activity-mandala-table-960.webp"
+   }
+  ]
+ },
+ "activity-quiet-room": {
+  "w": 1773,
+  "h": 997,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-quiet-room-480.webp"
+   },
+   {
+    "w": 960,
+    "h": 540,
+    "file": "activity-quiet-room-960.webp"
+   }
+  ]
+ },
+ "activity-art-therapy": {
+  "w": 480,
+  "h": 270,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-art-therapy-480.webp"
+   },
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-art-therapy-480.webp"
+   }
+  ]
+ },
+ "activity-tea-ceremony": {
+  "w": 480,
+  "h": 270,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-tea-ceremony-480.webp"
+   },
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-tea-ceremony-480.webp"
+   }
+  ]
+ },
+ "activity-arch-night": {
+  "w": 1773,
+  "h": 997,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 480,
+    "h": 270,
+    "file": "activity-arch-night-480.webp"
+   },
+   {
+    "w": 960,
+    "h": 540,
+    "file": "activity-arch-night-960.webp"
    }
   ]
  }
