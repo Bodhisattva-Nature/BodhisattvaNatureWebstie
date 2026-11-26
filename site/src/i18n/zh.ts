@@ -113,7 +113,7 @@ export const zh = {
     pathTitle: "闻·思·修",
     pathNote: "整条道路，三个次第——反复行之，直至合一。",
     teachersEyebrow: "我们的法师",
-    teachersTitle: "传法之人。",
+    teachersTitle: "传法之人",
     ctaTitle: "亲来一坐，便知冷暖。",
     ctaBody: "一切课程、讲座与禅修营皆免费。无须购买，也无须加入。",
     ctaPrograms: "浏览课程",
