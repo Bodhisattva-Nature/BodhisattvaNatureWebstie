@@ -143,7 +143,7 @@ export const programs = [
     highlights: [
       {
         title: "禅修前的准备",
-        body: "安静的空间、端正的坐姿、固定的时段、关掉干扰、宽松的衣物、几次深呼吸、清楚的发心——然后从短时间开始。",
+        body: "一处安静的空间，一个脊背挺直的舒适坐姿，一段固定的时间，关掉干扰，穿上宽松的衣物，几次深呼吸，一个清晰的发心——然后，从一个简短的开始出发。",
       },
       {
         title: "拉伸与动功",
@@ -153,7 +153,7 @@ export const programs = [
         title: "毗卢七支坐",
         body: "双盘或单盘；脊背挺直；双手结定印；两臂微张；下颌微收；双目微开、垂视鼻端；舌抵上腭。",
       },
-      { title: "引导禅修", body: "身心放松、心轮放松、卧禅与诵念。" },
+      { title: "引导禅修", body: "身心放松、放松心轮、卧禅，以及梵呗唱诵。" },
     ],
     links: [
       { label: "引导式禅修 —— 深入修习", href: "https://www.youtube.com/watch?v=_6s-uy47WSc&list=PLdph_MCVJGB0GXdmta5qbT96ShikZek2g" },
