@@ -137,13 +137,13 @@ export const programs = [
       { image: "peace", caption: "毗卢七支坐的引导" },
     ],
     intro: [
-      "正念禅修与课程培养当下的觉知：透过引导禅修、动中禅与经行，以及有经验的老师指导，学习不加评判地观照念头与感受。",
-      "利益不止于蒲团——专注力提升、韧性增强，面对压力的方式也会带进日常。",
+      "正念禅修营与日常课程旨在培养当下觉知：通过引导式静坐、正念动禅与行禅，以及经验丰富导师的讲解，你将学会不加评判地观照念头与身体感受。",
+      "这份收获不仅止于蒲团之上——它还能提升专注力、增强心理韧性，并赋予你一种从容应对压力的方式，融入平凡的每一天。",
     ],
     highlights: [
       {
         title: "禅修前的准备",
-        body: "安静的空间、端正的坐姿、固定的时段、关掉干扰、宽松的衣物、几次深呼吸、清楚的发心——然后从短时间开始。",
+        body: "一处安静的空间，一个脊背挺直的舒适坐姿，一段固定的时间，关掉干扰，穿上宽松的衣物，几次深呼吸，一个清晰的发心——然后，从一个简短的开始出发。",
       },
       {
         title: "拉伸与动功",
@@ -153,15 +153,15 @@ export const programs = [
         title: "毗卢七支坐",
         body: "双盘或单盘；脊背挺直；双手结定印；两臂微张；下颌微收；双目微开、垂视鼻端；舌抵上腭。",
       },
-      { title: "引导禅修", body: "身心放松、心轮放松、卧禅与诵念。" },
+      { title: "引导禅修", body: "身心放松、放松心轮、卧禅，以及梵呗唱诵。" },
     ],
     links: [
-      { label: "引导禅修 — 继续练习", href: "https://www.youtube.com/watch?v=_6s-uy47WSc&list=PLdph_MCVJGB0GXdmta5qbT96ShikZek2g" },
+      { label: "引导式禅修 —— 深入修习", href: "https://www.youtube.com/watch?v=_6s-uy47WSc&list=PLdph_MCVJGB0GXdmta5qbT96ShikZek2g" },
       { label: "正念生活", href: "https://youtube.com/playlist?list=PLdph_MCVJGB050U1T9cLdb1o3psnFad-m" },
-      { label: "诵念", href: "https://youtube.com/playlist?list=PLp-bkW_-IYjOeAg3lo9hEoVNLuMS58fQr" },
+      { label: "梵呗唱诵", href: "https://youtube.com/playlist?list=PLp-bkW_-IYjOeAg3lo9hEoVNLuMS58fQr" },
       { label: "往期活动回顾", href: "https://youtube.com/playlist?list=PLp-bkW_-IYjNlppT0ucOQAd-ISRkoK9qN" },
     ],
-    cta: "参加正念课程",
+    cta: "参加正念禅修课",
   },
   {
     slug: "tai-chi",
@@ -228,7 +228,7 @@ export const programs = [
     no: "05",
     title: "安乐与自在",
     kicker: "探问",
-    summary: "十五集的系列，谈安乐与自在究竟是什么——以及为什么把它当作外在的追求，总是落空。",
+    summary: "十五讲系列课程，剖析安乐与自在究竟为何物——以及为何把它们当作外在所得去追寻，总是缘木求鱼。",
     image: "program-happiness",
     hero: "happiness-hero",
     bookGrid: true,
