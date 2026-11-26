@@ -12,7 +12,7 @@ into a template.
 ## Quick start
 
 ```bash
-git clone <this repo> && cd bodhinature-modern/site
+git clone <this repo> && cd BodhisattvaNatureWebstie/site
 npm install
 npm run dev            # http://localhost:4321/bodhinature/   (English)
                        # http://localhost:4321/bodhinature/zh/ (中文)
@@ -28,6 +28,8 @@ npm run build          # → site/dist
 npm run preview        # localhost only
 npm run preview:lan    # bound to 0.0.0.0, shareable on the local network
 npm run check:site     # verify every link, fragment, hreflang pair and budget in dist
+npm run check:paths    # reject machine-specific paths and hostnames
+npm run shot -- <url> <output>  # screenshot a running page
 ```
 
 ## Documentation
@@ -89,8 +91,9 @@ rebuilt with `tools/`; see [`docs/EXTRACT.md`](docs/EXTRACT.md).
 
 ## The site
 
-15 routes in each language, 30 pages in total: home, about, programmes index, five programme pages, wisdom,
-community, events, volunteer, donate, visit and 404. English at `/`, Chinese under `/zh/`.
+36 pages across both editions: home, about, programmes index, five programme pages, wisdom, community, events,
+volunteer, donate, visit, 404, plus the Chinese activities and regional pages. English at `/`, Chinese under
+`/zh/`.
 
 ![Programmes](docs/preview-programs.jpg)
 
@@ -109,8 +112,7 @@ editions differ only in content. The Chinese is written rather than translated: 
 [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 **Performance.** No client framework. About 3 KB of inline script per page for the header, drawer, search
-palette and quote rotator. 7.4 MB in `dist` (6.2 MB of it images), 412 KB of fonts, and a home page visit
-transfers under 1 MB.
+palette and quote rotator. 31.9 MB in `dist`, mostly images, and 412 KB of fonts.
 
 ![Events](docs/preview-events.jpg)
 

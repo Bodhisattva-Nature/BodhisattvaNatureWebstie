@@ -8,9 +8,15 @@ The archive is not committed (620 MB). Everything below regenerates it into `api
 
 ## Before you start
 
+From the repository root:
+
 ```bash
-python3 -m venv .venv
-./.venv/bin/pip install -r tools/requirements.txt
+# macOS / Linux
+python3 -m venv .venv && source .venv/bin/activate
+# Windows PowerShell
+py -m venv .venv; .\.venv\Scripts\Activate.ps1
+
+pip install -r tools/requirements.txt
 ```
 
 The source site is WordPress 7.1.4 with Divi, WooCommerce 11.2.1 and GiveWP 4.19.1, at
@@ -21,7 +27,7 @@ gaps are handled below.
 ## Step 1 — REST harvest
 
 ```bash
-./.venv/bin/python tools/harvest.py
+python tools/harvest.py
 ```
 
 Paginates each collection with `per_page=100`, reads `X-WP-TotalPages`, retries 5xx with backoff and a
@@ -48,7 +54,7 @@ from the rendered `<ul id="menu-…">` in the homepage HTML instead. Of the 817 
 ## Step 2 — Crawl the rendered site
 
 ```bash
-./.venv/bin/python tools/crawl.py
+python tools/crawl.py
 ```
 
 Fetches all 105 URLs from `sitemap.xml` and its 9 child sitemaps into `raw/pages/`, then walks every page
@@ -65,7 +71,7 @@ Expect ~80 MB of HTML.
 ## Step 3 — Download every image
 
 ```bash
-./.venv/bin/python tools/download_media.py
+python tools/download_media.py
 ```
 
 Takes the union of content references, media records and crawl references, and writes them to `media/`,
@@ -80,7 +86,7 @@ If a few fail with a protocol-relative URL (`//bodhinature.com/...`), normalise 
 ## Step 4 — Turn Divi into content blocks
 
 ```bash
-./.venv/bin/python tools/extract.py
+python tools/extract.py
 ```
 
 Divi renders real HTML into `content.rendered`, so this is a parse, not a shortcode parser. For each page it
@@ -104,7 +110,7 @@ rebuilt by hand from their SEO description and rendered siblings.
 ## Step 5 — Optimise the images the site actually uses
 
 ```bash
-./.venv/bin/python tools/process_images.py
+python tools/process_images.py
 ```
 
 The site does not use all 844 files. `process_images.py` holds a manifest of 62 curated sources, each named for
@@ -136,11 +142,11 @@ Expected: 52 page files, 4 post files, ~844 media files, and about 620 MB total.
 The pipeline is ordered and idempotent except for `harvest.py`, which overwrites its JSON:
 
 ```bash
-./.venv/bin/python tools/harvest.py
-./.venv/bin/python tools/crawl.py
-./.venv/bin/python tools/download_media.py
-./.venv/bin/python tools/extract.py
-./.venv/bin/python tools/process_images.py
+python tools/harvest.py
+python tools/crawl.py
+python tools/download_media.py
+python tools/extract.py
+python tools/process_images.py
 ```
 
 Then rebuild the site (`cd site && npm run build`). If you re-run `extract.py` after the source site changed,

@@ -10,8 +10,8 @@ npm install
 npm run build
 ```
 
-Output lands in `site/dist`: 175 files, 30 of them HTML pages, plus CSS, inline scripts, fonts and media. Expect
-7.4 MB, of which 6.2 MB is images. A full build takes about 2 seconds.
+Output lands in `site/dist`: 36 HTML pages plus CSS, inline scripts, fonts and media. Expect about 31.9 MB,
+mostly images. A full build takes a few seconds.
 
 The build is fully static. There is no server, no database and no API call at runtime, so `dist` can be served
 by anything that serves files.
@@ -34,8 +34,8 @@ The default `/bodhinature/` matches a GitHub project page. For a root domain, a 
 (`user.github.io`), or a custom domain, build with `BASE_PATH=/`.
 
 ```bash
-# project page
-BASE_PATH=/bodhinature/ SITE_URL=https://pavan.github.io npm run build
+# project page (replace user with your GitHub account)
+BASE_PATH=/bodhinature/ SITE_URL=https://user.github.io npm run build
 
 # root domain
 BASE_PATH=/ SITE_URL=https://bodhinature.com npm run build
@@ -56,12 +56,13 @@ static host without rewrite rules.
 
 ```
 Local    http://localhost:4321/bodhinature/
-Network  http://192.168.1.203:4321/bodhinature/
+Network  http://YOUR-LAN-IP:4321/bodhinature/
 ```
 
-Both the IP and the machine's Bonjour name (`http://Air-2.local:4321/bodhinature/`) work. The name only works
-because `astro.config.mjs` sets `server.allowedHosts`; Astro's preview server reads that key from `server`
-rather than `preview`, and without it Vite answers 403 to any request carrying an unknown `Host` header.
+Both the IP and the machine's Bonjour name (`http://YOUR-HOSTNAME.local:4321/bodhinature/`) work. The name
+works because `astro.config.mjs` sets `server.allowedHosts` to `.local` by default; add extra names with
+`ALLOWED_HOSTS=name.local,other-name.local`. Astro's preview server reads that key from `server` rather than
+`preview`, and without it Vite answers 403 to any request carrying an unknown `Host` header.
 
 This is a dev tool, not a deployment: it dies with the terminal, and it is not hardened. Use it for a demo on
 the same Wi-Fi, and Pages for anything longer lived.
@@ -100,9 +101,9 @@ Custom domain**. With a root base, the site expects to be served from `/`, so a 
 
 | Item | Detail |
 | --- | --- |
-| Pages | 30 HTML files (15 routes × 2 languages) |
-| Build time | ~2 s, 175 files, 7.4 MB total |
-| CSS | One 1,611-line stylesheet, inlined when small enough |
+| Pages | 36 HTML files across the English and Chinese editions |
+| Build time | ~2 s, about 31.9 MB total |
+| CSS | One stylesheet, inlined when small enough |
 | JS | 2.7 KB inline on a median page, 3.2 KB at most; no bundles, no framework |
 | Fonts | Fraunces and Inter, latin subsets, 412 KB, self-hosted in `public/fonts` |
 | Media | 127 WebP derivatives from 62 sources, with `srcset`, in `public/media` |
@@ -128,13 +129,14 @@ Actions", so it is publishing the repository root rather than `dist`. Change the
 
 **Chinese pages 404 in production but work locally.** The `/zh/` tree was not copied because `dist` was built
 before the routes were added. Rebuild; confirm with
-`find site/dist -name index.html | wc -l` returning 30.
+`find site/dist -name index.html | wc -l` returning 36.
 
 **`preview:lan` reachable on the machine but not from a phone.** The phone is on a guest network or the router
 has AP isolation on. The server is fine, the network is not.
 
-**Server starts but the port is taken.** Another preview is running: `lsof -nP -iTCP:4321 -sTCP:LISTEN`, kill
-it, or run `npm run preview -- --port 4322`.
+**Server starts but the port is taken.** Another preview is running. Find it with
+`lsof -nP -iTCP:4321 -sTCP:LISTEN` on macOS/Linux or `netstat -ano | findstr :4321` on Windows, stop it, or run
+`npm run preview -- --port 4322`.
 
 ## Rebuilding after a content change
 
