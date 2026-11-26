@@ -228,7 +228,7 @@ export const programs = [
     no: "05",
     title: "安乐与自在",
     kicker: "探问",
-    summary: "十五集的系列，谈安乐与自在究竟是什么——以及为什么把它当作外在的追求，总是落空。",
+    summary: "十五讲系列课程，剖析安乐与自在究竟为何物——以及为何把它们当作外在所得去追寻，总是缘木求鱼。",
     image: "program-happiness",
     hero: "happiness-hero",
     bookGrid: true,
