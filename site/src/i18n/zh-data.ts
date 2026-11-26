@@ -96,7 +96,7 @@ export const programs = [
         body: "“一切足迹中，象迹最胜；一切观照中，无常观最胜。”",
       },
       { title: "因果法则", body: "业、习气与自由意志的惯性——缘起法的五个面向。" },
-      { title: "因果之镜", body: "龙树、佛陀与六祖，谈祸福究竟从何而来。" },
+      { title: "因果明镜论", body: "龙树、佛陀与六祖，谈祸福究竟从何而来。" },
     ],
     truths: [
       {
@@ -120,7 +120,7 @@ export const programs = [
       { label: "佛教宇宙观", href: "https://youtube.com/playlist?list=PLdph_MCVJGB2PCZWsXqSkt4_eMRDXndJW" },
       { label: "诸行无常", href: "https://youtube.com/playlist?list=PLdph_MCVJGB3BTeeCdLbCXoWC_qrfELfa" },
       { label: "因果法则", href: "https://youtube.com/playlist?list=PLdph_MCVJGB3choe9t5kKWyguvtzkQEJ-" },
-      { label: "因果之镜", href: "https://youtube.com/playlist?list=PLdph_MCVJGB0ZR9jw6wbsPrsp3Gqlwi9v" },
+      { label: "因果明镜论", href: "https://youtube.com/playlist?list=PLdph_MCVJGB0ZR9jw6wbsPrsp3Gqlwi9v" },
     ],
     cta: "索取课程资料",
   },
