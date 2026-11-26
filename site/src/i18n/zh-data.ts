@@ -161,7 +161,7 @@ export const programs = [
       { label: "梵呗唱诵", href: "https://youtube.com/playlist?list=PLp-bkW_-IYjOeAg3lo9hEoVNLuMS58fQr" },
       { label: "往期活动回顾", href: "https://youtube.com/playlist?list=PLp-bkW_-IYjNlppT0ucOQAd-ISRkoK9qN" },
     ],
-    cta: "参加正念课程",
+    cta: "参加正念禅修课",
   },
   {
     slug: "tai-chi",
