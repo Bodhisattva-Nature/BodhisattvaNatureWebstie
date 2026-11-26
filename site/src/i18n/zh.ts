@@ -129,7 +129,7 @@ export const zh = {
     lede: "研习教法、调伏自心、调身、陪伴临终，探求真正的安乐。所有课程、讲座与禅修营，皆为免费。",
     explore: "了解详情",
     ctaEyebrow: "不知从何开始？",
-    ctaTitle: "来上一堂早课。",
+    ctaTitle: "亲来上一堂早课。",
     ctaBody: "课程每天都有，线上与线下并行。写信给我们，告诉你本周的安排。",
     ctaAsk: "询问本周课程",
     ctaSchedule: "查看作息表",
