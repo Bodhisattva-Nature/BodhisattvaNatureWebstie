@@ -438,6 +438,20 @@ export const volunteerRoles = [
       "We run online classes, local retreats and local events regularly. We need volunteers who communicate well and love meditation, Tai Chi and dharma.",
   },
   {
+    title: "Tech",
+    meta: "Website · Tools · Support",
+    image: "learning",
+    body:
+      "Help keep our website, video library and online tools running smoothly — from simple updates to setting up the systems that let volunteers work together.",
+  },
+  {
+    title: "Social Media",
+    meta: "Instagram · YouTube · Xiaohongshu",
+    image: "vol-coordinate",
+    body:
+      "Help share talks, retreats and everyday practice with more people — writing captions, editing short videos, or looking after one of our channels.",
+  },
+  {
     title: "Others",
     meta: "Whatever you can offer",
     image: "lilac",
