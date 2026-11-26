@@ -156,9 +156,9 @@ export const programs = [
       { title: "引导禅修", body: "身心放松、心轮放松、卧禅与诵念。" },
     ],
     links: [
-      { label: "引导禅修 — 继续练习", href: "https://www.youtube.com/watch?v=_6s-uy47WSc&list=PLdph_MCVJGB0GXdmta5qbT96ShikZek2g" },
+      { label: "引导式禅修 —— 深入修习", href: "https://www.youtube.com/watch?v=_6s-uy47WSc&list=PLdph_MCVJGB0GXdmta5qbT96ShikZek2g" },
       { label: "正念生活", href: "https://youtube.com/playlist?list=PLdph_MCVJGB050U1T9cLdb1o3psnFad-m" },
-      { label: "诵念", href: "https://youtube.com/playlist?list=PLp-bkW_-IYjOeAg3lo9hEoVNLuMS58fQr" },
+      { label: "梵呗唱诵", href: "https://youtube.com/playlist?list=PLp-bkW_-IYjOeAg3lo9hEoVNLuMS58fQr" },
       { label: "往期活动回顾", href: "https://youtube.com/playlist?list=PLp-bkW_-IYjNlppT0ucOQAd-ISRkoK9qN" },
     ],
     cta: "参加正念课程",
