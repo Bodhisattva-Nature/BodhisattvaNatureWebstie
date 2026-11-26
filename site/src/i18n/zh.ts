@@ -187,7 +187,7 @@ export const zh = {
     headingLine2: "自有其节律",
     lede: "每天早晚有课，周五有太极，一年到头有禅修营。这里不要求你成为什么，只要求你到来。",
     rhythmEyebrow: "每日作息",
-    rhythmTitle: "未明之前。",
+    rhythmTitle: "未明之前",
     rhythmBody:
       "道场依传统作息。任一时段皆欢迎随喜参加——无须报名，不取分文。多数课程可线上参与。",
     gatheringsEyebrow: "相聚",
