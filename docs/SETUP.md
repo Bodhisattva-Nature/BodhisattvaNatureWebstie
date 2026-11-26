@@ -22,8 +22,9 @@ npm run dev
 
 Open <http://localhost:4321/bodhinature/>. The Chinese edition is at the same URL plus `/zh/`.
 
-`npm install` pulls Astro and `puppeteer-core` (used only by `tools/shot.mjs` for screenshots; it drives the
-Chrome already on the machine rather than downloading one).
+`npm install` pulls Astro and `puppeteer-core` (used only by `tools/shot.mjs` for screenshots; it drives a
+Chrome already on the machine rather than downloading one). Auto-detection covers the usual Windows, macOS and
+Linux install locations; if yours is elsewhere, set `CHROME_PATH`.
 
 ## Commands
 
@@ -33,16 +34,24 @@ Chrome already on the machine rather than downloading one).
 | `npm run build` | Static build into `site/dist` |
 | `npm run preview` | Serves the built output on localhost |
 | `npm run preview:lan` | Same, bound to `0.0.0.0`, for phones and other machines on the network |
+| `npm run check:site` | Verify every link, fragment, hreflang pair and budget in `dist` |
+| `npm run check:paths` | Reject machine-specific paths and hostnames in the repository |
+| `npm run shot -- <url> <output>` | Screenshot a running page with the installed Chrome |
 
 ## Install the pipeline (optional)
 
 Only needed if you want to re-scrape the source site or regenerate images. Everything the site needs is
 already committed except the media derivatives, which are committed too.
 
+From the repository root:
+
 ```bash
-cd /path/to/bodhinature-modern
-python3 -m venv .venv
-./.venv/bin/pip install -r tools/requirements.txt
+# macOS / Linux
+python3 -m venv .venv && source .venv/bin/activate
+# Windows PowerShell
+py -m venv .venv; .\.venv\Scripts\Activate.ps1
+
+pip install -r tools/requirements.txt
 ```
 
 That installs `requests`, `beautifulsoup4`, `lxml` and `pillow`.
@@ -59,6 +68,9 @@ const site = process.env.SITE_URL ?? "https://example.github.io";
 `BASE_PATH` is the sub-path the site is served from. Locally it stays `/bodhinature/` so the dev server matches
 production. Building for a root domain (`https://example.com/`) means `BASE_PATH=/`. There is no `.env` file;
 set them inline or let the GitHub Actions workflow derive them.
+
+`ALLOWED_HOSTS` is optional and defaults to `.local` for Bonjour names. Add more comma-separated names when
+previewing over a LAN, for example `ALLOWED_HOSTS=name.local,other-name.local npm run preview:lan`.
 
 ## Common problems
 

@@ -28,6 +28,7 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
       - run: npm ci
+      - run: npm run check:paths
       - name: Build
         env:
           # Project pages live under /<repo>/ — user/org pages would set this to "/"

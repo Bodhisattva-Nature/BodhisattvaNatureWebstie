@@ -137,13 +137,19 @@ stripped from page content and rebuilt once as site-wide data.
 
 ## Re-running
 
+Run these from the repository root.
+
 ```bash
-cd /Users/pavan/temp/bodhinature-modern
-python3 -m venv .venv && ./.venv/bin/pip install beautifulsoup4 lxml requests pillow
-./.venv/bin/python tools/harvest.py          # REST endpoints → api/
-./.venv/bin/python tools/extract.py          # Divi HTML → content/
-./.venv/bin/python tools/download_media.py   # uploads → media/
-./.venv/bin/python tools/process_images.py   # curated → site/public/media + manifest
+# macOS / Linux
+python3 -m venv .venv && source .venv/bin/activate
+# Windows PowerShell
+py -m venv .venv; .\.venv\Scripts\Activate.ps1
+
+pip install -r tools/requirements.txt
+python tools/harvest.py          # REST endpoints → api/
+python tools/extract.py          # Divi HTML → content/
+python tools/download_media.py   # uploads → media/
+python tools/process_images.py   # curated → site/public/media + manifest
 ```
 
 `harvest.py` paginates with `per_page=100`, reads `X-WP-TotalPages`, and retries on 5xx with a 240-second
