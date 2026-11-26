@@ -85,6 +85,7 @@ const { t, volunteerRoles } = getContent(lang);
   }
 
   .role:nth-child(odd) { border-right: 1px solid var(--line); }
+  .role:last-child:nth-child(odd) { border-right: 0; }
   .role:nth-child(even) { padding-left: clamp(1.5rem, 3vw, 2.6rem); }
   .role:hover { background: var(--cream); }
 

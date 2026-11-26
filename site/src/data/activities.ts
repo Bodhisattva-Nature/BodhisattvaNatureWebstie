@@ -97,16 +97,12 @@ export const activities = {
       slug: "asia",
       name: "亚洲",
       note: "各地共修团体与联络人。",
-      intro: "亚洲多地设有共修团体与联络人；泰国、马来西亚等地曾举办禅修与亲子营。",
+      intro: "泰国、马来西亚与韩国设有共修团体与联络人；泰国与马来西亚曾举办禅修与亲子营。",
       eventSlugs: ["thailand-2024", "malaysia-camp"],
       centers: [
-        { name: "日本" },
-        { name: "新加坡" },
         { name: "泰国" },
         { name: "马来西亚" },
-        { name: "中国台湾" },
         { name: "韩国" },
-        { name: "印度尼西亚" },
       ],
     },
     {

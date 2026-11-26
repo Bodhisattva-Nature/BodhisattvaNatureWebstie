@@ -288,6 +288,18 @@ export const volunteerRoles = [
     body: "我们定期举办线上课程、各地禅修营与活动，需要擅长沟通、喜爱禅修、太极与佛法的义工。",
   },
   {
+    title: "技术",
+    meta: "网站 · 工具 · 支持",
+    image: "learning",
+    body: "协助维护网站、影音库与线上工具——从日常更新，到搭建让义工协作更顺畅的系统。",
+  },
+  {
+    title: "社交媒体",
+    meta: "Instagram · YouTube · 小红书",
+    image: "vol-coordinate",
+    body: "把法语、禅修与活动分享给更多人——撰写文案、剪辑短片，或协助打理一个平台。",
+  },
+  {
     title: "其他",
     meta: "你能给的任何一件事",
     image: "lilac",
