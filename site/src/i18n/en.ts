@@ -301,7 +301,7 @@ export const en = {
     headingLine1: "What's",
     headingLine2: "on.",
     lede:
-      "A walk for peace on Tuesday 1 December in New York, and a weekly online sitting for Europe and the UK. Both are free, and both are open to anyone.",
+      "Retreats and courses for the season are below, alongside past gatherings. Everything is free, and open to anyone.",
     weekly: "Weekly",
     seasonEyebrow: "Coming up",
     seasonAll: "All events →",
@@ -323,7 +323,7 @@ export const en = {
     datesEyebrow: "Dates",
     datesTitle: "Dates are set. Reserve a place.",
     datesBody:
-      "The weekly gatherings above run continuously. Retreats and one-off courses are announced by email; write to us and we will send what is next.",
+      "Retreats and one-off courses are announced by email; write to us and we will send what is next.",
     datesCta: "Ask what's next",
     datesSchedule: "See the daily schedule",
   },
