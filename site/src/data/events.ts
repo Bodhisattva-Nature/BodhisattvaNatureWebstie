@@ -7,12 +7,38 @@ export type Event = {
   place?: string;
   image?: string;
   oneOff?: boolean;
+  fit?: "cover" | "poster";
   notes?: string[];
   themes?: string[];
   cta: string;
 };
 
-export const events: Event[] = [];
+export const events: Event[] = [
+  {
+    slug: "safe-and-strong",
+    title: "Safe & Strong",
+    titleCn: "功夫自卫体验课",
+    cadence: "Saturdays",
+    time: "1:30–2:30 PM",
+    place: "Lenox Hill Neighborhood House, Gym · 331 East 70th Street, NYC",
+    image: "event-safe-strong",
+    fit: "poster",
+    notes: ["Free introductory class", "Gentle movement and practical self-defence", "Volunteers welcome"],
+    cta: "Ask about the class",
+  },
+  {
+    slug: "mindful-staff",
+    title: "Mindful Staff",
+    titleCn: "觉知",
+    cadence: "Free introductory class",
+    place: "Washington Square Park, New York",
+    image: "event-mindful-staff",
+    oneOff: true,
+    fit: "poster",
+    notes: ["The four foundations of mindfulness", "Movement, stillness and balance", "Focus and peace in daily life"],
+    cta: "Ask about the class",
+  },
+];
 
 export const eventPosters = [
   { image: "event-mindfulness", caption: "Mindfulness retreats" },

@@ -26,7 +26,7 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
       <div class="events">
         {events.map((e, i) => (
           <article class="event" id={e.slug} data-reveal style={`--i:${i}`}>
-            <figure class="event__poster media">
+            <figure class:list={["event__poster", "media", e.fit === "poster" && "event__poster--poster"]}>
               {e.image
                 ? <Img name={e.image} alt={e.title} sizes="(max-width: 900px) 100vw, 46vw" loading={i === 0 ? "eager" : "lazy"} />
                 : <span class="event__blank" aria-hidden="true"><Lotus /></span>}
@@ -184,6 +184,8 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   .event:nth-child(even) .event__poster { order: 2; }
 
   .event__poster { margin: 0; aspect-ratio: 20/13; background: var(--cream); display: grid; place-items: center; }
+  .event__poster.event__poster--poster { aspect-ratio: 3 / 4; }
+  .event__poster.event__poster--poster :global(img) { object-fit: contain; }
 
   .event__blank {
     display: grid;

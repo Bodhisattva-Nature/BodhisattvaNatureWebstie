@@ -418,7 +418,32 @@ export const books = [
   { image: "book-nl", lang: "Nederlands", title: "De Essentie van Geluk en Ware Vrijheid", file: "de-essentie-van-geluk-en-ware-vrijheid-nl.pdf", size: "4.5 MB" },
 ];
 
-export const events = [];
+export const events = [
+  {
+    slug: "safe-and-strong",
+    title: "功夫自卫体验课",
+    titleCn: "Safe & Strong",
+    cadence: "每周六",
+    time: "下午 1:30–2:30",
+    place: "Lenox Hill Neighborhood House 健身房 · 纽约东 70 街 331 号",
+    image: "event-safe-strong",
+    fit: "poster",
+    notes: ["免费体验课", "温和动作与实用自卫技巧", "欢迎义工参与"],
+    cta: "询问课程",
+  },
+  {
+    slug: "mindful-staff",
+    title: "觉知",
+    titleCn: "Mindful Staff",
+    cadence: "免费体验课",
+    place: "纽约华盛顿广场公园",
+    image: "event-mindful-staff",
+    oneOff: true,
+    fit: "poster",
+    notes: ["四念处", "身心合一，动静相融", "在日常中培养专注与平静"],
+    cta: "询问课程",
+  },
+];
 
 export const eventPosters = [
   { image: "event-mindfulness", caption: "正念禅修" },

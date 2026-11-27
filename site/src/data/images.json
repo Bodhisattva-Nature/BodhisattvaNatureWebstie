@@ -1377,5 +1377,39 @@
     "file": "event-3day-shamatha-720.webp"
    }
   ]
+ },
+ "event-safe-strong": {
+  "w": 1086,
+  "h": 1448,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 480,
+    "file": "event-safe-strong-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 960,
+    "file": "event-safe-strong-720.webp"
+   }
+  ]
+ },
+ "event-mindful-staff": {
+  "w": 1024,
+  "h": 1536,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 540,
+    "file": "event-mindful-staff-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 1080,
+    "file": "event-mindful-staff-720.webp"
+   }
+  ]
  }
 }
