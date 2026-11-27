@@ -7,7 +7,7 @@ export type Event = {
   place?: string;
   image?: string;
   oneOff?: boolean;
-  fit?: "cover" | "poster";
+  fit?: "cover" | "poster" | "tall";
   notes?: string[];
   themes?: string[];
   cta: string;
@@ -48,6 +48,18 @@ export const events: Event[] = [
     oneOff: true,
     notes: ["A talk and guided meditation with students", "Relaxation and mindful awareness"],
     cta: "Ask about the talk",
+  },
+  {
+    slug: "tai-chi-apex",
+    title: "Tai Chi in Apex, NC",
+    titleCn: "北卡阿佩克斯太极",
+    cadence: "Ongoing",
+    place: "Apex, North Carolina",
+    image: "event-tai-chi-apex",
+    oneOff: true,
+    fit: "tall",
+    notes: ["Mindfulness with Tai Chi", "Indoor and outdoor practice", "All are welcome"],
+    cta: "Ask about the class",
   },
 ];
 

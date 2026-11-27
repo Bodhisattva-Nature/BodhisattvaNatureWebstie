@@ -1387,11 +1387,6 @@
     "w": 360,
     "h": 480,
     "file": "event-safe-strong-360.webp"
-   },
-   {
-    "w": 720,
-    "h": 960,
-    "file": "event-safe-strong-720.webp"
    }
   ]
  },
@@ -1416,6 +1411,18 @@
     "w": 480,
     "h": 360,
     "file": "event-stjohns-lecture-480.webp"
+   }
+  ]
+ },
+ "event-tai-chi-apex": {
+  "w": 1279,
+  "h": 2775,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 781,
+    "file": "event-tai-chi-apex-360.webp"
    }
   ]
  }

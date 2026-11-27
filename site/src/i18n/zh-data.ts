@@ -454,6 +454,18 @@ export const events = [
     notes: ["与学生分享禅修与放松", "现场引导静坐"],
     cta: "询问讲座",
   },
+  {
+    slug: "tai-chi-apex",
+    title: "北卡阿佩克斯太极",
+    titleCn: "Tai Chi in Apex, NC",
+    cadence: "持续进行",
+    place: "美国 北卡罗来纳州阿佩克斯",
+    image: "event-tai-chi-apex",
+    oneOff: true,
+    fit: "tall",
+    notes: ["正念太极", "室内与户外练习", "欢迎参加"],
+    cta: "询问课程",
+  },
 ];
 
 export const eventPosters = [
