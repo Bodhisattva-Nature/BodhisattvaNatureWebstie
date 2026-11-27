@@ -197,7 +197,7 @@ export const zh = {
     retreatsBody:
       "一段沉浸式的修行时光——引导禅修、静默、动中禅与佛法研读，在安静的自然环境中进行。",
     retreatsNote: "全年常态化举办。如需了解下一期时间，欢迎发邮件联系我们。",
-    taiChiKicker: "动",
+    taiChiKicker: "动禅练习",
     taiChiTitle: "列治文太极班",
     taiChiBody:
       "每周五上午与下午各一堂免费太极课。缓慢柔和的动作，强健筋骨、增进平衡，也让心安定下来。",
