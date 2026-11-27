@@ -90,6 +90,17 @@ export const seasonEvents: Listing[] = [
 
 export const pastEvents: Listing[] = [
   {
+    slug: "dawn-1-november",
+    title: "The Dawn I",
+    titleCn: "憬醒 I",
+    kicker: "Retreat · 憬醒 I",
+    date: "27–30 November 2026",
+    place: "Vancouver, Canada",
+    body: "Delve into the dance of self and world. Touch the soul, reshape life.",
+    image: "event-dawn-nov",
+    fit: "poster",
+  },
+  {
     slug: "journey-calgary",
     title: "Journey to Mindfulness",
     titleCn: "正念之旅 · 卡尔加里",

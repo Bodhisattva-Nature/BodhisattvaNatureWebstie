@@ -555,6 +555,17 @@ export const seasonEvents = [
 
 export const pastEvents = [
   {
+    slug: "dawn-1-november",
+    title: "憬醒 I",
+    titleCn: "The Dawn I",
+    kicker: "禅修营 · 憬醒 I",
+    date: "2026年11月27–30日",
+    place: "加拿大 温哥华",
+    body: "深入探索自我与世界的关系——直击心灵，重塑生命。",
+    image: "event-dawn-nov",
+    fit: "poster",
+  },
+  {
     slug: "journey-calgary",
     title: "正念之旅",
     titleCn: "卡尔加里",

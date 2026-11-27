@@ -114,7 +114,7 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
       <div class="past">
         {pastEvents.map((s, i) => (
           <article class="pcard" id={s.slug} data-reveal style={`--i:${i}`}>
-            <div class="pcard__media media">
+            <div class:list={["pcard__media", "media", s.fit === "poster" && "media--poster"]}>
               <Img name={s.image} alt={`${s.title}, ${s.place}`} sizes="(max-width: 700px) 40vw, 220px" />
             </div>
             <div>
@@ -309,6 +309,8 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   }
   /* past posters are artwork with text; show all of it rather than cropping */
   .pcard__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
+  .pcard__media.media--poster { aspect-ratio: 2 / 3; }
+  .pcard__media.media--poster :global(img) { object-fit: cover; }
   .pcard h3 { font-size: 1.15rem; font-weight: 400; margin: 0.15rem 0 0.25rem; }
   .pcard .scard__text { max-width: 60ch; }
 
@@ -367,6 +369,8 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   }
   /* past posters are artwork with text; show all of it rather than cropping */
   .pcard__media :global(img) { width: 100%; height: 100%; object-fit: contain; }
+  .pcard__media.media--poster { aspect-ratio: 2 / 3; }
+  .pcard__media.media--poster :global(img) { object-fit: cover; }
   .pcard h3 { font-size: 1.15rem; font-weight: 400; margin: 0.15rem 0 0.25rem; }
   .pcard .scard__text { max-width: 60ch; }
 

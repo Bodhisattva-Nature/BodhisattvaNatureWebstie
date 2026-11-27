@@ -1430,5 +1430,22 @@
     "file": "activity-gallery-leaf-1600.webp"
    }
   ]
+ },
+ "event-dawn-nov": {
+  "w": 720,
+  "h": 1080,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 540,
+    "file": "event-dawn-nov-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 1080,
+    "file": "event-dawn-nov-720.webp"
+   }
+  ]
  }
 }
