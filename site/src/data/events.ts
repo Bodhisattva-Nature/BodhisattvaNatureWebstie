@@ -52,7 +52,7 @@ export const seasonEvents: Listing[] = [
     kicker: "Retreat · Three days · Buffalo",
     date: "8–11 December 2026",
     place: "Buffalo Manjushri Peaceful Mind Hall, Buffalo, New York",
-    body: "Three days of immersive shamatha and vipashyana practice with experienced practitioners: noble silence, no devices, the eight precepts, and meals and lodging provided. An advanced course for those with some meditation experience. Check-in 8 December at 18:30.",
+    body: "Three days of silent shamatha and vipashyana practice with experienced practitioners. Free, with meals and lodging provided. For those with some meditation experience; check-in 8 December at 18:30.",
     image: "event-3day-shamatha",
     fit: "poster",
   },
