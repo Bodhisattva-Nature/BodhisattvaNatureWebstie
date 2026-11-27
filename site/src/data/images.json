@@ -1345,18 +1345,18 @@
   ]
  },
  "event-28-day": {
-  "w": 1280,
-  "h": 1706,
+  "w": 1414,
+  "h": 2000,
   "alpha": false,
   "variants": [
    {
     "w": 360,
-    "h": 480,
+    "h": 509,
     "file": "event-28-day-360.webp"
    },
    {
     "w": 720,
-    "h": 960,
+    "h": 1018,
     "file": "event-28-day-720.webp"
    }
   ]
