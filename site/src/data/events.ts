@@ -30,7 +30,7 @@ export type Listing = {
   body: string;
   image: string;
   /** landscape posters need "contain" so their text is not cropped */
-  fit?: "cover" | "contain";
+  fit?: "cover" | "contain" | "poster";
 };
 
 export const seasonEvents: Listing[] = [
@@ -39,10 +39,11 @@ export const seasonEvents: Listing[] = [
     title: "The Dawn I",
     titleCn: "憬醒 I",
     kicker: "Retreat · 憬醒 I",
-    date: "27–30 November 2026",
-    place: "Vancouver, Canada",
+    date: "4–7 December 2026",
+    place: "Buffalo, New York",
     body: "Delve into the dance of self and world. Touch the soul, reshape life.",
     image: "event-dawn",
+    fit: "poster",
   },
   {
     slug: "journey-11",

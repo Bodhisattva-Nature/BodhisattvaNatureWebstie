@@ -1045,18 +1045,18 @@
   ]
  },
  "event-dawn": {
-  "w": 1707,
-  "h": 2560,
+  "w": 1280,
+  "h": 1657,
   "alpha": false,
   "variants": [
    {
     "w": 360,
-    "h": 540,
+    "h": 466,
     "file": "event-dawn-360.webp"
    },
    {
     "w": 720,
-    "h": 1080,
+    "h": 932,
     "file": "event-dawn-720.webp"
    }
   ]

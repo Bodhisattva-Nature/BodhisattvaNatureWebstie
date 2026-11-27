@@ -85,7 +85,7 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
       <div class="season">
         {seasonEvents.map((s, i) => (
           <article class="scard" id={s.slug} data-reveal style={`--i:${i % 2}`}>
-            <div class:list={["scard__media", "media", s.fit === "contain" && "media--contain"]}>
+            <div class:list={["scard__media", "media", s.fit === "contain" && "media--contain", s.fit === "poster" && "media--poster"]}>
               <Img name={s.image} alt={`${s.title} poster`} sizes="(max-width: 700px) 100vw, (max-width: 1100px) 46vw, 23vw" />
             </div>
             <div class="scard__body">
@@ -313,6 +313,8 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   .pcard .scard__text { max-width: 60ch; }
 
   .scard__media.media--contain { aspect-ratio: 16 / 10; }
+  .scard__media.media--poster { aspect-ratio: 2 / 3; }
+  .scard__media.media--poster :global(img) { object-fit: contain; }
 
   @media (max-width: 1100px) { .season { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 700px) {
@@ -369,6 +371,8 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
   .pcard .scard__text { max-width: 60ch; }
 
   .scard__media.media--contain { aspect-ratio: 16 / 10; }
+  .scard__media.media--poster { aspect-ratio: 2 / 3; }
+  .scard__media.media--poster :global(img) { object-fit: contain; }
 
   @media (max-width: 1100px) { .season { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 700px) {

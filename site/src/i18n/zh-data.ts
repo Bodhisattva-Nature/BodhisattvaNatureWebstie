@@ -504,10 +504,11 @@ export const seasonEvents = [
     title: "憬醒 I",
     titleCn: "The Dawn I",
     kicker: "禅修营 · 憬醒 I",
-    date: "2026年11月27–30日",
-    place: "加拿大 温哥华",
+    date: "2026年12月4–7日",
+    place: "美国 纽约州水牛城",
     body: "深入探索自我与世界的关系——直击心灵，重塑生命。",
     image: "event-dawn",
+    fit: "poster",
   },
   {
     slug: "journey-11",
