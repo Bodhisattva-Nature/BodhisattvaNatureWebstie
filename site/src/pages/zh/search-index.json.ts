@@ -14,8 +14,6 @@ export const GET: APIRoute = () => {
     { t: "智慧法语", d: t.wisdom.lede, u: "/wisdom/", k: "页面" },
     { t: "共修", d: t.community.lede, u: "/community/", k: "页面" },
     { t: "近期活动", d: t.events.lede, u: "/events/", k: "页面" },
-    { t: "和平步行", d: "12月1日（周二），纽约市。以行走为修行，免费开放。", u: "/events/#walk-for-peace", k: "活动" },
-    { t: "空中禅堂 · 欧洲站", d: "每周六、周日，中欧时间 07:00。", u: "/events/#online-meditation-centre", k: "活动" },
     { t: "中文活动", d: "线下共修、禅修课程与每日线上共修。", u: "/activities/", k: "活动" },
     ...activities.regions.map((region) => ({
       t: `${region.name}活动`,

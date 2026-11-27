@@ -292,7 +292,7 @@ export const zh = {
     headingLine1: "近期",
     headingLine2: "活动",
     lede:
-      "十二月一日（周二）在纽约的和平步行，以及每周为欧洲与英国举办的线上共修。两者皆免费，皆欢迎任何人。",
+      "以下是本季度的禅修营与课程，以及往期活动。一切皆免费，欢迎任何人。",
     weekly: "每周",
     seasonEyebrow: "即将举行",
     seasonAll: "全部活动 →",
@@ -314,7 +314,7 @@ export const zh = {
     datesEyebrow: "日期",
     datesTitle: "日期已定，来信即可报名。",
     datesBody:
-      "上述每周共修持续进行。禅修营与单次课程以电子邮件公告——来信，我们会把下一期的消息寄给你。",
+      "禅修营与单次课程以电子邮件公告——来信，我们会把下一期的消息寄给你。",
     datesCta: "询问下一期",
     datesSchedule: "查看每日作息",
   },

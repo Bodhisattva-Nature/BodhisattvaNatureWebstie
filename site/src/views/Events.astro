@@ -20,6 +20,7 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
     </div>
   </header>
 
+  {events.length > 0 && (
   <section class="section" style="padding-top:0">
     <div class="wrap">
       <div class="events">
@@ -68,6 +69,7 @@ const { t, events, eventPosters, seasonEvents, pastEvents } = getContent(lang);
       </div>
     </div>
   </section>
+  )}
 
   <!-- RETREATS AND COURSES -->
   <section class="section section--cream">
