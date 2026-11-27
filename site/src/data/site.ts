@@ -1,6 +1,6 @@
 export const site = {
-  name: "Bodhisattva Nature Foundation",
-  shortName: "Bodhisattva Nature",
+  name: "Light of Oneness",
+  shortName: "Light of Oneness",
   tagline: "Peace. Freedom. Truth.",
   description:
     "A registered non-profit sharing the Buddha's teachings on wisdom, compassion and the nature of mind — through daily classes, retreats, hospice care education and volunteer service.",
@@ -77,7 +77,7 @@ export const teachers = [
     role: "Founder",
     image: "teacher-zhenjue",
     paras: [
-      "Bodhisattva Nature Foundation is a registered charity initiated by a group of compassionate individuals.",
+      "Light of Oneness is a registered charity initiated by a group of compassionate individuals.",
       "Venerable Zhenjue learnt from Venerable Master Renze. The teaching integrates the practice of Tibetan Buddhism and Chinese Buddhism on the Stages of the Path to Enlightenment.",
       "After years of practice, Venerable Zhenjue saw that disasters, disease, a chaotic world and every kind of suffering arise from wrong concepts and from not knowing the truth. That compassion is what drives the passing on of wisdom to more people.",
     ],

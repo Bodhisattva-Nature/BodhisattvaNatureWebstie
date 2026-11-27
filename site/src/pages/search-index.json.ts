@@ -9,7 +9,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const pages: Doc[] = [
   { t: "Home", d: "Peace. Freedom. Truth.", u: "/", k: "page" },
-  { t: "About", d: "What is Bodhisattva Nature? Our mission, path and teachers.", u: "/about/", k: "page" },
+  { t: "About", d: "What is Light of Oneness? Our mission, path and teachers.", u: "/about/", k: "page" },
   { t: "Programs", d: "Five ways in — study, mindfulness, movement, care and inquiry.", u: "/programs/", k: "page" },
   { t: "Wisdom Words", d: "Fourteen short teachings on practice and the nature of mind.", u: "/wisdom/", k: "page" },
   { t: "Community", d: "Daily schedule, retreats, Tai Chi in Richmond, hospice care.", u: "/community/", k: "page" },

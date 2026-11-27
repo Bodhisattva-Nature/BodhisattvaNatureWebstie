@@ -1,4 +1,4 @@
-# Bodhisattva Nature Foundation, rebuilt
+# Light of Oneness, rebuilt
 
 A static, GitHub Pages–ready rebuild of [bodhinature.com](https://bodhinature.com), in English and Simplified
 Chinese. Same foundation, same teachings, same imagery; a new interface.
