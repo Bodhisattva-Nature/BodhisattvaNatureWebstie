@@ -208,7 +208,7 @@ export const zh = {
       "安宁疗护能减轻痛苦、支持家属、尊重意愿并守护尊严；佛教对临终一念，更有深切的教法。",
     hospiceCta: "了解更多",
     voicesEyebrow: "学员心得",
-    voicesTitle: "他们的转变。",
+    voicesTitle: "他们的转变",
     voicesLink: "我们的法师",
     pastEyebrow: "往期活动",
     pastTitle: "看看往期的样子",
