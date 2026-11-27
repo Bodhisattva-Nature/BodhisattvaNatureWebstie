@@ -57,7 +57,7 @@ export const activities = {
     {
       image: "event-dawn",
       alt: "憬醒 I 禅修营海报",
-      caption: "憬醒 I · 温哥华",
+      caption: "憬醒 I · 水牛城",
     },
   ] as ActivityPoster[],
 
@@ -74,7 +74,7 @@ export const activities = {
       note: "定期课程、周末禅修与共修相聚。",
       intro:
         "温哥华（兰里）、卡尔加里与多伦多设有分会与共修团体；温哥华地区道场每日共修，卡尔加里定期举办禅修营。具体安排请来信询问。",
-      eventSlugs: ["dawn-1", "awakening-2", "wisdom-practicing", "bodhi-class", "journey-calgary", "journey-calgary-10"],
+      eventSlugs: ["dawn-1-november", "awakening-2", "wisdom-practicing", "bodhi-class", "journey-calgary", "journey-calgary-10"],
       centers: [{ name: "温哥华（兰里）" }, { name: "卡尔加里" }, { name: "多伦多" }],
     },
     {
@@ -82,7 +82,7 @@ export const activities = {
       name: "美国",
       note: "当地共修、步行与法师来访活动。",
       intro: "美国东西两岸的禅修营、系统课程与城市步行。纽约、洛杉矶与西雅图各有当地共修团体。",
-      eventSlugs: ["journey-11", "wisdom-practicing", "bodhi-class"],
+      eventSlugs: ["dawn-1", "journey-11", "wisdom-practicing", "bodhi-class"],
       centers: [{ name: "纽约" }, { name: "洛杉矶" }, { name: "西雅图" }],
     },
     {
