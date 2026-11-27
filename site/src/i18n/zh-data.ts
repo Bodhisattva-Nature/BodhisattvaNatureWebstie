@@ -531,6 +531,17 @@ export const seasonEvents = [
     image: "event-awakening",
   },
   {
+    slug: "28-day-intensive",
+    title: "28天精进班",
+    titleCn: "28-Day Intensive",
+    kicker: "课程 · 28天 · 水牛城",
+    date: "2027年1月8日–2月5日",
+    place: "美国 纽约州水牛城",
+    body: "岁末送自己一份特别的礼物：1月8日18:30见面会，1月8日至2月5日，用28天找回内心的宁静与力量。",
+    image: "event-28-day",
+    fit: "poster",
+  },
+  {
     slug: "wisdom-practicing",
     title: "智慧修习",
     titleCn: "Wisdom Practicing",

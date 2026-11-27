@@ -1447,5 +1447,22 @@
     "file": "event-dawn-nov-720.webp"
    }
   ]
+ },
+ "event-28-day": {
+  "w": 1280,
+  "h": 1706,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 480,
+    "file": "event-28-day-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 960,
+    "file": "event-28-day-720.webp"
+   }
+  ]
  }
 }

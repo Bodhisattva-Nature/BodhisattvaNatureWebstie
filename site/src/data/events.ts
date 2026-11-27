@@ -66,6 +66,17 @@ export const seasonEvents: Listing[] = [
     image: "event-awakening",
   },
   {
+    slug: "28-day-intensive",
+    title: "28-Day Intensive",
+    titleCn: "28天精进班",
+    kicker: "Course · 28 days · Buffalo",
+    date: "8 January – 5 February 2027",
+    place: "Buffalo, New York",
+    body: "A 28-day practice intensive to close the year: an opening meeting on 8 January at 18:30, then practice together through 5 February.",
+    image: "event-28-day",
+    fit: "poster",
+  },
+  {
     slug: "wisdom-practicing",
     title: "Wisdom Practicing",
     titleCn: "智慧修习",
