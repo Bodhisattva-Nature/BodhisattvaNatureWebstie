@@ -543,8 +543,8 @@ export const seasonEvents = [
   {
     slug: "bodhi-class",
     title: "菩提班",
-    titleCn: "第十五期",
-    kicker: "课程 · 第十五期 · 学费全免",
+    titleCn: "第十六期",
+    kicker: "课程 · 第十六期 · 学费全免",
     date: "常年开课",
     place: "线上 Zoom · 温哥华、多伦多、卡尔加里、洛杉矶、纽约、西雅图、北卡",
     body: "时间自由、系统学习、专业辅导、共修交流、线下实践。",

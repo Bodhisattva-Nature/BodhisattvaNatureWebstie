@@ -78,8 +78,8 @@ export const seasonEvents: Listing[] = [
   {
     slug: "bodhi-class",
     title: "Bodhi Class",
-    titleCn: "菩提班 · 第十五期",
-    kicker: "Course · 15th cohort · tuition-free",
+    titleCn: "菩提班 · 第十六期",
+    kicker: "Course · 16th cohort · tuition-free",
     date: "Ongoing",
     place: "Zoom · Vancouver, Toronto, Calgary, Los Angeles, New York, Seattle, North Carolina",
     body: "Systematic study, flexible timing, personal guidance, group practice and practice in daily life.",
