@@ -9,7 +9,7 @@ export const en = {
   otherHref: "/zh/",
 
   site: {
-    name: "Bodhisattva Nature Foundation",
+    name: "Light of Oneness",
     tagline: "Peace. Freedom. Truth.",
     description:
       "A registered charity sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
@@ -53,7 +53,7 @@ export const en = {
   },
 
   home: {
-    title: "Bodhisattva Nature Foundation — Peace. Freedom. Truth.",
+    title: "Light of Oneness — Peace. Freedom. Truth.",
     heroLines: ["Peace.", "Freedom.", "Truth."],
     heroLede:
       "A registered charity sharing the Buddha's teaching on wisdom, compassion and the nature of mind — through daily classes, retreats and service, offered freely.",
@@ -62,7 +62,7 @@ export const en = {
     introEyebrow: "Who we are",
     introTitle: "An old path, walked together.",
     introBody:
-      "Bodhisattva Nature Foundation is a registered charity initiated by a group of compassionate individuals. Venerable Zhenjue learnt from Venerable Master Renze, and the teaching integrates the practice of Tibetan Buddhism and Chinese Buddhism on the Stages of the Path to Enlightenment.",
+      "Light of Oneness is a registered charity initiated by a group of compassionate individuals. Venerable Zhenjue learnt from Venerable Master Renze, and the teaching integrates the practice of Tibetan Buddhism and Chinese Buddhism on the Stages of the Path to Enlightenment.",
     introBody2:
       "Venerable Zhenjue saw that disasters, disease, a chaotic world and every kind of suffering arise from wrong concepts and from not knowing the truth. That compassion is what drives the passing on of wisdom.",
     introLink: "Our story",
@@ -95,20 +95,20 @@ export const en = {
 
   about: {
     headingA: "What is",
-    headingB: "Bodhisattva Nature?",
+    headingB: "Light of Oneness?",
     title: "About",
     eyebrow: "About us",
-    heading: "What is Bodhisattva Nature?",
+    heading: "What is Light of Oneness?",
     lede:
       "A registered charity initiated by a group of compassionate individuals, carrying the teaching of the Stages of the Path into daily life.",
     nameEyebrow: "The name",
-    nameTitle: "Five qualities, one nature.",
+    nameTitle: "One light, five qualities.",
     nameBody:
-      "“Bodhisattva” names a being whose whole effort is directed toward awakening for the sake of others. The foundation takes its name from five qualities that are not separate from us:",
+      "“Light of Oneness” points to the clear awareness that is not separate from us. The foundation keeps returning to five qualities:",
     qualities: ["Enlightenment", "Altruism and selflessness", "Immeasurability", "Equality", "Emptiness of person and phenomena"],
     videoEyebrow: "Watch",
-    videoTitle: "What is Bodhisattva Nature?",
-    videoBody: "Fifteen seconds on the five qualities the foundation takes its name from.",
+    videoTitle: "What is Light of Oneness?",
+    videoBody: "Fifteen seconds on the five qualities at the heart of the foundation’s work.",
     missionEyebrow: "Our mission",
     missionTitle: "Three commitments.",
     pathEyebrow: "How to achieve",
@@ -230,7 +230,7 @@ export const en = {
     headingLine1: "When you are",
     headingLine2: "involved.",
     lede:
-      "Bodhisattva Nature Foundation is a registered charity, operated entirely by volunteers. The world is so connected — when you are involved, the world becomes different.",
+      "Light of Oneness is a registered charity, operated entirely by volunteers. The world is so connected — when you are involved, the world becomes different.",
     joinEyebrow: "Join us",
     joinTitle: "You will make a difference.",
     joinBody:
@@ -249,10 +249,10 @@ export const en = {
     headingLine1: "Every gift",
     headingLine2: "becomes an offering.",
     lede:
-      "Bodhisattva Nature Foundation is a registered charity initiated by Venerable Zhenjue. Everything here is offered free of charge.",
+      "Light of Oneness is a registered charity initiated by Venerable Zhenjue. Everything here is offered free of charge.",
     carriesEyebrow: "What your gift carries",
     carriesBody:
-      "Over 100 dharma talks, 324 group classes, 365 daily classes and 54 retreats each year. All of it free. Your contribution pays for the hardware, software, books, videos, internet services and accommodation that make it possible.",
+      "Over 100 dharma talks, 326 group classes, 365 daily classes and 54 retreats each year. All of it free. Your contribution pays for the hardware, software, books, videos, internet services and accommodation that make it possible.",
     carriesBody2:
       "We encourage anyone who wishes to contribute to set up a recurring donation — a steady source of income lets the foundation plan a year rather than a month.",
     waysEyebrow: "Ways to give",
@@ -285,7 +285,7 @@ export const en = {
     connectionsTitle: "Groups further out.",
     connectionsBody:
       "Local meditation groups and retreat activities in these places are independently organised — they are not operated, funded or controlled by the foundation.",
-    connectionsNote: "These locations do not represent branches or operating sites of Bodhisattva Nature Foundation.",
+    connectionsNote: "These locations do not represent branches or operating sites of Light of Oneness.",
     sayEyebrow: "Say hello",
     sayTitle: "Ask about a class, a retreat, or nothing in particular.",
     sayBody: "We answer questions about practice, hospice care, volunteering and visiting. No question is too basic.",

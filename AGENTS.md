@@ -57,7 +57,7 @@ Every sentence is the foundation's, not yours.
 
 - Never invent teachings, dates, phone numbers, addresses, links, QR codes, registration details or prices.
 - Chinese is written, not machine-translated: 安乐 · 自在 · 真谛, 汉传 convention, consistent with the
-  foundation's established name 菩萨本性基金会.
+  foundation's established name 大同之光.
 - Keep the editions in parity: a new route, link or section exists in both languages, or in neither.
 
 ## Chinese and Buddhist review gate
@@ -80,4 +80,4 @@ minor copy edits.
 Tokens stay in the OS keychain or CI secrets. Never commit a `.env`, paste a token into a file, or put one in
 a URL.
 
-_Last verified 2026-11-26 against `f65d5cd`._
+_Last verified 2026-11-27 against `d52a0e3`._

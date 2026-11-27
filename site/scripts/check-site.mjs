@@ -88,8 +88,9 @@ for (const file of html) {
 
 // Size budgets. Downloadable books are opt-in files, not page weight,
 // so they are measured separately rather than counted against the budget.
-const isDownload = (f) => f.includes("/downloads/") || f.includes("/video/");
-const isMedia = (f) => f.includes("/media/");
+const portable = (f) => f.replaceAll("\\", "/");
+const isDownload = (f) => portable(f).includes("/downloads/") || portable(f).includes("/video/");
+const isMedia = (f) => portable(f).includes("/media/");
 const pageFiles = files.filter((f) => !isDownload(f));
 const sumBytes = (list) => list.reduce((n, f) => n + statSync(f).size, 0);
 const downloadBytes = sumBytes(files.filter(isDownload));
