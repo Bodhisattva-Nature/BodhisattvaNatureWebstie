@@ -8,7 +8,7 @@ The reviewer checks the full diff against the base commit, not only the rendered
 
 - Simplified Chinese grammar, punctuation, line breaks and mainland Chinese conventions.
 - Buddhist terminology, names and honorifics; 汉传/藏传 usage must match the site’s existing glossary.
-- Consistency with the foundation’s established Chinese name, 菩萨本性基金会, and its terminology.
+- Consistency with the foundation’s established Chinese name, 大同之光, and its terminology.
 - English/Chinese parity where both editions exist; no invented teachings, dates, links, QR codes or registration details.
 - Header, navigation, footer and page copy in context, including mobile widths.
 - Every new or changed route, link, fragment and language alternate.
