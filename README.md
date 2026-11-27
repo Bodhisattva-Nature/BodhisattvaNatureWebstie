@@ -118,16 +118,17 @@ palette and quote rotator. 31.9 MB in `dist`, mostly images, and 412 KB of fonts
 
 ## Deploy
 
-`.github/workflows/deploy.yml` builds and publishes on every push to `main`, deriving both paths from the
-repository:
+`.github/workflows/deploy.yml` builds and publishes on every push to `main` for the custom domain:
 
-| Variable | Purpose | Default |
+| Variable | Purpose | Deploy value |
 | --- | --- | --- |
-| `BASE_PATH` | Sub-path the site is served from | `/bodhinature/` |
-| `SITE_URL` | Origin for canonical URLs and the sitemap | `https://example.github.io` |
+| `BASE_PATH` | Sub-path the site is served from | `/` |
+| `SITE_URL` | Origin for canonical URLs and the sitemap | `https://onenesslight.org` |
 
-Enable it once in **Settings → Pages → Build and deployment → Source: GitHub Actions**. Full detail, including
-publishing by hand and using a user site instead of a project site, is in [`docs/BUILD.md`](docs/BUILD.md).
+The custom domain itself is recorded in `site/public/CNAME`, so every deployment keeps it attached. Enable
+Pages once in **Settings → Pages → Build and deployment → Source: GitHub Actions**, set the custom domain to
+`onenesslight.org`, and enable HTTPS after GitHub issues the certificate. Full detail is in
+[`docs/BUILD.md`](docs/BUILD.md).
 
 ## Provenance and limits
 
