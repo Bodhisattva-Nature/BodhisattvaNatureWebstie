@@ -196,7 +196,7 @@ export const zh = {
     retreatsTitle: "周末禅修",
     retreatsBody:
       "一段沉浸式的修行时光——引导禅修、静默、动中禅与佛法研读，在安静的自然环境中进行。",
-    retreatsNote: "每年定期举办。下一期日期，请来信询问。",
+    retreatsNote: "全年常态化举办。如需了解下一期时间，欢迎发邮件联系我们。",
     taiChiKicker: "动",
     taiChiTitle: "列治文太极班",
     taiChiBody:
