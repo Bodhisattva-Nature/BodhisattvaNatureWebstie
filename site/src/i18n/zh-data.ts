@@ -504,10 +504,22 @@ export const seasonEvents = [
     title: "憬醒 I",
     titleCn: "The Dawn I",
     kicker: "禅修营 · 憬醒 I",
-    date: "2026年11月27–30日",
-    place: "加拿大 温哥华",
+    date: "2026年12月4–7日",
+    place: "美国 纽约州水牛城",
     body: "深入探索自我与世界的关系——直击心灵，重塑生命。",
     image: "event-dawn",
+    fit: "poster",
+  },
+  {
+    slug: "three-day-shamatha-vipashyana",
+    title: "三日止观禅修",
+    titleCn: "Three-Day Shamatha and Vipashyana Retreat",
+    kicker: "禅修营 · 三日 · 水牛城",
+    date: "2026年12月8–11日",
+    place: "美国 纽约州布法罗 · 文殊心安讲堂",
+    body: "三日止语止观禅修，由经验丰富的修行人带领。公益课程，提供食宿；需具备一定禅修基础。12月8日18:30报到。",
+    image: "event-3day-shamatha",
+    fit: "poster",
   },
   {
     slug: "journey-11",
@@ -530,6 +542,17 @@ export const seasonEvents = [
     image: "event-awakening",
   },
   {
+    slug: "28-day-intensive",
+    title: "28天精进班",
+    titleCn: "28-Day Intensive",
+    kicker: "课程 · 28天 · 水牛城",
+    date: "2027年1月8日–2月5日",
+    place: "美国 纽约州水牛城",
+    body: "岁末送自己一份特别的礼物：1月8日18:30见面会，1月8日至2月5日，用28天找回内心的宁静与力量。",
+    image: "event-28-day",
+    fit: "poster",
+  },
+  {
     slug: "wisdom-practicing",
     title: "智慧修习",
     titleCn: "Wisdom Practicing",
@@ -543,8 +566,8 @@ export const seasonEvents = [
   {
     slug: "bodhi-class",
     title: "菩提班",
-    titleCn: "第十五期",
-    kicker: "课程 · 第十五期 · 学费全免",
+    titleCn: "第十六期",
+    kicker: "课程 · 第十六期 · 学费全免",
     date: "常年开课",
     place: "线上 Zoom · 温哥华、多伦多、卡尔加里、洛杉矶、纽约、西雅图、北卡",
     body: "时间自由、系统学习、专业辅导、共修交流、线下实践。",
@@ -553,6 +576,17 @@ export const seasonEvents = [
 ];
 
 export const pastEvents = [
+  {
+    slug: "dawn-1-november",
+    title: "憬醒 I",
+    titleCn: "The Dawn I",
+    kicker: "禅修营 · 憬醒 I",
+    date: "2026年11月27–30日",
+    place: "加拿大 温哥华",
+    body: "深入探索自我与世界的关系——直击心灵，重塑生命。",
+    image: "event-dawn-nov",
+    fit: "poster",
+  },
   {
     slug: "journey-calgary",
     title: "正念之旅",

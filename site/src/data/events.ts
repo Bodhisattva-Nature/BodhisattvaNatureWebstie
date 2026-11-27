@@ -30,7 +30,7 @@ export type Listing = {
   body: string;
   image: string;
   /** landscape posters need "contain" so their text is not cropped */
-  fit?: "cover" | "contain";
+  fit?: "cover" | "contain" | "poster";
 };
 
 export const seasonEvents: Listing[] = [
@@ -39,10 +39,22 @@ export const seasonEvents: Listing[] = [
     title: "The Dawn I",
     titleCn: "憬醒 I",
     kicker: "Retreat · 憬醒 I",
-    date: "27–30 November 2026",
-    place: "Vancouver, Canada",
+    date: "4–7 December 2026",
+    place: "Buffalo, New York",
     body: "Delve into the dance of self and world. Touch the soul, reshape life.",
     image: "event-dawn",
+    fit: "poster",
+  },
+  {
+    slug: "three-day-shamatha-vipashyana",
+    title: "Three-Day Shamatha and Vipashyana Retreat",
+    titleCn: "三日止观禅修",
+    kicker: "Retreat · Three days · Buffalo",
+    date: "8–11 December 2026",
+    place: "Buffalo Manjushri Peaceful Mind Hall, Buffalo, New York",
+    body: "Three days of silent shamatha and vipashyana practice with experienced practitioners. Free, with meals and lodging provided. For those with some meditation experience; check-in 8 December at 18:30.",
+    image: "event-3day-shamatha",
+    fit: "poster",
   },
   {
     slug: "journey-11",
@@ -65,6 +77,17 @@ export const seasonEvents: Listing[] = [
     image: "event-awakening",
   },
   {
+    slug: "28-day-intensive",
+    title: "28-Day Intensive",
+    titleCn: "28天精进班",
+    kicker: "Course · 28 days · Buffalo",
+    date: "8 January – 5 February 2027",
+    place: "Buffalo, New York",
+    body: "A 28-day practice intensive to close the year: an opening meeting on 8 January at 18:30, then practice together through 5 February.",
+    image: "event-28-day",
+    fit: "poster",
+  },
+  {
     slug: "wisdom-practicing",
     title: "Wisdom Practicing",
     titleCn: "智慧修习",
@@ -78,8 +101,8 @@ export const seasonEvents: Listing[] = [
   {
     slug: "bodhi-class",
     title: "Bodhi Class",
-    titleCn: "菩提班 · 第十五期",
-    kicker: "Course · 15th cohort · tuition-free",
+    titleCn: "菩提班 · 第十六期",
+    kicker: "Course · 16th cohort · tuition-free",
     date: "Ongoing",
     place: "Zoom · Vancouver, Toronto, Calgary, Los Angeles, New York, Seattle, North Carolina",
     body: "Systematic study, flexible timing, personal guidance, group practice and practice in daily life.",
@@ -88,6 +111,17 @@ export const seasonEvents: Listing[] = [
 ];
 
 export const pastEvents: Listing[] = [
+  {
+    slug: "dawn-1-november",
+    title: "The Dawn I",
+    titleCn: "憬醒 I",
+    kicker: "Retreat · 憬醒 I",
+    date: "27–30 November 2026",
+    place: "Vancouver, Canada",
+    body: "Delve into the dance of self and world. Touch the soul, reshape life.",
+    image: "event-dawn-nov",
+    fit: "poster",
+  },
   {
     slug: "journey-calgary",
     title: "Journey to Mindfulness",

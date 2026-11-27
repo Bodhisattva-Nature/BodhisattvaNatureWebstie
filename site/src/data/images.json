@@ -733,28 +733,6 @@
    }
   ]
  },
- "event-walk": {
-  "w": 1727,
-  "h": 1122,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 312,
-    "file": "event-walk-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 585,
-    "file": "event-walk-900.webp"
-   },
-   {
-    "w": 1400,
-    "h": 910,
-    "file": "event-walk-1400.webp"
-   }
-  ]
- },
  "about-bodhisattva": {
   "w": 2400,
   "h": 1028,
@@ -851,18 +829,18 @@
   ]
  },
  "event-dawn": {
-  "w": 1707,
-  "h": 2560,
+  "w": 1280,
+  "h": 1657,
   "alpha": false,
   "variants": [
    {
     "w": 360,
-    "h": 540,
+    "h": 466,
     "file": "event-dawn-360.webp"
    },
    {
     "w": 720,
-    "h": 1080,
+    "h": 932,
     "file": "event-dawn-720.webp"
    }
   ]
@@ -961,28 +939,6 @@
     "w": 720,
     "h": 463,
     "file": "past-malaysia-720.webp"
-   }
-  ]
- },
- "event-online": {
-  "w": 2000,
-  "h": 1300,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 480,
-    "h": 312,
-    "file": "event-online-480.webp"
-   },
-   {
-    "w": 900,
-    "h": 585,
-    "file": "event-online-900.webp"
-   },
-   {
-    "w": 1400,
-    "h": 910,
-    "file": "event-online-1400.webp"
    }
   ]
  },
@@ -1368,6 +1324,57 @@
     "w": 1400,
     "h": 787,
     "file": "activity-arch-night-1400.webp"
+   }
+  ]
+ },
+ "event-dawn-nov": {
+  "w": 720,
+  "h": 1080,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 540,
+    "file": "event-dawn-nov-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 1080,
+    "file": "event-dawn-nov-720.webp"
+   }
+  ]
+ },
+ "event-28-day": {
+  "w": 1280,
+  "h": 1706,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 480,
+    "file": "event-28-day-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 960,
+    "file": "event-28-day-720.webp"
+   }
+  ]
+ },
+ "event-3day-shamatha": {
+  "w": 1679,
+  "h": 2497,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 535,
+    "file": "event-3day-shamatha-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 1071,
+    "file": "event-3day-shamatha-720.webp"
    }
   ]
  }
