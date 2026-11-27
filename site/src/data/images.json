@@ -1404,11 +1404,18 @@
     "w": 360,
     "h": 540,
     "file": "event-mindful-staff-360.webp"
-   },
+   }
+  ]
+ },
+ "event-stjohns-lecture": {
+  "w": 2364,
+  "h": 1773,
+  "alpha": false,
+  "variants": [
    {
-    "w": 720,
-    "h": 1080,
-    "file": "event-mindful-staff-720.webp"
+    "w": 480,
+    "h": 360,
+    "file": "event-stjohns-lecture-480.webp"
    }
   ]
  }

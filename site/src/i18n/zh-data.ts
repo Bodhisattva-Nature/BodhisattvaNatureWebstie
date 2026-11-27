@@ -443,6 +443,17 @@ export const events = [
     notes: ["四念处", "身心合一，动静相融", "在日常中培养专注与平静"],
     cta: "询问课程",
   },
+  {
+    slug: "st-johns-guest-lecture",
+    title: "圣约翰大学客座讲座",
+    titleCn: "Guest Lecture at St. John's University",
+    cadence: "客座讲座",
+    place: "美国 纽约 圣约翰大学",
+    image: "event-stjohns-lecture",
+    oneOff: true,
+    notes: ["与学生分享禅修与放松", "现场引导静坐"],
+    cta: "询问讲座",
+  },
 ];
 
 export const eventPosters = [

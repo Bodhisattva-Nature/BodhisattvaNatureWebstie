@@ -38,6 +38,17 @@ export const events: Event[] = [
     notes: ["The four foundations of mindfulness", "Movement, stillness and balance", "Focus and peace in daily life"],
     cta: "Ask about the class",
   },
+  {
+    slug: "st-johns-guest-lecture",
+    title: "Guest Lecture at St. John's University",
+    titleCn: "圣约翰大学客座讲座",
+    cadence: "Guest lecture",
+    place: "St. John's University, New York",
+    image: "event-stjohns-lecture",
+    oneOff: true,
+    notes: ["A talk and guided meditation with students", "Relaxation and mindful awareness"],
+    cta: "Ask about the talk",
+  },
 ];
 
 export const eventPosters = [
