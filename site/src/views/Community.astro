@@ -66,7 +66,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
             <ul class="pills">
               {retreat.content.map((c) => <li>{c}</li>)}
             </ul>
-            <p class="small muted">{t.community.retreatsNote}</p>
+            <p class="small muted meeting__note">{t.community.retreatsNote}</p>
           </div>
         </article>
 
@@ -176,6 +176,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   .meeting__body { display: grid; gap: 0.9rem; align-content: center; }
   .meeting__body h3 { font-size: var(--step-3); font-weight: 300; }
   .meeting__body p { color: var(--muted); margin: 0; max-width: 46ch; }
+  .meeting__body p.meeting__note { max-width: none; white-space: nowrap; }
+
+  @media (max-width: 420px) {
+    .meeting__body p.meeting__note { font-size: clamp(0.6rem, 3vw, 0.84rem); }
+  }
 
   .pills { list-style: none; padding: 0; margin: 0.8rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .pills li {

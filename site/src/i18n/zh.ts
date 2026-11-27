@@ -196,8 +196,8 @@ export const zh = {
     retreatsTitle: "周末禅修",
     retreatsBody:
       "一段沉浸式的修行时光——引导禅修、静默、动中禅与佛法研读，在安静的自然环境中进行。",
-    retreatsNote: "每年定期举办。下一期日期，请来信询问。",
-    taiChiKicker: "动",
+    retreatsNote: "全年常态化举办。如需了解下一期时间，欢迎发邮件联系我们。",
+    taiChiKicker: "动禅练习",
     taiChiTitle: "列治文太极班",
     taiChiBody:
       "每周五上午与下午各一堂免费太极课。缓慢柔和的动作，强健筋骨、增进平衡，也让心安定下来。",
@@ -208,7 +208,7 @@ export const zh = {
       "安宁疗护能减轻痛苦、支持家属、尊重意愿并守护尊严；佛教对临终一念，更有深切的教法。",
     hospiceCta: "了解更多",
     voicesEyebrow: "学员心得",
-    voicesTitle: "他们的转变。",
+    voicesTitle: "他们的转变",
     voicesLink: "我们的法师",
     pastEyebrow: "往期活动",
     pastTitle: "看看往期的样子",
