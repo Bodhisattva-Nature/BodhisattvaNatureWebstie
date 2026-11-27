@@ -153,8 +153,8 @@ export const activities = {
     },
   ] as ActivityType[],
 
-  galleryEyebrow: "往期活动回顾",
-  galleryTitle: "历次活动",
+  galleryEyebrow: "活动回顾",
+  galleryTitle: "往期活动",
   galleryNote: "共修、供花与道场的片刻。",
   gallery: [
     { image: "activity-autumn-park", alt: "秋日草坪上的集体静坐", caption: "秋园共修" },
@@ -169,15 +169,6 @@ export const activities = {
     { image: "activity-art-therapy", alt: "投影屏前进行绘画疗愈的课堂", caption: "绘画疗愈" },
     { image: "activity-tea-ceremony", alt: "两列围坐、奉茶止语的茶会", caption: "茶禅一味" },
     { image: "activity-arch-night", alt: "夜色中拱门前的行人", caption: "夜行华园" },
-    { image: "activity-gallery-retreat", alt: "周末共修，林间佛像", caption: "周末共修" },
-    { image: "activity-gallery-flowers", alt: "铜盘中的供花与清水", caption: "供花与发愿" },
-    { image: "activity-gallery-manjushri", alt: "林间文殊师利像", caption: "道场一隅" },
-    { image: "activity-gallery-taichi", alt: "水墨山水中的正念太极", caption: "正念太极" },
-    { image: "activity-gallery-spring", alt: "春日花开的共修场景", caption: "春日共修" },
-    { image: "activity-gallery-clouds", alt: "云海之上的云水共修", caption: "云水之间" },
-    { image: "activity-gallery-lake", alt: "群山环抱的静心湖畔", caption: "静心湖畔" },
-    { image: "activity-gallery-lilac", alt: "春日花开的共学场景", caption: "春华共学" },
-    { image: "activity-gallery-leaf", alt: "一枝绿叶，一叶知心", caption: "一叶知心" },
   ] as ActivityPoster[],
 
   videosEyebrow: "往期活动",

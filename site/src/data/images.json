@@ -1083,42 +1083,6 @@
    }
   ]
  },
- "activity-gallery-retreat": {
-  "w": 1600,
-  "h": 700,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 1600,
-    "h": 700,
-    "file": "activity-gallery-retreat-1600.webp"
-   }
-  ]
- },
- "activity-gallery-flowers": {
-  "w": 1600,
-  "h": 700,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 1600,
-    "h": 700,
-    "file": "activity-gallery-flowers-1600.webp"
-   }
-  ]
- },
- "activity-gallery-manjushri": {
-  "w": 1600,
-  "h": 700,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 1600,
-    "h": 700,
-    "file": "activity-gallery-manjushri-1600.webp"
-   }
-  ]
- },
  "activity-schedule-west": {
   "w": 1200,
   "h": 900,
@@ -1143,78 +1107,6 @@
    }
   ]
  },
- "activity-gallery-taichi": {
-  "w": 1600,
-  "h": 700,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 1600,
-    "h": 700,
-    "file": "activity-gallery-taichi-1600.webp"
-   }
-  ]
- },
- "activity-gallery-spring": {
-  "w": 1600,
-  "h": 700,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 1600,
-    "h": 700,
-    "file": "activity-gallery-spring-1600.webp"
-   }
-  ]
- },
- "activity-gallery-clouds": {
-  "w": 1600,
-  "h": 700,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 1600,
-    "h": 700,
-    "file": "activity-gallery-clouds-1600.webp"
-   }
-  ]
- },
- "activity-gallery-lake": {
-  "w": 1600,
-  "h": 700,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 1600,
-    "h": 700,
-    "file": "activity-gallery-lake-1600.webp"
-   }
-  ]
- },
- "activity-gallery-lilac": {
-  "w": 1600,
-  "h": 700,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 1600,
-    "h": 700,
-    "file": "activity-gallery-lilac-1600.webp"
-   }
-  ]
- },
- "activity-gallery-leaf": {
-  "w": 1600,
-  "h": 700,
-  "alpha": false,
-  "variants": [
-   {
-    "w": 1600,
-    "h": 700,
-    "file": "activity-gallery-leaf-1600.webp"
-   }
-  ]
- },
  "activity-autumn-park": {
   "w": 2240,
   "h": 1260,
@@ -1229,6 +1121,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-autumn-park-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 788,
+    "file": "activity-autumn-park-1400.webp"
    }
   ]
  },
@@ -1246,6 +1143,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-park-practice-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 787,
+    "file": "activity-park-practice-1400.webp"
    }
   ]
  },
@@ -1263,6 +1165,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-vegetarian-meal-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 787,
+    "file": "activity-vegetarian-meal-1400.webp"
    }
   ]
  },
@@ -1280,6 +1187,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-singing-bowls-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 788,
+    "file": "activity-singing-bowls-1400.webp"
    }
   ]
  },
@@ -1297,6 +1209,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-autumn-portrait-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 788,
+    "file": "activity-autumn-portrait-1400.webp"
    }
   ]
  },
@@ -1314,6 +1231,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-hall-portrait-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 787,
+    "file": "activity-hall-portrait-1400.webp"
    }
   ]
  },
@@ -1331,6 +1253,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-cushions-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 787,
+    "file": "activity-cushions-1400.webp"
    }
   ]
  },
@@ -1348,6 +1275,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-mandala-table-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 787,
+    "file": "activity-mandala-table-1400.webp"
    }
   ]
  },
@@ -1365,6 +1297,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-quiet-room-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 787,
+    "file": "activity-quiet-room-1400.webp"
    }
   ]
  },
@@ -1382,6 +1319,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-art-therapy-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 787,
+    "file": "activity-art-therapy-1400.webp"
    }
   ]
  },
@@ -1399,6 +1341,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-tea-ceremony-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 787,
+    "file": "activity-tea-ceremony-1400.webp"
    }
   ]
  },
@@ -1416,6 +1363,11 @@
     "w": 960,
     "h": 540,
     "file": "activity-arch-night-960.webp"
+   },
+   {
+    "w": 1400,
+    "h": 787,
+    "file": "activity-arch-night-1400.webp"
    }
   ]
  }
