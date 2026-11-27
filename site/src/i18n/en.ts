@@ -252,7 +252,7 @@ export const en = {
       "Light of Oneness is a registered charity initiated by Venerable Zhenjue. Everything here is offered free of charge.",
     carriesEyebrow: "What your gift carries",
     carriesBody:
-      "Over 100 dharma talks, 324 group classes, 365 daily classes and 54 retreats each year. All of it free. Your contribution pays for the hardware, software, books, videos, internet services and accommodation that make it possible.",
+      "Over 100 dharma talks, 326 group classes, 365 daily classes and 54 retreats each year. All of it free. Your contribution pays for the hardware, software, books, videos, internet services and accommodation that make it possible.",
     carriesBody2:
       "We encourage anyone who wishes to contribute to set up a recurring donation — a steady source of income lets the foundation plan a year rather than a month.",
     waysEyebrow: "Ways to give",
