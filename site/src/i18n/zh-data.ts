@@ -511,6 +511,17 @@ export const seasonEvents = [
     fit: "poster",
   },
   {
+    slug: "three-day-shamatha-vipashyana",
+    title: "三日止观禅修",
+    titleCn: "Three-Day Shamatha and Vipashyana Retreat",
+    kicker: "禅修营 · 三日 · 水牛城",
+    date: "2026年12月8–11日",
+    place: "美国 纽约州布法罗 · 文殊心安讲堂",
+    body: "三天沉浸式止观禅修：全程止语、不使用电子产品，受持八关斋戒，由经验丰富的修行人带领。公益课程，提供食宿；属进阶课程，需具备一定禅修基础。12月8日18:30报到。",
+    image: "event-3day-shamatha",
+    fit: "poster",
+  },
+  {
     slug: "journey-11",
     title: "正念之旅",
     titleCn: "第十一期",

@@ -1464,5 +1464,22 @@
     "file": "event-28-day-720.webp"
    }
   ]
+ },
+ "event-3day-shamatha": {
+  "w": 1679,
+  "h": 2497,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 535,
+    "file": "event-3day-shamatha-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 1071,
+    "file": "event-3day-shamatha-720.webp"
+   }
+  ]
  }
 }
