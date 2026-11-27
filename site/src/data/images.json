@@ -977,19 +977,19 @@
   ]
  },
  "logo": {
-  "w": 360,
-  "h": 92,
+  "w": 720,
+  "h": 184,
   "alpha": true,
   "variants": [
-   {
-    "w": 180,
-    "h": 46,
-    "file": "logo-180.webp"
-   },
    {
     "w": 360,
     "h": 92,
     "file": "logo-360.webp"
+   },
+   {
+    "w": 720,
+    "h": 184,
+    "file": "logo-720.webp"
    }
   ]
  },
