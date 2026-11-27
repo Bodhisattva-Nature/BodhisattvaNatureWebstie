@@ -2,7 +2,7 @@
 
 export const stats = [
   { value: "100+", label: "每年佛法讲座" },
-  { value: "324", label: "每年团体课程" },
+  { value: "326", label: "每年团体课程" },
   { value: "365", label: "每日课程" },
   { value: "54+", label: "每年禅修营" },
 ];

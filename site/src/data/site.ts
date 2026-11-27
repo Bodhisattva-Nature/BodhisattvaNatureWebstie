@@ -24,7 +24,7 @@ export const nav = [
 
 export const stats = [
   { value: "100+", label: "Dharma talks a year" },
-  { value: "324", label: "Group classes a year" },
+  { value: "326", label: "Group classes a year" },
   { value: "365", label: "Daily classes a year" },
   { value: "54+", label: "Retreats a year" },
 ];
