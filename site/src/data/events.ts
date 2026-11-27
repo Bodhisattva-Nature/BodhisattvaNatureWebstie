@@ -61,6 +61,18 @@ export const events: Event[] = [
     notes: ["Mindfulness with Tai Chi", "Indoor and outdoor practice", "All are welcome"],
     cta: "Ask about the class",
   },
+  {
+    slug: "mindful-zen-tea-jersey-city",
+    title: "Mindful Zen Tea in Jersey City",
+    titleCn: "泽西市正念禅茶",
+    cadence: "Ongoing",
+    place: "Jersey City, New Jersey",
+    image: "event-zen-tea-jersey-city",
+    oneOff: true,
+    fit: "poster",
+    notes: ["A mindful tea gathering", "Tea, silence and conversation", "All are welcome"],
+    cta: "Ask about the gathering",
+  },
 ];
 
 export const eventPosters = [

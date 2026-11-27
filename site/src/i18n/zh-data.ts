@@ -466,6 +466,18 @@ export const events = [
     notes: ["正念太极", "室内与户外练习", "欢迎参加"],
     cta: "询问课程",
   },
+  {
+    slug: "mindful-zen-tea-jersey-city",
+    title: "泽西市正念禅茶",
+    titleCn: "Mindful Zen Tea in Jersey City",
+    cadence: "持续进行",
+    place: "美国 新泽西州泽西市",
+    image: "event-zen-tea-jersey-city",
+    oneOff: true,
+    fit: "poster",
+    notes: ["正念茶会", "品茶、静心与交流", "欢迎参加"],
+    cta: "询问茶会",
+  },
 ];
 
 export const eventPosters = [

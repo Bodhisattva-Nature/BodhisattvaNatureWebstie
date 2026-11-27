@@ -1425,5 +1425,17 @@
     "file": "event-tai-chi-apex-360.webp"
    }
   ]
+ },
+ "event-zen-tea-jersey-city": {
+  "w": 1279,
+  "h": 1706,
+  "alpha": false,
+  "variants": [
+   {
+    "w": 360,
+    "h": 480,
+    "file": "event-zen-tea-jersey-city-360.webp"
+   }
+  ]
  }
 }
