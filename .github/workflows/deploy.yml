@@ -31,9 +31,10 @@ jobs:
       - run: npm run check:paths
       - name: Build
         env:
-          # Project pages live under /<repo>/ — user/org pages would set this to "/"
-          BASE_PATH: /${{ github.event.repository.name }}/
-          SITE_URL: https://${{ github.repository_owner }}.github.io
+          # The site is published at the apex of the custom domain, so assets
+          # and pages must be built from "/" rather than the repository path.
+          BASE_PATH: /
+          SITE_URL: https://onenesslight.org
         run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

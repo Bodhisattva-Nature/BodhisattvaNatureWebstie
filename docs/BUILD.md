@@ -74,28 +74,32 @@ The workflow at `.github/workflows/deploy.yml` runs on every push to `main`:
 1. checkout
 2. Node 22 with npm cache
 3. `npm ci` in `site/`
-4. `npm run build` with `BASE_PATH=/${{ github.event.repository.name }}/` and
-   `SITE_URL=https://${{ github.repository_owner }}.github.io`
+4. `npm run build` with `BASE_PATH=/` and `SITE_URL=https://onenesslight.org`
 5. upload `site/dist` as a Pages artefact
 6. deploy
 
+The build includes `site/public/CNAME`, which keeps `onenesslight.org` attached to the Pages site.
+
 Enable it once per repository: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
-Nothing else to configure. A fork or a rename works without edits because both variables are derived from the
-repository at build time.
+Set the Pages custom domain to `onenesslight.org` under **Settings → Pages → Custom domain**. The build uses
+`BASE_PATH=/`, so the site expects to be served from the domain root. After DNS verification, enable
+**Enforce HTTPS**; the repository already includes the apex A/AAAA records and the `www` CNAME.
 
 ### Publishing by hand
 
 ```bash
 cd site
-BASE_PATH=/bodhinature/ SITE_URL=https://user.github.io npm run build
+BASE_PATH=/ SITE_URL=https://onenesslight.org npm run build
 npx gh-pages -d dist
 ```
 
 ### Custom domain
 
-Build with `BASE_PATH=/` and `SITE_URL=https://your.domain`, then add the domain under **Settings → Pages →
-Custom domain**. With a root base, the site expects to be served from `/`, so a project page will break.
+This repository is configured for `onenesslight.org`. Build with `BASE_PATH=/` and
+`SITE_URL=https://onenesslight.org`, keep `site/public/CNAME` at the domain name, and add the domain under
+**Settings → Pages → Custom domain**. With a root base, the site expects to be served from `/`; the project
+URL redirects to the custom domain once Pages accepts it.
 
 ## What ships
 
