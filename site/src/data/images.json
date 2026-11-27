@@ -1216,8 +1216,8 @@
   ]
  },
  "activity-autumn-park": {
-  "w": 958,
-  "h": 539,
+  "w": 2240,
+  "h": 1260,
   "alpha": false,
   "variants": [
    {
@@ -1226,9 +1226,9 @@
     "file": "activity-autumn-park-480.webp"
    },
    {
-    "w": 958,
-    "h": 539,
-    "file": "activity-autumn-park-958.webp"
+    "w": 960,
+    "h": 540,
+    "file": "activity-autumn-park-960.webp"
    }
   ]
  },
@@ -1301,8 +1301,8 @@
   ]
  },
  "activity-hall-portrait": {
-  "w": 480,
-  "h": 270,
+  "w": 1448,
+  "h": 814,
   "alpha": false,
   "variants": [
    {
@@ -1311,15 +1311,15 @@
     "file": "activity-hall-portrait-480.webp"
    },
    {
-    "w": 480,
-    "h": 270,
-    "file": "activity-hall-portrait-480.webp"
+    "w": 960,
+    "h": 540,
+    "file": "activity-hall-portrait-960.webp"
    }
   ]
  },
  "activity-cushions": {
-  "w": 480,
-  "h": 270,
+  "w": 1707,
+  "h": 960,
   "alpha": false,
   "variants": [
    {
@@ -1328,9 +1328,9 @@
     "file": "activity-cushions-480.webp"
    },
    {
-    "w": 480,
-    "h": 270,
-    "file": "activity-cushions-480.webp"
+    "w": 960,
+    "h": 540,
+    "file": "activity-cushions-960.webp"
    }
   ]
  },
@@ -1369,8 +1369,8 @@
   ]
  },
  "activity-art-therapy": {
-  "w": 480,
-  "h": 270,
+  "w": 1773,
+  "h": 997,
   "alpha": false,
   "variants": [
    {
@@ -1379,15 +1379,15 @@
     "file": "activity-art-therapy-480.webp"
    },
    {
-    "w": 480,
-    "h": 270,
-    "file": "activity-art-therapy-480.webp"
+    "w": 960,
+    "h": 540,
+    "file": "activity-art-therapy-960.webp"
    }
   ]
  },
  "activity-tea-ceremony": {
-  "w": 480,
-  "h": 270,
+  "w": 1773,
+  "h": 997,
   "alpha": false,
   "variants": [
    {
@@ -1396,9 +1396,9 @@
     "file": "activity-tea-ceremony-480.webp"
    },
    {
-    "w": 480,
-    "h": 270,
-    "file": "activity-tea-ceremony-480.webp"
+    "w": 960,
+    "h": 540,
+    "file": "activity-tea-ceremony-960.webp"
    }
   ]
  },
